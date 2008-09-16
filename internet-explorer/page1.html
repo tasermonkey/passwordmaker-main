@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="common.css" type="text/css"/> 
+<script type="text/javascript">
+function keyDown() {
+  if (event.keyCode == 27)
+    window.close();
+}
+document.onkeydown = keyDown;
+</script>
+
+</head>
+<body>
+<table>
+<tr>
+  <td valign="top">URL Components</td>
+  <td>
+    <table cellspacing="0" cellpadding="0">
+    <tr><td><input type="checkbox" id="protocolCB" onclick="populateURL();"/><label for="protocolCB" accesskey="p"><span>P</span>rotocol</label></td>
+    <td><input type="checkbox" id="subdomainCB" onclick="populateURL();"/><label for="subdomainCB" accesskey="b">Su<span>b</span>domain(s)</label></td></tr>
+    <tr><td><input type="checkbox" id="domainCB" onclick="populateURL();"/><label for="domainCB" accesskey="d"><span>D</span>omain</label></td>
+    <td><input type="checkbox" id="pathCB" onclick="populateURL();"/><label for="pathCB" accesskey="o">P<span>o</span>rt, path, anchor, query parameters</label></td></tr></table>
+  </td>
+</tr><tr>
+<td><label for="passwdUrl" accesskey="r">U<span>R</span>L</label></td>
+<td><input class="standard" type="edit" id="passwdUrl" onchange="preGeneratePassword();" onkeyup="preGeneratePassword();" onkeydown="preGeneratePassword();" onkeypress="preGeneratePassword();" oninput="preGeneratePassword();"/></td>
+</tr><tr>
+<td><label for="passwdLength" accesskey="e">L<span>e</span>ngth of Generated Password</label></td>
+<td><input type="edit" class="standard" id="passwdLength" maxlength="3" size="3" value="8" onkeypress="if (/\D/.test(this.value)) this.value='8';preGeneratePassword();"/></td>
+</tr><tr>
+<td><label for="usernameTB" accesskey="u"><span>U</span>sername</label></td>
+<td><input class="standard" id="usernameTB" onchange="preGeneratePassword();" onkeyup="preGeneratePassword();" onkeydown="preGeneratePassword();" onkeypress="preGeneratePassword();" oninput="preGeneratePassword();"/>
+</td></tr>
+</table>
+</body>
+</html>

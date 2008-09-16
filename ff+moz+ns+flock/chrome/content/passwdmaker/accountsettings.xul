@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+	<!--
+	PasswordMaker - Creates and manages passwords
+	Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+	http://passwordmaker.org/
+	grimholtz@yahoo.com
+	
+	This library is free software; you can redistribute it and/or modify it
+	under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation; either version 2.1 of the License, or (at
+	your option) any later version.
+	
+	This library is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+	for more details.
+	
+	You should have received a copy of the GNU Lesser General Public License
+	along with this library; if not, write to the Free Software Foundation,
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog id="passwordmakeraccountsettings" windowtype="passwordmaker"
+	title="&accountsettings.window.title;" orient="vertical"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	persist="screenX screenY width height" onload="onload();"
+	ondialogaccept="return onOK();" ondialogcancel="uninitFieldsTab();"
+	oncommand="generatepassword();" oninput="generatepassword();">
+
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/accountsettings.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/passwdmaker.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/helpers.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/rdfutils.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/fields.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/urls.js"/>
+	<tabbox flex="1">
+		<tabs id="accountTabs" style="-moz-appearance: none;" onselect="updateTabIndex(this);">
+			<tab label="&accountsettings.001.label;" selected="true"/>
+			<tab label="&accountsettings.002.label;"/>
+			<tab label="&accountsettings.003.label;"/>
+			<tab id="auto-pop" label="&accountsettings.004.label;"/>
+		</tabs>
+		<tabpanels id="tabpanels" style="-moz-appearance: none;" flex="1">
+			<tabpanel flex="1" orient="vertical">
+				<hbox align="center">
+					<label id="accountNameLabel" value="&accountsettings.005.value;" control="accountName" tooltiptext="&accountsettings.005.tooltiptext;"/>
+					<textbox id="accountName" flex="1" tooltiptext="&accountsettings.006.tooltiptext;"/>
+				</hbox>
+				<hbox flex="1">
+					<!-- AFM - add flex -->
+						<label id="accountDescrLabel" value="&accountsettings.007.value;" style="margin-top: 0.4em;" control="accountDescription" tooltiptext="&accountsettings.007.tooltiptext;"/>
+						<textbox id="accountDescription" align="stretch" flex="1" tooltiptext="&accountsettings.008.tooltiptext;" multiline="true"/>
+					</hbox>
+			</tabpanel>
+			<tabpanel flex="1" orient="vertical">
+				<!-- begin: hide for non-default account -->
+				<groupbox id="urlComponentsParent" orient="horizontal">
+					<caption label="&accountsettings.009.label;"/>
+					<vbox flex="1">
+						<hbox align="center">
+							<checkbox id="protocolCB" label="&accountsettings.010.label;" oncommand="calculateURI();" tooltiptext="&accountsettings.010.tooltiptext;"/>
+							<checkbox id="subdomainCB" label="&accountsettings.011.label;" oncommand="calculateURI();" tooltiptext="&accountsettings.011.tooltiptext;"/>
+							<checkbox id="domainCB" label="&accountsettings.012.label;" oncommand="calculateURI();" tooltiptext="&accountsettings.012.tooltiptext;"/>
+							<checkbox id="pathCB" label="&accountsettings.013.label;" oncommand="calculateURI();" tooltiptext="&accountsettings.013.tooltiptext;"/>
+						</hbox>
+						<separator class="thin"/>
+						<hbox align="center" flex="1">
+							<label value="&accountsettings.014.value;" control="calculatedUrlToUse"/>
+							<textbox id="calculatedUrlToUse" flex="1" class="plain" readonly="true" style="font-weight: bold" tooltiptext="&accountsettings.015.tooltiptext;"/>
+						</hbox>
+					</vbox>
+				</groupbox>
+				<!-- end: hide for non-default account -->
+				<hbox id="urlToUseContainer" align="center">
+					<label value="&accountsettings.016.value;" tooltiptext="&accountsettings.016.tooltiptext;" control="urlToUse" onclick="passwordMaker.openAndReuseOneTabPerURL(urlToUse.value);" class="link"/>
+					<textbox id="urlToUse" flex="1" tooltiptext="&accountsettings.017.tooltiptext;"/>
+				</hbox>
+				<checkbox id="autoPopCB" tooltiptext="&accountsettings.018.tooltiptext;" label="&accountsettings.018.label;"/>
+				<hbox flex="1">
+					<vbox>
+						<description maxwidth="470">&accountsettings.019.innerHTML;</description>
+					</vbox>
+				</hbox>
+				<!-- begin: hide for default account -->
+				<vbox id="hideForDefault" flex="1">
+					<separator/>
+					<label value="&accountsettings.020.value;"/>
+					<separator class="thin"/>
+					<vbox flex="1">
+						<tree id="patternsTree" flex="1" align="stretch" style="min-height: 50px;" onselect="onPatternsTreeSelected();" ondblclick="onEditPattern();" enableColumnDrag="true" seltype="single">
+							<treecols id="treeCols" pickertooltiptext="&accountsettings.021.pickertooltiptext;">
+								<treecol id="enabledCol" label="&accountsettings.021a.label;" flex="1" persist="width ordinal hidden"/>
+								<splitter class="tree-splitter"/>
+								<treecol id="patternCol" label="&accountsettings.021b.label;" flex="1" persist="width ordinal hidden" primary="true"/>
+								<splitter class="tree-splitter"/>
+								<treecol id="patternNotesCol" label="&accountsettings.021c.label;" flex="1" persist="width ordinal hidden"/>
+								<splitter class="tree-splitter"/>
+								<treecol id="patternTypeCol" label="&accountsettings.021d.label;" flex="1" persist="width ordinal hidden"/>
+								<splitter class="tree-splitter"/>
+							</treecols>
+							<treechildren context="patternsTreeMenu"/>
+						</tree>
+					</vbox>
+					<separator class="thin"/>
+					<hbox>
+						<button command="addPatternCmd"/>
+						<button command="editPatternCmd"/>
+						<button command="copyPatternCmd"/>
+						<button command="deletePatternCmd"/>
+						<button command="helpPatternCmd"/>
+					</hbox>
+				</vbox>
+				<!-- end: hide for default account -->
+			</tabpanel>
+			<tabpanel flex="1" orient="vertical">
+				<grid>
+					<columns>
+						<column/>
+						<column flex="1"/>
+					</columns>
+					<rows>
+						<row align="center">
+							<label id="usernameLabel" value="&accountsettings.022.value;" control="usernameTB" tooltiptext="&accountsettings.022.tooltiptext;"/>
+							<textbox id="usernameTB" flex="1" tooltiptext="&accountsettings.023.tooltiptext;"/>
+						</row>
+						<row align="center">
+							<label id="whereLeetLabel" value="&accountsettings.024.value;" tooltiptext="&accountsettings.024.tooltiptext;"/>
+							<hbox align="center">
+								<menulist id="whereLeetLB" tooltiptext="&accountsettings.025.tooltiptext;">
+									<menupopup oncommand="warn();updateLeetLevel();generatepassword();">
+										<menuitem label="&accountsettings.026.label;" value="off"/>
+										<menuitem label="&accountsettings.027.label;" value="before-hashing"/>
+										<menuitem label="&accountsettings.028.label;" value="after-hashing"/>
+										<menuitem label="&accountsettings.029.label;" value="both"/>
+									</menupopup>
+								</menulist>
+								<hbox flex="1" align="center" pack="end">
+									<label id="leetLevelLabel" value="&accountsettings.030.value;" tooltiptext="&accountsettings.030.tooltiptext;"/>
+									<menulist id="leetLevelLB" tooltiptext="&accountsettings.031.tooltiptext;">
+										<menupopup>
+											<menuitem label="1" value="1"/>
+											<menuitem label="2" value="2"/>
+											<menuitem label="3" value="3"/>
+											<menuitem label="4" value="4"/>
+											<menuitem label="5" value="5"/>
+											<menuitem label="6" value="6"/>
+											<menuitem label="7" value="7"/>
+											<menuitem label="8" value="8"/>
+											<menuitem label="9" value="9"/>
+										</menupopup>
+									</menulist>
+								</hbox>
+							</hbox>
+						</row>
+						<row align="center">
+							<label id="hashAlgorithmLabel" value="&accountsettings.032.value;" tooltiptext="&accountsettings.032.tooltiptext;"/>
+							<hbox>
+								<!-- to stop flex -->
+								<menulist id="hashAlgorithmLB" oncommand="checkForVersion6Compatibility();generatepassword();" tooltiptext="&accountsettings.033.tooltiptext;">
+									<menupopup>
+										<menuitem id="md4" label="&accountsettings.034.label;" value="md4"/>
+										<menuitem id="hmac-md4" label="&accountsettings.035.label;" value="hmac-md4"/>
+										<menuitem id="md5" label="&accountsettings.036.label;" value="md5"/>
+										<menuitem id="md5-v6" label="&accountsettings.037.label;" value="md5-v0.6"/>
+										<menuitem id="hmac-md5" label="&accountsettings.038.label;" value="hmac-md5"/>
+										<menuitem id="hmac-md5-v6" label="&accountsettings.039.label;" value="hmac-md5-v0.6"/>
+										<menuitem id="sha1" label="&accountsettings.040.label;" value="sha1"/>
+										<menuitem id="hmac-sha1" label="&accountsettings.041.label;" value="hmac-sha1"/>
+										<menuitem id="sha256" label="&accountsettings.042.label;" value="sha256"/>
+										<menuitem id="hmac-sha256-fixed" label="&accountsettings.043.label;" value="hmac-sha256-fixed"/>
+										<menuitem id="hmac-sha256" label="&accountsettings.044.label;" value="hmac-sha256"/>
+										<menuitem id="ripemd160" label="&accountsettings.045.label;" value="rmd160"/>
+										<menuitem id="hmac-ripemd160" label="&accountsettings.046.label;" value="hmac-rmd160"/>
+									</menupopup>
+								</menulist>
+							</hbox>
+						</row>
+						<row align="center">
+							<label id="passwordLengthLabel" value="&accountsettings.047.value;"/>
+							<hbox>
+								<!-- to stop flex -->
+								<textbox id="passwordLength" maxlength="3" size="3" tooltiptext="&accountsettings.048.tooltiptext;" oninput="if (/\D/.test(this.value)) this.value='8';" persist="saved"/>
+							</hbox>
+						</row>
+						<row align="center">
+							<label id="charsetLabel" value="&accountsettings.049.value;" tooltiptext="&accountsettings.049.tooltiptext;"/>
+							<hbox align="center">
+								<menulist editable="true" oncommand="onCharsetMenuChanged(this);" onkeyup="storeCharset(this);" id="charset" flex="1" tooltiptext="&accountsettings.050.tooltiptext;">
+									<menupopup>
+										<menuitem label="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:&quot;;'&lt;&gt;?,./"/>
+										<menuitem label="0123456789abcdef"/>
+										<menuitem label="0123456789"/>
+										<menuitem label="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"/>
+										<menuitem label="`~!@#$%^&amp;*()_-+={}|[]\:&quot;;'&lt;&gt;?,./"/>
+										<menuitem label="&accountsettings.051.label;" id="random"/>
+									</menupopup>
+								</menulist>
+								<button id="tipsBtn" label="&accountsettings.052.label;" onclick="onCharacterTips();"/>
+							</hbox>
+						</row>
+						<row align="center">
+							<label id="counterLabel" value="&accountsettings.053.value;" control="counter" tooltiptext="&accountsettings.053.tooltiptext;"/>
+							<textbox id="counter" flex="1" tooltiptext="&accountsettings.054.tooltiptext;"/>
+						</row>
+						<row/>
+						<row align="center">
+							<hbox align="center">
+								<label id="prefixLabel" value="&accountsettings.055.value;" tooltiptext="&accountsettings.055.tooltiptext;"/>
+							</hbox>
+							<hbox align="center">
+								<textbox id="prefix" flex="1" tooltiptext="&accountsettings.056.tooltiptext;"/>
+								<label id="suffixLabel" value="&accountsettings.057.value;" tooltiptext="&accountsettings.057.tooltiptext;"/>
+								<textbox id="suffix" flex="1" tooltiptext="&accountsettings.058.tooltiptext;"/>
+							</hbox>
+						</row>
+					</rows>
+				</grid>
+				<!-- fields -->
+			</tabpanel>
+			<tabpanel flex="1" orient="vertical">
+				<description>&accountsettings.059.innerHTML;</description>
+				<description>&accountsettings.060.innerHTML;</description>
+				<separator class="thin"/>
+				<grid>
+					<columns>
+						<column/>
+						<column/>
+						<column/>
+						<column/>
+					</columns>
+					<rows>
+						<row align="center">
+							<label value="&accountsettings.061.value;" control="fieldname" tooltiptext="&accountsettings.061.tooltiptext;"/>
+							<textbox id="fieldname" tooltiptext="&accountsettings.062.tooltiptext;" accesskey="&accountsettings.062.accesskey;"/>
+							<label value="&accountsettings.063.value;" control="fieldvalue" tooltiptext="&accountsettings.063.tooltiptext;"/>
+							<foo id="fieldvalueParent">
+								<textbox id="fieldvalue" tooltiptext="&accountsettings.064.tooltiptext;" accesskey="&accountsettings.064.accesskey;"/>
+							</foo>
+						</row>
+						<row align="center">
+							<label value="&accountsettings.065.value;" control="fieldid" tooltiptext="&accountsettings.065.tooltiptext;"/>
+							<textbox id="fieldid" tooltiptext="&accountsettings.066.tooltiptext;" accesskey="&accountsettings.066.accesskey;"/>
+							<label value="&accountsettings.067.value;" control="fieldtype" tooltiptext="&accountsettings.067.tooltiptext;" accesskey="&accountsettings.067.accesskey;"/>
+							<menulist id="fieldtype" tooltiptext="&accountsettings.068.tooltiptext;">
+								<menupopup oncommand="onChangeFieldType();">
+									<menuitem label="&accountsettings.104.label;" value="text"/>
+									<menuitem label="&accountsettings.105.label;" value="textarea"/>
+									<menuitem label="&accountsettings.106.label;" value="password"/>
+									<menuitem label="&accountsettings.107.label;" value="checkbox"/>
+									<menuitem label="&accountsettings.108.label;" value="select"/>
+									<menuitem label="&accountsettings.109.label;" value="radio"/>
+								</menupopup>
+							</menulist>
+						</row>
+						<row align="center">
+							<label value="&accountsettings.075.value;" control="fielddesc" tooltiptext="&accountsettings.075.tooltiptext;"/>
+							<textbox id="fielddesc" align="stretch" flex="1" tooltiptext="&accountsettings.076.tooltiptext;" accesskey="&accountsettings.076.accesskey;"/>
+							<label value="&accountsettings.077.value;" control="formname" tooltip="t1"/>
+							<textbox id="formname" tooltip="t1" accesskey="&accountsettings.078.accesskey;"/>
+							<tooltip id="t1">
+								<vbox>
+									<label value="&accountsettings.079.value;"/>
+									<label value="&accountsettings.080.value;"/>
+								</vbox>
+							</tooltip>
+						</row>
+					</rows>
+				</grid>
+				<checkbox id="fieldnotification" label="&accountsettings.081.label;" tooltip="t2" accesskey="&accountsettings.081.accesskey;"/>
+				<tooltip id="t2">
+					<vbox>
+						<label value="&accountsettings.082.value;"/>
+						<label value="&accountsettings.083.value;"/>
+					</vbox>
+				</tooltip>
+				<separator class="thin"/>
+				<hbox>
+					<button label="&accountsettings.084.label;" oncommand="onAddField();" accesskey="&accountsettings.084.accesskey;"/>
+					<button command="deleteSelectionCmd"/>
+				</hbox>
+				<separator class="thin"/>
+				<hbox flex="1">
+					<tree id="fieldsTree" flex="1" align="stretch" onselect="onFieldsTreeSelected();" enableColumnDrag="true" seltype="single">
+						<treecols id="treeCols" pickertooltiptext="&accountsettings.085.pickertooltiptext;">
+							<treecol id="nameCol" primary="true" label="&accountsettings.086.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="descCol" label="&accountsettings.087.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="valueCol" label="&accountsettings.088.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="idCol" label="&accountsettings.089.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="typeCol" label="&accountsettings.090.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="formCol" label="&accountsettings.091.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+							<treecol id="notificationCol" label="&accountsettings.092.label;" flex="1" persist="width ordinal hidden"/>
+							<splitter class="tree-splitter"/>
+						</treecols>
+						<treechildren context="fieldsTreeMenu"/>
+					</tree>
+				</hbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+	<spacer style="height: 1em; min-width: 1em;"/>
+	<groupbox id="passwordDetails">
+		<caption label="&accountsettings.093.label;"/>
+		<hbox align="center">
+			<label id="pwMeterLabel" value="&accountsettings.094.value;" tooltiptext="&accountsettings.094.tooltiptext;"/>
+			<progressmeter id="pwMeter" mode="determined" value="0" flex="1" tooltiptext="&accountsettings.095.tooltiptext;"/>
+		</hbox>
+		<hbox align="center">
+			<label id="passwordGeneratedLabel" value="&accountsettings.096.value;" tooltiptext="&accountsettings.096.tooltiptext;"/>
+			<textbox id="passwordGenerated" class="link plain" readonly="true" flex="1" tooltiptext="&accountsettings.097.tooltiptext;" style="font-weight: bold;"/>
+		</hbox>
+	</groupbox>
+	<popupset>
+		<popup id="fieldsTreeMenu">
+			<menuitem class="menuitem-non-iconic" command="deleteSelectionCmd"/>
+		</popup>
+	</popupset>
+	<command id="deleteSelectionCmd" label="&accountsettings.098.label;" accesskey="&accountsettings.098.accesskey;" tooltiptext="&accountsettings.098.tooltiptext;" oncommand="onRemoveField();"/>
+	<popupset>
+		<popup id="patternsTreeMenu">
+			<menuitem class="menuitem-non-iconic" command="editPatternCmd"/>
+			<menuitem class="menuitem-non-iconic" command="copyPatternCmd"/>
+			<menuitem class="menuitem-non-iconic" command="deletePatternCmd"/>
+			<menuitem class="menuitem-non-iconic" command="helpPatternCmd"/>
+		</popup>
+	</popupset>
+	<command id="deletePatternCmd" label="&accountsettings.099.label;" accesskey="&accountsettings.099.accesskey;" tooltiptext="&accountsettings.099.tooltiptext;" oncommand="onRemovePattern();" observes="pattern-selected-broadcaster"/>
+	<command id="copyPatternCmd" label="&accountsettings.100.label;" accesskey="&accountsettings.100.accesskey;" tooltiptext="&accountsettings.100.tooltiptext;" oncommand="onCopyPattern();" observes="pattern-selected-broadcaster"/>
+	<command id="addPatternCmd" label="&accountsettings.101.label;" accesskey="&accountsettings.101.accesskey;" tooltiptext="&accountsettings.101.tooltiptext;" oncommand="onAddPattern();"/>
+	<command id="editPatternCmd" label="&accountsettings.102.label;" accesskey="&accountsettings.102.accesskey;" tooltiptext="&accountsettings.102.tooltiptext;" oncommand="onEditPattern();" observes="pattern-selected-broadcaster"/>
+	<command id="helpPatternCmd" label="&accountsettings.103.label;" accesskey="&accountsettings.103.accesskey;" tooltiptext="&accountsettings.103.tooltiptext;" oncommand="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/help/patterns.html');"/>
+	<broadcaster id="pattern-selected-broadcaster"/>
+</dialog>

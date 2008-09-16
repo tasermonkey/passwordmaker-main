@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog
+    id="pwmkrFoldersDlg"
+    windowtype="passwordmaker"
+    orient="vertical"
+    title="&folders.window.title;"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    persist="screenX screenY width height"
+    onload="onload();"
+    buttons="accept,cancel"
+    defaultButton="accept"
+    ondialogaccept="return onOK();">
+
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/folders.js"/>  
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/rdfutils.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/tree.js"/>
+   
+  <hbox>
+    <label id="label" value="&folders.001.value;"/>
+  </hbox>
+  
+  <separator class="thin"/>
+
+  <hbox id="accountsRow" flex="1">
+    <tree id="accountsTree" align="stretch" flex="1" style="width: 5em; height: 2em;" seltype="single"
+      enableColumnDrag="true" ref="http://passwordmaker.mozdev.org/accounts" datasources="rdf:null"> 
+      <treecols pickertooltiptext="&folders.002.pickertooltiptext;">
+        <treecol id="nameCol" label="&folders.003.label;" primary="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="descriptionCol" label="&folders.004.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="whereLeetLBCol" label="&folders.005.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="leetLevelLBCol" label="&folders.006.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="hashAlgorithmLBCol" label="&folders.007.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="passwordLengthCol" label="&folders.008.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="protocolCBCol" label="&folders.009.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="subdomainCBCol" label="&folders.010.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="domainCBCol" label="&folders.011.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="pathCBCol" label="&folders.012.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="urlToUseCol" label="&folders.013.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="usernameCol" label="&folders.014.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="counterCol" label="&folders.015.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="charsetCol" label="&folders.016.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="prefixCol" label="&folders.017.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="suffixCol" label="&folders.018.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="autoPopulateCol" label="&folders.019.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      </treecols>
+      <template>
+      <rule>
+        <treechildren flex="1" ondblclick="onOK();">
+         <treeitem uri="rdf:*">
+           <treerow>
+             <treecell field="accountName" label="rdf:http://passwordmaker.mozdev.org/rdf#name"/>
+             <treecell field="accountDescription" label="rdf:http://passwordmaker.mozdev.org/rdf#description"/>
+             <treecell field="whereLeetLB" label="rdf:http://passwordmaker.mozdev.org/rdf#whereLeetLB"/>
+             <treecell field="leetLevelLB" label="rdf:http://passwordmaker.mozdev.org/rdf#leetLevelLB"/>
+             <treecell field="hashAlgorithmLB" label="rdf:http://passwordmaker.mozdev.org/rdf#hashAlgorithmLB"/>
+             <treecell field="passwordLength" label="rdf:http://passwordmaker.mozdev.org/rdf#passwordLength"/>
+             <treecell field="protocolCB" label="rdf:http://passwordmaker.mozdev.org/rdf#protocolCB"/>
+             <treecell field="subdomainCB" label="rdf:http://passwordmaker.mozdev.org/rdf#subdomainCB"/>
+             <treecell field="domainCB" label="rdf:http://passwordmaker.mozdev.org/rdf#domainCB"/>
+             <treecell field="pathCB" label="rdf:http://passwordmaker.mozdev.org/rdf#pathCB"/>
+             <treecell field="urlToUse" label="rdf:http://passwordmaker.mozdev.org/rdf#urlToUse"/>
+             <treecell field="usernameTB" label="rdf:http://passwordmaker.mozdev.org/rdf#usernameTB"/>
+             <treecell field="counter" label="rdf:http://passwordmaker.mozdev.org/rdf#counter"/>
+             <treecell field="charset" label="rdf:http://passwordmaker.mozdev.org/rdf#charset"/>
+             <treecell field="prefix" label="rdf:http://passwordmaker.mozdev.org/rdf#prefix"/>
+             <treecell field="suffix" label="rdf:http://passwordmaker.mozdev.org/rdf#suffix"/>
+             <treecell field="autoPopulate" label="rdf:http://passwordmaker.mozdev.org/rdf#autoPopulate"/>
+           </treerow>
+         </treeitem>
+        </treechildren>
+      </rule>
+      </template>
+    </tree>
+  </hbox>
+  <hbox id="remotesRow" flex="1">
+    <tree id="remotesTree" align="stretch" seltype="single" style="width: 5em; height: 2em;"
+      enableColumnDrag="true" ref="http://passwordmaker.mozdev.org/remotes"
+      datasources="rdf:null" flex="1">
+      <treecols pickertooltiptext="&folders.020.pickertooltiptext;">
+        <treecol id="nameCol2" primary="true" label="&folders.021.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="descCol2" label="&folders.022.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="urlCol" label="&folders.023.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="usernameCol2" label="&folders.024.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>         
+        <treecol id="dirCol" label="&folders.025.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>          
+        <treecol id="filenameCol" label="&folders.026.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>                    
+        <treecol id="useWebDAVCol" label="&folders.027.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>                    
+        <treecol id="autoDownloadCol" label="&folders.028.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>          
+        <treecol id="autoUploadCol" label="&folders.029.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>          
+        <treecol id="autoUploadWhenDirtyCol" label="&folders.030.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+        <treecol id="mergeCol" label="&folders.031.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>          
+      </treecols>
+      <template>
+      <rule>
+        <treechildren flex="1" ondblclick="onOK();">
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#name"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#description"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#urlToUse"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#usernameTB"/>                                
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#directory"/>                
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#filename"/>                                
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#useWebDAV"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoDownload"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoUpload"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoUploadWhenDirty"/>
+              <treecell label="rdf:http://passwordmaker.mozdev.org/rdf#merge"/>                                                                                                
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      </template>
+    </tree>
+  </hbox>  
+</dialog>

@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<!--
+	PasswordMaker - Creates and manages passwords
+	Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+	http://passwordmaker.org/
+	grimholtz@yahoo.com
+
+	This library is free software; you can redistribute it and/or modify it
+	under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation; either version 2.1 of the License, or (at
+	your option) any later version.
+
+	This library is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+	for more details.
+
+	You should have received a copy of the GNU Lesser General Public License
+	along with this library; if not, write to the Free Software Foundation,
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog id="passwordmakerdlg" windowtype="passwordmaker"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	title="&opts.window.title;"
+	buttons="cancel"
+	buttonlabelcancel="&about.004.label;"
+	ondialogcancel="window.close();"
+	persist="screenX screenY width height"
+	onload="init();"
+	context="mainPopup">
+
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/mpw.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/rdfutils.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/options.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/passwdmaker.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/hashutils.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md4.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md5.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md5_v6.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/sha256.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/sha1.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/ripemd160.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/aes.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/l33t.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/jsio.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/prefswrapper.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/helpers.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/accountstree.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/globalsettings.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/domains.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/statusbar.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/updownload.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/remotesettings.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/remotestree.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/tree.js"/>
+	<script type="application/x-javascript" src="chrome://passwdmaker/content/print.js"/>
+	<script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
+
+	<!-- global commands -->
+	
+	<command id="clipboardCopyCmd"
+		label="&opts.001.label;"
+		tooltip="&opts.001.tooltip;"
+		oncommand="onCopyToClipboard(passwordGenerated.value);"
+		accesskey="&opts.001.accesskey;"
+		observes="account-folder-selected"/>
+
+	<command id="importSettingsCmd"
+		label="&opts.002.label;"
+		tooltip="&opts.002.tooltip;"
+		oncommand="importSettings();"
+		accesskey="&opts.002.accesskey;" />
+
+	<command id="exportSettingsCmd"
+		label="&opts.003.label;"
+		accesskey="&opts.003.accesskey;"
+		tooltip="&opts.003.tooltip;"
+		oncommand="exportSettings();"/>
+
+	<command id="printSettingsCmd"
+		label="&opts.004.label;"
+		accesskey="&opts.004.accesskey;"
+		tooltip="&opts.004.tooltip;"
+		oncommand="printSettings();"/>
+
+	<command id="basicOptionsCmd"
+		label="&opts.006.label;"
+		accesskey="&opts.006.accesskey;"
+		tooltip="&opts.006.tooltip;"
+		oncommand="onOptionsDialogButton('basic');"/>
+
+	<command id="toggleOptionsCmd"
+		label="&opts.105.label;"
+		accesskey="&opts.105.accesskey;"
+		tooltip="&opts.105.tooltiptext;"
+		oncommand="onOptionsDialogButton('toggle');"/>
+		
+	<command id="advancedOptionsCmd"
+		label="&opts.007.label;"
+		accesskey="&opts.007.accesskey;"
+		tooltip="&opts.007.tooltip;"
+		oncommand="onOptionsDialogButton('advanced');"/>
+
+	<command id="helpCmd"
+		label="&opts.008.label;"
+		tooltip="&opts.008.tooltip;"
+		accesskey="&opts.008.accesskey;"
+		oncommand="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/help');"/>
+
+	<command id="onlineCmd"
+		label="&opts.009.label;"
+		accesskey="&opts.009.accesskey;"
+		tooltip="&opts.009.tooltip;"
+		oncommand="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/passwordmaker.html');"/>
+
+	<command id="aboutCmd"
+		label="&opts.010.label;"
+		accesskey="&opts.010.accesskey;"
+		tooltip="&opts.010.tooltip;"
+		oncommand="window.openDialog('chrome://passwdmaker/content/about.xul', '', 'chrome, dialog, resizable=no, modal, centerscreen', {passwordMaker:passwordMaker}).focus();"/>
+
+	<command id="uploadCmd"
+		label="&opts.011.label;"
+		accesskey="&opts.011.accesskey;"
+		tooltip="&opts.011.tooltip;"
+		oncommand="onUpdownload('upload', true);"/>
+
+	<command id="downloadCmd"
+		label="&opts.012.label;"
+		accesskey="&opts.012.accesskey;"
+		tooltip="&opts.012.tooltip;"
+		oncommand="onUpdownload('download', true);"/>
+
+  <!-- oncommand attr value is set in generatepassword() -->
+	<command id="mpwHashCmd"
+		tooltip="&opts.102.tooltiptext;"
+		oncommand="onSetMPWHash()"
+  	observes="account-folder-selected"/>
+
+	<command id="multipleMPWCBCmd"
+	  label="&opts.108.label;"
+		oncommand="onMultipleMPWCB(true)"/>  	 
+		
+	<keyset>
+		<key id="esc-key" keycode="VK_ESCAPE" command="closeCmd"/>
+		<key id="import-key" key="I" modifiers="accel" command="importSettingsCmd"/>
+		<key id="export-key" key="E" modifiers="accel" command="exportSettingsCmd"/>
+		<key id="print-key" key="P" modifiers="accel" command="printSettingsCmd"/>
+		<key id="basic-key" key="S" modifiers="accel" command="basicOptionsCmd"/>
+		<key id="advanced-key" key="S" modifiers="accel" command="advancedOptionsCmd"/>
+		<key id="help-key" key="H" modifiers="accel" command="helpCmd"/>
+		<key id="online-key" key="O" modifiers="accel" command="onlineCmd"/>
+		<key id="about-key" key="T" modifiers="accel" command="aboutCmd"/>
+	</keyset>
+
+	<command id="createAccountsFolderCmd"
+		label="&opts.013.label;"
+		tooltiptext="&opts.013.tooltiptext;"
+		accesskey="&opts.013.accesskey;"
+		oncommand="onCreateNewFolder();"/>
+
+	<command id="newAccountCmd"
+		label="&opts.014.label;"
+		accesskey="&opts.014.accesskey;"
+		tooltiptext="&opts.014.tooltiptext;"
+		oncommand="onCreateNewAccount();"/> 
+
+	<command id="copySelectionCmd"
+		label="&opts.015.label;"
+		accesskey="&opts.015.accesskey;"
+		tooltiptext="&opts.015.tooltiptext;"
+		oncommand="onCopyAccount();"/>
+
+	<command id="moveSelectionCmd"
+		label="&opts.016.label;"
+		accesskey="&opts.016.accesskey;"
+		tooltiptext="&opts.016.tooltiptext;"
+		oncommand="onMoveAccount();"/> 
+
+	<command id="closeCmd"
+		label="&options.005.label;"
+		accesskey="&options.005.accesskey;"
+		tooltip="&options.005.tooltip;"
+		oncommand="window.close();"/>
+
+	<command id="deleteSelectionCmd"
+		label="&opts.017.label;"
+		accesskey="&opts.017.accesskey;"
+		tooltiptext="&opts.017.tooltiptext;"
+		oncommand="onDeleteTreeItem();"/>
+
+	<command id="accountSettingsCmd"
+		label="&opts.018.label;"
+		accesskey="&opts.018.accesskey;"
+		tooltiptext="&opts.018.tooltiptext;"
+		oncommand="onAccountSettings(false);"/>
+
+	<command id="collapseTreeCmd"
+		label="&opts.019.label;"
+		accesskey="&opts.019.accesskey;"
+		tooltiptext="&opts.019.tooltiptext;"
+		oncommand="collapseOrExpandTree(false);"/>
+
+	<command id="expandTreeCmd"
+		label="&opts.020.label;"
+		accesskey="&opts.020.accesskey;"
+		tooltiptext="&opts.020.tooltiptext;"
+		oncommand="collapseOrExpandTree(true);"/>
+
+	<vbox id="toolbarPane">
+	<!-- menu -->
+		<toolbox>
+			<menubar id="menubar">
+				<menu id="file-menu" label="&opts.021.label;" accesskey="&opts.021.accesskey;">
+					<menupopup id="file-popup">
+						<menuitem command="importSettingsCmd" key="import-key"/>
+						<menuitem command="exportSettingsCmd" key="export-key"/>
+						<menuitem command="printSettingsCmd" key="print-key"/>
+						<menuseparator/>
+						<menuitem command="closeCmd" key="esc-key"/>
+					</menupopup>
+				</menu>
+				<menu id="edit-menu" label="&opts.022.label;" accesskey="&opts.022.accesskey;">
+					<menupopup id="edit-popup">
+						<menuitem command="clipboardCopyCmd"/>
+					</menupopup>
+				</menu>
+				<menu id="view-menu" label="&opts.023.label;" accesskey="&opts.023.accesskey;">
+					<menupopup id="view-popup">
+						<menuitem command="basicOptionsCmd" key="basic-key"/>
+						<menuitem autocheck="false" type="checkbox" checked="true" command="advancedOptionsCmd" key="advanced-key"/>
+					</menupopup>
+				</menu>
+				<menu id="help-menu" label="&opts.024.label;" accesskey="&opts.024.accesskey;">
+					<menupopup id="edit-popup">
+						<menuitem command="helpCmd" key="help-key"/>
+						<menuitem command="onlineCmd" key="online-key"/>
+						<menuitem command="aboutCmd" key="about-key"/>
+					</menupopup>
+				</menu>
+			</menubar>
+		</toolbox>
+	</vbox>
+
+	<hbox flex="1" align="stretch" style="margin: 1em;">
+		<!-- global settings -->
+		<vbox oncommand="_update();" oninput="_update();" onkeypress="_update();">
+			<broadcasterset>
+				<broadcaster id="set-hidden-broadcaster"/>
+			</broadcasterset>
+				<command id="hideMPWCmd" oncommand="onHideMPWField();"/>
+				<groupbox flex="1">
+					<caption label="&opts.025.value;"/>
+					<grid>
+						<columns>
+							<column/>
+							<column flex="1"/>
+						</columns>
+						<rows>
+							<row observes="set-hidden-broadcaster" align="center">
+								<label value="&opts.025.value;" tooltiptext="&opts.025.tooltiptext;" accesskey="&opts.025.accesskey;" control="passwordMaster"/>
+								<textbox id="passwordMaster" flex="1" type="password" tooltiptext="&opts.026.tooltiptext;" oninput="generatepassword();"/>
+							</row>
+							<row id="mpwConfirmationRow" observes="set-hidden-broadcaster" align="center">
+								<label value="&opts.027.value;" tooltiptext="&opts.027.tooltiptext;"/>
+								<textbox id="passwordMaster2" flex="1" type="password" tooltiptext="&opts.028.tooltiptext;" oninput="generatepassword();"/>
+							</row>
+							<row observes="set-hidden-broadcaster" align="center">
+								<label accesskey="&opts.029.accesskey;" value="&opts.029.value;" control="passwordStorageLB" tooltiptext="&opts.029.tooltiptext;"/>
+								<menulist width="1px;" id="passwordStorageLB" flex="1" oncommand="onPasswordStorageLBChanged();" tooltiptext="&opts.030.tooltiptext;">
+									<menupopup>
+										<menuitem label="&opts.031.label;" value="do-not-store"/>
+										<menuitem label="&opts.032.label;" value="store-in-memory"/>
+										<menuitem label="&opts.033.label;" value="store-on-disk"/>
+									</menupopup>
+								</menulist>
+							</row>
+							<row align="center">
+								<label value="&opts.034a.value;" control="usingURL" accesskey="&opts.034a.accesskey;" tooltiptext="&opts.034a.tooltiptext;"/>
+								<textbox id="usingURL" oninput="generatepassword();" tooltiptext="&opts.035.tooltiptext;"/>
+							</row>
+						</rows>
+					</grid>
+					<separator style="height: 0.5em;"/>
+					<hbox align="baseline">
+						<label value="&opts.036.value;" tooltiptext="&opts.036.tooltiptext;"
+							ondblclick="onCopyToClipboard(passwordGenerated.value);"/>
+						<textbox id="passwordGenerated" class="plain" readonly="true" flex="1" tooltiptext="&opts.037.tooltiptext;"
+							ondblclick="onCopyToClipboard(passwordGenerated.value);"/>
+					</hbox>
+					<separator style="height: 0.5em;"/>
+					<hbox pack="center">
+						<button command="clipboardCopyCmd"/>
+					</hbox>
+					<vbox id="infoBasicPart">
+						<separator style="height: 0.5em;"/>
+						<description id="lastVisibleElement" maxwidth="320">
+						&b-opts.028.value;
+					 	<text class="link" onclick="onOptionsDialogButton('advanced');" value="&b-opts.028a.value;"/>
+					 	&b-opts.028b.value;
+						</description>
+					</vbox>
+				</groupbox>
+				<vbox id="hashPart">
+					<groupbox>
+						<caption label="&opts.112.label;"/>
+						<hbox>
+							<label id="mpwHashStatusPrefix"/><label id="mpwHashStatus"/>
+						</hbox>
+						<button id="mpwHashBtn" flex="1" command="mpwHashCmd"/>
+						<separator class="thin"/>						
+						<checkbox id="multipleMPWCB" command="multipleMPWCBCmd"/>
+					</groupbox>
+				</vbox>
+		</vbox>
+
+		<command id="isFolderCmd"/>
+		<box id="advancedPart" flex="1">
+		<hbox id="spacerPart">
+			<spacer style="width: 1em; min-width: 1em;"/>
+			<separator class="groove" orient="vertical" style="width: 1px;"/>
+			<spacer style="width: 1em; min-width: 1em;"/>
+		</hbox>
+
+		<tabbox flex="1">
+			<tabs id="tabs" style="-moz-appearance: none;" onselect="updateTabIndex();">
+				<tab id="accounts" label="&opts.038.label;" accesskey="&opts.038.accesskey;"/>
+				<tab id="global-settings" label="&opts.039.label;" accesskey="&opts.039.accesskey;"/>
+				<tab id="upload-download" label="&opts.040.label;" accesskey="&opts.040.accesskey;"/>
+				<tab id="special-domains" label="&opts.041.label;" accesskey="&opts.041.accesskey;"/>
+			</tabs>
+				<tabpanels style="-moz-appearance: none;" flex="1">
+					<tabpanel orient="vertical">
+						<!-- account settings -->
+						<hbox style="margin-bottom: 1em;">
+							<menulist tooltiptext="&opts.042.tooltiptext;">
+								<menupopup>
+									<menuitem label="&opts.043.label;"/>
+									<menuitem command="createAccountsFolderCmd"/>
+									<menuitem command="newAccountCmd"/>
+									<menuitem command="copySelectionCmd"/>
+									<menuitem command="moveSelectionCmd"/>
+									<menuitem command="deleteSelectionCmd"/>
+									<menuitem command="accountSettingsCmd"/>
+									<menuitem command="expandTreeCmd"/>
+									<menuitem command="collapseTreeCmd"/>
+								</menupopup>
+							</menulist>
+						</hbox>
+
+						<tree id="accountsTree" align="stretch" onselect="onAccountsTreeSelection();" flex="1" style="width: 5em; height: 2em;" seltype="single"
+									enableColumnDrag="true" ref="http://passwordmaker.mozdev.org/accounts" datasources="rdf:null"> 
+							<treecols pickertooltiptext="&opts.044.pickertooltiptext;">
+								<treecol id="nameCol" label="&opts.045.label;" primary="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="descriptionCol" label="&opts.046.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="whereLeetLBCol" label="&opts.047.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="leetLevelLBCol" label="&opts.048.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="hashAlgorithmLBCol" label="&opts.049.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="passwordLengthCol" label="&opts.050.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="protocolCBCol" label="&opts.051.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="subdomainCBCol" label="&opts.052.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="domainCBCol" label="&opts.053.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="pathCBCol" label="&opts.054.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="urlToUseCol" label="&opts.055.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="usernameCol" label="&opts.056.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="counterCol" label="&opts.057.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="charsetCol" label="&opts.058.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="prefixCol" label="&opts.059.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="suffixCol" label="&opts.060.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+								<treecol id="autoPopulateCol" label="&opts.061.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							</treecols>
+
+							<template>
+								<rule>
+									<treechildren flex="1" context="accountsTreeMenu"
+											ondragdrop="treeObserver.drop(event);"
+											ondraggesture="treeObserver.startDrag(event);"
+											ondragover="treeObserver.dragOver(event);"
+											ondragexit="treeObserver.dragExit(event);">
+										<treeitem uri="rdf:*" open="rdf:http://passwordmaker.mozdev.org/rdf#open">
+											<treerow>
+												<treecell field="accountName" label="rdf:http://passwordmaker.mozdev.org/rdf#name"/>
+												<treecell field="accountDescription" label="rdf:http://passwordmaker.mozdev.org/rdf#description"/>
+												<treecell field="whereLeetLB" label="rdf:http://passwordmaker.mozdev.org/rdf#whereLeetLB"/>
+												<treecell field="leetLevelLB" label="rdf:http://passwordmaker.mozdev.org/rdf#leetLevelLB"/>
+												<treecell field="hashAlgorithmLB" label="rdf:http://passwordmaker.mozdev.org/rdf#hashAlgorithmLB"/>
+												<treecell field="passwordLength" label="rdf:http://passwordmaker.mozdev.org/rdf#passwordLength"/>
+												<treecell field="protocolCB" label="rdf:http://passwordmaker.mozdev.org/rdf#protocolCB"/>
+												<treecell field="subdomainCB" label="rdf:http://passwordmaker.mozdev.org/rdf#subdomainCB"/>
+												<treecell field="domainCB" label="rdf:http://passwordmaker.mozdev.org/rdf#domainCB"/>
+												<treecell field="pathCB" label="rdf:http://passwordmaker.mozdev.org/rdf#pathCB"/>
+												<treecell field="urlToUse" label="rdf:http://passwordmaker.mozdev.org/rdf#urlToUse"/>
+												<treecell field="usernameTB" label="rdf:http://passwordmaker.mozdev.org/rdf#usernameTB"/>
+												<treecell field="counter" label="rdf:http://passwordmaker.mozdev.org/rdf#counter"/>
+												<treecell field="charset" label="rdf:http://passwordmaker.mozdev.org/rdf#charset"/>
+												<treecell field="prefix" label="rdf:http://passwordmaker.mozdev.org/rdf#prefix"/>
+												<treecell field="suffix" label="rdf:http://passwordmaker.mozdev.org/rdf#suffix"/>
+												<treecell field="autoPopulate" label="rdf:http://passwordmaker.mozdev.org/rdf#autoPopulate"/>
+											</treerow>
+										</treeitem>
+									</treechildren>
+								</rule>
+							</template>
+						</tree>
+				</tabpanel>
+
+				<tabpanel orient="vertical">
+					<checkbox id="maskGeneratedPasswordCB" label="&opts.062.label;" oncommand="onMaskGeneratedPasswordButton();"
+										tooltiptext="&opts.062.tooltiptext;"/>
+					<checkbox id="hideMPWFieldCB" command="hideMPWCmd" label="&opts.063.label;"
+										tooltiptext="&opts.063.tooltiptext;"/>
+					<checkbox id="confirmMPWCB" oncommand="onConfirmMPW();" label="&opts.064.label;"
+										tooltiptext="&opts.064.tooltiptext;"/>
+					<checkbox id="viewPwdFieldsCB" oncommand="onViewPwdFields();" label="&opts.065.label;"
+										tooltiptext="&opts.065.tooltiptext;"/>
+					<checkbox id="removeAutoCompleteCB" label="&opts.066.label;" oncommand="onRemoveAutoComplete();"
+										tooltiptext="&opts.066.tooltiptext;"/>
+					<hbox align="center">
+						<checkbox id="clearClipboardCB" label="&opts.067.label;" oncommand="onClearClipboardCB(true);"
+											tooltiptext="&opts.067.tooltiptext;"/>
+						<textbox id="clearClipboard" maxlength="3" size="3" tooltiptext="&opts.068.tooltiptext;" oninput="onClearClipboard();"/>
+						<label control="clearClipboard" value="&opts.069.value;" tooltiptext="&opts.069.tooltiptext;"/>
+					</hbox>
+					<!--<hbox align="center">
+						<checkbox id="clearMPWCB" label="Auto-clear master password" oncommand="onClearMPWCB();"
+											tooltiptext="Check here to automatically clear the master password"/>
+						<textbox id="clearMPW" size="3" tooltiptext="Number of minutes after which master password is cleared" oninput="onClearMPWCB();"/>
+						<label control="clearMPWCB" value="minutes after it's entered" tooltiptext="Number of minutes after which master password is cleared"/>
+					</hbox>-->
+					<checkbox id="statusbarIndicatorCB" label="&opts.070.label;" oncommand="onStatusbarIndicatorCB();"
+										tooltiptext="&opts.070.tooltiptext;"/>
+					<hbox align="center">
+						<label control="pwShortcutLB" value="&opts.071.value;"/>
+						<menulist id="pwShortcutLB" oncommand="onPWShortcutLBChanged();" tooltiptext="&opts.072.tooltiptext;">
+							<menupopup>
+								<menuitem label="&opts.073.label;" value="off"/>
+								<menuitem label="&opts.074.label;" value="pop-all"/>
+								<menuitem label="&opts.075.label;" value="empty-only"/>
+								<menuitem label="&opts.076.label;" value="clear-all"/>
+							</menupopup>
+							</menulist>
+						</hbox>
+					<!--<groupbox>
+						<caption label="Settings Storage Location" accesskey="S" tooltiptext="Location to store PasswordMaker's settings file"/>
+						<hbox align="center">
+							<textbox id="settingsURL" flex="1" readonly="true" tooltiptext="Location to store PasswordMaker's settings file"/>
+							<button id="settingsURLBtn" style="min-width: 0.5em;" oncommand="onSettingsURLBtn();" label="..." tooltiptext="Location to store PasswordMaker's settings file"/>
+						</hbox>
+						<checkbox id="usingPFF" label="I am using"
+											tooltiptext="Check here if you are using Portable Firefox" oncommand="onUsingPFF(this.checked);"/>
+						<label value="Portable Firefox" class="link"
+									 tooltiptext="Check here if you are using Portable Firefox" accesskey="P" class="link"
+									 onclick="passwordMaker.openAndReuseOneTabPerURL('http://portableapps.com/apps/internet/browsers/portable_firefox');"/>
+					</groupbox> -->
+				</tabpanel>
+				<tabpanel orient="vertical">
+				<!-- upload/download tab -->
+					<label>&opts.077.innerHTML;</label>
+					<label>&opts.078.innerHTML;</label>
+					<separator class="thin"/>
+					<hbox style="margin-bottom: 1em;">
+						<menulist tooltiptext="&opts.079.tooltiptext;">
+							<menupopup>
+								<menuitem label="&opts.080.label;"/>
+								<menuitem command="createAccountsFolderCmd"/>
+								<menuitem command="newAccountCmd"/>
+								<menuitem command="copySelectionCmd"/>
+								<menuitem command="moveSelectionCmd"/>
+								<menuitem command="deleteSelectionCmd"/>
+								<menuitem command="accountSettingsCmd"/>
+								<menuitem command="expandTreeCmd"/>
+								<menuitem command="collapseTreeCmd"/>
+							</menupopup>
+						</menulist>
+						<button command="uploadCmd"/>
+						<button command="downloadCmd"/>
+					</hbox>
+					<tree id="remotesTree" align="stretch" seltype="single" style="width: 5em; height: 2em;"
+								enableColumnDrag="true" ref="http://passwordmaker.mozdev.org/remotes"
+								datasources="rdf:null" flex="1" onselect="onRemotesTreeSelection();">
+						<treecols pickertooltiptext="&opts.081.pickertooltiptext;">
+							<treecol id="nameCol2" primary="true" label="&opts.082.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="descCol2" label="&opts.083.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="urlCol" label="&opts.084.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="usernameCol2" label="&opts.085.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="dirCol" label="&opts.086.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="filenameCol" label="&opts.087.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="useWebDAVCol" label="&opts.088.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="autoDownloadCol" label="&opts.089.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="autoUploadCol" label="&opts.090.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="autoUploadWhenDirtyCol" label="&opts.091.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="mergeCol" label="&opts.092.label;" hidden="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+						</treecols>
+						<template>
+							<rule>
+								<treechildren flex="1" context="accountsTreeMenu"
+										ondragdrop="treeObserver.drop(event);"
+										ondraggesture="treeObserver.startDrag(event);"
+										ondragover="treeObserver.dragOver(event);"
+										ondragexit="treeObserver.dragExit(event);">
+									<treeitem uri="rdf:*">
+										<treerow>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#name"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#description"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#urlToUse"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#usernameTB"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#directory"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#file"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#useWebDAV"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoDownload"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoUpload"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#autoUploadWhenDirty"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#merge"/>
+										</treerow>
+									</treeitem>
+								</treechildren>
+							</rule>
+						</template>
+					</tree>
+				</tabpanel>
+				<tabpanel orient="vertical">
+					<label>&opts.093.innerHTML;</label>
+					<label>&opts.094.innerHTML;</label>
+					<separator class="thin"/>
+					<hbox style="margin-bottom: 1em;">
+						<button command="newDomainFolderCmd"/>
+						<button command="newDomainCmd"/>
+						<button command="removeDomainSelectionCmd"/>
+					</hbox>
+					<tree id="domainsTree" align="stretch"
+								onselect="onDomainsTreeSelected();" seltype="single" style="width: 5em; height: 2em;"
+								enableColumnDrag="true" ref="http://passwordmaker.mozdev.org/domains"
+								datasources="domains.rdf" flex="1">
+						<treecols id="treeCols" pickertooltiptext="&opts.095.pickertooltiptext;">
+							<treecol id="domainIdCol" primary="true" label="&opts.096.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+							<treecol id="domDescCol" label="&opts.097.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+						</treecols>
+						<template>
+							<rule>
+								<treechildren flex="1" context="domainsTreeMenu">
+									<treeitem uri="rdf:*">
+										<treerow>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#domainid"/>
+											<treecell label="rdf:http://passwordmaker.mozdev.org/rdf#domaindesc"/>
+										</treerow>
+									</treeitem>
+								</treechildren>
+							</rule>
+						</template>
+					</tree>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		</box>
+	</hbox>
+
+	<hbox>
+		<spacer flex="1"/>
+		<button dlgtype="cancel"/>
+	</hbox>
+	
+	<command id="newDomainFolderCmd"
+		label="&opts.098.label;"
+		oncommand="onNewDomainFolder();"
+		accesskey="&opts.098.accesskey;"
+		tooltiptext="&opts.098.tooltiptext;"/>
+
+	<command id="newDomainCmd"
+		label="&opts.099.label;"
+		oncommand="onNewDomain();"
+		tooltiptext="&opts.099.tooltiptext;"
+		accesskey="&opts.099.accesskey;"
+		disabled="true"/>
+
+	<command id="removeDomainSelectionCmd"
+		label="&opts.100.label;"
+		oncommand="onRemoveDomainSelection();"
+		tooltiptext="&opts.100.tooltiptext;"
+		accesskey="&opts.100.accesskey;"/>
+
+	<popupset>
+		<popup id="accountsTreeMenu">
+			<menuitem class="menuitem-non-iconic" command="createAccountsFolderCmd"/>
+			<menuitem class="menuitem-non-iconic" command="newAccountCmd"/>
+			<menuitem class="menuitem-non-iconic" command="copySelectionCmd"/>
+			<menuitem class="menuitem-non-iconic" command="moveSelectionCmd"/>
+			<menuitem class="menuitem-non-iconic" command="deleteSelectionCmd"/>
+			<menuitem class="menuitem-non-iconic" command="accountSettingsCmd"/>
+			<menuitem class="menuitem-non-iconic" command="expandTreeCmd"/>
+			<menuitem class="menuitem-non-iconic" command="collapseTreeCmd"/>
+		</popup>
+		<popup id="domainsTreeMenu">
+			<menuitem class="menuitem-non-iconic" command="newDomainFolderCmd"/>
+			<menuitem class="menuitem-non-iconic" command="newDomainCmd"/>
+			<menuitem class="menuitem-non-iconic" command="removeDomainSelectionCmd"/>
+		</popup>
+		<popup id="mainPopup">
+			<menuitem class="menuitem-non-iconic" command="clipboardCopyCmd"/>
+			<menuitem class="menuitem-non-iconic" command="closeCmd"/>
+			<menuseparator/>
+			<menuitem class="menuitem-non-iconic" command="importSettingsCmd"/>
+			<menuitem class="menuitem-non-iconic" command="exportSettingsCmd"/>
+			<menuitem class="menuitem-non-iconic" command="printSettingsCmd"/>
+			<menuseparator/>
+			<menuitem class="menuitem-non-iconic" command="toggleOptionsCmd"/>
+			<menuseparator/> 
+			<menuitem class="menuitem-non-iconic" command="helpCmd"/>
+			<menuitem class="menuitem-non-iconic"
+								command="onlineCmd"/>
+			<menuitem class="menuitem-non-iconic" command="aboutCmd"/>
+		</popup>
+		<popup id="dragPopup">
+			<menuitem label="Copy"/>
+			<menuitem label="Move"/>
+		</popup>
+	</popupset>
+	<broadcasterset>
+		<broadcaster id="account-folder-selected" disabled="false"/>
+		<broadcaster id="use-multiple-mpw" hidden="true"/>				
+	</broadcasterset>
+</dialog>

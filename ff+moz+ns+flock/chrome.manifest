@@ -1,0 +1,14 @@
+content	passwdmaker	chrome/content/passwdmaker/
+overlay	chrome://browser/content/browser.xul	chrome://passwdmaker/content/passwdmakerOverlay.xul
+overlay	chrome://navigator/content/navigator.xul	chrome://passwdmaker/content/navigatorOverlay.xul
+skin	passwdmaker	classic/1.0	skin/classic/passwdmaker/
+style	chrome://global/content/customizeToolbar.xul	chrome://passwdmaker/skin/passwdmaker.css
+
+locale	passwdmaker	de-DE	chrome/locale/de-DE/
+locale	passwdmaker	en-US	chrome/locale/en-US/
+locale	passwdmaker	es-ES	chrome/locale/es-ES/
+locale	passwdmaker	fr-FR	chrome/locale/fr-FR/
+locale	passwdmaker	nl-NL	chrome/locale/nl-NL/
+locale	passwdmaker	pl-PL	chrome/locale/pl-PL/
+locale	passwdmaker	pt-BR	chrome/locale/pt-BR/
+locale	passwdmaker	zh-CN	chrome/locale/zh-CN/

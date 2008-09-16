@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<RDF xmlns:NS1="http://passwordmaker.mozdev.org/rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <Seq about="http://passwordmaker.mozdev.org/domains">
+    <li resource="http://passwordmaker.mozdev.org/&#197;landianIslands"/>
+    <li resource="http://passwordmaker.mozdev.org/Australia"/>
+    <li resource="http://passwordmaker.mozdev.org/Barbados"/>
+    <li resource="http://passwordmaker.mozdev.org/Brasil"/>
+    <li resource="http://passwordmaker.mozdev.org/Canada"/>
+    <li resource="http://passwordmaker.mozdev.org/China"/>
+    <li resource="http://passwordmaker.mozdev.org/Congo,DemocraticRepublicofthe"/>
+    <li resource="http://passwordmaker.mozdev.org/CookIslands"/>
+    <li resource="http://passwordmaker.mozdev.org/CostaRica"/>
+    <li resource="http://passwordmaker.mozdev.org/EuropeanUnion"/>
+    <li resource="http://passwordmaker.mozdev.org/India"/>
+    <li resource="http://passwordmaker.mozdev.org/Indonesia"/>    
+    <li resource="http://passwordmaker.mozdev.org/Israel"/>
+    <li resource="http://passwordmaker.mozdev.org/IsleOfMan"/>
+    <li resource="http://passwordmaker.mozdev.org/Japan"/>
+    <li resource="http://passwordmaker.mozdev.org/Mexico"/>
+    <li resource="http://passwordmaker.mozdev.org/NewZealand"/>
+    <li resource="http://passwordmaker.mozdev.org/Poland"/>
+    <li resource="http://passwordmaker.mozdev.org/Portugal"/>
+    <li resource="http://passwordmaker.mozdev.org/Taiwan"/>
+    <li resource="http://passwordmaker.mozdev.org/Turkey"/>
+    <li resource="http://passwordmaker.mozdev.org/SouthAfrica"/>
+    <li resource="http://passwordmaker.mozdev.org/SouthKorea"/>    
+    <li resource="http://passwordmaker.mozdev.org/UnitedKingdom"/>
+    <li resource="http://passwordmaker.mozdev.org/UnitedStates"/>
+    <li resource="http://passwordmaker.mozdev.org/Ukraine"/>
+  </Seq>
+
+  <Seq about="http://passwordmaker.mozdev.org/&#197;landianIslands">
+    <li resource="aland.fi"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/&#197;landianIslands" NS1:domainid="&#197;landian Islands" NS1:domaindesc="Required subdomains in the &#197;landian Islands"/>
+  <Description about="aland.fi" NS1:domainid="aland.fi" NS1:domaindesc="&#197;landian websites, perhaps to be replaced by .ax TLD."/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Australia">
+    <li resource="wa.edu.au"/>
+    <li resource="nsw.edu.au"/>
+    <li resource="vic.edu.au"/>
+    <li resource="csiro.au"/>
+    <li resource="conf.au"/>
+    <li resource="info.au"/>
+    <li resource="oz.au"/>
+    <li resource="telememo.au"/>
+    <li resource="sa.edu.au"/>
+    <li resource="nt.edu.au"/>
+    <li resource="tas.edu.au"/>
+    <li resource="act.edu.au"/>
+    <li resource="wa.gov.au"/>
+    <li resource="nsw.gov.au"/>
+    <li resource="vic.gov.au"/>
+    <li resource="qld.gov.au"/>
+    <li resource="sa.gov.au"/>
+    <li resource="tas.gov.au"/>
+    <li resource="nt.gov.au"/>
+    <li resource="act.gov.au"/>
+    <li resource="archie.au"/>
+    <li resource="edu.au"/>
+    <li resource="gov.au"/>
+    <li resource="id.au"/>
+    <li resource="org.au"/>
+    <li resource="asn.au"/>
+    <li resource="net.au"/>
+    <li resource="com.au"/>
+    <li resource="qld.edu.au"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/Australia" NS1:domainid="Australia" NS1:domaindesc="Required subdomains in Australia"/>
+
+  <Description about="wa.edu.au" NS1:domainid="wa.edu.au" NS1:domaindesc="Schools in Western Australia"/>
+  <Description about="nsw.edu.au" NS1:domainid="nsw.edu.au" NS1:domaindesc="Schools in New South Wales"/>
+  <Description about="vic.edu.au" NS1:domainid="vic.edu.au" NS1:domaindesc="Schools in Victoria"/>
+  <Description about="qld.edu.au" NS1:domainid="qld.edu.au" NS1:domaindesc="Schools in Queensland"/>
+  <Description about="sa.edu.au" NS1:domainid="sa.edu.au" NS1:domaindesc="Schools in South Australia"/>
+  <Description about="tas.edu.au" NS1:domainid="tas.edu.au" NS1:domaindesc="Schools in Tasmania"/>
+  <Description about="nt.edu.au" NS1:domainid="nt.edu.au" NS1:domaindesc="Schools in Northern Territory"/>
+  <Description about="act.edu.au" NS1:domainid="act.edu.au" NS1:domaindesc="Schools in Australian Capital Territory"/>
+  <Description about="wa.gov.au" NS1:domainid="wa.gov.au" NS1:domaindesc="Govt departments in Western Australia"/>
+  <Description about="nsw.gov.au" NS1:domainid="nsw.gov.au" NS1:domaindesc="Govt departments in New South Wales"/>
+  <Description about="vic.gov.au" NS1:domainid="vic.gov.au" NS1:domaindesc="Govt departments in Victoria"/>
+  <Description about="qld.gov.au" NS1:domainid="qld.gov.au" NS1:domaindesc="Govt departments in Queensland"/>
+  <Description about="sa.gov.au" NS1:domainid="sa.gov.au" NS1:domaindesc="Govt departments in South Australia"/>
+  <Description about="tas.gov.au" NS1:domainid="tas.gov.au" NS1:domaindesc="Govt departments in Tasmania"/>
+  <Description about="nt.gov.au" NS1:domainid="nt.gov.au" NS1:domaindesc="Govt departments in Northern Territory"/>
+  <Description about="act.gov.au" NS1:domainid="act.gov.au" NS1:domaindesc="Govt departments in Australian Capital Territory"/>
+  <Description about="com.au" NS1:domainid="com.au" NS1:domaindesc="Commercial entities"/>
+  <Description about="net.au" NS1:domainid="net.au" NS1:domaindesc="Commercial entities (historically only ISPs, but the use has been broadened)"/>
+  <Description about="asn.au" NS1:domainid="asn.au" NS1:domaindesc="Associations and non-profit organisations"/>
+  <Description about="org.au" NS1:domainid="org.au" NS1:domaindesc="Associations and non-profit organisation (historically only for organisations that did not fit in other categories)"/>
+  <Description about="id.au" NS1:domainid="id.au" NS1:domaindesc="Individuals"/>
+  <Description about="gov.au" NS1:domainid="gov.au" NS1:domaindesc="Governments"/>
+  <Description about="edu.au" NS1:domainid="edu.au" NS1:domaindesc="Educational Institutions"/>
+  <Description about="archie.au" NS1:domainid="archie.au" NS1:domaindesc="Host of the Archie information service of the early 1990s"/>
+  <Description about="csiro.au" NS1:domainid="csiro.au" NS1:domaindesc="CSIRO (Australian Scientific Research Organisation)"/>
+  <Description about="conf.au" NS1:domainid="conf.au" NS1:domaindesc="Conferences and other short-lived events"/>
+  <Description about="info.au" NS1:domainid="info.au" NS1:domaindesc="General information"/>
+  <Description about="telememo.au" NS1:domainid="telememo.au" NS1:domaindesc="A mapping domain for X.400 addresses"/>
+  <Description about="oz.au" NS1:domainid="oz.au" NS1:domaindesc="Historical domain name for Australian sites. Australia's original top-level domain for use in the store-and-forward Internet messaging system MHSnet was .oz. The top-level domain later officially became .au and those domains in .oz were moved to .oz.au."/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Barbados">
+    <li resource="com.bb"/>
+    <li resource="net.bb"/>
+    <li resource="org.bb"/>
+    <li resource="gov.bb"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/Barbados" NS1:domainid="Barbados" NS1:domaindesc="Required subdomains in Barbados"/>
+
+  <Description about="com.bb" NS1:domainid="com.bb" NS1:domaindesc="Commercial"/>
+  <Description about="net.bb" NS1:domainid="net.bb" NS1:domaindesc=""/>
+  <Description about="org.bb" NS1:domainid="org.bb" NS1:domaindesc="Organizations"/>
+  <Description about="gov.bb" NS1:domainid="gov.bb" NS1:domaindesc="Government institutions"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Brasil">
+    <li resource="agr.br"/>
+    <li resource="am.br"/>
+    <li resource="art.br"/>
+    <li resource="edu.br"/>
+    <li resource="com.br"/>
+    <li resource="coop.br"/>
+    <li resource="esp.br"/>
+    <li resource="far.br"/>
+    <li resource="fm.br"/>
+    <li resource="g12.br"/>
+    <li resource="gov.br"/>
+    <li resource="imb.br"/>
+    <li resource="ind.br"/>
+    <li resource="inf.br"/>
+    <li resource="mil.br"/>
+    <li resource="net.br"/>
+    <li resource="org.br"/>
+    <li resource="psi.br"/>
+    <li resource="rec.br"/>
+    <li resource="srv.br"/>
+    <li resource="tmp.br"/>
+    <li resource="tur.br"/>
+    <li resource="tv.br"/>
+    <li resource="etc.br"/>
+    <li resource="adm.br"/>
+    <li resource="adv.br"/>
+    <li resource="arq.br"/>
+    <li resource="ato.br"/>
+    <li resource="bio.br"/>
+    <li resource="bmd.br"/>
+    <li resource="cim.br"/>
+    <li resource="cng.br"/>
+    <li resource="cnt.br"/>
+    <li resource="ecn.br"/>
+    <li resource="eng.br"/>
+    <li resource="eti.br"/>
+    <li resource="fnd.br"/>
+    <li resource="fot.br"/>
+    <li resource="fst.br"/>
+    <li resource="ggf.br"/>
+    <li resource="jor.br"/>
+    <li resource="lel.br"/>
+    <li resource="mat.br"/>
+    <li resource="med.br"/>
+    <li resource="mus.br"/>
+    <li resource="not.br"/>
+    <li resource="ntr.br"/>
+    <li resource="odo.br"/>
+    <li resource="ppg.br"/>
+    <li resource="pro.br"/>
+    <li resource="psc.br"/>
+    <li resource="qsl.br"/>
+    <li resource="slg.br"/>
+    <li resource="trd.br"/>
+    <li resource="vet.br"/>
+    <li resource="zlg.br"/>
+    <li resource="nom.br"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/Brasil" NS1:domainid="Brasil" NS1:domaindesc="Required subdomains in Brasil"/>
+
+  <Description about="agr.br" NS1:domainid="agr.br" NS1:domaindesc=""/>
+  <Description about="am.br" NS1:domainid="am.br" NS1:domaindesc=""/>
+  <Description about="art.br" NS1:domainid="art.br" NS1:domaindesc=""/>
+  <Description about="edu.br" NS1:domainid="edu.br" NS1:domaindesc=""/>
+  <Description about="com.br" NS1:domainid="com.br" NS1:domaindesc=""/>
+  <Description about="coop.br" NS1:domainid="coop.br" NS1:domaindesc=""/>
+  <Description about="esp.br" NS1:domainid="esp.br" NS1:domaindesc=""/>
+  <Description about="far.br" NS1:domainid="far.br" NS1:domaindesc=""/>
+  <Description about="fm.br" NS1:domainid="fm.br" NS1:domaindesc=""/>
+  <Description about="g12.br" NS1:domainid="g12.br" NS1:domaindesc=""/>
+  <Description about="gov.br" NS1:domainid="gov.br" NS1:domaindesc=""/>
+  <Description about="imb.br" NS1:domainid="imb.br" NS1:domaindesc=""/>
+  <Description about="ind.br" NS1:domainid="ind.br" NS1:domaindesc=""/>
+  <Description about="inf.br" NS1:domainid="inf.br" NS1:domaindesc=""/>
+  <Description about="mil.br" NS1:domainid="mil.br" NS1:domaindesc=""/>
+  <Description about="net.br" NS1:domainid="net.br" NS1:domaindesc=""/>
+  <Description about="org.br" NS1:domainid="org.br" NS1:domaindesc=""/>
+  <Description about="psi.br" NS1:domainid="psi.br" NS1:domaindesc=""/>
+  <Description about="rec.br" NS1:domainid="rec.br" NS1:domaindesc=""/>
+  <Description about="srv.br" NS1:domainid="srv.br" NS1:domaindesc=""/>
+  <Description about="tmp.br" NS1:domainid="tmp.br" NS1:domaindesc=""/>
+  <Description about="tur.br" NS1:domainid="tur.br" NS1:domaindesc=""/>
+  <Description about="tv.br" NS1:domainid="tv.br" NS1:domaindesc=""/>
+  <Description about="etc.br" NS1:domainid="etc.br" NS1:domaindesc=""/>
+  <Description about="adm.br" NS1:domainid="adm.br" NS1:domaindesc=""/>
+  <Description about="adv.br" NS1:domainid="adv.br" NS1:domaindesc=""/>
+  <Description about="arq.br" NS1:domainid="arq.br" NS1:domaindesc=""/>
+  <Description about="ato.br" NS1:domainid="ato.br" NS1:domaindesc=""/>
+  <Description about="bio.br" NS1:domainid="bio.br" NS1:domaindesc=""/>
+  <Description about="bmd.br" NS1:domainid="bmd.br" NS1:domaindesc=""/>
+  <Description about="cim.br" NS1:domainid="cim.br" NS1:domaindesc=""/>
+  <Description about="cng.br" NS1:domainid="cng.br" NS1:domaindesc=""/>
+  <Description about="cnt.br" NS1:domainid="cnt.br" NS1:domaindesc=""/>
+  <Description about="ecn.br" NS1:domainid="ecn.br" NS1:domaindesc=""/>
+  <Description about="eng.br" NS1:domainid="eng.br" NS1:domaindesc=""/>
+  <Description about="eti.br" NS1:domainid="eti.br" NS1:domaindesc=""/>
+  <Description about="fnd.br" NS1:domainid="fnd.br" NS1:domaindesc=""/>
+  <Description about="fot.br" NS1:domainid="fot.br" NS1:domaindesc=""/>
+  <Description about="fst.br" NS1:domainid="fst.br" NS1:domaindesc=""/>
+  <Description about="ggf.br" NS1:domainid="ggf.br" NS1:domaindesc=""/>
+  <Description about="jor.br" NS1:domainid="jor.br" NS1:domaindesc=""/>
+  <Description about="lel.br" NS1:domainid="lel.br" NS1:domaindesc=""/>
+  <Description about="mat.br" NS1:domainid="mat.br" NS1:domaindesc=""/>
+  <Description about="med.br" NS1:domainid="med.br" NS1:domaindesc=""/>
+  <Description about="mus.br" NS1:domainid="mus.br" NS1:domaindesc=""/>
+  <Description about="not.br" NS1:domainid="not.br" NS1:domaindesc=""/>
+  <Description about="ntr.br" NS1:domainid="ntr.br" NS1:domaindesc=""/>
+  <Description about="odo.br" NS1:domainid="odo.br" NS1:domaindesc=""/>
+  <Description about="ppg.br" NS1:domainid="ppg.br" NS1:domaindesc=""/>
+  <Description about="pro.br" NS1:domainid="pro.br" NS1:domaindesc=""/>
+  <Description about="psc.br" NS1:domainid="psc.br" NS1:domaindesc=""/>
+  <Description about="qsl.br" NS1:domainid="qsl.br" NS1:domaindesc=""/>
+  <Description about="slg.br" NS1:domainid="slg.br" NS1:domaindesc=""/>
+  <Description about="trd.br" NS1:domainid="trd.br" NS1:domaindesc=""/>
+  <Description about="vet.br" NS1:domainid="vet.br" NS1:domaindesc=""/>
+  <Description about="zlg.br" NS1:domainid="zlg.br" NS1:domaindesc=""/>
+  <Description about="nom.br" NS1:domainid="nom.br" NS1:domaindesc=""/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Canada">
+    <li resource="ab.ca"/>
+    <li resource="bc.ca"/>
+    <li resource="mb.ca"/>
+    <li resource="nb.ca"/>
+    <li resource="nf.ca"/>
+    <li resource="nl.ca"/>
+    <li resource="ns.ca"/>
+    <li resource="nt.ca"/>
+    <li resource="nu.ca"/>
+    <li resource="on.ca"/>
+    <li resource="pe.ca"/>
+    <li resource="qc.ca"/>
+    <li resource="sk.ca"/>
+    <li resource="yk.ca"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/Canada" NS1:domainid="Canada" NS1:domaindesc="Required subdomains in Canada"/>
+
+  <Description about="ab.ca" NS1:domainid="ab.ca" NS1:domaindesc="Alberta"/>
+  <Description about="bc.ca" NS1:domainid="bc.ca" NS1:domaindesc="British Columbia"/>
+  <Description about="mb.ca" NS1:domainid="mb.ca" NS1:domaindesc="Manitoba"/>
+  <Description about="nb.ca" NS1:domainid="nb.ca" NS1:domaindesc="New Brunswick"/>
+  <Description about="nf.ca" NS1:domainid="nf.ca" NS1:domaindesc="Newfoundland (no longer accepting new registrations, replaced by .nl.ca)"/>
+  <Description about="nl.ca" NS1:domainid="nl.ca" NS1:domaindesc="Newfoundland and Labrador"/>
+  <Description about="ns.ca" NS1:domainid="ns.ca" NS1:domaindesc="Nova Scotia"/>
+  <Description about="nt.ca" NS1:domainid="nt.ca" NS1:domaindesc="Northwest Territories"/>
+  <Description about="nu.ca" NS1:domainid="nu.ca" NS1:domaindesc="Nunavut"/>
+  <Description about="on.ca" NS1:domainid="on.ca" NS1:domaindesc="Ontario"/>
+  <Description about="pe.ca" NS1:domainid="pe.ca" NS1:domaindesc="Prince Edward Island"/>
+  <Description about="qc.ca" NS1:domainid="qc.ca" NS1:domaindesc="Quebec"/>
+  <Description about="sk.ca" NS1:domainid="sk.ca" NS1:domaindesc="Saskatchewan"/>
+  <Description about="yk.ca" NS1:domainid="yk.ca" NS1:domaindesc="Yukon Territory"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Congo,DemocraticRepublicofthe">
+    <li resource="com.cd"/>
+    <li resource="net.cd"/>
+    <li resource="org.cd"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/Congo,DemocraticRepublicofthe" NS1:domainid="Congo, Democractic Republic of the" NS1:domaindesc="Required subdomains in The Democractic Republic of the Congo"/>
+  <Description about="com.cd" NS1:domainid="com.cd" NS1:domaindesc="Commercial"/>
+  <Description about="net.cd" NS1:domainid="net.cd" NS1:domaindesc=""/>
+  <Description about="org.cd" NS1:domainid="org.cd" NS1:domaindesc="Organizations"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/China">
+    <li resource="ac.cn"/>
+    <li resource="com.cn"/>
+    <li resource="edu.cn"/>
+    <li resource="gov.cn"/>
+    <li resource="net.cn"/>
+    <li resource="org.cn"/>
+    <li resource="ah.cn"/>
+    <li resource="bj.cn"/>
+    <li resource="cq.cn"/>
+    <li resource="fj.cn"/>
+    <li resource="gd.cn"/>
+    <li resource="gs.cn"/>
+    <li resource="gz.cn"/>
+    <li resource="gx.cn"/>
+    <li resource="ha.cn"/>
+    <li resource="hb.cn"/>
+    <li resource="he.cn"/>
+    <li resource="hi.cn"/>
+    <li resource="hl.cn"/>
+    <li resource="hn.cn"/>
+    <li resource="jl.cn"/>
+    <li resource="js.cn"/>
+    <li resource="jx.cn"/>
+    <li resource="ln.cn"/>
+    <li resource="nm.cn"/>
+    <li resource="nx.cn"/>
+    <li resource="qh.cn"/>
+    <li resource="sc.cn"/>
+    <li resource="sd.cn"/>
+    <li resource="sh.cn"/>
+    <li resource="sn.cn"/>
+    <li resource="sx.cn"/>
+    <li resource="tj.cn"/>
+    <li resource="xj.cn"/>
+    <li resource="xz.cn"/>
+    <li resource="yn.cn"/>
+    <li resource="zj.cn"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/China" NS1:domainid="China" NS1:domaindesc="Required subdomains in China"/>
+  <Description about="ac.cn" NS1:domainid="ac.cn" NS1:domaindesc="Academic or scientific research institutions"/>
+  <Description about="com.cn" NS1:domainid="com.cn" NS1:domaindesc="Commercial"/>
+  <Description about="edu.cn" NS1:domainid="edu.cn" NS1:domaindesc="Educational institutions"/>
+  <Description about="gov.cn" NS1:domainid="gov.cn" NS1:domaindesc="Government agencies"/>
+  <Description about="net.cn" NS1:domainid="net.cn" NS1:domaindesc="Internet-oriented organizations"/>
+  <Description about="org.cn" NS1:domainid="org.cn" NS1:domaindesc="Organizations"/>
+  <Description about="ah.cn" NS1:domainid="ah.cn" NS1:domaindesc="Anhui Province"/>
+  <Description about="bj.cn" NS1:domainid="bj.cn" NS1:domaindesc="Beijing Province"/>
+  <Description about="cq.cn" NS1:domainid="cq.cn" NS1:domaindesc="Chongqing Province"/>
+  <Description about="fj.cn" NS1:domainid="fj.cn" NS1:domaindesc="Fujian Province"/>
+  <Description about="gd.cn" NS1:domainid="gd.cn" NS1:domaindesc="Guangdong Province"/>
+  <Description about="gs.cn" NS1:domainid="gs.cn" NS1:domaindesc="Gansu Province"/>
+  <Description about="gz.cn" NS1:domainid="gz.cn" NS1:domaindesc="Guizhou Province"/>
+  <Description about="gx.cn" NS1:domainid="gx.cn" NS1:domaindesc="Guangxi Province"/>
+  <Description about="ha.cn" NS1:domainid="ha.cn" NS1:domaindesc="Hainan Province"/>
+  <Description about="hb.cn" NS1:domainid="hb.cn" NS1:domaindesc="Hebei Province"/>
+  <Description about="he.cn" NS1:domainid="he.cn" NS1:domaindesc="Henan Province"/>
+  <Description about="hi.cn" NS1:domainid="hi.cn" NS1:domaindesc="Hubei Province"/>
+  <Description about="hl.cn" NS1:domainid="hl.cn" NS1:domaindesc="Heilongjiang Province"/>
+  <Description about="hn.cn" NS1:domainid="hn.cn" NS1:domaindesc="Hunan Province"/>
+  <Description about="jl.cn" NS1:domainid="jl.cn" NS1:domaindesc="Jilin Province"/>
+  <Description about="js.cn" NS1:domainid="js.cn" NS1:domaindesc="Jilin Province"/>
+  <Description about="jx.cn" NS1:domainid="jx.cn" NS1:domaindesc="Jiangsu Province"/>
+  <Description about="ln.cn" NS1:domainid="ln.cn" NS1:domaindesc="Jiangxi Province"/>
+  <Description about="nm.cn" NS1:domainid="nm.cn" NS1:domaindesc="Liaoning Province"/>
+  <Description about="nx.cn" NS1:domainid="nx.cn" NS1:domaindesc="Inner Mongolia Province"/>
+  <Description about="qh.cn" NS1:domainid="qh.cn" NS1:domaindesc="Ningxia Province"/>
+  <Description about="sc.cn" NS1:domainid="sc.cn" NS1:domaindesc="Qinghai Province"/>
+  <Description about="sd.cn" NS1:domainid="sd.cn" NS1:domaindesc="Sichuan Province"/>
+  <Description about="sh.cn" NS1:domainid="sh.cn" NS1:domaindesc="Shandong Province"/>
+  <Description about="sn.cn" NS1:domainid="sn.cn" NS1:domaindesc="Shanghai Province"/>
+  <Description about="sx.cn" NS1:domainid="sx.cn" NS1:domaindesc="Shaanxi Province"/>
+  <Description about="tj.cn" NS1:domainid="tj.cn" NS1:domaindesc="Tianjin Province"/>
+  <Description about="xj.cn" NS1:domainid="xj.cn" NS1:domaindesc="Xinjiang Province"/>
+  <Description about="xz.cn" NS1:domainid="xz.cn" NS1:domaindesc="Xizang Province"/>
+  <Description about="yn.cn" NS1:domainid="yn.cn" NS1:domaindesc="Yunnan Province"/>
+  <Description about="zj.cn" NS1:domainid="zj.cn" NS1:domaindesc="Zhejiang Province"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/CookIslands">
+    <li resource="co.ck"/>
+    <li resource="org.ck"/>
+    <li resource="edu.ck"/>
+    <li resource="gov.ck"/>
+    <li resource="net.ck"/>
+  </Seq>
+
+  <Description about="http://passwordmaker.mozdev.org/CookIslands" NS1:domainid="Cook Islands" NS1:domaindesc="Required subdomains in the Cook Islands"/>
+  <Description about="co.ck" NS1:domainid="co.ck" NS1:domaindesc="Business Organisations"/>
+  <Description about="org.ck" NS1:domainid="org.ck" NS1:domaindesc="Not-For-Profit Organisations"/>
+  <Description about="edu.ck" NS1:domainid="edu.ck" NS1:domaindesc="Educational Institutions"/>
+  <Description about="gov.ck" NS1:domainid="gov.ck" NS1:domaindesc="Government departments, local government bodies and other government agencies"/>
+  <Description about="net.ck" NS1:domainid="net.ck" NS1:domaindesc="Internet Service Providers and other organisations directly related to the Internet"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/CostaRica">
+    <li resource="ac.cr"/>
+    <li resource="co.cr"/>
+    <li resource="ed.cr"/>
+    <li resource="fi.cr"/>
+    <li resource="go.cr"/>
+    <li resource="or.cr"/>
+    <li resource="sa.cr"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/CostaRica" NS1:domainid="Costa Rica" NS1:domaindesc="Required subdomains in Costa Rica"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/EuropeanUnion">
+    <li resource="eu.int"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/EuropeanUnion"
+               NS1:domainid="European Union"
+               NS1:domaindesc="Required subdomains in the European Union"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/India">
+    <li resource="ac.in"/>
+    <li resource="co.in"/>
+    <li resource="edu.in"/>
+    <li resource="firm.in"/>
+    <li resource="gen.in"/>
+    <li resource="gov.in"/>
+    <li resource="ind.in"/>
+    <li resource="mil.in"/>
+    <li resource="net.in"/>
+    <li resource="org.in"/>
+    <li resource="res.in"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/India" NS1:domainid="India" NS1:domaindesc="Required subdomains in India"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Indonesia">
+    <li resource="ac.id"/>
+    <li resource="co.id"/>
+    <li resource="or.id"/>
+    <li resource="net.id"/>
+    <li resource="web.id"/>    
+    <li resource="sch.id"/>    
+    <li resource="go.id"/>    
+    <li resource="mil.id"/>    
+    <li resource="war.net.id"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Indonesia" NS1:domainid="Indonesia" NS1:domaindesc="Required subdomains in Indonesia"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/NewZealand">
+    <li resource="ac.nz"/>
+    <li resource="co.nz"/>
+    <li resource="cri.nz"/>
+    <li resource="gen.nz"/>
+    <li resource="geek.nz"/>
+    <li resource="govt.nz"/>
+    <li resource="iwi.nz"/>
+    <li resource="maori.nz"/>
+    <li resource="mil.nz"/>
+    <li resource="net.nz"/>
+    <li resource="org.nz"/>
+    <li resource="school.nz"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/NewZealand"
+               NS1:domainid="New Zealand"
+               NS1:domaindesc="Required subdomains in the New Zealand"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Poland">
+    <li resource="aid.pl"/>
+    <li resource="agro.pl"/>
+    <li resource="atm.pl"/>
+    <li resource="auto.pl"/>
+    <li resource="biz.pl"/>
+    <li resource="com.pl"/>
+    <li resource="edu.pl"/>
+    <li resource="gmina.pl"/>
+    <li resource="gsm.pl"/>
+    <li resource="info.pl"/>
+    <li resource="mail.pl"/>
+    <li resource="miasta.pl"/>
+    <li resource="media.pl"/>
+    <li resource="nil.pl"/>
+    <li resource="net.pl"/>
+    <li resource="nieruchomosci.pl"/>
+    <li resource="nom.pl"/>
+    <li resource="pc.pl"/>
+    <li resource="powiat.pl"/>
+    <li resource="priv.pl"/>
+    <li resource="realestate.pl"/>
+    <li resource="rel.pl"/>
+    <li resource="sex.pl"/>
+    <li resource="shop.pl"/>
+    <li resource="sklep.pl"/>
+    <li resource="sos.pl"/>
+    <li resource="szkola.pl"/>
+    <li resource="targi.pl"/>
+    <li resource="tm.pl"/>
+    <li resource="tourism.pl"/>
+    <li resource="travel.pl"/>
+    <li resource="turystyka.pl"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Poland"
+               NS1:domainid="Poland"
+               NS1:domaindesc="Required subdomains in Poland"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Portugal">
+    <li resource="com.pt"/>
+    <li resource="edu.pt"/>
+    <li resource="gov.pt"/>
+    <li resource="int.pt"/>
+    <li resource="net.pt"/>
+    <li resource="nome.pt"/>
+    <li resource="org.pt"/>
+    <li resource="publ.pt"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Portugal"
+               NS1:domainid="Portugal"
+               NS1:domaindesc="Required subdomains in Portugal"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Taiwan">
+    <li resource="com.tw"/>
+    <li resource="club.tw"/>
+    <li resource="ebiz.tw"/>
+    <li resource="game.tw"/>
+    <li resource="gov.tw"/>
+    <li resource="idv.tw"/>
+    <li resource="net.tw"/>
+    <li resource="org.tw"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Taiwan"
+    NS1:domainid="Taiwan"
+    NS1:domaindesc="Required subdomains in Taiwan"/>
+    
+  <Seq about="http://passwordmaker.mozdev.org/Turkey">
+    <li resource="av.tr"/>
+    <li resource="bbs.tr"/>
+    <li resource="bel.tr"/>
+    <li resource="biz.tr"/>
+    <li resource="com.tr"/>
+    <li resource="dr.tr"/>
+    <li resource="edu.tr"/>
+    <li resource="gen.tr"/>
+    <li resource="gov.tr"/>
+    <li resource="info.tr"/>
+    <li resource="k12.tr"/>
+    <li resource="mil.tr"/>
+    <li resource="name.tr"/>
+    <li resource="net.tr"/>
+    <li resource="org.tr"/>
+    <li resource="pol.tr"/>
+    <li resource="tel.tr"/>
+    <li resource="web.tr"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Turkey"
+             NS1:domainid="Turkey"
+             NS1:domaindesc="Required subdomains in Turkey"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/SouthAfrica">
+    <li resource="ac.za"/>
+    <li resource="city.za"/>
+    <li resource="co.za"/>
+    <li resource="edu.za"/>
+    <li resource="gov.za"/>
+    <li resource="law.za"/>
+    <li resource="mil.za"/>
+    <li resource="nom.za"/>
+    <li resource="org.za"/>
+    <li resource="school.za"/>
+    <li resource="alt.za"/>
+    <li resource="net.za"/>
+    <li resource="ngo.za"/>
+    <li resource="tm.za"/>
+    <li resource="web.za"/>
+    <li resource="bourse.za"/>
+    <li resource="agric.za"/>
+    <li resource="cybernet.za"/>
+    <li resource="grondar.za"/>
+    <li resource="iaccess.za"/>
+    <li resource="inca.za"/>
+    <li resource="nis.za"/>
+    <li resource="olivetti.za"/>
+    <li resource="pix.za"/>
+    <li resource="db.za"/>
+    <li resource="imt.za"/>
+    <li resource="landesign.za"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/SouthAfrica"
+             NS1:domainid="South Africa"
+             NS1:domaindesc="Required subdomains in South Africa"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/SouthKorea">
+    <li resource="co.kr"/>
+    <li resource="pe.kr"/>
+    <li resource="or.kr"/>
+    <li resource="go.kr"/>
+    <li resource="ac.kr"/>
+    <li resource="mil.kr"/>
+    <li resource="ne.kr"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/SouthKorea"
+             NS1:domainid="South Korea"
+             NS1:domaindesc="Required subdomains in South Korea"/>
+             
+  <Seq about="http://passwordmaker.mozdev.org/Japan">
+    <li resource="chiyoda.tokyo.jp"/>
+    <li resource="tcvb.or.jp"/>
+    <li resource="ac.jp"/>
+    <li resource="ad.jp"/>
+    <li resource="co.jp"/>
+    <li resource="ed.jp"/>
+    <li resource="go.jp"/>
+    <li resource="gr.jp"/>
+    <li resource="lg.jp"/>
+    <li resource="ne.jp"/>
+    <li resource="or.jp"/>
+    <!-- <li resource="geo.jp"/> -->
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Japan" NS1:domainid="Japan" NS1:domaindesc="Required subdomains in Japan"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Mexico">
+    <li resource="com.mx"/>
+    <li resource="net.mx"/>
+    <li resource="org.mx"/>
+    <li resource="edu.mx"/>
+    <li resource="gob.mx"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Mexico" NS1:domainid="Mexico" NS1:domaindesc="Required subdomains in Mexico"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/UnitedKingdom">
+    <li resource="ac.uk"/>
+    <li resource="co.uk"/>
+    <li resource="gov.uk"/>
+    <li resource="ltd.uk"/>
+    <li resource="me.uk"/>
+    <li resource="mod.uk"/>
+    <li resource="net.uk"/>
+    <li resource="nic.uk"/>
+    <li resource="nhs.uk"/>
+    <li resource="org.uk"/>
+    <li resource="plc.uk"/>
+    <li resource="police.uk"/>
+    <li resource="sch.uk"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/UnitedKingdom" NS1:domainid="United Kingdom" NS1:domaindesc="Required subdomains in the United Kingdom"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/UnitedStates">
+    <li resource="ak.us"/>
+    <li resource="al.us"/>
+    <li resource="ar.us"/>
+    <li resource="az.us"/>
+    <li resource="ca.us"/>
+    <li resource="co.us"/>
+    <li resource="ct.us"/>
+    <li resource="dc.us"/>
+    <li resource="de.us"/>
+    <li resource="dni.us"/>
+    <li resource="fed.us"/>
+    <li resource="fl.us"/>
+    <li resource="ga.us"/>
+    <li resource="hi.us"/>
+    <li resource="ia.us"/>
+    <li resource="id.us"/>
+    <li resource="il.us"/>
+    <li resource="in.us"/>
+    <li resource="isa.us"/>
+    <li resource="kids.us"/>
+    <li resource="ks.us"/>
+    <li resource="ky.us"/>
+    <li resource="la.us"/>
+    <li resource="ma.us"/>
+    <li resource="md.us"/>
+    <li resource="me.us"/>
+    <li resource="mi.us"/>
+    <li resource="mn.us"/>
+    <li resource="mo.us"/>
+    <li resource="ms.us"/>
+    <li resource="mt.us"/>
+    <li resource="nc.us"/>
+    <li resource="nd.us"/>
+    <li resource="ne.us"/>
+    <li resource="nh.us"/>
+    <li resource="nj.us"/>
+    <li resource="nm.us"/>
+    <li resource="nsn.us"/>
+    <li resource="nv.us"/>
+    <li resource="ny.us"/>
+    <li resource="oh.us"/>
+    <li resource="ok.us"/>
+    <li resource="or.us"/>
+    <li resource="pa.us"/>
+    <li resource="ri.us"/>
+    <li resource="sc.us"/>
+    <li resource="sd.us"/>
+    <li resource="tn.us"/>
+    <li resource="tx.us"/>
+    <li resource="ut.us"/>
+    <li resource="vt.us"/>
+    <li resource="va.us"/>
+    <li resource="wa.us"/>
+    <li resource="wi.us"/>
+    <li resource="wv.us"/>
+    <li resource="wy.us"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/UnitedStates" NS1:domainid="United States" NS1:domaindesc="Required subdomains in the United States"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Ukraine">
+    <li resource="com.ua"/>
+    <li resource="edu.ua"/>
+    <li resource="gov.ua"/>
+    <li resource="net.ua"/>
+    <li resource="org.ua"/>
+    <li resource="cherkassy.ua"/>
+    <li resource="chernigov.ua"/>
+    <li resource="chernovtsy.ua"/>
+    <li resource="ck.ua"/>
+    <li resource="cn.ua"/>
+    <li resource="crimea.ua"/>
+    <li resource="cv.ua"/>
+    <li resource="dn.ua"/>
+    <li resource="dnepropetrovsk.ua"/>
+    <li resource="donetsk.ua"/>
+    <li resource="dp.ua"/>
+    <li resource="if.ua"/>
+    <li resource="ivano-frankivsk.ua"/>
+    <li resource="kh.ua"/>
+    <li resource="kharkov.ua"/>
+    <li resource="kherson.ua"/>
+    <li resource="kiev.ua"/>
+    <li resource="kirovograd.ua"/>
+    <li resource="km.ua"/>
+    <li resource="kr.ua"/>
+    <li resource="ks.ua"/>
+    <li resource="lg.ua"/>
+    <li resource="lugansk.ua"/>
+    <li resource="lutsk.ua"/>
+    <li resource="lviv.ua"/>
+    <li resource="mk.ua"/>
+    <li resource="nikolaev.ua"/>
+    <li resource="od.ua"/>
+    <li resource="odessa.ua"/>
+    <li resource="pl.ua"/>
+    <li resource="poltava.ua"/>
+    <li resource="rovno.ua"/>
+    <li resource="rv.ua"/>
+    <li resource="sebastopol.ua"/>
+    <li resource="sumy.ua"/>
+    <li resource="te.ua"/>
+    <li resource="ternopil.ua"/>
+    <li resource="vinnica.ua"/>
+    <li resource="vn.ua"/>
+    <li resource="zaporizhzhe.ua"/>
+    <li resource="zp.ua"/>
+    <li resource="uz.ua"/>
+    <li resource="uzhgorod.ua"/>
+    <li resource="zhitomir.ua"/>
+    <li resource="zt.ua"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Ukraine" NS1:domainid="Ukraine" NS1:domaindesc="Required subdomains in Ukraine"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/Israel">
+    <li resource="ac.il"/>
+    <li resource="co.il"/>
+    <li resource="org.il"/>
+    <li resource="net.il"/>
+    <li resource="k12.il"/>
+    <li resource="gov.il"/>
+    <li resource="muni.il"/>
+    <li resource="idf.il"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/Israel" NS1:domainid="Israel" NS1:domaindesc="Required subdomains in Israel"/>
+
+  <Seq about="http://passwordmaker.mozdev.org/IsleOfMan">
+    <li resource="co.im"/>
+    <li resource="org.im"/>
+  </Seq>
+  <Description about="http://passwordmaker.mozdev.org/IsleOfMan" NS1:domainid="Isle Of Man" NS1:domaindesc="Required subdomains in the Isle Of Man"/>
+  <Description about="co.im" NS1:domainid="co.im" NS1:domaindesc=""/>
+  <Description about="org.im" NS1:domainid="org.im" NS1:domaindesc=""/>
+
+  <Description about="ac.uk" NS1:domainid="ac.uk" NS1:domaindesc="Academic (tertiary education; primary and secondary use .sch.uk)"/>
+  <Description about="co.uk" NS1:domainid="co.uk" NS1:domaindesc="Commercial/general"/>
+  <Description about="gov.uk" NS1:domainid="gov.uk" NS1:domaindesc="Goverment"/>
+  <Description about="ltd.uk" NS1:domainid="ltd.uk" NS1:domaindesc="Limited companies"/>
+  <Description about="me.uk" NS1:domainid="me.uk" NS1:domaindesc="Personal"/>
+  <Description about="mod.uk" NS1:domainid="mod.uk" NS1:domaindesc="Ministry of Defence establishments"/>
+  <Description about="net.uk" NS1:domainid="net.uk" NS1:domaindesc="ISPs and network companies"/>
+  <Description about="nic.uk" NS1:domainid="nic.uk" NS1:domaindesc="Network use only"/>
+  <Description about="nhs.uk" NS1:domainid="nhs.uk" NS1:domaindesc="National Health Service institutions"/>
+  <Description about="org.uk" NS1:domainid="org.uk" NS1:domaindesc="Non-profit organisations"/>
+  <Description about="plc.uk" NS1:domainid="plc.uk" NS1:domaindesc="Public limited companies"/>
+  <Description about="police.uk" NS1:domainid="police.uk" NS1:domaindesc="Police forces"/>
+  <Description about="sch.uk" NS1:domainid="sch.uk" NS1:domaindesc="Schools"/>
+
+  <Description about="olivetti.za" NS1:domainid="olivetti.za" NS1:domaindesc=""/>
+  <Description about="inca.za" NS1:domainid="inca.za" NS1:domaindesc=""/>
+  <Description about="nis.za" NS1:domainid="nis.za" NS1:domaindesc=""/>
+  <Description about="pix.za" NS1:domainid="pix.za" NS1:domaindesc=""/>
+  <Description about="imt.za" NS1:domainid="imt.za" NS1:domaindesc=""/>
+  <Description about="landesign.za" NS1:domainid="landesign.za" NS1:domaindesc=""/>
+  <Description about="db.za" NS1:domainid="db.za" NS1:domaindesc=""/>
+  <Description about="net.za" NS1:domainid="net.za" NS1:domaindesc=""/>
+  <Description about="tm.za" NS1:domainid="tm.za" NS1:domaindesc=""/>
+  <Description about="ngo.za" NS1:domainid="ngo.za" NS1:domaindesc=""/>
+  <Description about="web.za" NS1:domainid="web.za" NS1:domaindesc=""/>
+  <Description about="agric.za" NS1:domainid="agric.za" NS1:domaindesc=""/>
+  <Description about="bourse.za" NS1:domainid="bourse.za" NS1:domaindesc=""/>
+  <Description about="law.za" NS1:domainid="law.za" NS1:domaindesc=""/>
+  <Description about="co.za" NS1:domainid="co.za" NS1:domaindesc=""/>
+  <Description about="city.za" NS1:domainid="city.za" NS1:domaindesc=""/>
+  <Description about="ac.za" NS1:domainid="ac.za" NS1:domaindesc=""/>
+  <Description about="edu.za" NS1:domainid="edu.za" NS1:domaindesc=""/>
+  <Description about="gov.za" NS1:domainid="gov.za" NS1:domaindesc=""/>
+  <Description about="mil.za" NS1:domainid="mil.za" NS1:domaindesc=""/>
+  <Description about="org.za" NS1:domainid="org.za" NS1:domaindesc=""/>
+  <Description about="nom.za" NS1:domainid="nom.za" NS1:domaindesc=""/>
+  <Description about="school.za" NS1:domainid="school.za" NS1:domaindesc=""/>
+  <Description about="alt.za" NS1:domainid="alt.za" NS1:domaindesc=""/>
+  <Description about="cybernet.za" NS1:domainid="cybernet.za" NS1:domaindesc=""/>
+  <Description about="iaccess.za" NS1:domainid="iaccess.za" NS1:domaindesc=""/>
+  <Description about="grondar.za" NS1:domainid="grondar.za" NS1:domaindesc=""/>
+
+  <Description about="co.kr" NS1:domainid="co.kr" NS1:domaindesc="Corporations"/>
+  <Description about="pe.kr" NS1:domainid="pe.kr" NS1:domaindesc=""/>
+  <Description about="or.kr" NS1:domainid="or.kr" NS1:domaindesc="Organizations"/>
+  <Description about="go.kr" NS1:domainid="go.kr" NS1:domaindesc="Government"/>
+  <Description about="ac.kr" NS1:domainid="ac.kr" NS1:domaindesc="Academic institutions"/>
+  <Description about="mil.kr" NS1:domainid="mil.kr" NS1:domaindesc="Military-related institutions"/>
+  <Description about="ne.kr" NS1:domainid="ne.kr" NS1:domaindesc="Network-relatedinstitutions"/>
+    
+  <Description about="chiyoda.tokyo.jp" NS1:domainid="chiyoda.tokyo.jp" NS1:domaindesc="Domains in Tokyo's Chiyoda ward"/>
+  <Description about="tcvb.or.jp" NS1:domainid="tcvb.or.jp" NS1:domaindesc=""/>
+  <Description about="ac.jp" NS1:domainid="ac.jp" NS1:domaindesc="Higher level academic institutions, such as universities"/>
+  <Description about="ad.jp" NS1:domainid="ad.jp" NS1:domaindesc="JPNIC members"/>
+  <Description about="co.jp" NS1:domainid="co.jp" NS1:domaindesc="Most forms of incorporated companies, including foreign companies registered in Japan"/>
+  <Description about="ed.jp" NS1:domainid="ed.jp" NS1:domaindesc="Eductionational institutions for individuals under 18"/>
+  <Description about="go.jp" NS1:domainid="go.jp" NS1:domaindesc="Japanese government ministries and their endeavours"/>
+  <Description about="gr.jp" NS1:domainid="gr.jp" NS1:domaindesc="Groups of 2 or more people, or groups of registered companies"/>
+  <Description about="lg.jp" NS1:domainid="lg.jp" NS1:domaindesc="Local government authorities"/>
+  <Description about="ne.jp" NS1:domainid="ne.jp" NS1:domaindesc="Network service providers"/>
+  <Description about="or.jp" NS1:domainid="or.jp" NS1:domaindesc="Registered organizations and non-profit organizations"/>
+  <!-- <Description about="geo.jp" NS1:domainid="geo.jp" NS1:domaindesc="Geographic type domain names (ex: example.chiyoda.tokyo.jp)"/> -->
+
+  <Description about="com.mx" NS1:domainid="com.mx" NS1:domaindesc="Commercial entities"/>
+  <Description about="net.mx" NS1:domainid="net.mx" NS1:domaindesc="Network providers"/>
+  <Description about="org.mx" NS1:domainid="org.mx" NS1:domaindesc="Non-profit organizations"/>
+  <Description about="edu.mx" NS1:domainid="edu.mx" NS1:domaindesc="Educational institutions"/>
+  <Description about="gob.mx" NS1:domainid="gob.mx" NS1:domaindesc="Governmental entities"/>
+
+  <Description about="com.tw" NS1:domainid="com.tw" NS1:domaindesc=""/>
+  <Description about="net.tw" NS1:domainid="net.tw" NS1:domaindesc=""/>
+  <Description about="org.tw" NS1:domainid="org.tw" NS1:domaindesc=""/>
+  <Description about="gov.tw" NS1:domainid="gov.tw" NS1:domaindesc=""/>
+  <Description about="game.tw" NS1:domainid="game.tw" NS1:domaindesc=""/>
+  <Description about="ebiz.tw" NS1:domainid="ebiz.tw" NS1:domaindesc=""/>
+  <Description about="club.tw" NS1:domainid="club.tw" NS1:domaindesc=""/>
+  <Description about="idv.tw" NS1:domainid="idv.tw" NS1:domaindesc=""/>
+
+  <Description about="av.tr" NS1:domainid="av.tr" NS1:domaindesc="Freelance lawyers, law offices and lawyer partnerships"/>
+  <Description about="bbs.tr" NS1:domainid="bbs.tr" NS1:domaindesc="Institutions and organizations offering Bulletin Board System services"/>
+  <Description about="bel.tr" NS1:domainid="bel.tr" NS1:domaindesc="City and town municipality organizations"/>
+  <Description about="biz.tr" NS1:domainid="biz.tr" NS1:domaindesc="Individuals and organizations involved in commercial activities"/>
+  <Description about="com.tr" NS1:domainid="com.tr" NS1:domaindesc="Individuals and organizations involved in commercial activities"/>
+  <Description about="dr.tr" NS1:domainid="dr.tr" NS1:domaindesc=""/>
+  <Description about="edu.tr" NS1:domainid="edu.tr" NS1:domaindesc="Higher education institutes that are recognized by Higher Education Council (YÖK)"/>
+  <Description about="gen.tr" NS1:domainid="gen.tr" NS1:domaindesc="General"/>
+  <Description about="gov.tr" NS1:domainid="gov.tr" NS1:domaindesc="Governmental organizations and institutions"/>
+  <Description about="info.tr" NS1:domainid="info.tr" NS1:domaindesc="Individuals and organizations involved in commercial activities"/>
+  <Description about="k12.tr" NS1:domainid="k12.tr" NS1:domaindesc="Primary and secondary schools that are approved by the Ministry of National Education"/>
+  <Description about="mil.tr" NS1:domainid="mil.tr" NS1:domaindesc="Military institutions and organizations"/>
+  <Description about="name.tr" NS1:domainid="name.tr" NS1:domaindesc=""/>
+  <Description about="net.tr" NS1:domainid="net.tr" NS1:domaindesc="Institutions and organizations which offer internet supply services, value-added wide-scale services such as web, portal, scanning, e-mail, etc. over the internet and application supply services"/>
+  <Description about="org.tr" NS1:domainid="org.tr" NS1:domaindesc="Institutions and organizations such as foundations, associations, NGOs and alike"/>
+  <Description about="pol.tr" NS1:domainid="pol.tr" NS1:domaindesc="Police organizations"/>
+  <Description about="tel.tr" NS1:domainid="tel.tr" NS1:domaindesc=""/>
+  <Description about="web.tr" NS1:domainid="web.tr" NS1:domaindesc="General"/>
+
+  <Description about="aid.pl" NS1:domainid="aid.pl" NS1:domaindesc=""/>
+  <Description about="agro.pl" NS1:domainid="agro.pl" NS1:domaindesc=""/>
+  <Description about="atm.pl" NS1:domainid="atm.pl" NS1:domaindesc=""/>
+  <Description about="auto.pl" NS1:domainid="auto.pl" NS1:domaindesc=""/>
+  <Description about="biz.pl" NS1:domainid="biz.pl" NS1:domaindesc=""/>
+  <Description about="com.pl" NS1:domainid="com.pl" NS1:domaindesc=""/>
+  <Description about="edu.pl" NS1:domainid="edu.pl" NS1:domaindesc=""/>
+  <Description about="gmina.pl" NS1:domainid="gmina.pl" NS1:domaindesc=""/>
+  <Description about="gsm.pl" NS1:domainid="gsm.pl" NS1:domaindesc=""/>
+  <Description about="info.pl" NS1:domainid="info.pl" NS1:domaindesc=""/>
+  <Description about="mail.pl" NS1:domainid="mail.pl" NS1:domaindesc=""/>
+  <Description about="miasta.pl" NS1:domainid="miasta.pl" NS1:domaindesc=""/>
+  <Description about="media.pl" NS1:domainid="media.pl" NS1:domaindesc=""/>
+  <Description about="nil.pl" NS1:domainid="nil.pl" NS1:domaindesc=""/>
+  <Description about="net.pl" NS1:domainid="net.pl" NS1:domaindesc=""/>
+  <Description about="nieruchomosci.pl" NS1:domainid="nieruchomosci.pl" NS1:domaindesc=""/>
+  <Description about="nom.pl" NS1:domainid="nom.pl" NS1:domaindesc=""/>
+  <Description about="pc.pl" NS1:domainid="pc.pl" NS1:domaindesc=""/>
+  <Description about="powiat.pl" NS1:domainid="powiat.pl" NS1:domaindesc=""/>
+  <Description about="priv.pl" NS1:domainid="priv.pl" NS1:domaindesc=""/>
+  <Description about="realestate.pl" NS1:domainid="realestate.pl" NS1:domaindesc=""/>
+  <Description about="rel.pl" NS1:domainid="rel.pl" NS1:domaindesc=""/>
+  <Description about="sex.pl" NS1:domainid="sex.pl" NS1:domaindesc=""/>
+  <Description about="shop.pl" NS1:domainid="shop.pl" NS1:domaindesc=""/>
+  <Description about="sklep.pl" NS1:domainid="sklep.pl" NS1:domaindesc=""/>
+  <Description about="sos.pl" NS1:domainid="sos.pl" NS1:domaindesc=""/>
+  <Description about="szkola.pl" NS1:domainid="szkola.pl" NS1:domaindesc=""/>
+  <Description about="targi.pl" NS1:domainid="targi.pl" NS1:domaindesc=""/>
+  <Description about="tm.pl" NS1:domainid="tm.pl" NS1:domaindesc=""/>
+  <Description about="tourism.pl" NS1:domainid="tourism.pl" NS1:domaindesc=""/>
+  <Description about="travel.pl" NS1:domainid="travel.pl" NS1:domaindesc=""/>
+  <Description about="turystyka.pl" NS1:domainid="turystyka.pl" NS1:domaindesc=""/>
+
+  <Description about="com.pt" NS1:domainid="com.pt" NS1:domaindesc="No restrictions"/>
+  <Description about="edu.pt" NS1:domainid="edu.pt" NS1:domaindesc="Education"/>
+  <Description about="gov.pt" NS1:domainid="gov.pt" NS1:domaindesc="Government"/>
+  <Description about="int.pt" NS1:domainid="int.pt" NS1:domaindesc="International organizations or diplomatic missions"/>
+  <Description about="net.pt" NS1:domainid="net.pt" NS1:domaindesc="Telecommunications providers"/>
+  <Description about="nome.pt" NS1:domainid="nome.pt" NS1:domaindesc="Individuals "/>
+  <Description about="org.pt" NS1:domainid="org.pt" NS1:domaindesc="Non-profit organizations"/>
+  <Description about="publ.pt" NS1:domainid="publ.pt" NS1:domaindesc="Publications "/>
+
+  <Description about="ac.nz" NS1:domainid="ac.nz" NS1:domaindesc="Tertiary educational institutions and related organisations"/>
+  <Description about="co.nz" NS1:domainid="co.nz" NS1:domaindesc="Organisations pursuing commercial aims and purposes"/>
+  <Description about="cri.nz" NS1:domainid="cri.nz" NS1:domaindesc="Crown Research Institutes"/>
+  <Description about="gen.nz" NS1:domainid="gen.nz" NS1:domaindesc="Individuals and other organisations not covered elsewhere"/>
+  <Description about="geek.nz" NS1:domainid="geek.nz" NS1:domaindesc="For people who are concentrative, technically skilled and imaginative who are generally adept with computers"/>
+  <Description about="govt.nz" NS1:domainid="govt.nz" NS1:domaindesc="National, regional and local government organisations operating with statutory powers"/>
+  <Description about="iwi.nz" NS1:domainid="iwi.nz" NS1:domaindesc="A traditional Maori tribe, mandated by the local Iwi Authority"/>
+  <Description about="maori.nz" NS1:domainid="maori.nz" NS1:domaindesc="Maori people, groups, and organisations"/>
+  <Description about="mil.nz" NS1:domainid="mil.nz" NS1:domaindesc="Military organisations of the NZ Government"/>
+  <Description about="net.nz" NS1:domainid="net.nz" NS1:domaindesc="Organisations and service providers directly related to the NZ Internet"/>
+  <Description about="org.nz" NS1:domainid="org.nz" NS1:domaindesc="Not-for-profit organisations"/>
+  <Description about="school.nz" NS1:domainid="school.nz" NS1:domaindesc="Primary, secondary and pre-schools and related organisations"/>
+
+  <Description about="eu.int" NS1:domainid="eu.int" NS1:domaindesc="European Union until .eu is used in Autumn 2005"/>
+
+  <Description about="ac.in" NS1:domainid="ac.in" NS1:domaindesc="Academic institutions"/>
+  <Description about="co.in" NS1:domainid="co.in" NS1:domaindesc="Originally for banks, registered companies, and trademarks"/>
+  <Description about="edu.in" NS1:domainid="edu.in" NS1:domaindesc="Educational institutions"/>
+  <Description about="firm.in" NS1:domainid="firm.in" NS1:domaindesc="Originally for shops, partnerships, liaison offices, sole proprietorships"/>
+  <Description about="gen.in" NS1:domainid="gen.in" NS1:domaindesc="Originally for general/miscellaneous use"/>
+  <Description about="gov.in" NS1:domainid="gov.in" NS1:domaindesc="Government"/>
+  <Description about="ind.in" NS1:domainid="ind.in" NS1:domaindesc="Originally for individuals"/>
+  <Description about="mil.in" NS1:domainid="mil.in" NS1:domaindesc="Military"/>
+  <Description about="net.in" NS1:domainid="net.in" NS1:domaindesc="Originally for Internet service providers"/>
+  <Description about="org.in" NS1:domainid="org.in" NS1:domaindesc="Originally for non-profit organizations"/>
+  <Description about="res.in" NS1:domainid="res.in" NS1:domaindesc="Research institutes"/>
+
+  <Description about="ac.id" NS1:domainid="ac.id" NS1:domaindesc=""/>
+  <Description about="co.id" NS1:domainid="co.id" NS1:domaindesc=""/>
+  <Description about="or.id" NS1:domainid="or.id" NS1:domaindesc=""/>
+  <Description about="net.id" NS1:domainid="net.id" NS1:domaindesc=""/>
+  <Description about="web.id" NS1:domainid="web.id" NS1:domaindesc=""/>    
+  <Description about="sch.id" NS1:domainid="sch.id" NS1:domaindesc=""/>    
+  <Description about="go.id" NS1:domainid="go.id" NS1:domaindesc=""/>    
+  <Description about="mil.id" NS1:domainid="mil.id" NS1:domaindesc=""/>    
+  <Description about="war.net.id" NS1:domainid="war.net.id" NS1:domaindesc=""/>
+ 
+  <Description about="ac.cr" NS1:domainid="ac.cr" NS1:domaindesc="Academic: Universities"/>
+  <Description about="co.cr" NS1:domainid="co.cr" NS1:domaindesc="Commercial"/>
+  <Description about="ed.cr" NS1:domainid="ed.cr" NS1:domaindesc="Education: Colleges, High Schools, etc."/>
+  <Description about="fi.cr" NS1:domainid="fi.cr" NS1:domaindesc="Financial institutions"/>
+  <Description about="go.cr" NS1:domainid="go.cr" NS1:domaindesc="Governmental"/>
+  <Description about="or.cr" NS1:domainid="or.cr" NS1:domaindesc="Non-profit organizations"/>
+  <Description about="sa.cr" NS1:domainid="sa.cr" NS1:domaindesc="Health-related institutions"/>
+
+  <Description about="ak.us" NS1:domainid="ak.us" NS1:domaindesc="Alaska"/>
+  <Description about="al.us" NS1:domainid="al.us" NS1:domaindesc="Alabama"/>
+  <Description about="ar.us" NS1:domainid="ar.us" NS1:domaindesc="Arkansas"/>
+  <Description about="az.us" NS1:domainid="az.us" NS1:domaindesc="Arizona"/>
+  <Description about="ca.us" NS1:domainid="ca.us" NS1:domaindesc="California"/>
+  <Description about="co.us" NS1:domainid="co.us" NS1:domaindesc="Colorado"/>
+  <Description about="ct.us" NS1:domainid="ct.us" NS1:domaindesc="Connecticut"/>
+  <Description about="dc.us" NS1:domainid="dc.us" NS1:domaindesc="District of Columbia"/>
+  <Description about="de.us" NS1:domainid="de.us" NS1:domaindesc="Delaware"/>
+  <Description about="dni.us" NS1:domainid="dni.us" NS1:domaindesc="distributed national institutes"/>
+  <Description about="fed.us" NS1:domainid="fed.us" NS1:domaindesc="federal government agencies"/>
+  <Description about="fl.us" NS1:domainid="fl.us" NS1:domaindesc="Florida"/>
+  <Description about="ga.us" NS1:domainid="ga.us" NS1:domaindesc="Georgia"/>
+  <Description about="hi.us" NS1:domainid="hi.us" NS1:domaindesc="Hawaii"/>
+  <Description about="ia.us" NS1:domainid="ia.us" NS1:domaindesc="Iowa"/>
+  <Description about="id.us" NS1:domainid="id.us" NS1:domaindesc="Idaho"/>
+  <Description about="il.us" NS1:domainid="il.us" NS1:domaindesc="Illinois"/>
+  <Description about="in.us" NS1:domainid="in.us" NS1:domaindesc="Indiana"/>
+  <Description about="isa.us" NS1:domainid="isa.us" NS1:domaindesc="interstate agencies"/>
+  <Description about="kids.us" NS1:domainid="kids.us" NS1:domaindesc="content suitable for children under 13"/>
+  <Description about="ks.us" NS1:domainid="ks.us" NS1:domaindesc="Kansas"/>
+  <Description about="ky.us" NS1:domainid="ky.us" NS1:domaindesc="Kentucky"/>
+  <Description about="la.us" NS1:domainid="la.us" NS1:domaindesc="Louisiana"/>
+  <Description about="ma.us" NS1:domainid="ma.us" NS1:domaindesc="Massachusetts"/>
+  <Description about="md.us" NS1:domainid="md.us" NS1:domaindesc="Maryland"/>
+  <Description about="me.us" NS1:domainid="me.us" NS1:domaindesc="Maine"/>
+  <Description about="mi.us" NS1:domainid="mi.us" NS1:domaindesc="Michigan"/>
+  <Description about="mn.us" NS1:domainid="mn.us" NS1:domaindesc="Minnesota"/>
+  <Description about="mo.us" NS1:domainid="mo.us" NS1:domaindesc="Missouri"/>
+  <Description about="ms.us" NS1:domainid="ms.us" NS1:domaindesc="Mississippi"/>
+  <Description about="mt.us" NS1:domainid="mt.us" NS1:domaindesc="Montana"/>
+  <Description about="nc.us" NS1:domainid="nc.us" NS1:domaindesc="North Carolina"/>
+  <Description about="nd.us" NS1:domainid="nd.us" NS1:domaindesc="North Dakota"/>
+  <Description about="ne.us" NS1:domainid="ne.us" NS1:domaindesc="Nebraska"/>
+  <Description about="nh.us" NS1:domainid="nh.us" NS1:domaindesc="New Hampshire"/>
+  <Description about="nj.us" NS1:domainid="nj.us" NS1:domaindesc="New Jersey"/>
+  <Description about="nm.us" NS1:domainid="nm.us" NS1:domaindesc="New Mexico"/>
+  <Description about="nsn.us" NS1:domainid="nsn.us" NS1:domaindesc="native sovereign nations (federally recognized Native American tribes)"/>
+  <Description about="nv.us" NS1:domainid="nv.us" NS1:domaindesc="Nevada"/>
+  <Description about="ny.us" NS1:domainid="ny.us" NS1:domaindesc="New York"/>
+  <Description about="oh.us" NS1:domainid="oh.us" NS1:domaindesc="Ohio"/>
+  <Description about="ok.us" NS1:domainid="ok.us" NS1:domaindesc="Oklahoma"/>
+  <Description about="or.us" NS1:domainid="or.us" NS1:domaindesc="Oregon"/>
+  <Description about="pa.us" NS1:domainid="pa.us" NS1:domaindesc="Pennsylvania"/>
+  <Description about="ri.us" NS1:domainid="ri.us" NS1:domaindesc="Rhode Island"/>
+  <Description about="sc.us" NS1:domainid="sc.us" NS1:domaindesc="South Carolina"/>
+  <Description about="sd.us" NS1:domainid="sd.us" NS1:domaindesc="South Dakota"/>
+  <Description about="tn.us" NS1:domainid="tn.us" NS1:domaindesc="Tennessee"/>
+  <Description about="tx.us" NS1:domainid="tx.us" NS1:domaindesc="Texas"/>
+  <Description about="ut.us" NS1:domainid="ut.us" NS1:domaindesc="Utah"/>
+  <Description about="vt.us" NS1:domainid="vt.us" NS1:domaindesc="Vermont"/>
+  <Description about="va.us" NS1:domainid="va.us" NS1:domaindesc="Virginia"/>
+  <Description about="wa.us" NS1:domainid="wa.us" NS1:domaindesc="Washington"/>
+  <Description about="wi.us" NS1:domainid="wi.us" NS1:domaindesc="Wisconsin"/>
+  <Description about="wv.us" NS1:domainid="wv.us" NS1:domaindesc="West Virginia"/>
+  <Description about="wy.us" NS1:domainid="wy.us" NS1:domaindesc="Wyoming"/>
+  <Description about="ac.il" NS1:domainid="ac.il" NS1:domaindesc="Acadmic Institutions"/>
+  <Description about="co.il" NS1:domainid="co.il" NS1:domaindesc="Commercial Entities"/>
+  <Description about="org.il" NS1:domainid="org.il" NS1:domaindesc="Non-commercial Organizations"/>
+  <Description about="net.il" NS1:domainid="net.il" NS1:domaindesc="Internet Service Providers"/>
+  <Description about="k12.il" NS1:domainid="k12.il" NS1:domaindesc="Schools and kindergartens"/>
+  <Description about="gov.il" NS1:domainid="gov.il" NS1:domaindesc="Government and Governmental Systems"/>
+  <Description about="muni.il" NS1:domainid="muni.il" NS1:domaindesc="Municipal Government"/>
+  <Description about="idf.il" NS1:domainid="idf.il" NS1:domaindesc="Israeli Defense Forces"/>
+
+  <Description about="com.ua" NS1:domainid="com.ua" NS1:domaindesc=""/>
+  <Description about="edu.ua" NS1:domainid="edu.ua" NS1:domaindesc=""/>
+  <Description about="gov.ua" NS1:domainid="gov.ua" NS1:domaindesc=""/>
+  <Description about="net.ua" NS1:domainid="net.ua" NS1:domaindesc=""/>
+  <Description about="org.ua" NS1:domainid="org.ua" NS1:domaindesc=""/>
+  <Description about="cherkassy.ua" NS1:domainid="cherkassy.ua" NS1:domaindesc=""/>
+  <Description about="chernigov.ua" NS1:domainid="chernigov.ua" NS1:domaindesc=""/>
+  <Description about="chernovtsy.ua" NS1:domainid="chernovtsy.ua" NS1:domaindesc=""/>
+  <Description about="ck.ua" NS1:domainid="ck.ua" NS1:domaindesc=""/>
+  <Description about="cn.ua" NS1:domainid="cn.ua" NS1:domaindesc=""/>
+  <Description about="crimea.ua" NS1:domainid="crimea.ua" NS1:domaindesc=""/>
+  <Description about="cv.ua" NS1:domainid="cv.ua" NS1:domaindesc=""/>
+  <Description about="dn.ua" NS1:domainid="dn.ua" NS1:domaindesc=""/>
+  <Description about="dnepropetrovsk.ua" NS1:domainid="dnepropetrovsk.ua" NS1:domaindesc=""/>
+  <Description about="donetsk.ua" NS1:domainid="donetsk.ua" NS1:domaindesc=""/>
+  <Description about="dp.ua" NS1:domainid="dp.ua" NS1:domaindesc=""/>
+  <Description about="if.ua" NS1:domainid="if.ua" NS1:domaindesc=""/>
+  <Description about="ivano-frankivsk.ua" NS1:domainid="ivano-frankivsk.ua" NS1:domaindesc=""/>
+  <Description about="kh.ua" NS1:domainid="kh.ua" NS1:domaindesc=""/>
+  <Description about="kharkov.ua" NS1:domainid="kharkov.ua" NS1:domaindesc=""/>
+  <Description about="kherson.ua" NS1:domainid="kherson.ua" NS1:domaindesc=""/>
+  <Description about="kiev.ua" NS1:domainid="kiev.ua" NS1:domaindesc=""/>
+  <Description about="kirovograd.ua" NS1:domainid="kirovograd.ua" NS1:domaindesc=""/>
+  <Description about="km.ua" NS1:domainid="km.ua" NS1:domaindesc=""/>
+  <Description about="kr.ua" NS1:domainid="kr.ua" NS1:domaindesc=""/>
+  <Description about="ks.ua" NS1:domainid="ks.ua" NS1:domaindesc=""/>
+  <Description about="lg.ua" NS1:domainid="lg.ua" NS1:domaindesc=""/>
+  <Description about="lugansk.ua" NS1:domainid="lugansk.ua" NS1:domaindesc=""/>
+  <Description about="lutsk.ua" NS1:domainid="lutsk.ua" NS1:domaindesc=""/>
+  <Description about="lviv.ua" NS1:domainid="lviv.ua" NS1:domaindesc=""/>
+  <Description about="mk.ua" NS1:domainid="mk.ua" NS1:domaindesc=""/>
+  <Description about="nikolaev.ua" NS1:domainid="nikolaev.ua" NS1:domaindesc=""/>
+  <Description about="od.ua" NS1:domainid="od.ua" NS1:domaindesc=""/>
+  <Description about="odessa.ua" NS1:domainid="odessa.ua" NS1:domaindesc=""/>
+  <Description about="pl.ua" NS1:domainid="pl.ua" NS1:domaindesc=""/>
+  <Description about="poltava.ua" NS1:domainid="poltava.ua" NS1:domaindesc=""/>
+  <Description about="rovno.ua" NS1:domainid="rovno.ua" NS1:domaindesc=""/>
+  <Description about="rv.ua" NS1:domainid="rv.ua" NS1:domaindesc=""/>
+  <Description about="sebastopol.ua" NS1:domainid="sebastopol.ua" NS1:domaindesc=""/>
+  <Description about="sumy.ua" NS1:domainid="sumy.ua" NS1:domaindesc=""/>
+  <Description about="te.ua" NS1:domainid="te.ua" NS1:domaindesc=""/>
+  <Description about="ternopil.ua" NS1:domainid="ternopil.ua" NS1:domaindesc=""/>
+  <Description about="vinnica.ua" NS1:domainid="vinnica.ua" NS1:domaindesc=""/>
+  <Description about="vn.ua" NS1:domainid="vn.ua" NS1:domaindesc=""/>
+  <Description about="zaporizhzhe.ua" NS1:domainid="zaporizhzhe.ua" NS1:domaindesc=""/>
+  <Description about="zp.ua" NS1:domainid="zp.ua" NS1:domaindesc=""/>
+  <Description about="uz.ua" NS1:domainid="uz.ua" NS1:domaindesc=""/>
+  <Description about="uzhgorod.ua" NS1:domainid="uzhgorod.ua" NS1:domaindesc=""/>
+  <Description about="zhitomir.ua" NS1:domainid="zhitomir.ua" NS1:domaindesc=""/>
+  <Description about="zt.ua" NS1:domainid="zt.ua" NS1:domaindesc=""/>
+</RDF>

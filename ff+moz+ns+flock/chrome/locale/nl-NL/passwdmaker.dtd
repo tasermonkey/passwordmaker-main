@@ -1,0 +1,588 @@
+<!ENTITY about.window.title "PasswordMaker - Over">
+<!ENTITY about.001.value "Website:">
+<!ENTITY about.002.value "Gemaakt door">
+<!ENTITY about.003.value "Medewerkers (in alfabetische volgorde):">
+<!ENTITY about.004.label "Sluiten">
+<!ENTITY accountsettings.window.title "PasswordMaker account specifieke instellingen">
+<!ENTITY accountsettings.001.label "Algemeen">
+<!ENTITY accountsettings.002.label "Webadressen">
+<!ENTITY accountsettings.003.label "Uitgebreid">
+<!ENTITY accountsettings.004.label "Geavanceerd Auto-Invullen">
+<!ENTITY accountsettings.005.value "Naam">
+<!ENTITY accountsettings.005.tooltiptext "Naam voor dit account">
+<!ENTITY accountsettings.006.tooltiptext "&accountsettings.005.tooltiptext;">
+<!ENTITY accountsettings.007.value "Opmerkingen">
+<!ENTITY accountsettings.007.tooltiptext "Opmerkingen of omschrijving voor dit account">
+<!ENTITY accountsettings.008.tooltiptext "&accountsettings.007.tooltiptext;">
+<!ENTITY accountsettings.009.label "Webadres onderdelen">
+<!ENTITY accountsettings.010.label "Protocol">
+<!ENTITY accountsettings.010.tooltiptext "Aanvinken om het protocol in het webadres op te nemen">
+<!ENTITY accountsettings.011.label "Subdomein(en)">
+<!ENTITY accountsettings.011.tooltiptext "Aanvinken om het subdomein(en) in het webadres op te nemen">
+<!ENTITY accountsettings.012.label "Domein">
+<!ENTITY accountsettings.012.tooltiptext "Aanvinken om het domein in het webadres op te nemen">
+<!ENTITY accountsettings.013.label "Poort, pad, anker, wachtrij parameters">
+<!ENTITY accountsettings.013.tooltiptext "Aanvinken om de poort, het pad, het anker en de wachtrij parameters (indien aanwezig) in het webadres op te nemen">
+<!ENTITY accountsettings.014.value "Berekend webadres van de huidige site:">
+<!ENTITY accountsettings.015.tooltiptext "Berekend webadres van de huidige website">
+<!ENTITY accountsettings.016.value "Het volgende webadres gebruiken om het genereerde wachtwoord te berekenen:">
+<!ENTITY accountsettings.016.tooltiptext "webadres bezoeken">
+<!ENTITY accountsettings.017.tooltiptext "Te gebruiken webadres voor wachtwoord berekening">
+<!ENTITY accountsettings.018.tooltiptext "Aanvinken om automatisch het gebruikersnaam- en wachtwoordveld in te vullen indien de website overeenkomt met de webadressen">
+<!ENTITY accountsettings.018.label "Automatisch het gebruikersnaam- en wachtwoordveld invullen bij sites die overeenkomen met dit webadres">
+<!ENTITY accountsettings.019.innerHTML "Auto-Invullen kan ook geactiveerd worden door CoolKey te gebruiken. Gebruik de Geavanceerd Auto-Invullen tab voor meer complexe Auto-Invullen mogelijkheden.">
+<!ENTITY accountsettings.020.value "Automatisch invullen activeren indien het webadres van een webpagina overeenkomt met een van de volgende patronen:">
+<!ENTITY accountsettings.021.pickertooltiptext "Selecteer hier de weer te geven kolommen">
+<!ENTITY accountsettings.021a.label "Ingeschakeld">
+<!ENTITY accountsettings.021b.label "Patroon">
+<!ENTITY accountsettings.021c.label "Patroonnaam">
+<!ENTITY accountsettings.021d.label "Patroontype">
+<!ENTITY accountsettings.022.value "Gebruikersnaam">
+<!ENTITY accountsettings.022.tooltiptext "Gebruikersnaam voor dit account">
+<!ENTITY accountsettings.023.tooltiptext "&accountsettings.022.tooltiptext;">
+<!ENTITY accountsettings.024.value "l33t gebruiken">
+<!ENTITY accountsettings.024.tooltiptext "Waar dient l33t-spraak toegevoegd te worden?">
+<!ENTITY accountsettings.025.tooltiptext "&accountsettings.024.tooltiptext;">
+<!ENTITY accountsettings.026.label "helemaal niet">
+<!ENTITY accountsettings.027.label "voordat het wachtwoord wordt gegenereerd">
+<!ENTITY accountsettings.028.label "nadat het wachtwoord is gegenereerd">
+<!ENTITY accountsettings.029.label "voordat en nadat het wachtwoord is gegenereerd">
+<!ENTITY accountsettings.030.value "l33t niveau">
+<!ENTITY accountsettings.030.tooltiptext "l33t-spraak toepassen">
+<!ENTITY accountsettings.031.tooltiptext "&accountsettings.030.tooltiptext;">
+<!ENTITY accountsettings.032.value "Hash algoritme">
+<!ENTITY accountsettings.032.tooltiptext "Te gebruiken functie om het gegenereerde wachtwoord te berekenen">
+<!ENTITY accountsettings.033.tooltiptext "&accountsettings.032.tooltiptext;">
+<!ENTITY accountsettings.034.label "MD4">
+<!ENTITY accountsettings.035.label "HMAC-MD4">
+<!ENTITY accountsettings.036.label "MD5">
+<!ENTITY accountsettings.037.label "MD5 versie 0.6">
+<!ENTITY accountsettings.038.label "HMAC-MD5">
+<!ENTITY accountsettings.039.label "HMAC-MD5 versie 0.6">
+<!ENTITY accountsettings.040.label "SHA-1">
+<!ENTITY accountsettings.041.label "HMAC-SHA-1">
+<!ENTITY accountsettings.042.label "SHA-256">
+<!ENTITY accountsettings.043.label "HMAC-SHA-256">
+<!ENTITY accountsettings.044.label "HMAC-SHA-256 versie 1.5.1">
+<!ENTITY accountsettings.045.label "RIPEMD-160">
+<!ENTITY accountsettings.046.label "HMAC-RIPEMD-160">
+<!ENTITY accountsettings.047.value "Wachtwoord lengte">
+<!ENTITY accountsettings.048.tooltiptext "Lengte gegenereerde wachtwoord">
+<!ENTITY accountsettings.049.value "Karakters">
+<!ENTITY accountsettings.049.tooltiptext "Karakters waaruit het wachtwoord is samengesteld">
+<!ENTITY accountsettings.050.tooltiptext "&accountsettings.049.tooltiptext;">
+<!ENTITY accountsettings.051.label "Willekeurig">
+<!ENTITY accountsettings.052.label "Tips">
+<!ENTITY accountsettings.053.value "Modificeerder">
+<!ENTITY accountsettings.053.tooltiptext "Modificatie voor dit account">
+<!ENTITY accountsettings.054.tooltiptext "&accountsettings.053.tooltiptext;">
+<!ENTITY accountsettings.055.value "Wachtwoord voorvoegsel">
+<!ENTITY accountsettings.055.tooltiptext "Karakters waarmee gegenereerde wachtwoord van voorvoegsel wordt voorzien">
+<!ENTITY accountsettings.056.tooltiptext "&accountsettings.055.tooltiptext;">
+<!ENTITY accountsettings.057.value "Wachtwoord achtervoegsel">
+<!ENTITY accountsettings.057.tooltiptext "Karakters waarmee gegenereerde wachtwoord van achtervoegsel wordt voorzien">
+<!ENTITY accountsettings.058.tooltiptext "&accountsettings.057.tooltiptext;">
+<!ENTITY accountsettings.059.innerHTML "Hier kunnen aangepaste velden toegevoegd of verwijderd worden voor automatisch invullen voor dit account.">
+<!ENTITY accountsettings.060.innerHTML "Klik op een veld op de huidige webpagina om eenvoudig de velden hieronder automatisch in te vullen.">
+<!ENTITY accountsettings.061.value "Veldnaam">
+<!ENTITY accountsettings.061.tooltiptext "Naam voor dit veld">
+<!ENTITY accountsettings.062.tooltiptext "&accountsettings.061.tooltiptext;">
+<!ENTITY accountsettings.062.accesskey "N">
+<!ENTITY accountsettings.063.value "Veldwaarde">
+<!ENTITY accountsettings.063.tooltiptext "Waarde voor dit veld">
+<!ENTITY accountsettings.064.tooltiptext "&accountsettings.063.tooltiptext;">
+<!ENTITY accountsettings.064.accesskey "W">
+<!ENTITY accountsettings.065.value "Veld-ID">
+<!ENTITY accountsettings.065.tooltiptext "ID van dit veld">
+<!ENTITY accountsettings.066.tooltiptext "&accountsettings.065.tooltiptext;">
+<!ENTITY accountsettings.066.accesskey "I">
+<!ENTITY accountsettings.067.value "Veldtype">
+<!ENTITY accountsettings.067.tooltiptext "Type van dit veld">
+<!ENTITY accountsettings.067.accesskey "T">
+<!ENTITY accountsettings.068.tooltiptext "&accountsettings.067.tooltiptext;">
+<!ENTITY accountsettings.075.value "Opmerkingen">
+<!ENTITY accountsettings.075.tooltiptext "Opmerkingen of omschrijving voor dit veld">
+<!ENTITY accountsettings.076.tooltiptext "&accountsettings.075.tooltiptext;">
+<!ENTITY accountsettings.076.accesskey "O">
+<!ENTITY accountsettings.077.value "Formuliernaam">
+<!ENTITY accountsettings.078.accesskey "F">
+<!ENTITY accountsettings.079.value "Formuliernaam waar deze velden in opgenomen zijn. Dit is alleen nood-">
+<!ENTITY accountsettings.080.value "zakelijk indien een webpagina twee of meer velden met dezelfde naam bevat.">
+<!ENTITY accountsettings.081.label "Waarschuwen indien dit veld niet wordt gevonden">
+<!ENTITY accountsettings.081.accesskey "W">
+<!ENTITY accountsettings.082.value "Aanvinken om gewaarschuwd te worden indien dit veld niet automatisch ingevuld kan worden.">
+<!ENTITY accountsettings.083.value "Dit kan voorkomen indien een webpagina wijzigt nadat de bovenstaande informatie is ingevoerd.">
+<!ENTITY accountsettings.084.label "Toevoegen">
+<!ENTITY accountsettings.084.accesskey "T">
+<!ENTITY accountsettings.085.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY accountsettings.086.label "&accountsettings.061.value;">
+<!ENTITY accountsettings.087.label "&accountsettings.007.value;">
+<!ENTITY accountsettings.088.label "&accountsettings.063.value;">
+<!ENTITY accountsettings.089.label "&accountsettings.065.value;">
+<!ENTITY accountsettings.090.label "&accountsettings.067.value;">
+<!ENTITY accountsettings.091.label "&accountsettings.077.value;">
+<!ENTITY accountsettings.092.label "Waarschuwing">
+<!ENTITY accountsettings.093.label "Wachtwoord details">
+<!ENTITY accountsettings.094.value "Wachtwoord sterkte">
+<!ENTITY accountsettings.094.tooltiptext "Relatieve veiligheid van het gegenereerde wachtwoord">
+<!ENTITY accountsettings.095.tooltiptext "&accountsettings.094.tooltiptext;">
+<!ENTITY accountsettings.096.value "Gegenereerde wachtwoord">
+<!ENTITY accountsettings.096.tooltiptext "&accountsettings.096.value;">
+<!ENTITY accountsettings.097.tooltiptext "&accountsettings.096.value;">
+<!ENTITY accountsettings.098.label "Selectie verwijderen">
+<!ENTITY accountsettings.098.accesskey "V">
+<!ENTITY accountsettings.098.tooltiptext "Huidige geselecteerde item verwijderen">
+<!ENTITY accountsettings.099.label "Patroon verwijderen">
+<!ENTITY accountsettings.099.accesskey "V">
+<!ENTITY accountsettings.099.tooltiptext "Huidige geselecteerde patroon verwijderen">
+<!ENTITY accountsettings.100.label "Patroon kopiëren">
+<!ENTITY accountsettings.100.accesskey "K">
+<!ENTITY accountsettings.100.tooltiptext "Huidige geselecteerde patroon kopiëren">
+<!ENTITY accountsettings.101.label "Patroon toevoegen">
+<!ENTITY accountsettings.101.accesskey "T">
+<!ENTITY accountsettings.101.tooltiptext "Een nieuw patroon toevoegen">
+<!ENTITY accountsettings.102.label "Patroon wijzigen">
+<!ENTITY accountsettings.102.accesskey "W">
+<!ENTITY accountsettings.102.tooltiptext "Een patroon wijzigen">
+<!ENTITY accountsettings.103.label "Patroon help">
+<!ENTITY accountsettings.103.accesskey "H">
+<!ENTITY accountsettings.103.tooltiptext "Hoe patronen geschreven dienen te worden">
+<!ENTITY accountsettings.104.label "tekst">
+<!ENTITY accountsettings.105.label "tekstgebied">
+<!ENTITY accountsettings.106.label "wachtwoord">
+<!ENTITY accountsettings.107.label "aanvinkvakje">
+<!ENTITY accountsettings.108.label "selecteer">
+<!ENTITY accountsettings.109.label "radioknop">
+<!ENTITY opts.window.title "PasswordMaker geavanceerde opties">
+<!ENTITY opts.001.label "Gegenereerde wachtwoord naar het klembord kopiëren">
+<!ENTITY opts.001.tooltip "Het gegenereerde wachtwoord naar het klembord kopiëren. Het wordt automatisch van het klembord verwijderd indien deze optie is geactiveerd.">
+<!ENTITY opts.001.accesskey "K">
+<!ENTITY opts.002.label "Instellingen importeren...">
+<!ENTITY opts.002.tooltip "Importeert een PasswordMaker instellingen bestand">
+<!ENTITY opts.002.accesskey "I">
+<!ENTITY opts.003.label "Instellingen exporteren...">
+<!ENTITY opts.003.accesskey "E">
+<!ENTITY opts.003.tooltip "Exporteert de huidige PasswordMaker instellingen naar een bestand">
+<!ENTITY opts.004.label "Instellingen afdrukken...">
+<!ENTITY opts.004.accesskey "d">
+<!ENTITY opts.004.tooltip "Drukt de huidige PasswordMaker instellingen af.">
+<!ENTITY options.005.label "Afsluiten">
+<!ENTITY options.005.accesskey "A">
+<!ENTITY options.005.tooltip "Sluit PasswordMaker af">
+<!ENTITY opts.006.label "Basis opties">
+<!ENTITY opts.006.accesskey "B">
+<!ENTITY opts.006.tooltip "Opent het basis opties venster">
+<!ENTITY opts.007.label "Geavanceerde opties">
+<!ENTITY opts.007.accesskey "G">
+<!ENTITY opts.007.tooltip "Opent het geavanceerde opties venster">
+<!ENTITY opts.008.label "Help inhoud">
+<!ENTITY opts.008.tooltip "Opent de help inhoud in een webbrowser tabblad">
+<!ENTITY opts.008.accesskey "H">
+<!ENTITY opts.009.label "Online versie">
+<!ENTITY opts.009.accesskey "O">
+<!ENTITY opts.009.tooltip "Opent de online versie van PasswordMaker in een webbrowser tabblad">
+<!ENTITY opts.010.label "Over">
+<!ENTITY opts.010.accesskey "O">
+<!ENTITY opts.010.tooltip "Opent het Over venster">
+<!ENTITY opts.011.label "Nu uploaden">
+<!ENTITY opts.011.accesskey "N">
+<!ENTITY opts.011.tooltip "Instellingen nu uploaden">
+<!ENTITY opts.012.label "Nu downloaden">
+<!ENTITY opts.012.accesskey "N">
+<!ENTITY opts.012.tooltip "Instellingen nu downloaden">
+<!ENTITY opts.013.label "Nieuwe groep">
+<!ENTITY opts.013.tooltiptext "Een nieuwe groep aanmaken">
+<!ENTITY opts.013.accesskey "G">
+<!ENTITY opts.014.label "Nieuw account">
+<!ENTITY opts.014.accesskey "A">
+<!ENTITY opts.014.tooltiptext "Een nieuw account aanmaken">
+<!ENTITY opts.015.label "Account kopiëren">
+<!ENTITY opts.015.accesskey "K">
+<!ENTITY opts.015.tooltiptext "Kopieert bestaande instellingen naar nieuw toe te voegen account">
+<!ENTITY opts.016.label "Account verplaatsen">
+<!ENTITY opts.016.accesskey "V">
+<!ENTITY opts.016.tooltiptext "Verplaatst een account naar een andere groep">
+<!ENTITY opts.017.label "Selectie verwijderen">
+<!ENTITY opts.017.accesskey "V">
+<!ENTITY opts.017.tooltiptext "Verwijdert het huidige geselecteerde item">
+<!ENTITY opts.018.label "Instellingen">
+<!ENTITY opts.018.accesskey "I">
+<!ENTITY opts.018.tooltiptext "Opent het instellingen venster">
+<!ENTITY opts.019.label "Alle groepen inklappen">
+<!ENTITY opts.019.accesskey "I">
+<!ENTITY opts.019.tooltiptext "Alle groepen sluiten">
+<!ENTITY opts.020.label "Alle groepen uitklappen">
+<!ENTITY opts.020.accesskey "U">
+<!ENTITY opts.020.tooltiptext "Opent alle groepen">
+<!ENTITY opts.021.label "Bestand">
+<!ENTITY opts.021.accesskey "B">
+<!ENTITY opts.022.label "Bewerken">
+<!ENTITY opts.022.accesskey "w">
+<!ENTITY opts.023.label "Beeld">
+<!ENTITY opts.023.accesskey "l">
+<!ENTITY opts.024.label "Help">
+<!ENTITY opts.024.accesskey "H">
+<!ENTITY opts.025.value "&opts.025.tooltiptext;">
+<!ENTITY opts.025.tooltiptext "Hoofdwachtwoord">
+<!ENTITY opts.025.accesskey "H">
+<!ENTITY opts.026.tooltiptext "&opts.025.tooltiptext;">
+<!ENTITY opts.027.value "Bevestiging">
+<!ENTITY opts.027.tooltiptext "Bevestig het hoofdwachtwoord">
+<!ENTITY opts.028.tooltiptext "&opts.027.tooltiptext;">
+<!ENTITY opts.029.accesskey "O">
+<!ENTITY opts.029.value "Hoofdwachtwoord opslaan">
+<!ENTITY opts.029.tooltiptext "Selecteer het gewenste type opslag voor het hoofdwachtwoord">
+<!ENTITY opts.030.tooltiptext "&opts.029.tooltiptext;">
+<!ENTITY opts.031.label "in het geheel niet">
+<!ENTITY opts.032.label "in het geheugen">
+<!ENTITY opts.033.label "Op schijf &amp; in geheugen">
+<!ENTITY opts.034a.value "Te gebruiken tekst">
+<!ENTITY opts.034a.accesskey "g">
+<!ENTITY opts.034a.tooltiptext "Te gebruiken webadres (of andere tekst) voor te genereren wachtwoord">
+<!ENTITY opts.035.tooltiptext "&opts.034a.tooltiptext;">
+<!ENTITY opts.036.value "&accountsettings.096.tooltiptext;">
+<!ENTITY opts.036.tooltiptext "Dubbelklikken om naar het klembord te kopiëren">
+<!ENTITY opts.037.tooltiptext "&opts.036.tooltiptext;">
+<!ENTITY opts.038.label "Accounts">
+<!ENTITY opts.038.accesskey "A">
+<!ENTITY opts.039.label "Algemene instellingen">
+<!ENTITY opts.039.accesskey "i">
+<!ENTITY opts.040.label "Uploaden/downloaden">
+<!ENTITY opts.040.accesskey "d">
+<!ENTITY opts.041.label "Speciale domeinen">
+<!ENTITY opts.041.accesskey "S">
+<!ENTITY opts.042.tooltiptext "Selecteer een uit te voeren actie">
+<!ENTITY opts.043.label "Selectie maken">
+<!ENTITY opts.044.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.045.label "&accountsettings.005.value;">
+<!ENTITY opts.046.label "&accountsettings.007.value;">
+<!ENTITY opts.047.label "&accountsettings.024.value;">
+<!ENTITY opts.048.label "&accountsettings.030.value;">
+<!ENTITY opts.049.label "&accountsettings.032.value;">
+<!ENTITY opts.050.label "&accountsettings.047.value;">
+<!ENTITY opts.051.label "Protocol gebruiken">
+<!ENTITY opts.052.label "Subdomeinen gebruiken">
+<!ENTITY opts.053.label "Domein gebruiken">
+<!ENTITY opts.054.label "Poort, pad en wachtrij parameters gebruiken">
+<!ENTITY opts.055.label "Te gebruiken webadres">
+<!ENTITY opts.056.label "&accountsettings.022.value;">
+<!ENTITY opts.057.label "Teller">
+<!ENTITY opts.058.label "&accountsettings.049.value;">
+<!ENTITY opts.059.label "Voorvoegsel">
+<!ENTITY opts.060.label "Achtervoegsel">
+<!ENTITY opts.061.label "Automatisch invullen">
+<!ENTITY opts.062.label "Gegenereerde wachtwoord met sterretjes maskeren">
+<!ENTITY opts.062.tooltiptext "Aanvinken om het gegenereerde wachtwoord met sterretjes te maskeren">
+<!ENTITY opts.063.label "Hoofdwachtwoord veld verbergen (aantal sterretjes)">
+<!ENTITY opts.063.tooltiptext "Aanvinken om het hoofdwachtwoord te verbergen, zodat niemand de lengte van het wachtwoord kan zien">
+<!ENTITY opts.064.label "Hoofdwachtwoord bevestigen door het twee maal in te typen i.p.v. eenmaal">
+<!ENTITY opts.064.tooltiptext "Aanvinken om tweemaal gevraagd te worden voor het hoofdwachtwoord i.p.v. eenmaal">
+<!ENTITY opts.065.label "Alle wachtwoorden op webpagina&apos;s als leesbare tekst weergeven">
+<!ENTITY opts.065.tooltiptext "Aanvinken om wachtwoorden op webpagina&apos;s als leesbare tekst weer te geven i.p.v. als sterretjes">
+<!ENTITY opts.066.label "Automatisch invullen inschakelen op pagina&apos;s die dit uitschakelen">
+<!ENTITY opts.066.tooltiptext "Aanvinken om automatisch invullen aan te zetten in tekstvelden en formulieren. Wachtwoordvelden worden hierdoor niet beïnvloed.">
+<!ENTITY opts.067.label "Klembord automatisch leegmaken">
+<!ENTITY opts.067.tooltiptext "Aanvinken om het klembord automatisch leeg te maken">
+<!ENTITY opts.068.tooltiptext "Aantal seconden nadat het klembord wordt leeggemaakt">
+<!ENTITY opts.069.value "seconden na het hier te kopiëren">
+<!ENTITY opts.069.tooltiptext "&opts.068.tooltiptext;">
+<!ENTITY opts.070.label "Statusbalk indicator weergeven">
+<!ENTITY opts.070.tooltiptext "Aanvinken om de statusbalk indicator weer te geven of te verbergen">
+<!ENTITY opts.071.value "Te nemen actie indien CoolKey is geactiveerd">
+<!ENTITY opts.072.tooltiptext "De PasswordMaker CoolKey configureren">
+<!ENTITY opts.073.label "Niets doen">
+<!ENTITY opts.074.label "Alle velden invullen">
+<!ENTITY opts.075.label "Alleen lege velden automatisch invullen">
+<!ENTITY opts.076.label "Alle velden leegmaken">
+<!ENTITY opts.077.innerHTML "Hier kunnen externe computers waarop de instellingen">
+<!ENTITY opts.078.innerHTML "opgeslagen kunnen worden toegevoegd of verwijderd worden">
+<!ENTITY opts.079.tooltiptext "&opts.042.tooltiptext;">
+<!ENTITY opts.080.label "&opts.043.label;">
+<!ENTITY opts.081.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.082.label "&remotesettings.001.value;">
+<!ENTITY opts.083.label "&remotesettings.003.value;">
+<!ENTITY opts.084.label "&remotesettings.005.value;">
+<!ENTITY opts.085.label "&remotesettings.008.value;">
+<!ENTITY opts.086.label "&remotesettings.012.value;">
+<!ENTITY opts.087.label "&remotesettings.014.value;">
+<!ENTITY opts.088.label "&remotesettings.007.label;">
+<!ENTITY opts.089.label "&remotesettings.032.label;">
+<!ENTITY opts.090.label "&remotesettings.033.label;">
+<!ENTITY opts.091.label "&remotesettings.034.label;">
+<!ENTITY opts.092.label "&remotesettings.035.label;">
+<!ENTITY opts.093.innerHTML "Hier kunnen domeinen die altijd het gebruik van subdomeinen">
+<!ENTITY opts.094.innerHTML "vereisen toegevoegd of verwijderd worden. Zie Help voor meer informatie.">
+<!ENTITY opts.095.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.096.label "Land/domein">
+<!ENTITY opts.097.label "Omschrijving">
+<!ENTITY opts.098.label "&opts.013.label;">
+<!ENTITY opts.098.accesskey "G">
+<!ENTITY opts.098.tooltiptext "&opts.013.tooltiptext;">
+<!ENTITY opts.099.label "Nieuw domein">
+<!ENTITY opts.099.tooltiptext "Een nieuw domein aanmaken">
+<!ENTITY opts.099.accesskey "N">
+<!ENTITY opts.100.label "&opts.017.label;">
+<!ENTITY opts.100.tooltiptext "&opts.017.tooltiptext;">
+<!ENTITY opts.100.accesskey "&opts.017.accesskey;">
+<!ENTITY opts.101.tooltiptext "Dit wordt gebruikt om te controleren dat toekomstige hoofdwachtwoorden die hier ingevoerd worden overeenkomen met dit hoofdwachtwoord.">
+<!ENTITY opts.102.tooltiptext "&opts.101.tooltiptext;">
+<!ENTITY opts.105.label "Opties omschakelen">
+<!ENTITY opts.105.tooltiptext "Opties dialoog omschakelen">
+<!ENTITY opts.105.accesskey "o">
+<!ENTITY opts.106.tooltiptext "&opts.106.label;">
+<!ENTITY opts.108.label "Meer dan 1 hoofdwachtwoord gebruiken">
+<!ENTITY opts.110.label "Wissen">
+<!ENTITY opts.112.label "Versleuteling hoofdwachtwoord">
+<!ENTITY b-opts.028.value "Dit wachtwoord was aangemaakt via de standaard account instellingen. Gebruik de">
+<!ENTITY b-opts.028a.value "Geavanceerde opties">
+<!ENTITY b-opts.028b.value "om deze te wijzigen.">
+<!ENTITY chooseaccount.window.title "PasswordMaker - Account selecteren">
+<!ENTITY chooseaccount.001.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY chooseaccount.002.label "&accountsettings.005.value;">
+<!ENTITY chooseaccount.003.label "&opts.097.label;">
+<!ENTITY chooseaccount.004.label "&accountsettings.022.value;">
+<!ENTITY chooseaccount.005.label "&accountsettings.024.value;">
+<!ENTITY chooseaccount.006.label "&accountsettings.030.value;">
+<!ENTITY chooseaccount.007.label "&accountsettings.032.value;">
+<!ENTITY chooseaccount.008.label "&accountsettings.047.value;">
+<!ENTITY chooseaccount.009.label "&opts.055.label;">
+<!ENTITY chooseaccount.010.label "&opts.057.label;">
+<!ENTITY chooseaccount.011.label "&accountsettings.049.value;">
+<!ENTITY chooseaccount.012.label "&opts.059.label;">
+<!ENTITY chooseaccount.013.label "&opts.060.label;">
+<!ENTITY chooseaccount.014.label "&opts.061.label;">
+<!ENTITY filepatternhelp.window.title "PasswordMaker bestandspatroon help">
+<!ENTITY filepatternhelp.001.value "Specificeert de map en het bestand waar de backups naartoe geschreven worden">
+<!ENTITY filepatternhelp.002.value "voordat het externe bestand is gedownload. Gebruik de volgende symbolen">
+<!ENTITY filepatternhelp.003.value "om de datum/tijd onderdelen in de bestandsnaam te substitueren:">
+<!ENTITY filepatternhelp.004.value "Symbool">
+<!ENTITY filepatternhelp.005.value "Betekenis">
+<!ENTITY filepatternhelp.006.value "Voorbeeld">
+<!ENTITY filepatternhelp.007.value "4-cijferig jaar">
+<!ENTITY filepatternhelp.008.value "2-cijferige maand">
+<!ENTITY filepatternhelp.009.value "2-cijferige dag van de maand">
+<!ENTITY filepatternhelp.010.value "2-cijferig uren, 24-uurs formaat">
+<!ENTITY filepatternhelp.011.value "2-cijferig uren, 12-uurs formaat">
+<!ENTITY filepatternhelp.012.value "2-cijferig minuten">
+<!ENTITY filepatternhelp.013.value "2-cijferig seconden">
+<!ENTITY filepatternhelp.014.value "3-cijferig milliseconden">
+<!ENTITY filepatternhelp.015.value "2-posties AM/PM markering">
+<!ENTITY folders.window.title "PasswordMaker - Groep selecteren">
+<!ENTITY folders.001.value "Selecteer een groep waar het account naartoe verplaatst moet worden.">
+<!ENTITY folders.002.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY folders.003.label "&accountsettings.005.value;">
+<!ENTITY folders.004.label "&accountsettings.007.value;">
+<!ENTITY folders.005.label "&accountsettings.024.value;">
+<!ENTITY folders.006.label "&accountsettings.030.value;">
+<!ENTITY folders.007.label "&accountsettings.032.value;">
+<!ENTITY folders.008.label "&accountsettings.047.value;">
+<!ENTITY folders.009.label "&opts.051.label;">
+<!ENTITY folders.010.label "&opts.052.label;">
+<!ENTITY folders.011.label "&opts.053.label;">
+<!ENTITY folders.012.label "&opts.054.label;">
+<!ENTITY folders.013.label "&opts.055.label;">
+<!ENTITY folders.014.label "&accountsettings.022.value;">
+<!ENTITY folders.015.label "&opts.057.label;">
+<!ENTITY folders.016.label "&accountsettings.049.value;">
+<!ENTITY folders.017.label "&opts.059.label;">
+<!ENTITY folders.018.label "&opts.060.label;">
+<!ENTITY folders.019.label "&opts.061.label;">
+<!ENTITY folders.020.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY folders.021.label "&accountsettings.005.value;">
+<!ENTITY folders.022.label "&accountsettings.007.value;">
+<!ENTITY folders.023.label "&opts.084.label;">
+<!ENTITY folders.024.label "&accountsettings.022.value;">
+<!ENTITY folders.025.label "&opts.086.label;">
+<!ENTITY folders.026.label "&opts.087.label;">
+<!ENTITY folders.027.label "&opts.088.label;">
+<!ENTITY folders.028.label "&opts.089.label;">
+<!ENTITY folders.029.label "&opts.090.label;">
+<!ENTITY folders.030.label "&opts.091.label;">
+<!ENTITY folders.031.label "&opts.092.label;">
+<!ENTITY navigatorOverlay.001.label "PasswordMaker">
+<!ENTITY navigatorOverlay.001.accesskey "P">
+<!ENTITY navigatorOverlay.002.label "PasswordMaker openen">
+<!ENTITY navigatorOverlay.002.accesskey "O">
+<!ENTITY navigatorOverlay.003.label "CoolKey">
+<!ENTITY navigatorOverlay.003.accesskey "C">
+<!ENTITY navigatorOverlay.004.label "Hoofdwachtwoord leegmaken">
+<!ENTITY navigatorOverlay.004.accesskey "W">
+<!ENTITY navigatorOverlay.005.label "&navigatorOverlay.001.label;">
+<!ENTITY navigatorOverlay.005.accesskey "P">
+<!ENTITY navigatorOverlay.006.label "Dit veld automatisch invullen">
+<!ENTITY navigatorOverlay.006.accesskey "A">
+<!ENTITY navigatorOverlay.007.label "&navigatorOverlay.003.label;">
+<!ENTITY navigatorOverlay.007.accesskey "&navigatorOverlay.003.accesskey;">
+<!ENTITY navigatorOverlay.008.label "&navigatorOverlay.004.label;">
+<!ENTITY navigatorOverlay.008.accesskey "&navigatorOverlay.004.accesskey;">
+<!ENTITY navigatorOverlay.009.label "&navigatorOverlay.002.label;">
+<!ENTITY navigatorOverlay.009.accesskey "&navigatorOverlay.002.accesskey;">
+<!ENTITY navigatorOverlay.010.tooltiptext "&navigatorOverlay.002.label;">
+<!ENTITY navigatorOverlay.010.label "Openen">
+<!ENTITY navigatorOverlay.011.tooltiptext "PasswordMaker configureerbare CoolKey">
+<!ENTITY navigatorOverlay.011.label "&navigatorOverlay.003.label;">
+<!ENTITY passwdmakerOverlay.001.label "&navigatorOverlay.001.label;">
+<!ENTITY passwdmakerOverlay.001.accesskey "&navigatorOverlay.001.accesskey;">
+<!ENTITY passwdmakerOverlay.002.label "&navigatorOverlay.002.label;">
+<!ENTITY passwdmakerOverlay.002.accesskey "&navigatorOverlay.002.accesskey;">
+<!ENTITY passwdmakerOverlay.003.label "&navigatorOverlay.003.label;">
+<!ENTITY passwdmakerOverlay.003.accesskey "&navigatorOverlay.003.accesskey;">
+<!ENTITY passwdmakerOverlay.004.label "&navigatorOverlay.004.label;">
+<!ENTITY passwdmakerOverlay.004.accesskey "&navigatorOverlay.004.accesskey;">
+<!ENTITY passwdmakerOverlay.005.label "&navigatorOverlay.001.label;">
+<!ENTITY passwdmakerOverlay.005.accesskey "&navigatorOverlay.001.accesskey;">
+<!ENTITY passwdmakerOverlay.006.label "&navigatorOverlay.006.label;">
+<!ENTITY passwdmakerOverlay.006.accesskey "&navigatorOverlay.006.accesskey;">
+<!ENTITY passwdmakerOverlay.007.label "&navigatorOverlay.007.label;">
+<!ENTITY passwdmakerOverlay.007.accesskey "&navigatorOverlay.007.accesskey;">
+<!ENTITY passwdmakerOverlay.008.label "&navigatorOverlay.008.label;">
+<!ENTITY passwdmakerOverlay.008.accesskey "&navigatorOverlay.008.accesskey;">
+<!ENTITY passwdmakerOverlay.009.label "&navigatorOverlay.009.label;">
+<!ENTITY passwdmakerOverlay.009.accesskey "&navigatorOverlay.009.accesskey;">
+<!ENTITY passwdmakerOverlay.010.tooltiptext "&navigatorOverlay.010.label;">
+<!ENTITY passwdmakerOverlay.010.label "PwdMkr openen">
+<!ENTITY passwdmakerOverlay.011.tooltiptext "&navigatorOverlay.011.tooltiptext;">
+<!ENTITY passwdmakerOverlay.011.label "PwdMkr CoolKey">
+<!ENTITY passwordprompt.window.title "PasswordMaker - Hoofdwachtwoord vragen">
+<!ENTITY passwordprompt.001.value "Er is een wachtwoord gegenereerd, maar het hoofdwachtwoord is niet">
+<!ENTITY passwordprompt.002.value "op schijf of in het geheugen opgeslagen. Voer deze nu in of annuleer.">
+<!ENTITY passwordprompt.003.value "Account waarvoor dit wachtwoord is gegenereerd:">
+<!ENTITY passwordprompt.004.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY passwordprompt.005.label "&accountsettings.005.value;">
+<!ENTITY passwordprompt.006.label "&opts.097.label;">
+<!ENTITY passwordprompt.007.label "&accountsettings.022.value;">
+<!ENTITY passwordprompt.008.label "&accountsettings.024.value;">
+<!ENTITY passwordprompt.009.label "&accountsettings.030.value;">
+<!ENTITY passwordprompt.010.label "&accountsettings.032.value;">
+<!ENTITY passwordprompt.011.label "&accountsettings.047.value;">
+<!ENTITY passwordprompt.012.label "&opts.055.label;">
+<!ENTITY passwordprompt.013.label "&opts.057.label;">
+<!ENTITY passwordprompt.014.label "&accountsettings.049.value;">
+<!ENTITY passwordprompt.015.label "&opts.059.label;">
+<!ENTITY passwordprompt.016.label "&opts.060.label;">
+<!ENTITY passwordprompt.017.label "&opts.061.label;">
+<!ENTITY passwordprompt.018.value "&opts.025.tooltiptext;">
+<!ENTITY passwordprompt.019.value "&opts.027.value;">
+<!ENTITY passwordprompt.020.value "&opts.029.value;">
+<!ENTITY passwordprompt.021.tooltiptext "&opts.029.tooltiptext;">
+<!ENTITY passwordprompt.022.label "&opts.031.label;">
+<!ENTITY passwordprompt.023.label "&opts.032.label;">
+<!ENTITY passwordprompt.024.label "&opts.033.label;">
+<!ENTITY pattern.window.title "PasswordMaker - Patroon toevoegen/wijzigen">
+<!ENTITY pattern.001.label "Ingeschakeld">
+<!ENTITY pattern.001.accesskey "I">
+<!ENTITY pattern.001.tooltiptext "Indien aangevinkt, wordt dit patroon vergeleken met webadressen die door de browser geladen worden">
+<!ENTITY pattern.002.value "Patroonnaam">
+<!ENTITY pattern.002.tooltiptext "Naam van het patroon">
+<!ENTITY pattern.002.accesskey "N">
+<!ENTITY pattern.003.tooltiptext "&pattern.002.tooltiptext;">
+<!ENTITY pattern.003.accesskey "&pattern.002.accesskey;">
+<!ENTITY pattern.004.value "Webadres of webadrespatroon">
+<!ENTITY pattern.004.tooltiptext "Webadres of webadrespatroon">
+<!ENTITY pattern.004.accesskey "P">
+<!ENTITY pattern.005.tooltiptext "&pattern.004.tooltiptext;">
+<!ENTITY pattern.005.accesskey "&pattern.004.accesskey;">
+<!ENTITY pattern.006.label "Patroon bevat">
+<!ENTITY pattern.007.accesskey "J">
+<!ENTITY pattern.007.tooltiptext "Geeft aan dat het webadres of webadrespatroon jokertekens gebruikt en geen reguliere expressie is">
+<!ENTITY pattern.008.value "Jokertekens">
+<!ENTITY pattern.008.tooltiptext "&pattern.007.tooltiptext;">
+<!ENTITY pattern.009.value "Voorbeeld: *://mail.yahoo.com/*">
+<!ENTITY pattern.010.accesskey "R">
+<!ENTITY pattern.010.tooltiptext "Geeft aan dat het webadres of -patroon een reguliere expressie is">
+<!ENTITY pattern.011.value "Reguliere expressie">
+<!ENTITY pattern.011.tooltiptext "&pattern.010.tooltiptext;">
+<!ENTITY pattern.012.value "Voorbeeld: https?://mail\.yahoo\.com\/.*">
+<!ENTITY remotesettings.window.title "PasswordMaker externe instellingen">
+<!ENTITY remotesettings.001.value "Servernaam">
+<!ENTITY remotesettings.001.accesskey "S">
+<!ENTITY remotesettings.001.tooltiptext "Naam van de server">
+<!ENTITY remotesettings.002.tooltiptext "&remotesettings.001.tooltiptext;">
+<!ENTITY remotesettings.003.value "Opmerkingen">
+<!ENTITY remotesettings.003.accesskey "O">
+<!ENTITY remotesettings.003.tooltiptext "Opmerkingen of commentaren betreffende de server">
+<!ENTITY remotesettings.004.tooltiptext "&remotesettings.003.tooltiptext;">
+<!ENTITY remotesettings.005.value "Webadres">
+<!ENTITY remotesettings.005.accesskey "W">
+<!ENTITY remotesettings.005.tooltiptext "Volledig webadres inclusief bestandsnaam; bijv. ftp://passwordmaker.org/public_html/MySettings.rdf">
+<!ENTITY remotesettings.006.tooltiptext "&remotesettings.005.tooltiptext;">
+<!ENTITY remotesettings.007.label "WebDAV gebruiken">
+<!ENTITY remotesettings.007.accesskey "W">
+<!ENTITY remotesettings.007.tooltiptext "Indien aangevinkt, zal WebDAV gebruikt worden. Webadres moet beginnen met http:// of https:// om deze optie in te kunnen schakelen.">
+<!ENTITY remotesettings.008.value "Gebruikersnaam">
+<!ENTITY remotesettings.008.accesskey "G">
+<!ENTITY remotesettings.008.tooltiptext "Gebruikersnaam om bij de server aan te melden">
+<!ENTITY remotesettings.009.tooltiptext "&remotesettings.008.tooltiptext;">
+<!ENTITY remotesettings.010.value "Wachtwoord">
+<!ENTITY remotesettings.010.accesskey "W">
+<!ENTITY remotesettings.010.tooltiptext "Wachtwoord om bij de server aan te melden">
+<!ENTITY remotesettings.011.tooltiptext "&remotesettings.010.tooltiptext;">
+<!ENTITY remotesettings.012.value "Backup map">
+<!ENTITY remotesettings.012.accesskey "B">
+<!ENTITY remotesettings.013.accesskey "&remotesettings.012.accesskey;">
+<!ENTITY remotesettings.014.value "Bestandsnaam patroon">
+<!ENTITY remotesettings.014.accesskey "B">
+<!ENTITY remotesettings.015.accesskey "&remotesettings.014.accesskey;">
+<!ENTITY remotesettings.016.label "?">
+<!ENTITY remotesettings.016.tooltip "Bestandsnaam patroon help">
+<!ENTITY remotesettings.017.value "&filepatternhelp.001.value;">
+<!ENTITY remotesettings.018.value "&filepatternhelp.002.value;">
+<!ENTITY remotesettings.019.value "&filepatternhelp.003.value;">
+<!ENTITY remotesettings.020.value "&filepatternhelp.004.value;">
+<!ENTITY remotesettings.021.value "&filepatternhelp.005.value;">
+<!ENTITY remotesettings.022.value "&filepatternhelp.006.value;">
+<!ENTITY remotesettings.023.value "&filepatternhelp.007.value;">
+<!ENTITY remotesettings.024.value "&filepatternhelp.008.value;">
+<!ENTITY remotesettings.025.value "&filepatternhelp.009.value;">
+<!ENTITY remotesettings.026.value "&filepatternhelp.010.value;">
+<!ENTITY remotesettings.027.value "&filepatternhelp.011.value;">
+<!ENTITY remotesettings.028.value "&filepatternhelp.012.value;">
+<!ENTITY remotesettings.029.value "&filepatternhelp.013.value;">
+<!ENTITY remotesettings.030.value "&filepatternhelp.014.value;">
+<!ENTITY remotesettings.031.value "&filepatternhelp.015.value;">
+<!ENTITY remotesettings.032.accesskey "D">
+<!ENTITY remotesettings.032.label "Automatisch downloaden bij starten">
+<!ENTITY remotesettings.032.tooltiptext "Automatisch downloaden als de browser wordt gestart">
+<!ENTITY remotesettings.033.accesskey "U">
+<!ENTITY remotesettings.033.label "Automatisch uploaden bij sluiten">
+<!ENTITY remotesettings.033.tooltiptext "Automatisch uploaden als de browser wordt gesloten">
+<!ENTITY remotesettings.034.accesskey "U">
+<!ENTITY remotesettings.034.label "Automatisch uploaden bij wijzigingen">
+<!ENTITY remotesettings.034.tooltiptext "Automatisch uploaden indien de instellingen veranderen">
+<!ENTITY remotesettings.035.accesskey "S">
+<!ENTITY remotesettings.035.label "Samenvoegen">
+<!ENTITY remotesettings.035.tooltiptext "Inhoud samenvoegen">
+<!ENTITY remotesettings.036.label "OK">
+<!ENTITY remotesettings.036.accesskey "O">
+<!ENTITY remotesettings.037.label "Annuleren">
+<!ENTITY remotesettings.037.accesskey "A">
+<!ENTITY tips.window.title "PasswordMaker karakter tips">
+<!ENTITY tips.001.innerHTML "Het karakters veld bevat de lijst van karakters die gebruikt werden voor het genereren van dit wachtwoord. Hier volgen enkele tips voor het selecteren van karakters:">
+<!ENTITY tips.002.innerHTML "Indien wachtwoorden die met PasswordMaker 0.6 en eerder compatibel zijn vereist worden, dient 0123456789abcdef gebruikt worden. Indien in de wachtwoorden voorloopnullen, die in 0.6  bestaan ontbreken, dient het hash algoritme MD5 versie 0.6 of HMAC-MD5 versie 0.6 gebruikt te worden.">
+<!ENTITY tips.003.innerHTML "Er zijn minimaal 2 karakters vereist">
+<!ENTITY tips.004.innerHTML "Karakters mogen herhaald worden">
+<!ENTITY tips.005.innerHTML "Indien hetzelfde karakter meerdere malen gebruikt wordt, zal dat karakter meerdere keren in het gegenereerde wachtwoord voorkomen">
+<!ENTITY tips.006.innerHTML "Hoe meer unieke karakters gespecificeerd worden, hoe groter de variëteit van karakters in het gegenereerde wachtwoord">
+<!ENTITY tips.007.innerHTML "De karakter volgorde beïnvloed wat er gegenereerd wordt! Het gebruik van 0123456789abcdef maakt andere wachtwoorden aan dan het gebruik van abcdef0123456789">
+<!ENTITY tips.008.innerHTML "Er kunnen niet-Engelse karakters gebruikt worden, zoals deze met">
+<!ENTITY tips.009.innerHTML "http://nl.wikipedia.org/wiki/Diakritisch_teken">
+<!ENTITY tips.010.innerHTML "diacritische karakters">
+<!ENTITY tips.012.innerHTML "http://en.wikipedia.org/wiki/Diaeresis">
+<!ENTITY tips.013.innerHTML "diaeresische tekens">
+<!ENTITY tips.015.innerHTML "http://nl.wikipedia.org/wiki/Ligatuur_&#37;28typografie&#37;29">
+<!ENTITY tips.016.innerHTML "ligaturen">
+<!ENTITY tips.017a.innerHTML "niet-alfanumerieke karakters en symbolen">
+<!ENTITY tips.017b.innerHTML "etc. Indien een gewenst karakter niet op het toetsenbord voorkomt, wanhoop dan niet. Vrijwel elk westers karakter kan gemaakt worden door het typen van ALT-, OPTION-, of CTRL-code toetsreeksen. Deze toetsreeksen variëren per besturingssysteem. Bijvoorbeeld, door ALT+0222 te typen in Windows (getallen dienen op het numerieke toetsenbord gedeelte ingetypt te worden) verschijnt het IJslandse hoofdletter Thorn karakter:">
+<!ENTITY treeprompt.window.title "PasswordMaker - Groep instellingen">
+<!ENTITY treeprompt.001.value "Naam (vereist)">
+<!ENTITY treeprompt.002.value "Omschrijving (optioneel)">
+<!ENTITY unpopped.window.title "PasswordMaker - Ontbrekende velden">
+<!ENTITY unpopped.001.value "De volgende automatisch in te vullen velden konden niet gevonden worden op deze pagina:">
+<!ENTITY unpopped.002.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY unpopped.003.label "&accountsettings.061.value;">
+<!ENTITY unpopped.004.label "&accountsettings.007.value;">
+<!ENTITY unpopped.005.label "&accountsettings.063.value;">
+<!ENTITY unpopped.006.label "&accountsettings.065.value;">
+<!ENTITY unpopped.007.label "&accountsettings.067.value;">
+<!ENTITY unpopped.008.label "&accountsettings.077.value;">
+<!ENTITY unpopped.009.label "&accountsettings.092.label;">

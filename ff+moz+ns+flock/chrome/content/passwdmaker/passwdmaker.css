@@ -1,0 +1,71 @@
+@import url(chrome://global/skin/);
+
+#passwordmaker-button {
+	list-style-image: url("chrome://passwdmaker/content/images/toolbar-icons-24x24.png");
+	-moz-image-region: rect(0px, 24px, 24px, 0px); /* rect(top, right, bottom, left); */
+}
+#passwordmaker-button:hover {
+	-moz-image-region: rect(24px, 24px, 48px, 0px);
+}
+
+toolbar[iconsize="small"] #passwordmaker-button {
+	list-style-image: url("chrome://passwdmaker/content/images/toolbar-icons-16x16.png");
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+toolbar[iconsize="small"] #passwordmaker-button:hover {
+	-moz-image-region: rect(16px, 16px, 32px, 0px);
+} 
+
+#passwordmaker-key-button {
+	list-style-image: url("chrome://passwdmaker/content/images/key-toolbar-icons-24x24.png");
+	-moz-image-region: rect(0px, 24px, 24px, 0px); /* rect(top, right, bottom, left); */
+}
+#passwordmaker-key-button:hover {
+	-moz-image-region: rect(24px, 24px, 48px, 0px);
+}
+
+toolbar[iconsize="small"] #passwordmaker-key-button {
+	list-style-image: url("chrome://passwdmaker/content/images/key-toolbar-icons-16x16.png");
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+toolbar[iconsize="small"] #passwordmaker-key-button:hover {
+	-moz-image-region: rect(16px, 16px, 32px, 0px);
+} 
+
+tree {min-height: 50px;}
+splitter[disabled="true"] { cursor: default !important; }
+
+.passwordmaker-button {
+	list-style-image: url("chrome://passwdmaker/content/images/passwdmaker-seamonkey-classic.png") !important;
+}
+.passwordmaker-key-button {
+	list-style-image: url("chrome://passwdmaker/content/images/key-seamonkey-classic.png") !important;
+}
+
+treechildren::-moz-tree-cell-text(container) {
+  font-weight: bold !important;
+}
+.link {
+	color: #3366FF;
+	text-decoration: none;
+	cursor: pointer;
+}
+.link:hover {
+	text-decoration: underline;
+}
+#passwordGenerated {
+  color: #3366FF;
+  font-weight: bold;
+}
+#passwordmakerdlg[advanced="true"] {
+  padding-top: 0px;
+  padding-left: 0px;  
+}
+
+#mpwHashStatus[match="true"] {
+	color: green;
+}
+
+#mpwHashStatus[match="false"] {
+	color: red;
+}

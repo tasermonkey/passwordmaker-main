@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog
+    id="passwordmakeraccountsettings"
+    windowtype="passwordmaker"
+    title="&filepatternhelp.window.title;"
+    orient="vertical"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    persist="screenX screenY width height"> 
+
+<grid flex="1">
+  <columns><column flex="1"/><column flex="1"/><column flex="1"/></columns>
+  <rows>
+    <label value="&filepatternhelp.001.value;"/>
+    <label value="&filepatternhelp.002.value;"/>
+    <label value="&filepatternhelp.003.value;"/>
+    <label value=""/>
+    <row>
+      <label value="&filepatternhelp.004.value;"
+        style="font-weight: bold; text-decoration: underline;"/>
+      <label value="&filepatternhelp.005.value;" style="font-weight: bold; text-decoration: underline;"/>
+      <label value="&filepatternhelp.006.value;" style="font-weight: bold; text-decoration: underline;"/>
+    </row>                        
+    <row>
+      <label value="%y"/><label value="&filepatternhelp.007.value;"/><label value="2005"/>
+    </row>
+    <row>
+      <label value="%M"/><label value="&filepatternhelp.008.value;"/><label value="01"/>
+    </row>                                                                        
+    <row>
+      <label value="%d"/><label value="&filepatternhelp.009.value;"/><label value="09"/>
+    </row>                                                                        
+    <row>
+      <label value="%H"/><label value="&filepatternhelp.010.value;"/><label value="15"/>
+    </row>                         
+    <row>
+      <label value="%h"/><label value="&filepatternhelp.011.value;"/><label value="03"/>
+    </row>
+    <row>
+      <label value="%m"/><label value="&filepatternhelp.012.value;"/><label value="35"/>
+    </row>                                                
+    <row>
+      <label value="%s"/><label value="&filepatternhelp.013.value;"/><label value="05"/>
+    </row> 
+    <row>
+      <label value="%S"/><label value="&filepatternhelp.014.value;"/><label value="961"/>
+    </row>                         
+    <row>
+      <label value="%a"/><label value="&filepatternhelp.015.value;"/><label value="PM"/>
+    </row>
+    <row>
+      <label value="passwordmaker.%y.%M.%d.%H.%m.%s.%S.rdf"/><spacer/><label value="passwordmaker.2006.01.03.17.57.54.995.rdf"/>
+    </row>                                                   
+  </rows>
+</grid>
+</dialog>

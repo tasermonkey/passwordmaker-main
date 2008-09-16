@@ -1,0 +1,119 @@
+body {
+       		background: #EFEFEF;
+        	margin: 0;
+        	padding: 0;
+			text-align: center;
+}
+
+#canvasWrapper {
+			margin: 0 auto 0 auto;	
+			padding: 0 25px 0 25px;
+}
+
+#canvas {			
+			background: #FFF;
+			margin: 0 auto 0 auto;	
+			width: 700px;
+}
+
+#contentWrapper {
+        	margin: 0;
+			padding: 0;
+			text-align: center;
+}
+
+#content {			
+			background: #FFF;
+			float: left;
+			width: 450px;
+			padding: 0 25px 25px 25px;
+			text-align: left;
+}  
+
+a:visited, a:link, a:active {
+			text-decoration: none; 
+			font-weight: bold; 
+			color: #333399;
+}
+
+a:hover {
+			text-decoration: none; 
+			font-weight: bold;
+			color: #E8800F;
+}
+
+body {
+			color:#333;
+			font: normal 11px/22px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			text-align: justify;
+}
+
+.hr {			
+			background: url(http://passwordmaker.org/images/lottydotty.gif) repeat-x left top;
+			margin-top: 25px;
+			padding-top: 15px;
+}
+
+.title {
+			font: bold 14px/22px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			text-transform: uppercase;
+			color: #E8800F;
+			padding: 20px 0 10px 0;
+}
+
+.groupName {
+}
+
+.groupNameVal {
+  font: bold 11px/22px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+  font-variant: small-caps;
+  color: #E8800F;
+  padding: 20px 0 10px 0;
+}
+
+.groupNotes {
+}
+
+.groupNotesVal {
+}
+
+.accountSetting {
+  margin-left: 1em;
+}
+
+.accountSettingVal {
+  margin-left: 1em;
+  font-weight: bold;
+  width: 25em;
+}
+
+.globalSetting {
+}
+
+.globalSettingVal {
+  margin-left: 1em;
+  font-weight: bold;  
+}
+
+.remoteSetting {
+}
+
+.remoteSettingVal {
+  margin-left: 1em;
+  font-weight: bold;  
+}
+
+.mpwVal {
+  color: red;
+}
+
+.genPasswordVal {
+  margin-left: 1em;
+  color: red;
+}
+
+.emptyVal {
+  margin-left: 1em;
+  font-style: italic;
+  font-weight: bold;
+}

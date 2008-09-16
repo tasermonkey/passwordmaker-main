@@ -1,0 +1,588 @@
+<!ENTITY about.window.title "PasswordMaker - Sobre">
+<!ENTITY about.001.value "Site:">
+<!ENTITY about.002.value "Criado por:">
+<!ENTITY about.003.value "Colaboradores (em ordem alfabética):">
+<!ENTITY about.004.label "Fechar">
+<!ENTITY accountsettings.window.title "PasswordMaker - Configuração de Conta">
+<!ENTITY accountsettings.001.label "Geral">
+<!ENTITY accountsettings.002.label "Endereços">
+<!ENTITY accountsettings.003.label "Avançado">
+<!ENTITY accountsettings.004.label "Preenchimento Automático">
+<!ENTITY accountsettings.005.value "Nome">
+<!ENTITY accountsettings.005.tooltiptext "Nome da conta">
+<!ENTITY accountsettings.006.tooltiptext "&accountsettings.005.tooltiptext;">
+<!ENTITY accountsettings.007.value "Descrição">
+<!ENTITY accountsettings.007.tooltiptext "Descrição da conta">
+<!ENTITY accountsettings.008.tooltiptext "&accountsettings.007.tooltiptext;">
+<!ENTITY accountsettings.009.label "Componentes de endereço">
+<!ENTITY accountsettings.010.label "Protocolo">
+<!ENTITY accountsettings.010.tooltiptext "Selecione para incluir o protocolo no endereço.">
+<!ENTITY accountsettings.011.label "Subdomínios">
+<!ENTITY accountsettings.011.tooltiptext "Selecione para incluir os subdomínios no endereço.">
+<!ENTITY accountsettings.012.label "Domínio">
+<!ENTITY accountsettings.012.tooltiptext "Selecione para incluir o domínio no endereço.">
+<!ENTITY accountsettings.013.label "Porta, caminho, âncora, parâmetros de consulta">
+<!ENTITY accountsettings.013.tooltiptext "Selecione para incluir porta, caminho, âncora e parâmetros de consulta no endereço.">
+<!ENTITY accountsettings.014.value "Endereço calculado para o site atual:">
+<!ENTITY accountsettings.015.tooltiptext "Endereço calculado para o site atual.">
+<!ENTITY accountsettings.016.value "Usar o seguinte endereço para gerar a senha:">
+<!ENTITY accountsettings.016.tooltiptext "Visitar este endereço.">
+<!ENTITY accountsettings.017.tooltiptext "Endereço a ser usado para gerar a senha.">
+<!ENTITY accountsettings.018.tooltiptext "Selecione para preencher automaticamente os campos de usuário e senha em sites com este endereço.">
+<!ENTITY accountsettings.018.label "Preencher automaticamente campos de usuário e senha em sites com este endereço.">
+<!ENTITY accountsettings.019.innerHTML "O preenchimento automático também pode ser ativado usando o CoolKey. Para mais opções de preenchimento automático, utilize a aba &quot;&accountsettings.003.label;&quot;.">
+<!ENTITY accountsettings.020.value "Ativar preenchimento automático quando o endereço de uma página coincidir com um dos padrões abaixo:">
+<!ENTITY accountsettings.021.pickertooltiptext "Clique para exibir mais informações.">
+<!ENTITY accountsettings.021a.label "Ativado">
+<!ENTITY accountsettings.021b.label "Padrão">
+<!ENTITY accountsettings.021c.label "Nome do padrão">
+<!ENTITY accountsettings.021d.label "Tipo do padrão">
+<!ENTITY accountsettings.022.value "Nome de usuário">
+<!ENTITY accountsettings.022.tooltiptext "Nome de usuário para esta conta.">
+<!ENTITY accountsettings.023.tooltiptext "&accountsettings.022.tooltiptext;">
+<!ENTITY accountsettings.024.value "Usar l33t">
+<!ENTITY accountsettings.024.tooltiptext "Quando aplicar l33t?">
+<!ENTITY accountsettings.025.tooltiptext "&accountsettings.024.tooltiptext;">
+<!ENTITY accountsettings.026.label "nunca">
+<!ENTITY accountsettings.027.label "antes de gerar senha">
+<!ENTITY accountsettings.028.label "depois de gerar senha">
+<!ENTITY accountsettings.029.label "antes e depois de gerar senha">
+<!ENTITY accountsettings.030.value "Nível de l33t">
+<!ENTITY accountsettings.030.tooltiptext "Nível de l33t.">
+<!ENTITY accountsettings.031.tooltiptext "&accountsettings.030.tooltiptext;">
+<!ENTITY accountsettings.032.value "Algoritmo">
+<!ENTITY accountsettings.032.tooltiptext "Cálculo utilizado para gerar a senha.">
+<!ENTITY accountsettings.033.tooltiptext "&accountsettings.032.tooltiptext;">
+<!ENTITY accountsettings.034.label "MD4">
+<!ENTITY accountsettings.035.label "HMAC-MD4">
+<!ENTITY accountsettings.036.label "MD5">
+<!ENTITY accountsettings.037.label "MD5 Versão 0.6">
+<!ENTITY accountsettings.038.label "HMAC-MD5">
+<!ENTITY accountsettings.039.label "HMAC-MD5 Versão 0.6">
+<!ENTITY accountsettings.040.label "SHA-1">
+<!ENTITY accountsettings.041.label "HMAC-SHA-1">
+<!ENTITY accountsettings.042.label "SHA-256">
+<!ENTITY accountsettings.043.label "HMAC-SHA-256">
+<!ENTITY accountsettings.044.label "HMAC-SHA-256 Versão 1.5.1">
+<!ENTITY accountsettings.045.label "RIPEMD-160">
+<!ENTITY accountsettings.046.label "HMAC-RIPEMD-160">
+<!ENTITY accountsettings.047.value "Tamanho">
+<!ENTITY accountsettings.048.tooltiptext "Tamanho da senha gerada.">
+<!ENTITY accountsettings.049.value "Caracteres">
+<!ENTITY accountsettings.049.tooltiptext "Caracteres utilizados para formar a senha gerada.">
+<!ENTITY accountsettings.050.tooltiptext "&accountsettings.049.tooltiptext;">
+<!ENTITY accountsettings.051.label "Aleatórios">
+<!ENTITY accountsettings.052.label "Dicas">
+<!ENTITY accountsettings.053.value "Modificador">
+<!ENTITY accountsettings.053.tooltiptext "Caracteres fixos que modificam a senha gerada.">
+<!ENTITY accountsettings.054.tooltiptext "&accountsettings.053.tooltiptext;">
+<!ENTITY accountsettings.055.value "Prefixo">
+<!ENTITY accountsettings.055.tooltiptext "Caracteres fixos inseridos no início da senha gerada.">
+<!ENTITY accountsettings.056.tooltiptext "&accountsettings.055.tooltiptext;">
+<!ENTITY accountsettings.057.value "Sufixo">
+<!ENTITY accountsettings.057.tooltiptext "Caracteres fixos inseridos no final da senha gerada.">
+<!ENTITY accountsettings.058.tooltiptext "&accountsettings.057.tooltiptext;">
+<!ENTITY accountsettings.059.innerHTML "Adicione ou remova campos personalizados a serem preenchidos automaticamente.">
+<!ENTITY accountsettings.060.innerHTML "Clique em um campo da página exibida no navegador para preencher as informações abaixo.">
+<!ENTITY accountsettings.061.value "Nome do Campo">
+<!ENTITY accountsettings.061.tooltiptext "Nome do campo.">
+<!ENTITY accountsettings.062.tooltiptext "&accountsettings.061.tooltiptext;">
+<!ENTITY accountsettings.062.accesskey "N">
+<!ENTITY accountsettings.063.value "Valor do Campo">
+<!ENTITY accountsettings.063.tooltiptext "Valor do campo.">
+<!ENTITY accountsettings.064.tooltiptext "&accountsettings.063.tooltiptext;">
+<!ENTITY accountsettings.064.accesskey "V">
+<!ENTITY accountsettings.065.value "ID do Campo">
+<!ENTITY accountsettings.065.tooltiptext "Atributo &quot;id&quot; do campo.">
+<!ENTITY accountsettings.066.tooltiptext "&accountsettings.065.tooltiptext;">
+<!ENTITY accountsettings.066.accesskey "I">
+<!ENTITY accountsettings.067.value "Tipo do Campo">
+<!ENTITY accountsettings.067.tooltiptext "Tipo do campo.">
+<!ENTITY accountsettings.067.accesskey "T">
+<!ENTITY accountsettings.068.tooltiptext "&accountsettings.067.tooltiptext;">
+<!ENTITY accountsettings.075.value "Comentários">
+<!ENTITY accountsettings.075.tooltiptext "Comentários ou descrição para este campo.">
+<!ENTITY accountsettings.076.tooltiptext "&accountsettings.075.tooltiptext;">
+<!ENTITY accountsettings.076.accesskey "C">
+<!ENTITY accountsettings.077.value "Nome do Form">
+<!ENTITY accountsettings.078.accesskey "F">
+<!ENTITY accountsettings.079.value "Nome do form no qual o campo se encontra.">
+<!ENTITY accountsettings.080.value "Isso é necessário somente se a página tiver mais de um campo com o mesmo nome.">
+<!ENTITY accountsettings.081.label "Avise se este campo não for encontrado.">
+<!ENTITY accountsettings.081.accesskey "V">
+<!ENTITY accountsettings.082.value "Selecione para ser informado se este campo não puder ser preenchido automaticamente.">
+<!ENTITY accountsettings.083.value "Isso pode ocorrer se a página for alterada depois que você digitar as informações acima.">
+<!ENTITY accountsettings.084.label "Adicionar">
+<!ENTITY accountsettings.084.accesskey "A">
+<!ENTITY accountsettings.085.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY accountsettings.086.label "&accountsettings.061.value;">
+<!ENTITY accountsettings.087.label "&accountsettings.007.value;">
+<!ENTITY accountsettings.088.label "&accountsettings.063.value;">
+<!ENTITY accountsettings.089.label "&accountsettings.065.value;">
+<!ENTITY accountsettings.090.label "&accountsettings.067.value;">
+<!ENTITY accountsettings.091.label "&accountsettings.077.value;">
+<!ENTITY accountsettings.092.label "Aviso">
+<!ENTITY accountsettings.093.label "Detalhes da Senha">
+<!ENTITY accountsettings.094.value "Força da Senha">
+<!ENTITY accountsettings.094.tooltiptext "Segurança relativa da senha gerada">
+<!ENTITY accountsettings.095.tooltiptext "&accountsettings.094.tooltiptext;">
+<!ENTITY accountsettings.096.value "Senha Gerada:">
+<!ENTITY accountsettings.096.tooltiptext "&accountsettings.096.value;">
+<!ENTITY accountsettings.097.tooltiptext "&accountsettings.096.value;">
+<!ENTITY accountsettings.098.label "Excluir">
+<!ENTITY accountsettings.098.accesskey "E">
+<!ENTITY accountsettings.098.tooltiptext "Excluir o campo selecionado.">
+<!ENTITY accountsettings.099.label "Excluir Padrão">
+<!ENTITY accountsettings.099.accesskey "X">
+<!ENTITY accountsettings.099.tooltiptext "Excluir o padrão selecionado.">
+<!ENTITY accountsettings.100.label "Copiar Padrão">
+<!ENTITY accountsettings.100.accesskey "C">
+<!ENTITY accountsettings.100.tooltiptext "Copiar o padrão selecionado.">
+<!ENTITY accountsettings.101.label "Adicionar Padrão">
+<!ENTITY accountsettings.101.accesskey "A">
+<!ENTITY accountsettings.101.tooltiptext "Adicionar um novo padrão de endereço.">
+<!ENTITY accountsettings.102.label "Editar Padrão">
+<!ENTITY accountsettings.102.accesskey "E">
+<!ENTITY accountsettings.102.tooltiptext "Editar o padrão selecionado.">
+<!ENTITY accountsettings.103.label "Ajuda">
+<!ENTITY accountsettings.103.accesskey "J">
+<!ENTITY accountsettings.103.tooltiptext "Informações sobre como escrever padrões de endereço.">
+<!ENTITY accountsettings.104.label "texto">
+<!ENTITY accountsettings.105.label "texto multilinha">
+<!ENTITY accountsettings.106.label "senha">
+<!ENTITY accountsettings.107.label "caixa de seleção">
+<!ENTITY accountsettings.108.label "lista de opções">
+<!ENTITY accountsettings.109.label "botão de rádio">
+<!ENTITY opts.window.title "PasswordMaker - Opções">
+<!ENTITY opts.001.label "Copiar senha gerada">
+<!ENTITY opts.001.tooltip "Copia a senha gerada para a memória. A senha é removida da memória automaticamente se você configurar essa opção.">
+<!ENTITY opts.001.accesskey "C">
+<!ENTITY opts.002.label "Importar configurações...">
+<!ENTITY opts.002.tooltip "Importa um arquivo de configurações do PasswordMaker.">
+<!ENTITY opts.002.accesskey "I">
+<!ENTITY opts.003.label "Exportar configurações...">
+<!ENTITY opts.003.accesskey "E">
+<!ENTITY opts.003.tooltip "Exporta as configurações atuais do PasswordMaker para um arquivo.">
+<!ENTITY opts.004.label "Imprimir configurações...">
+<!ENTITY opts.004.accesskey "P">
+<!ENTITY opts.004.tooltip "Imprime as configurações atuais do PasswordMaker.">
+<!ENTITY options.005.label "Fechar">
+<!ENTITY options.005.accesskey "F">
+<!ENTITY options.005.tooltip "Fecha o PasswordMaker">
+<!ENTITY opts.006.label "Opções básicas">
+<!ENTITY opts.006.accesskey "B">
+<!ENTITY opts.006.tooltip "Abre a janela de opções básicas.">
+<!ENTITY opts.007.label "Opções avançadas">
+<!ENTITY opts.007.accesskey "A">
+<!ENTITY opts.007.tooltip "Abre a janela de opções avançadas.">
+<!ENTITY opts.008.label "Conteúdo">
+<!ENTITY opts.008.tooltip "Abre o manual do PasswordMaker em uma aba do navegador.">
+<!ENTITY opts.008.accesskey "T">
+<!ENTITY opts.009.label "Versão online">
+<!ENTITY opts.009.accesskey "V">
+<!ENTITY opts.009.tooltip "Abre a versão online do PasswordMaker em uma aba do navegador.">
+<!ENTITY opts.010.label "Sobre">
+<!ENTITY opts.010.accesskey "O">
+<!ENTITY opts.010.tooltip "Abre a janela Sobre.">
+<!ENTITY opts.011.label "Enviar Configurações">
+<!ENTITY opts.011.accesskey "E">
+<!ENTITY opts.011.tooltip "Enviar as configurações para o computador remoto.">
+<!ENTITY opts.012.label "Baixar Configurações">
+<!ENTITY opts.012.accesskey "B">
+<!ENTITY opts.012.tooltip "Baixar as configurações do computador remoto.">
+<!ENTITY opts.013.label "Novo grupo">
+<!ENTITY opts.013.tooltiptext "Cria um novo grupo.">
+<!ENTITY opts.013.accesskey "G">
+<!ENTITY opts.014.label "Nova conta">
+<!ENTITY opts.014.accesskey "N">
+<!ENTITY opts.014.tooltiptext "Cria uma nova conta.">
+<!ENTITY opts.015.label "Copiar conta">
+<!ENTITY opts.015.accesskey "C">
+<!ENTITY opts.015.tooltiptext "Copia a configuração de um conta existente para uma nova conta.">
+<!ENTITY opts.016.label "Mover conta">
+<!ENTITY opts.016.accesskey "M">
+<!ENTITY opts.016.tooltiptext "Move um conta para um outro grupo.">
+<!ENTITY opts.017.label "Excluir item">
+<!ENTITY opts.017.accesskey "E">
+<!ENTITY opts.017.tooltiptext "Excluir o item selecionado.">
+<!ENTITY opts.018.label "Configuração">
+<!ENTITY opts.018.accesskey "O">
+<!ENTITY opts.018.tooltiptext "Abre a janela de configuração.">
+<!ENTITY opts.019.label "Recolher todos os grupos">
+<!ENTITY opts.019.accesskey "R">
+<!ENTITY opts.019.tooltiptext "Fecha todos os grupos">
+<!ENTITY opts.020.label "Expandir todos os grupos">
+<!ENTITY opts.020.accesskey "E">
+<!ENTITY opts.020.tooltiptext "Abre todos os grupos.">
+<!ENTITY opts.021.label "Arquivo">
+<!ENTITY opts.021.accesskey "A">
+<!ENTITY opts.022.label "Editar">
+<!ENTITY opts.022.accesskey "E">
+<!ENTITY opts.023.label "Exibir">
+<!ENTITY opts.023.accesskey "X">
+<!ENTITY opts.024.label "Ajuda">
+<!ENTITY opts.024.accesskey "U">
+<!ENTITY opts.025.value "&opts.025.tooltiptext;">
+<!ENTITY opts.025.tooltiptext "Senha mestra">
+<!ENTITY opts.025.accesskey "M">
+<!ENTITY opts.026.tooltiptext "&opts.025.tooltiptext;">
+<!ENTITY opts.027.value "Confirmação">
+<!ENTITY opts.027.tooltiptext "Confirmação da senha mestra">
+<!ENTITY opts.028.tooltiptext "&opts.027.tooltiptext;">
+<!ENTITY opts.029.accesskey "G">
+<!ENTITY opts.029.value "Guardar senha mestra">
+<!ENTITY opts.029.tooltiptext "Escolha como a senha mestra deve ser guardada.">
+<!ENTITY opts.030.tooltiptext "&opts.029.tooltiptext;">
+<!ENTITY opts.031.label "Não guardar">
+<!ENTITY opts.032.label "Na memória">
+<!ENTITY opts.033.label "No disco e na memória">
+<!ENTITY opts.034a.value "Usando Texto">
+<!ENTITY opts.034a.accesskey "U">
+<!ENTITY opts.034a.tooltiptext "O endereço (ou outro texto) usado para gerar esta senha">
+<!ENTITY opts.035.tooltiptext "&opts.034a.tooltiptext;">
+<!ENTITY opts.036.value "&accountsettings.096.tooltiptext;">
+<!ENTITY opts.036.tooltiptext "Clique duas vezes para copiar a senha gerada.">
+<!ENTITY opts.037.tooltiptext "&opts.036.tooltiptext;">
+<!ENTITY opts.038.label "Contas">
+<!ENTITY opts.038.accesskey "C">
+<!ENTITY opts.039.label "Configuração Global">
+<!ENTITY opts.039.accesskey "I">
+<!ENTITY opts.040.label "Upload/Download">
+<!ENTITY opts.040.accesskey "L">
+<!ENTITY opts.041.label "Domínios Especiais">
+<!ENTITY opts.041.accesskey "O">
+<!ENTITY opts.042.tooltiptext "Selecione uma ação a executar">
+<!ENTITY opts.043.label "Escolha uma opção">
+<!ENTITY opts.044.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.045.label "&accountsettings.005.value;">
+<!ENTITY opts.046.label "&accountsettings.007.value;">
+<!ENTITY opts.047.label "&accountsettings.024.value;">
+<!ENTITY opts.048.label "&accountsettings.030.value;">
+<!ENTITY opts.049.label "&accountsettings.032.value;">
+<!ENTITY opts.050.label "&accountsettings.047.value;">
+<!ENTITY opts.051.label "Usar Protocolo">
+<!ENTITY opts.052.label "Usar Subdomínios">
+<!ENTITY opts.053.label "Usar Domínio">
+<!ENTITY opts.054.label "Usar Porta, Caminho e Parâmetros de Consulta">
+<!ENTITY opts.055.label "Endereço Utilizado">
+<!ENTITY opts.056.label "&accountsettings.022.value;">
+<!ENTITY opts.057.label "Contador">
+<!ENTITY opts.058.label "&accountsettings.049.value;">
+<!ENTITY opts.059.label "Prefixo">
+<!ENTITY opts.060.label "Sufixo">
+<!ENTITY opts.061.label "Preenchimento Automático">
+<!ENTITY opts.062.label "Esconder senha gerada com asteriscos">
+<!ENTITY opts.062.tooltiptext "Selecione para esconder a senha gerada com asteriscos.">
+<!ENTITY opts.063.label "Esconder campo da senha mestra (número de asteriscos)">
+<!ENTITY opts.063.tooltiptext "Selecione para esconder a senha mestra, evitando que alguém veja o seu tamanho.">
+<!ENTITY opts.064.label "Confirmar a senha mestra digitando-a duas vezes">
+<!ENTITY opts.064.tooltiptext "Selecione para que seja solicitada a confirmação da senha mestra.">
+<!ENTITY opts.065.label "Revelar todas as senhas nas páginas">
+<!ENTITY opts.065.tooltiptext "Selecione para exibir as senhas nas páginas sem escondê-las com asteriscos.">
+<!ENTITY opts.066.label "Ativar preenchimento automático nas páginas que o desativa">
+<!ENTITY opts.066.tooltiptext "Selecione para ativar preenchimento automático em campos e formulários. Campos de senha não são afetados.">
+<!ENTITY opts.067.label "Limpar área de transferência">
+<!ENTITY opts.067.tooltiptext "Selecione para limpar a área de transferência automaticamente.">
+<!ENTITY opts.068.tooltiptext "Digite o tempo (em segundos) para limpar a área de transferência.">
+<!ENTITY opts.069.value "segundos após copiar a senha gerada">
+<!ENTITY opts.069.tooltiptext "&opts.068.tooltiptext;">
+<!ENTITY opts.070.label "Exibir indicador na barra de status">
+<!ENTITY opts.070.tooltiptext "Selecione para exibir o ícone do PasswordMaker na barra de status.">
+<!ENTITY opts.071.value "Ação do CoolKey">
+<!ENTITY opts.072.tooltiptext "Selecione a ação desejada para quando o CoolKey for ativado.">
+<!ENTITY opts.073.label "Nenhuma ação">
+<!ENTITY opts.074.label "Preencher todos os campos">
+<!ENTITY opts.075.label "Preencher apenas campos vazios">
+<!ENTITY opts.076.label "Limpar todos os campos">
+<!ENTITY opts.077.innerHTML "Adicione ou remova computadores remotos">
+<!ENTITY opts.078.innerHTML "que podem guardar suas configurações.">
+<!ENTITY opts.079.tooltiptext "&opts.042.tooltiptext;">
+<!ENTITY opts.080.label "&opts.043.label;">
+<!ENTITY opts.081.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.082.label "&remotesettings.001.value;">
+<!ENTITY opts.083.label "&remotesettings.003.value;">
+<!ENTITY opts.084.label "&remotesettings.005.value;">
+<!ENTITY opts.085.label "&remotesettings.008.value;">
+<!ENTITY opts.086.label "&remotesettings.012.value;">
+<!ENTITY opts.087.label "&remotesettings.014.value;">
+<!ENTITY opts.088.label "&remotesettings.007.label;">
+<!ENTITY opts.089.label "&remotesettings.032.label;">
+<!ENTITY opts.090.label "&remotesettings.033.label;">
+<!ENTITY opts.091.label "&remotesettings.034.label;">
+<!ENTITY opts.092.label "&remotesettings.035.label;">
+<!ENTITY opts.093.innerHTML "Adicione ou remova domínios que sempre exigem o uso de subdomínios.">
+<!ENTITY opts.094.innerHTML "Consulte &quot;Ajuda&quot; para mais informações.">
+<!ENTITY opts.095.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY opts.096.label "País/Domínio">
+<!ENTITY opts.097.label "Descrição">
+<!ENTITY opts.098.label "&opts.013.label;">
+<!ENTITY opts.098.accesskey "G">
+<!ENTITY opts.098.tooltiptext "&opts.013.tooltiptext;">
+<!ENTITY opts.099.label "Novo domínio">
+<!ENTITY opts.099.tooltiptext "Criar um novo domínio.">
+<!ENTITY opts.099.accesskey "D">
+<!ENTITY opts.100.label "&opts.017.label;">
+<!ENTITY opts.100.tooltiptext "&opts.017.tooltiptext;">
+<!ENTITY opts.100.accesskey "&opts.017.accesskey;">
+<!ENTITY opts.101.tooltiptext "Isto é usado para verificar se a senha mestra digitada é igual a senha mestra guardada.">
+<!ENTITY opts.102.tooltiptext "&opts.101.tooltiptext;">
+<!ENTITY opts.105.label "Mudar Exibição">
+<!ENTITY opts.105.tooltiptext "Alternar entre exibição básica ou avançada">
+<!ENTITY opts.105.accesskey "M">
+<!ENTITY opts.106.tooltiptext "&opts.106.label;">
+<!ENTITY opts.108.label "Eu uso mais de uma senha mestra">
+<!ENTITY opts.110.label "Limpar">
+<!ENTITY opts.112.label "Validação da senha mestra">
+<!ENTITY b-opts.028.value "Esta senha foi gerada usando a configuração padrão. Use as">
+<!ENTITY b-opts.028a.value "Opções Avançadas">
+<!ENTITY b-opts.028b.value "para alterar a configuração.">
+<!ENTITY chooseaccount.window.title "PasswordMaker - Escolha a Conta">
+<!ENTITY chooseaccount.001.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY chooseaccount.002.label "&accountsettings.005.value;">
+<!ENTITY chooseaccount.003.label "&opts.097.label;">
+<!ENTITY chooseaccount.004.label "&accountsettings.022.value;">
+<!ENTITY chooseaccount.005.label "&accountsettings.024.value;">
+<!ENTITY chooseaccount.006.label "&accountsettings.030.value;">
+<!ENTITY chooseaccount.007.label "&accountsettings.032.value;">
+<!ENTITY chooseaccount.008.label "&accountsettings.047.value;">
+<!ENTITY chooseaccount.009.label "&opts.055.label;">
+<!ENTITY chooseaccount.010.label "&opts.057.label;">
+<!ENTITY chooseaccount.011.label "&accountsettings.049.value;">
+<!ENTITY chooseaccount.012.label "&opts.059.label;">
+<!ENTITY chooseaccount.013.label "&opts.060.label;">
+<!ENTITY chooseaccount.014.label "&opts.061.label;">
+<!ENTITY filepatternhelp.window.title "PasswordMaker - Ajuda sobre Padrão de Nome de Arquivo">
+<!ENTITY filepatternhelp.001.value "Especifica o diretório e o arquivo em que a cópia de segurança será">
+<!ENTITY filepatternhelp.002.value "gravada antes de baixar o arquivo remoto. Use os seguintes símbolos">
+<!ENTITY filepatternhelp.003.value "para incluir informações de data e hora no nome do arquivo:">
+<!ENTITY filepatternhelp.004.value "Símbolo">
+<!ENTITY filepatternhelp.005.value "Significado">
+<!ENTITY filepatternhelp.006.value "Exemplo">
+<!ENTITY filepatternhelp.007.value "Ano (quatro dígitos)">
+<!ENTITY filepatternhelp.008.value "Mês (dois dígitos)">
+<!ENTITY filepatternhelp.009.value "Dia (dois dígitos)">
+<!ENTITY filepatternhelp.010.value "Hora (dois dígitos, formato 24 horas)">
+<!ENTITY filepatternhelp.011.value "Hora (dois dígitos, formato 12 horas)">
+<!ENTITY filepatternhelp.012.value "Minutos (dois dígitos)">
+<!ENTITY filepatternhelp.013.value "Segundos (dois dígitos)">
+<!ENTITY filepatternhelp.014.value "Milissegundos (dois dígitos)">
+<!ENTITY filepatternhelp.015.value "Símbolo AM/PM (dois dígitos)">
+<!ENTITY folders.window.title "PasswordMaker - Selecione um Grupo">
+<!ENTITY folders.001.value "Selecione um grupo para o qual a conta será movida.">
+<!ENTITY folders.002.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY folders.003.label "&accountsettings.005.value;">
+<!ENTITY folders.004.label "&accountsettings.007.value;">
+<!ENTITY folders.005.label "&accountsettings.024.value;">
+<!ENTITY folders.006.label "&accountsettings.030.value;">
+<!ENTITY folders.007.label "&accountsettings.032.value;">
+<!ENTITY folders.008.label "&accountsettings.047.value;">
+<!ENTITY folders.009.label "&opts.051.label;">
+<!ENTITY folders.010.label "&opts.052.label;">
+<!ENTITY folders.011.label "&opts.053.label;">
+<!ENTITY folders.012.label "&opts.054.label;">
+<!ENTITY folders.013.label "&opts.055.label;">
+<!ENTITY folders.014.label "&accountsettings.022.value;">
+<!ENTITY folders.015.label "&opts.057.label;">
+<!ENTITY folders.016.label "&accountsettings.049.value;">
+<!ENTITY folders.017.label "&opts.059.label;">
+<!ENTITY folders.018.label "&opts.060.label;">
+<!ENTITY folders.019.label "&opts.061.label;">
+<!ENTITY folders.020.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY folders.021.label "&accountsettings.005.value;">
+<!ENTITY folders.022.label "&accountsettings.007.value;">
+<!ENTITY folders.023.label "&opts.084.label;">
+<!ENTITY folders.024.label "&accountsettings.022.value;">
+<!ENTITY folders.025.label "&opts.086.label;">
+<!ENTITY folders.026.label "&opts.087.label;">
+<!ENTITY folders.027.label "&opts.088.label;">
+<!ENTITY folders.028.label "&opts.089.label;">
+<!ENTITY folders.029.label "&opts.090.label;">
+<!ENTITY folders.030.label "&opts.091.label;">
+<!ENTITY folders.031.label "&opts.092.label;">
+<!ENTITY navigatorOverlay.001.label "PasswordMaker">
+<!ENTITY navigatorOverlay.001.accesskey "P">
+<!ENTITY navigatorOverlay.002.label "Abrir PasswordMaker">
+<!ENTITY navigatorOverlay.002.accesskey "A">
+<!ENTITY navigatorOverlay.003.label "CoolKey">
+<!ENTITY navigatorOverlay.003.accesskey "C">
+<!ENTITY navigatorOverlay.004.label "Limpar senha mestra">
+<!ENTITY navigatorOverlay.004.accesskey "M">
+<!ENTITY navigatorOverlay.005.label "&navigatorOverlay.001.label;">
+<!ENTITY navigatorOverlay.005.accesskey "P">
+<!ENTITY navigatorOverlay.006.label "Preencher este campo">
+<!ENTITY navigatorOverlay.006.accesskey "P">
+<!ENTITY navigatorOverlay.007.label "&navigatorOverlay.003.label;">
+<!ENTITY navigatorOverlay.007.accesskey "&navigatorOverlay.003.accesskey;">
+<!ENTITY navigatorOverlay.008.label "&navigatorOverlay.004.label;">
+<!ENTITY navigatorOverlay.008.accesskey "&navigatorOverlay.004.accesskey;">
+<!ENTITY navigatorOverlay.009.label "&navigatorOverlay.002.label;">
+<!ENTITY navigatorOverlay.009.accesskey "&navigatorOverlay.002.accesskey;">
+<!ENTITY navigatorOverlay.010.tooltiptext "&navigatorOverlay.002.label;">
+<!ENTITY navigatorOverlay.010.label "&navigatorOverlay.002.label;">
+<!ENTITY navigatorOverlay.011.tooltiptext "PasswordMaker CoolKey">
+<!ENTITY navigatorOverlay.011.label "&navigatorOverlay.003.label;">
+<!ENTITY passwdmakerOverlay.001.label "&navigatorOverlay.001.label;">
+<!ENTITY passwdmakerOverlay.001.accesskey "&navigatorOverlay.001.accesskey;">
+<!ENTITY passwdmakerOverlay.002.label "&navigatorOverlay.002.label;">
+<!ENTITY passwdmakerOverlay.002.accesskey "&navigatorOverlay.002.accesskey;">
+<!ENTITY passwdmakerOverlay.003.label "&navigatorOverlay.003.label;">
+<!ENTITY passwdmakerOverlay.003.accesskey "&navigatorOverlay.003.accesskey;">
+<!ENTITY passwdmakerOverlay.004.label "&navigatorOverlay.004.label;">
+<!ENTITY passwdmakerOverlay.004.accesskey "&navigatorOverlay.004.accesskey;">
+<!ENTITY passwdmakerOverlay.005.label "&navigatorOverlay.001.label;">
+<!ENTITY passwdmakerOverlay.005.accesskey "&navigatorOverlay.001.accesskey;">
+<!ENTITY passwdmakerOverlay.006.label "&navigatorOverlay.006.label;">
+<!ENTITY passwdmakerOverlay.006.accesskey "&navigatorOverlay.006.accesskey;">
+<!ENTITY passwdmakerOverlay.007.label "&navigatorOverlay.007.label;">
+<!ENTITY passwdmakerOverlay.007.accesskey "&navigatorOverlay.007.accesskey;">
+<!ENTITY passwdmakerOverlay.008.label "&navigatorOverlay.008.label;">
+<!ENTITY passwdmakerOverlay.008.accesskey "&navigatorOverlay.008.accesskey;">
+<!ENTITY passwdmakerOverlay.009.label "&navigatorOverlay.009.label;">
+<!ENTITY passwdmakerOverlay.009.accesskey "&navigatorOverlay.009.accesskey;">
+<!ENTITY passwdmakerOverlay.010.tooltiptext "&navigatorOverlay.010.label;">
+<!ENTITY passwdmakerOverlay.010.label "&navigatorOverlay.010.label;">
+<!ENTITY passwdmakerOverlay.011.tooltiptext "&navigatorOverlay.011.tooltiptext;">
+<!ENTITY passwdmakerOverlay.011.label "&navigatorOverlay.011.label;">
+<!ENTITY passwordprompt.window.title "PasswordMaker - Senha Mestra">
+<!ENTITY passwordprompt.001.value "Uma senha está sendo gerada mas a senha mestra não foi guardada na">
+<!ENTITY passwordprompt.002.value "memória ou no disco. Digite a senha mestra ou clique em &quot;Cancelar&quot;.">
+<!ENTITY passwordprompt.003.value "Conta para a qual a senha está sendo gerada:">
+<!ENTITY passwordprompt.004.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY passwordprompt.005.label "&accountsettings.005.value;">
+<!ENTITY passwordprompt.006.label "&opts.097.label;">
+<!ENTITY passwordprompt.007.label "&accountsettings.022.value;">
+<!ENTITY passwordprompt.008.label "&accountsettings.024.value;">
+<!ENTITY passwordprompt.009.label "&accountsettings.030.value;">
+<!ENTITY passwordprompt.010.label "&accountsettings.032.value;">
+<!ENTITY passwordprompt.011.label "&accountsettings.047.value;">
+<!ENTITY passwordprompt.012.label "&opts.055.label;">
+<!ENTITY passwordprompt.013.label "&opts.057.label;">
+<!ENTITY passwordprompt.014.label "&accountsettings.049.value;">
+<!ENTITY passwordprompt.015.label "&opts.059.label;">
+<!ENTITY passwordprompt.016.label "&opts.060.label;">
+<!ENTITY passwordprompt.017.label "&opts.061.label;">
+<!ENTITY passwordprompt.018.value "&opts.025.tooltiptext;">
+<!ENTITY passwordprompt.019.value "&opts.027.value;">
+<!ENTITY passwordprompt.020.value "&opts.029.value;">
+<!ENTITY passwordprompt.021.tooltiptext "&opts.029.tooltiptext;">
+<!ENTITY passwordprompt.022.label "&opts.031.label;">
+<!ENTITY passwordprompt.023.label "&opts.032.label;">
+<!ENTITY passwordprompt.024.label "&opts.033.label;">
+<!ENTITY pattern.window.title "PasswordMaker - Adicionar/Editar Padrão">
+<!ENTITY pattern.001.label "Ativado">
+<!ENTITY pattern.001.accesskey "A">
+<!ENTITY pattern.001.tooltiptext "Selecione para comparar este padrão com os endereços carregados no navegador.">
+<!ENTITY pattern.002.value "Nome do padrão">
+<!ENTITY pattern.002.tooltiptext "Nome do padrão.">
+<!ENTITY pattern.002.accesskey "N">
+<!ENTITY pattern.003.tooltiptext "&pattern.002.tooltiptext;">
+<!ENTITY pattern.003.accesskey "&pattern.002.accesskey;">
+<!ENTITY pattern.004.value "Padrão de endereço">
+<!ENTITY pattern.004.tooltiptext "Padrão de endereço.">
+<!ENTITY pattern.004.accesskey "P">
+<!ENTITY pattern.005.tooltiptext "&pattern.004.tooltiptext;">
+<!ENTITY pattern.005.accesskey "&pattern.004.accesskey;">
+<!ENTITY pattern.006.label "O padrão contém">
+<!ENTITY pattern.007.accesskey "W">
+<!ENTITY pattern.007.tooltiptext "Especifica que o padrão de endereço utiliza caracteres coringas e não é uma expressão regular.">
+<!ENTITY pattern.008.value "Caracteres coringas">
+<!ENTITY pattern.008.tooltiptext "&pattern.007.tooltiptext;">
+<!ENTITY pattern.009.value "Exemplo: *://mail.yahoo.com/*">
+<!ENTITY pattern.010.accesskey "R">
+<!ENTITY pattern.010.tooltiptext "Especifica que o padrão de endereço é uma expressão regular.">
+<!ENTITY pattern.011.value "Expressão regular">
+<!ENTITY pattern.011.tooltiptext "&pattern.010.tooltiptext;">
+<!ENTITY pattern.012.value "Exemplo: https?://mail\.yahoo\.com\/.*">
+<!ENTITY remotesettings.window.title "PasswordMaker - Configurações Remotas">
+<!ENTITY remotesettings.001.value "Nome do servidor">
+<!ENTITY remotesettings.001.accesskey "S">
+<!ENTITY remotesettings.001.tooltiptext "Nome do servidor.">
+<!ENTITY remotesettings.002.tooltiptext "&remotesettings.001.tooltiptext;">
+<!ENTITY remotesettings.003.value "Descrição">
+<!ENTITY remotesettings.003.accesskey "D">
+<!ENTITY remotesettings.003.tooltiptext "Descrição ou comentários sobre o servidor.">
+<!ENTITY remotesettings.004.tooltiptext "&remotesettings.003.tooltiptext;">
+<!ENTITY remotesettings.005.value "Endereço">
+<!ENTITY remotesettings.005.accesskey "E">
+<!ENTITY remotesettings.005.tooltiptext "Endereço completo incluindo nome do arquivo (por exemplo: ftp://passwordmaker.org/public_html/Configurações.rdf).">
+<!ENTITY remotesettings.006.tooltiptext "&remotesettings.005.tooltiptext;">
+<!ENTITY remotesettings.007.label "Usar WebDAV">
+<!ENTITY remotesettings.007.accesskey "W">
+<!ENTITY remotesettings.007.tooltiptext "Selecione para utilizar WebDAV. O endereço tem que começar com http:// ou https:// para que esta opção seja ativada.">
+<!ENTITY remotesettings.008.value "Nome de usuário">
+<!ENTITY remotesettings.008.accesskey "U">
+<!ENTITY remotesettings.008.tooltiptext "Nome de usuário para acessar o servidor.">
+<!ENTITY remotesettings.009.tooltiptext "&remotesettings.008.tooltiptext;">
+<!ENTITY remotesettings.010.value "Senha">
+<!ENTITY remotesettings.010.accesskey "S">
+<!ENTITY remotesettings.010.tooltiptext "Senha de acesso ao servidor.">
+<!ENTITY remotesettings.011.tooltiptext "&remotesettings.010.tooltiptext;">
+<!ENTITY remotesettings.012.value "Diretório de becape">
+<!ENTITY remotesettings.012.accesskey "B">
+<!ENTITY remotesettings.013.accesskey "&remotesettings.012.accesskey;">
+<!ENTITY remotesettings.014.value "Padrão de nome de arquivo">
+<!ENTITY remotesettings.014.accesskey "P">
+<!ENTITY remotesettings.015.accesskey "&remotesettings.014.accesskey;">
+<!ENTITY remotesettings.016.label "?">
+<!ENTITY remotesettings.016.tooltip "Ajuda sobre padrão de nome de arquivo">
+<!ENTITY remotesettings.017.value "&filepatternhelp.001.value;">
+<!ENTITY remotesettings.018.value "&filepatternhelp.002.value;">
+<!ENTITY remotesettings.019.value "&filepatternhelp.003.value;">
+<!ENTITY remotesettings.020.value "&filepatternhelp.004.value;">
+<!ENTITY remotesettings.021.value "&filepatternhelp.005.value;">
+<!ENTITY remotesettings.022.value "&filepatternhelp.006.value;">
+<!ENTITY remotesettings.023.value "&filepatternhelp.007.value;">
+<!ENTITY remotesettings.024.value "&filepatternhelp.008.value;">
+<!ENTITY remotesettings.025.value "&filepatternhelp.009.value;">
+<!ENTITY remotesettings.026.value "&filepatternhelp.010.value;">
+<!ENTITY remotesettings.027.value "&filepatternhelp.011.value;">
+<!ENTITY remotesettings.028.value "&filepatternhelp.012.value;">
+<!ENTITY remotesettings.029.value "&filepatternhelp.013.value;">
+<!ENTITY remotesettings.030.value "&filepatternhelp.014.value;">
+<!ENTITY remotesettings.031.value "&filepatternhelp.015.value;">
+<!ENTITY remotesettings.032.accesskey "I">
+<!ENTITY remotesettings.032.label "Baixar ao iniciar">
+<!ENTITY remotesettings.032.tooltiptext "Baixar automaticamente as configurações quando o navegador abrir.">
+<!ENTITY remotesettings.033.accesskey "F">
+<!ENTITY remotesettings.033.label "Enviar ao fechar">
+<!ENTITY remotesettings.033.tooltiptext "Enviar automaticamente as configurações quando o navegador fechar.">
+<!ENTITY remotesettings.034.accesskey "A">
+<!ENTITY remotesettings.034.label "Enviar quando alteradas">
+<!ENTITY remotesettings.034.tooltiptext "Enviar automaticamente as configurações quando elas forem alteradas.">
+<!ENTITY remotesettings.035.accesskey "C">
+<!ENTITY remotesettings.035.label "Combinar">
+<!ENTITY remotesettings.035.tooltiptext "Combinar conteúdos">
+<!ENTITY remotesettings.036.label "OK">
+<!ENTITY remotesettings.036.accesskey "O">
+<!ENTITY remotesettings.037.label "Cancelar">
+<!ENTITY remotesettings.037.accesskey "C">
+<!ENTITY tips.window.title "PasswordMaker - Dicas sobre Caracteres">
+<!ENTITY tips.001.innerHTML "O campo &quot;Caracteres&quot; contém a lista de caracteres usados na geração da senha. Ao selecionar os caracteres, considere estas dicas:">
+<!ENTITY tips.002.innerHTML "Se você precisar de senhas compatíveis com o PasswordMaker versão 0.6 e anteriores, utilize 0123456789abcdef. Se nas suas senhas estiverem faltando zeros à esquerda que existiam na versão 0.6, tente usar o algoritmo MD5 Versão 0.6 ou HMAC-MD5 Versão 0.6.">
+<!ENTITY tips.003.innerHTML "É obrigatório informar no mínimo dois caracteres.">
+<!ENTITY tips.004.innerHTML "Caracteres podem ser repetidos.">
+<!ENTITY tips.005.innerHTML "Se você informar o mesmo caractere mais de uma vez, esse caractere vai aparecer mais vezes no senha gerada.">
+<!ENTITY tips.006.innerHTML "Quando mais caracteres diferentes você informar, maior será a variedade de caracteres presentes na senha gerada.">
+<!ENTITY tips.007.innerHTML "A ordem dos caracteres informados afeta o resultado! Informar 0123456789abcdef resulta em uma senha e informar abcdef0123456789 resulta em uma outra senha diferente.">
+<!ENTITY tips.008.innerHTML "Você pode especificar caracteres especiais, tais como">
+<!ENTITY tips.009.innerHTML "http://pt.wiktionary.org/wiki/diacr&#37;C3&#37;ADtico">
+<!ENTITY tips.010.innerHTML "letras com diacríticos">
+<!ENTITY tips.012.innerHTML "http://pt.wiktionary.org/wiki/trema">
+<!ENTITY tips.013.innerHTML "letras com trema">
+<!ENTITY tips.015.innerHTML "http://pt.wiktionary.org/wiki/ligatura">
+<!ENTITY tips.016.innerHTML "ligaturas">
+<!ENTITY tips.017a.innerHTML "outros caracteres e símbolos">
+<!ENTITY tips.017b.innerHTML "etc. Se você quiser especificar um caractere que não aparece no seu teclado, tente digitar as teclas ALT, OPTION ou CTRL junto com o código do caractere. A seqüência de teclas varia de um sistema operacional para outro. Por exemplo, se você digitar ALT+0222 no Windows (os números devem ser digitados na parte do teclado à direita), será gerado o caractere islandês thorn:">
+<!ENTITY treeprompt.window.title "PasswordMaker - Configuração de Grupo">
+<!ENTITY treeprompt.001.value "Nome (obrigatório)">
+<!ENTITY treeprompt.002.value "Descrição (opcional)">
+<!ENTITY unpopped.window.title "PasswordMaker - Campos Não Encontrados">
+<!ENTITY unpopped.001.value "Você configurou o preenchimento automático dos seguintes campos mas eles não foram encontrados nesta página:">
+<!ENTITY unpopped.002.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
+<!ENTITY unpopped.003.label "&accountsettings.061.value;">
+<!ENTITY unpopped.004.label "&accountsettings.007.value;">
+<!ENTITY unpopped.005.label "&accountsettings.063.value;">
+<!ENTITY unpopped.006.label "&accountsettings.065.value;">
+<!ENTITY unpopped.007.label "&accountsettings.067.value;">
+<!ENTITY unpopped.008.label "&accountsettings.077.value;">
+<!ENTITY unpopped.009.label "&accountsettings.092.label;">

@@ -1,0 +1,6 @@
+#passwordmaker-button {
+	list-style-image: url("chrome://passwdmaker/content/images/passwdmaker-seamonkey-classic.png") !important;
+}
+#passwordmaker-key-button {
+	list-style-image: url("chrome://passwdmaker/content/images/key-seamonkey-classic.png") !important;
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<window
+  id="passwordmakerremotesettings"
+  windowtype="passwordmaker"
+  title="&remotesettings.window.title;"
+  orient="vertical"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  persist="screenX screenY width height"
+  onload="onLoad();">
+
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/remotesettings.js"/>    
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/updownload.js"/>  
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/jsio.js"/>  
+  
+  <grid style="margin: 1em;"> 
+    <columns>
+  		<column/>
+  		<column flex="1"/>																               
+    </columns>            
+    <rows>
+      <row align="center">
+        <label value="&remotesettings.001.value;" accesskey="&remotesettings.001.accesskey;" control="name" tooltiptext="&remotesettings.001.tooltiptext;"/>
+        <textbox id="name" tooltiptext="&remotesettings.002.tooltiptext;"/>
+      </row>                
+      <row align="center">
+        <label value="&remotesettings.003.value;" accesskey="&remotesettings.003.accesskey;" control="description" tooltiptext="&remotesettings.003.tooltiptext;"/>
+        <textbox id="description" align="stretch" multiline="true" tooltiptext="&remotesettings.004.tooltiptext;"/>
+      </row>                                
+      <row align="center">
+        <label value="&remotesettings.005.value;" accesskey="&remotesettings.005.accesskey;" control="url" tooltiptext="&remotesettings.005.tooltiptext;"/>
+        <textbox id="url" oninput="enableCredentials();" tooltiptext="&remotesettings.006.tooltiptext;"/>
+      </row>                
+      <row align="center">
+        <checkbox id="webDAV" label="&remotesettings.007.label;" accesskey="&remotesettings.007.accesskey;" tooltiptext="&remotesettings.007.tooltiptext;"
+          disabled="true" oncommand="enableCredentials();"/>
+        <spacer/>
+      </row>                
+      <row align="center">
+        <label value="&remotesettings.008.value;" accesskey="&remotesettings.008.accesskey;" control="username" flex="1" tooltiptext="&remotesettings.008.tooltiptext;"/>
+        <textbox id="username" flex="1" disabled="true" tooltiptext="&remotesettings.009.tooltiptext;"/>
+      </row>
+      <row align="center">
+        <label value="&remotesettings.010.value;" accesskey="&remotesettings.010.accesskey;" control="password" flex="1" tooltiptext="&remotesettings.010.tooltiptext;"/>
+        <textbox id="password" flex="1" type="password" disabled="true" tooltiptext="&remotesettings.011.tooltiptext;"/>
+      </row>
+      <row align="center">
+        <label value="&remotesettings.012.value;" accesskey="&remotesettings.012.accesskey;" control="backupDir" tooltip="backupFileTooltip"/>
+        <textbox id="backupDir" flex="1" accesskey="&remotesettings.013.accesskey;" tooltip="backupFileTooltip" readonly="true"/>
+        <button style="min-width: 0.5em; " onclick="onSetBackupDir();" flex="1" label="..." tooltip="backupFileTooltip"/>
+      </row>
+      <row align="center">
+        <label value="&remotesettings.014.value;" accesskey="&remotesettings.014.accesskey;" control="filePattern" tooltip="backupFileTooltip"/>
+        <textbox id="filePattern" flex="1" accesskey="&remotesettings.015.accesskey;" tooltip="backupFileTooltip"/>
+        <button style="min-width: 0.5em; " onclick="window.openDialog('chrome://passwdmaker/content/filepatternhelp.xul', '', 'chrome, dialog, modal, resizable=yes').focus();" flex="1" label="&remotesettings.016.label;" tooltip="&remotesettings.016.tooltip;"/>                          
+        <tooltip id="backupFileTooltip" noautohide="true">
+          <grid flex="1">
+            <columns><column flex="1"/><column flex="1"/><column flex="1"/></columns>
+            <rows>
+              <label value="&remotesettings.017.value;"/>
+              <label value="&remotesettings.018.value;"/>
+              <label value="&remotesettings.019.value;"/>
+              <label value=""/>
+              <row>
+                <label value="&remotesettings.020.value;"
+                  style="font-weight: bold; text-decoration: underline;"/>
+                <label value="&remotesettings.021.value;" style="font-weight: bold; text-decoration: underline;"/>
+                <label value="&remotesettings.022.value;" style="font-weight: bold; text-decoration: underline;"/>
+              </row>                        
+              <row>
+                <label value="%y"/><label value="&remotesettings.023.value;"/><label value="2005"/>
+              </row>
+              <row>
+                <label value="%M"/><label value="&remotesettings.024.value;"/><label value="01"/>
+              </row>                                                                        
+              <row>
+                <label value="%d"/><label value="&remotesettings.025.value;"/><label value="09"/>
+              </row>                                                                        
+              <row>
+                <label value="%H"/><label value="&remotesettings.026.value;"/><label value="15"/>
+              </row>                         
+              <row>
+                <label value="%h"/><label value="&remotesettings.027.value;"/><label value="03"/>
+              </row>
+              <row>
+                <label value="%m"/><label value="&remotesettings.028.value;"/><label value="35"/>
+              </row>                                                
+              <row>
+                <label value="%s"/><label value="&remotesettings.029.value;"/><label value="05"/>
+              </row> 
+              <row>
+                <label value="%S"/><label value="&remotesettings.030.value;"/><label value="961"/>
+              </row>                         
+              <row>
+                <label value="%a"/><label value="&remotesettings.031.value;"/><label value="PM"/>
+              </row>                                             
+            </rows>
+          </grid>
+        </tooltip>                   
+      </row>
+      <row>
+        <!-- hidden for now -->
+        <checkbox id="autoDownload" hidden="true" accesskey="&remotesettings.032.accesskey;" label="&remotesettings.032.label;" tooltiptext="&remotesettings.032.tooltiptext;"/>
+        <checkbox id="autoUpload" hidden="true" accesskey="&remotesettings.033.accesskey;" label="&remotesettings.033.label;" tooltiptext="&remotesettings.033.tooltiptext;"/>
+        <checkbox id="autoUploadWhenDirty" hidden="true" accesskey="&remotesettings.034.accesskey;" label="&remotesettings.034.label;" tooltiptext="&remotesettings.034.tooltiptext;"/>
+        <checkbox id="merge" hidden="true" accesskey="&remotesettings.035.accesskey;" label="&remotesettings.035.label;" tooltiptext="&remotesettings.035.tooltiptext;"/>              
+      </row>
+      <row>
+        <spacer flex="1" style="height: 3em;"/>
+      </row>   
+      <hbox>
+        <spacer flex="1"/>
+        <!--<button oncommand="onUpdownload('upload');" label="Upload Now" accesskey="U"/>
+        <button oncommand="onUpdownload();" label="Download Now" accesskey="D"/>-->
+        <button oncommand="onOK(); window.close();" label="&remotesettings.036.label;" accesskey="&remotesettings.036.accesskey;"/>    
+        <button oncommand="window.close();" label="&remotesettings.037.label;" accesskey="&remotesettings.037.accesskey;"/>               
+      </hbox>                                         
+    </rows>
+  </grid>
+
+</window>
+        

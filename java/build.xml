@@ -1,0 +1,39 @@
+<project name="passwordmaker" default="all" basedir=".">
+
+	<target name="all" depends="init,compile,manifest,jar,run"/>
+
+	<target name="init">
+  	<mkdir dir="build"/>
+		<path id="class.path">
+		  <pathelement location="lib/bcprov-jdk14-129.jar"/>
+	  </path>
+  </target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="build" debuglevel="lines, vars, and source"
+			debug="true" optimize="on" fork="yes" executable="C:\Program Files\Java\jdk1.5.0_05\bin\javac.exe"
+		  classpathref="class.path"/>
+  </target>
+  	
+  <target name="manifest" depends="init">
+    <manifest file="MANIFEST.MF">
+      <attribute name="Main-Class" value="com.leahscape.passwordmaker.Gui"/>
+    	<attribute name="Class-Path" value="bcprov-jdk14-129.jar"/>
+    </manifest>  	
+	</target>
+	
+	<target name="jar" depends="manifest">       
+		<jar destfile="build/passwordmaker.jar" manifest="MANIFEST.MF">
+			<fileset dir="classes">
+				<include name="**/**"/>          
+			</fileset>
+		</jar>
+	</target>
+
+  <target name="run">
+  	<copy file="lib/bcprov-jdk14-129.jar" todir="build"/>
+	  <java fork="true" jar="build/passwordmaker.jar" classpathref="class.path"
+	  	dir="."/>
+	</target>
+	
+</project>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="chrome://passwdmaker/content/passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<overlay id="passwordMakerCommunicatoroverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/mpw.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/prefswrapper.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/aes.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/hashutils.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/ripemd160.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md4.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md5.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/md5_v6.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/sha256.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/sha1.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/crypt/ripemd160.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/l33t.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/helpers.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/passwdmaker.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/jsio.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/statusbar.js"/>
+  <script type="application/x-javascript" src="chrome://passwdmaker/content/rdfutils.js"/>  
+   
+  <script type="application/x-javascript">
+    // Have Mozilla/Netscape call passwordMaker.init() after it's loaded. This lets
+    // passwordMaker.init() call document.getElementById("appcontent")
+    // at the right time -- any earlier and document.getElementById("appcontent")
+    // can return null.
+    window.addEventListener("load", function() {passwordMaker.init();}, false);
+    //window.addEventListener("unload", function() {passwordMaker.onUnload();}, false);
+    //window.addEventListener("focus", function() {passwordMaker.onFocus();}, false);        
+  </script>
+
+  <!-- Tools Menu -->
+  <menupopup id="taskPopup">
+    <menu id="menu_PasswordMakerMenu" label="&navigatorOverlay.001.label;" accesskey="&navigatorOverlay.001.accesskey;" class="menu-iconic" image="chrome://passwdmaker/content/images/ring-16x16-enabled.png">
+      <menupopup id="menu_PasswordMakerMenuPopup">      
+        <menuitem id="passwdmaker-open-menu" label="&navigatorOverlay.002.label;" accesskey="&navigatorOverlay.002.accesskey;" oncommand="passwordMaker.open();" class="menuitem-iconic" key="key_passwordmakerfocus" image="chrome://passwdmaker/content/images/ring-16x16-enabled.png"/>
+        <menuitem id="passwdmaker-coolkey-menu" label="&navigatorOverlay.003.label;" accesskey="&navigatorOverlay.003.accesskey;" oncommand="passwordMaker.populateFields();" class="menuitem-iconic" key="key_coolkey" image="chrome://passwdmaker/content/images/key-16x16.png"/>     
+        <menuitem id="passwordmaker-clearmpw-menu" label="&navigatorOverlay.004.label;" accesskey="&navigatorOverlay.004.accesskey;" oncommand="passwordMaker.setMPW(null, true);" class="menuitem-iconic" key="key_remove_mpw" image="chrome://passwdmaker/content/images/eraser.png"/>             
+      </menupopup>
+    </menu>
+   </menupopup>
+
+  <keyset id="navKeys">
+    <key id="key_passwordmakerfocus" key="`" modifiers="accel" oncommand="passwordMaker.open();"/>
+    <key id="key_coolkey" key="`" modifiers="alt" oncommand="passwordMaker.populateFields();"/>
+    <key id="key_remove_mpw" key="`" modifiers="alt control" oncommand="passwordMaker.setMPW(null, true);"/>    
+  </keyset>
+
+  <popup id="contentAreaContextMenu">
+  	<menu id="passwordmaker-context-menu" label="&navigatorOverlay.005.label;" accesskey="&navigatorOverlay.005.accesskey;" class="menu-iconic"
+  	  image="chrome://passwdmaker/content/images/ring-16x16-enabled.png">  
+    	<menupopup id="passwordmaker-context-menu-popup">
+        <menuitem id="passwordmaker-popup" label="&navigatorOverlay.006.label;" accesskey="&navigatorOverlay.006.accesskey;" insertafter="context-selectAll"
+          oncommand="passwordMaker.onContextMenuClick();" class="menu-iconic" image="chrome://passwdmaker/content/images/quill.png"/>
+        <menuitem id="passwordmaker-coolkey-popup" label="&navigatorOverlay.007.label;" accesskey="&navigatorOverlay.007.accesskey;"
+          insertafter="passwordmaker-popup" oncommand="passwordMaker.populateFields();" class="menu-iconic" image="chrome://passwdmaker/content/images/key-16x16.png"/>        
+        <menuitem id="passwordmaker-removempw-popup" label="&navigatorOverlay.008.label;"
+          accesskey="&navigatorOverlay.008.accesskey;" insertafter="passwordmaker-popup"
+          class="menuitem-iconic"
+          oncommand="passwordMaker.setMPW(null, true);"
+          image="chrome://passwdmaker/content/images/eraser.png"/>           
+        <menuitem id="passwordmaker-context-menu-open" label="&navigatorOverlay.009.label;"
+          accesskey="&navigatorOverlay.009.accesskey;" insertafter="passwordmaker-popup"
+          class="menuitem-iconic"
+          oncommand="passwordMaker.open();"
+          image="chrome://passwdmaker/content/images/ring-16x16-enabled.png"/>
+      </menupopup>
+    </menu>      
+  </popup>
+
+  <hbox id="nav-bar-buttons">
+    <toolbarbutton id="passwordmaker-button" tooltiptext="&navigatorOverlay.010.tooltiptext;" label="&navigatorOverlay.010.label;"
+      oncommand="passwordMaker.open();" pack="center" persist="hidden" class="toolbarbutton-1" insertafter="stop-button" popup=""/>
+
+    <toolbarbutton id="passwordmaker-key-button" tooltiptext="&navigatorOverlay.011.tooltiptext;" label="&navigatorOverlay.011.label;" 
+     oncommand="passwordMaker.populateFields();" pack="center" persist="hidden" class="toolbarbutton-1"
+     insertafter="passwordmaker-button" popup=""/>                    
+  </hbox>
+ 
+</overlay>

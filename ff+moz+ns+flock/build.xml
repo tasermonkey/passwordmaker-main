@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<project name="passwordmaker-mozilla-ff-ns" default="build">
+		
+	<!-- version property is appended to XPI filename; e.g., passwdmaker-1.3.3.xpi -->
+  <property name="version" value="1.7.2"/>
+	
+	<!-- guid of your extension -->
+	<property name="guid" value="{5872365e-67d1-4afd-9480-fd293bebd20d}"/>
+	
+	<!-- create the jar -->
+  <target name="jar">
+      <mkdir dir="build/chrome"/>
+      <mkdir dir="build/defaults"/>
+      <zip destfile="build/chrome/passwdmaker.jar">
+          <zipfileset dir="chrome/content" prefix="content"/>
+          <zipfileset dir="chrome/skin" prefix="skin"/>
+          <zipfileset dir="chrome/locale" prefix="locale"/>
+      </zip>
+	</target>
+	<!-- create passwdmaker-x.y.z.xpi in the parent dir using install.rdf in the current dir -->
+  <target name="build" depends="jar">
+      <move file="chrome.manifest" tofile="chrome.manifest.dev"/>
+      <move file="chrome.manifest.packaging" tofile="chrome.manifest"/>
+      <zip destfile="passwdmaker-${version}.xpi">
+          <fileset dir="." includes="install.js install.rdf chrome.manifest LICENSE"/>
+          <zipfileset dir="defaults" includes="*dlg*" prefix="defaults"/>
+          <zipfileset dir="defaults/preferences" prefix="defaults/preferences"/>
+          <zipfileset dir="build/chrome" includes="passwdmaker.jar" prefix="chrome"/>
+      	  <zipfileset dir="components" prefix="components" includes="*.*"/>        	
+      </zip>     
+      <move file="chrome.manifest" tofile="chrome.manifest.packaging"/>
+      <move file="chrome.manifest.dev" tofile="chrome.manifest"/>
+  </target>
+</project>

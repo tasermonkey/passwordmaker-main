@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+    
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+<window class="dialog"
+	title="&about.window.title;"
+	orient="vertical"
+	onload="sizeToContent();"
+	windowtype="passwordmaker"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript">
+  passwordMaker = window.arguments[0].passwordMaker;
+</script>
+  
+<keyset>
+  <key keycode="VK_ESCAPE" oncommand="window.close();"/>
+</keyset>
+
+<groupbox align="center" orient="horizontal">
+<vbox>
+  <hbox flex="1"><label value="PasswordMaker" style="font-weight: bold; font-size: x-large;" flex="1"/><image src="chrome://passwdmaker/content/images/passwdmaker.png"/></hbox>
+  <hbox><label value="One Password To Rule Them All&#8482;" style="margin-left: 1em; font-size: small; font-weight: bold;"/></hbox>
+  <separator/>
+  <label value="Version 1.7.2"/>
+  <separator/>
+    <label value="&about.001.value;" style="font-weight: bold;"/>
+    <label value="http://passwordmaker.org" class="link" onclick="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/');"/>
+  <separator/>
+
+  <label value="&about.002.value;" style="font-weight: bold;"/>
+  <hbox>
+    <label value="LeahScape, Inc." class="link" onclick="passwordMaker.openAndReuseOneTabPerURL('http://leahscape.com/');" tooltiptext="http://leahscape.com"/></hbox>
+  <separator/>
+  <label value="&about.003.value;" style="font-weight: bold;"/>
+  <label value="Mauro Jose da Silva" class="link" onclick="passwordMaker.openAndReuseOneTabPerURL('http://sjoruam.blog.com/');"/>
+  <label value="Michael Vincent van Rantwijk" class="link" onclick="passwordMaker.sendMail('mailto:mv_van_rantwijk@yahoo.com');"/>  
+  <label value="Miquel Burns" class="link" onclick="passwordMaker.sendMail('mailto:miquelfire@gmail.com');"/>
+  <label value="Quixin" class="link" onclick="passwordMaker.sendMail('mailto:quixin@gmail.com');"/>  
+  <label value="Steve Morgans"/>    
+  <label value="Teo"/>  
+  <label value="Thomas Nullmeier" class="link" onclick="passwordMaker.openAndReuseOneTabPerURL('http://www.wprus.com/');"/>
+  <separator/>
+</vbox>
+</groupbox>
+
+  <hbox>
+  <spacer flex="1"/>
+   <button label="&about.004.label;" oncommand="window.close();"/>
+  </hbox>
+
+</window>

@@ -1,0 +1,110 @@
+body {
+       		background: ThreeDFace;
+			text-align: center;
+}
+
+body {
+			color: black;
+			font: normal 11px/22px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			text-align: justify;
+}
+.dropmenu {
+			font: normal 11px/22px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			color: black;
+			overflow:hidden;
+			height:25px; 
+}
+
+input.button { 
+  font: normal 11px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+}
+
+input.standard { 
+			background: #FFFFFF; 
+			border: 1px solid #7F9DB9; 
+			color: ButtonText;
+			font: normal 11px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			width: 100px;
+}
+
+table {
+			background: ThreeDFace;
+			color: black;
+			font: normal 11px tahoma, 'Tahoma', trebuchet, 'Trebuchet MS', arial, 'Arial', sans;
+			text-align: left;
+}
+
+label span {
+  text-decoration: underline;
+}
+
+/* tabs from http://www.brainjar.com/css/tabs/ */
+div.tabBox {
+  position: absolute;
+  left: 210px;
+  width: 30em;
+}
+
+div.tabArea {
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0px 0px 3px 0px;
+}
+
+a.tab {
+  background-color: InactiveCaption;
+  border: 2px solid #000000;
+  border-bottom-width: 0px;
+  border-color: ActiveCaption;
+  -moz-border-radius: .75em .75em 0em 0em;
+  border-radius-topleft: .75em;
+  border-radius-topright: .75em;
+  padding: 2px 1em 2px 1em;
+  position: relative;
+  text-decoration: none;
+  top: 3px;
+  z-index: 100;
+}
+
+a.tab, a.tab:visited {
+  color: CaptionText;
+}
+
+a.tab:hover {
+  background-color: ActiveCaption;
+  color: CaptionText;
+}
+
+a.tab.activeTab, a.tab.activeTab:hover, a.tab.activeTab:visited {
+  background-color: #9070c0;
+  color: CaptionText;
+}
+
+a.tab.activeTab {
+  padding-bottom: 4px;
+  top: 1px;
+  z-index: 102;
+}
+
+div.tabMain {
+  background-color: ActiveCaption;
+  border: 1px solid #000000;
+  border-color: ActiveCaption;
+  border-radius-topright: .5em;
+  border-radius-bottomright: .5em;
+  padding: 1px;
+  z-index: 101;
+  height: 19.6em;
+}
+
+div.tabIframeWrapper {
+  width: 100%;
+}
+
+iframe.tabContent {
+  background-color: #9070c0;
+  border: 1px solid #000000;
+  border-color: #7050a0 #b090e0 #b090e0 #7050a0;
+  width: 100%;
+  height: 30em;
+}

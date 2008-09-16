@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+  PasswordMaker - Creates and manages passwords
+  Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+  http://passwordmaker.org/
+  grimholtz@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="PasswordMakerMasterChooseAccount"
+  title="&chooseaccount.window.title;"
+  ondialogaccept="return onOK();"
+  onload="sizeToContent();onLoad();"
+  persist="screenX screenY width height"
+  windowtype="passwordmaker" onkeypress="onKeyPress(event);">
+
+<script type="application/x-javascript" src="chrome://passwdmaker/content/chooseaccount.js"/>
+
+<vbox style="margin: 1em;" flex="1">
+  <label id="label"/>
+  <separator/>
+  <tree id="accountsTree" seltype="single" enableColumnDrag="true" flex="1">
+    <treecols pickertooltiptext="&chooseaccount.001.pickertooltiptext;">
+      <treecol id="nameCol" label="&chooseaccount.002.label;" primary="true" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="descriptionCol" label="&chooseaccount.003.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="usernameCol" label="&chooseaccount.004.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="whereLeetLBCol" label="&chooseaccount.005.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="leetLevelLBCol" label="&chooseaccount.006.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="hashAlgorithmLBCol" label="&chooseaccount.007.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="passwordLengthCol" label="&chooseaccount.008.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="urlToUseCol" label="&chooseaccount.009.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="counterCol" label="&chooseaccount.010.label;" flex="1" hidden="true" persist="width ordinal hidden"/>
+      <treecol id="charsetCol" label="&chooseaccount.011.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="prefixCol" label="&chooseaccount.012.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+      <treecol id="suffixCol" label="&chooseaccount.013.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>    
+      <treecol id="autoPopulateCol" label="&chooseaccount.014.label;" flex="1" hidden="true" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+    </treecols>      
+    <treechildren id="treeChildren" flex="1" ondblclick="onOK(); window.close();"/>
+  </tree>
+  <separator/>
+  <hbox id="easterEgg" align="center" hidden="true"><label value="Username:" control="username" accesskey="U"/><textbox id="username" flex="1"/></hbox>
+</vbox>
+</dialog>

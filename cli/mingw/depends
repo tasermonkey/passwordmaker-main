@@ -1,0 +1,33 @@
+hasher.o: shared/hasher.cpp shared/3rdparty/spidermonkey/include/jsapi.h \
+  shared/3rdparty/spidermonkey/include/jspubtd.h \
+  shared/3rdparty/spidermonkey/include/jstypes.h \
+  shared/3rdparty/spidermonkey/include/jscpucfg.h \
+  shared/3rdparty/spidermonkey/include/jsosdep.h \
+  shared/3rdparty/spidermonkey/include/jsotypes.h \
+  shared/3rdparty/spidermonkey/include/jscompat.h \
+  shared/3rdparty/spidermonkey/include/jslong.h shared/hasher.h \
+  shared/pwm_common.h
+leet.o: leet.cpp stdafx.h leet.h shared/pwm_common.h
+main.o: main.cpp stdafx.h passwordmaker.h shared/pwm_common.h \
+  tclap/CmdLine.h ./tclap/SwitchArg.h ./tclap/Arg.h \
+  ./tclap/ArgException.h ./tclap/Visitor.h ./tclap/CmdLineInterface.h \
+  ./tclap/UnlabeledValueArg.h ./tclap/ValueArg.h \
+  ./tclap/UnlabeledMultiArg.h ./tclap/MultiArg.h ./tclap/XorHandler.h \
+  ./tclap/HelpVisitor.h ./tclap/CmdLineOutput.h ./tclap/VersionVisitor.h \
+  ./tclap/IgnoreRestVisitor.h ./tclap/CmdLineOutput.h ./tclap/StdOutput.h \
+  ./tclap/XorHandler.h pwmdefaults.h
+passwordmaker.o: passwordmaker.cpp stdafx.h passwordmaker.h \
+  shared/pwm_common.h shared/hasher.h shared/pwm_common.h \
+  shared/3rdparty/spidermonkey/include/jsapi.h \
+  shared/3rdparty/spidermonkey/include/jspubtd.h \
+  shared/3rdparty/spidermonkey/include/jstypes.h \
+  shared/3rdparty/spidermonkey/include/jscpucfg.h \
+  shared/3rdparty/spidermonkey/include/jsosdep.h \
+  shared/3rdparty/spidermonkey/include/jsotypes.h \
+  shared/3rdparty/spidermonkey/include/jscompat.h \
+  shared/3rdparty/spidermonkey/include/jslong.h leet.h
+pwmdefaults.o: pwmdefaults.cpp stdafx.h pwmdefaults.h tinyxml.h
+tinystr.o: tinystr.cpp stdafx.h
+tinyxml.o: tinyxml.cpp stdafx.h tinyxml.h
+tinyxmlerror.o: tinyxmlerror.cpp stdafx.h tinyxml.h
+tinyxmlparser.o: tinyxmlparser.cpp stdafx.h tinyxml.h

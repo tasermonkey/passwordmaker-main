@@ -1,0 +1,45 @@
+<?php include "/home/groups/p/pa/passwordmaker/htdocs/includes/header.php"; ?>
+<pwm-script/>
+
+<style type="text/css">
+select.editable, input.editable {
+    width : 15em;
+}
+
+option.activateEdit {
+    font-style : italic;
+    color : #800;
+}
+</style>
+
+<div class="title">Downloadable Version</div>
+You can <a href="http://passwordmaker.org/downloads/javascript.html">download</a> this page and its dependencies as a zip archive and run it from your local hard drive. Simply expand the zip archive and open passwordmaker.html in a browser.<br />
+<div class="title">Online Version</div>
+<pwm-body/>
+<div class="title">Compatibile Browsers</div>
+<ul>
+<li>Internet Explorer 5.0, 5.5, 6.0</li>
+<li>Safari 1.3, 2.0</li>
+<li>Firefox 1.0.x, 1.5 beta</li>
+<li>Mozilla 1.7.5</li>
+<li>Opera 7.54u2</li>
+<li>Netscape 7.2, 8.0</li>
+<li>Konqueror 3.3 (without cookie support)</li>
+<li>Maxthon Browser 1.3.1</li>
+<li>Flock 0.5</li>
+</ul>
+We haven't found any modern browser with which this page doesn't work. If you've tried this page with another browser or browser version, please <a href="contact.php">let us know!</a><br />
+<div class="title">Is this page secure?</div>
+This page uses only javascript and html to generate passwords. There is no form submission -- purposefully -- so there is no way for the server to see or store your passwords (including the master). It would be a security risk to send passwords over an HTTP (not HTTPS) connection, and also to store them whatsoever (even encrypted) on a server; not to mention a violation of your privacy.<br/>
+<br/>
+All settings except the master password are stored on your local PC as a cookie, so the settings will be the same next time you visit this page. If you'd like to store the master password also, check the <i>Save master password</i> checkbox. The master password will then be stored <b>encrypted</b> as an cookie on your local machine. Saving the master password, even though it's encrypted with AES encryption, is not completely secure; you are sacrificing some security for convenience. Theoretically, a hacker could determine your master password if he:
+<ul>
+<li>Could access the encrypted master password and key, stored as cookies, on your PC</li>
+<li>Knew to use AES-256 to decrypt the master password</li>
+</ul>
+<br/>
+Even then, a hacker wouldn't be able to use the master password to login anywhere if you only use generated passwords for your passwords. Moreover, a succesful login to any system also requires a username.<br/>
+<br/>
+In any case, if this security risk concerns you, you shouldn't check the "Save master password" checkbox. If you've checked it by mistake, simply clear your cookies or, alternatively, uncheck the <i>Save master password</i> box and navigate away from this page. This forces an empty value to be stored for the master password.<br/>
+
+<?php include "/home/groups/p/pa/passwordmaker/htdocs/includes/footer.php"; ?>

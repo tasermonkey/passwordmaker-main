@@ -1,0 +1,39 @@
+Requirements
+============
+For Windows, you will need either MSVC 2005 or MinGW (http://www.mingw.org). If
+you want a native 64-bit build, you will need to compile SpiderMonkey or mHash
+(mHash is only supported with MSVC right now) yourself. Normally, you don't need
+to worry as a prebuilt 32 bit binary is provided from the site. Also for the
+MinGW build, have UPX (http://upx.sourceforge.net) somewhere in your path.
+
+For Unix based OSes (including OS X), you need to have mHash installed.
+
+Windows with MSVC 2005
+======================
+Just open the cli.sln solution file, select the configuration you want, and
+build the solution. There are both Debug and Release versions for the two main
+configurations:
+SpiderMonkey - Use this if you must have HMAC-SHA256 compatiblity with the other
+	Javascript compiled extensions. This requires the getHash.js to be in the
+	same directory at the exe (or in the working directory)
+mHash - Use this if you don't use HMAC-SHA256 and do not want to rely on the
+	getHash.js file.
+
+If you need to compile for a platform other than 32-bit, you must have a
+compiled version of either SpiderMonkey or mHash as well (just replace the lib
+files in the msvc/lib directory)
+
+MinGW
+=====
+Just compile with the command "make -f mingw32.mak". Unless you're missing UPX,
+you will actually build the same exe that is provided at the site. If you want
+64-bit, edit the makefile to add the apporterate switches (and have a 64-bit
+version of SpiderMonkey in mingw/lib)
+
+Unix based
+==========
+Make sure to install mHash first if it's not already installed. To compile, just
+type "make -f unix.mak" and everything should go just fine. You can move the
+resulting passwordmaker executible to your path if you so desire. HMAC-SHA256 is
+broken if you're going to compare it to other Javascript based editions however.
+

@@ -1,0 +1,22 @@
+This program uses QSharedMemory from QT 4.4 (This bumps up the requirements from 4.3 however as a
+result) to prevent multiple copies from running, for installers to shut down it down, and to trigger
+other events from other applications
+
+The key used is "PWMDE".
+
+The size used is 30 bytes
+
+The first 30 bytes has the following layout:
+0x00 (1 byte) - If zero, then your program was the first to use this memory.
+	If 1, then this program last wrote to it, most likely took action on a command
+	If 2, this another program wrote to this memory, and the first instance should take action
+	Any other value is an error
+0x01 (1 byte) - Version of shared memory map. Currently 1
+0x02 (8 bytes) - The pid of the program (signed).
+0x0A (1 byte) - Command to send to this program:
+	0x00 - Nothing. Clears info from other program
+	0x01 - Grab focus (normally from another instance trying to run)
+	0x02 - Quit (normally from the installer, triggers prompt)
+	0x03 - Open TCP port (or change it if previous value doesn't work)
+0x0C (2 bytes) - TCP port used for communication of other actions that pass data back and forth.
+0x0D - 0x1D - Reserved for future use, leave at zero

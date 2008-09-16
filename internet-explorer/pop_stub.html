@@ -1,0 +1,15 @@
+<html>
+<script type="text/javascript">
+function init() {
+  window.params = new Array();
+  window.params.uri = external.menuArguments.location.href;
+  if (external.menuArguments.event)
+    window.params.srcElement = external.menuArguments.event.srcElement;
+  window.showModelessDialog("passwordmaker.html", window, 
+    "status:false;dialogWidth:565px;dialogHeight:290px;help:no;resizable:yes;status:no");
+}
+</script>
+<body onload="init();">
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style type="text/css" title="AppleStyle">
+        @import "passwdmaker.css";
+    </style>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleAnimator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleInfoButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="localizedStrings.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/utilities.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/setup.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/Text.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/InfoButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/GlassButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="hashutils.js" charset="utf-8"></script>
+    <script type="text/javascript" src="l33t.js" charset="utf-8"></script>
+    <script type="text/javascript" src="md4.js" charset="utf-8"></script>
+    <script type="text/javascript" src="md5.js" charset="utf-8"></script>
+    <script type="text/javascript" src="md5_v6.js" charset="utf-8"></script>
+    <script type="text/javascript" src="ripemd160.js" charset="utf-8"></script>
+    <script type="text/javascript" src="sha1.js" charset="utf-8"></script>
+    <script type="text/javascript" src="sha256.js" charset="utf-8"></script>
+    <script type="text/javascript" src="passgen.js" charset="utf-8"></script>
+    <script type="text/javascript" src="passwdmaker.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="Parts/PopupButton.js" charset="utf-8"></script>
+
+
+
+<script type="text/javascript" src="Parts/LevelIndicator.js" charset="utf-8"></script>
+<script type="text/javascript" src="Parts/HorizontalLevelIndicator.js" charset="utf-8"></script>
+</head>
+<body onload="load();">
+    <div id="front">
+        <img id="frontImg" src="Images/front.png" alt="" apple-locked="true" apple-part="com.apple.Dashcode.part.frontimage" apple-style="image-theme: 1; image-shape: 3; image-opacity: 1.00; image-top-color: 0.3333,0.3098,0.6941; image-bottom-color: 0.1882,0.1176,0.5176; image-radius: 12,12,12,12; image-border: 1; image-border-color: 0.5294,0.5294,0.5294; image-border-width: 1; shine-on: 1; shine-strength: 0.15; shine-alpha-level: 0.67; shine-height: 0.14; glass-arc-height: -0.09; shadow-include-shadow: 1; shadow-blur: 9.00; shadow-offset: -1.00,-6.00; shadow-color: 0.0000,0.0000,0.0000,0.3333;">
+        <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="chars_edit" apple-group="textfield" onchange="chars_edited(event)" apple-default-image-visibility="hidden">
+        <div class="apple-no-children" id="info" apple-part="com.apple.Dashcode.part.infobutton" apple-default-image-visibility="hidden"></div>
+        
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="header1" apple-group="text" apple-locked="true"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="header2" apple-group="text1" apple-locked="true"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="mp_lbl" apple-group="text2"></div>
+    <input type="password" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="masterpass" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="iu_lbl" apple-group="text3"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="inputurl" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="ul3_lbl" apple-group="text"></div>
+    
+    <div apple-part="com.apple.Dashcode.part.lozengepopupbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 1; image-button-type: 1; image-opacity: 1.00; image-top-color: 0.3333,0.3098,0.6941; image-bottom-color: 0.1882,0.1176,0.5176; image-radius: 10,10,10,10; image-border: 1; image-border-color: 0.5294,0.5294,0.5294; image-border-width: 1; shine-on: 1; shine-strength: 0.15; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: -0.09; shadow-include-shadow: 0; shadow-blur: 3.00;" id="usel33t" apple-group="popup"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="ll_lbl" apple-group="text"></div>
+    
+    
+    
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="ha_lbl" apple-group="text"></div>
+    <div apple-part="com.apple.Dashcode.part.lozengepopupbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 1; image-button-type: 1; image-opacity: 1.00; image-top-color: 0.3333,0.3098,0.6941; image-bottom-color: 0.1882,0.1176,0.5176; image-radius: 10,10,10,10; image-border: 1; image-border-color: 0.5294,0.5294,0.5294; image-border-width: 1; shine-on: 1; shine-strength: 0.15; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: -0.09; shadow-include-shadow: 0; shadow-blur: 3.00;" id="hashalg" apple-group="popup"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="l_lbl" apple-group="text1"></div>
+    <input type="text" name="" value="12" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="length" apple-group="textfield" onchange="length_change(event)" onkeyup="length_change(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="un_lbl" apple-group="text"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="username" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="mod_lbl" apple-group="text"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="modifier" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="chrs_lbl" apple-group="text"></div>
+    <div apple-part="com.apple.Dashcode.part.lozengepopupbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 1; image-button-type: 1; image-opacity: 1.00; image-top-color: 0.3333,0.3098,0.6941; image-bottom-color: 0.1882,0.1176,0.5176; image-radius: 10,10,10,10; image-border: 1; image-border-color: 0.5294,0.5294,0.5294; image-border-width: 1; shine-on: 1; shine-strength: 0.15; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: -0.09; shadow-include-shadow: 0; shadow-blur: 3.00;" id="characters" apple-group="popup"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="pr_lbl" apple-group="text"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="prefix" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="sf_lbl" apple-group="text"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="suffix" apple-group="textfield" onchange="go_click(event)" onkeyup="go_click(event)">
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="gp_lbl" apple-group="text1"></div>
+    <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="genpasswd" apple-group="textfield1">
+    <div apple-part="com.apple.Dashcode.part.lozengepopupbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 1; image-button-type: 1; image-opacity: 1.00; image-top-color: 0.3333,0.3098,0.6941; image-bottom-color: 0.1882,0.1176,0.5176; image-radius: 10,10,10,10; image-border: 1; image-border-color: 0.5294,0.5294,0.5294; image-border-width: 1; shine-on: 1; shine-strength: 0.15; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: -0.09; shadow-include-shadow: 0; shadow-blur: 3.00;" id="l33tlevel" apple-group="popup"></div>
+    
+    <div apple-part="com.apple.Dashcode.part.horizontallevelindicator" class="apple-no-children" id="strength" apple-group="horizontalLevelIndicator"></div>
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-text-overflow="ellipsis" id="st_lbl" apple-group="text"></div>
+    
+    </div>
+    <div id="back" style="display: none; ">
+       <img id="backImg" src="Images/back.png" alt="" apple-locked="true" apple-part="com.apple.Dashcode.part.backimage" apple-style=" image-radius: 12,12,12,12; image-border: 1; image-border-color: 0.1500,0.1500,0.1500; image-border-width: 3; shadow-include-shadow: 1; shadow-blur: 9.00; shadow-offset: -1.00,-6.00; shadow-color: 0.0000,0.0000,0.0000,0.3333;">
+        <img src="Images/DevelopedWith.png" alt="Created with Dashcode" id="backDevelopedWith">
+        <div id="done" class="apple-no-children" apple-part="com.apple.Dashcode.part.glassbutton"></div>
+    
+    
+    <div apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis" id="text" apple-group="text"></div>
+    <input type="text" name="" value="5" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="waitTime" apple-group="textfield" onchange="change_waitTime(event)">
+    <select apple-part="com.apple.Dashcode.part.backpopupbutton" id="waitUnits" apple-group="popup" onchange="change_waitUnits(event)">
+	<option apple-group="popup" value="1000">Seconds</option>
+	<option apple-group="popup" selected="selected" value="60000">Minutes</option>
+	<option apple-group="popup" value="3600000">Hours</option>
+</select>
+    
+    </div>
+
+</body>
+</html>

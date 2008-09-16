@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="konfabulator" default="zip">
+    <target name="zip">
+        <zip destfile="passwordmaker-1.2.widget">
+            <fileset dir=".">
+              <exclude name="**/build.xml/**"/>
+              <exclude name="**/passwordmaker-1.2.widget/**"/>
+            </fileset>
+        </zip>
+    </target>
+</project>

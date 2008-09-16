@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+	PasswordMaker - Creates and manages passwords
+	Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+	http://passwordmaker.org/
+	grimholtz@yahoo.com
+	
+	This library is free software; you can redistribute it and/or modify it
+	under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation; either version 2.1 of the License, or (at
+	your option) any later version.
+	
+	This library is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+	for more details.
+	
+	You should have received a copy of the GNU Lesser General Public License
+	along with this library; if not, write to the Free Software Foundation,
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="passwordmakerpatterndlg"
+  title="&pattern.window.title;"
+  ondialogaccept="return onOK();"
+  onload="onLoad();"
+  persist="screenX screenY width height"
+  windowtype="passwordmaker">
+
+<script type="application/x-javascript" src="chrome://passwdmaker/content/pattern.js"/>
+
+<grid flex="1">
+  <columns>
+    <column/>
+    <column flex="1"/>
+  </columns>   
+  <rows> 
+    <row align="center">
+      <checkbox id="enabled" label="&pattern.001.label;" accesskey="&pattern.001.accesskey;"
+        tooltiptext="&pattern.001.tooltiptext;"/>
+      <spacer/>
+    </row>  
+    <row align="center">
+      <label value="&pattern.002.value;" control="name" tooltiptext="&pattern.002.tooltiptext;" accesskey="&pattern.002.accesskey;"/>
+      <textbox id="name" tooltiptext="&pattern.003.tooltiptext;" accesskey="&pattern.003.accesskey;"/>
+    </row>
+    <row align="center">
+      <label value="&pattern.004.value;" tooltiptext="&pattern.004.tooltiptext;" accesskey="&pattern.004.accesskey;" control="pattern"/>
+      <textbox id="pattern" tooltiptext="&pattern.005.tooltiptext;" accesskey="&pattern.005.accesskey;"/>
+    </row> 
+      <radiogroup id="type" orient="horizontal">
+      <groupbox flex="1">
+          <caption label="&pattern.006.label;"/>
+          <grid><columns><column/><column/><column/></columns>
+          <rows>
+            <row align="center">
+              <radio id="wildcard"
+                selected="true"
+                accesskey="&pattern.007.accesskey;"
+                tooltiptext="&pattern.007.tooltiptext;"/>
+              <label value="&pattern.008.value;"
+                class="link"
+                onclick="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/help/patterns.html#wildcards');"
+                tooltiptext="&pattern.008.tooltiptext;"/>
+              <label value="&pattern.009.value;"/>
+            </row>
+            <row align="center">
+              <radio id="regex"
+                accesskey="&pattern.010.accesskey;"
+                tooltiptext="&pattern.010.tooltiptext;"/>
+              <label value="&pattern.011.value;"
+                class="link"
+                onclick="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/help/patterns.html#regex');"
+                tooltiptext="&pattern.011.tooltiptext;"/> 
+              <label value="&pattern.012.value;"/>             
+            </row>
+          </rows>
+          </grid>
+       </groupbox>
+      </radiogroup>
+  </rows>
+</grid>
+</dialog>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+    PasswordMaker - Creates and manages passwords
+    Copyright (C) 2005 Eric H. Jung and LeahScape, Inc.
+    http://passwordmaker.org/
+    grimholtz@yahoo.com
+
+    This library is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation; either version 2.1 of the License, or (at
+    your option) any later version.
+
+    This library is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+    for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this library; if not, write to the Free Software Foundation,
+    Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+-->
+<?xml-stylesheet href="passwdmaker.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://passwdmaker/locale/passwdmaker.dtd">
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="PasswordMakerMasterTreePrompt"
+  title="&treeprompt.window.title;"
+  ondialogaccept="onOK();"
+  onload="onLoad();"
+  persist="screenX screenY width height"
+  windowtype="passwordmaker">
+
+<script type="application/x-javascript" src="chrome://passwdmaker/content/treeprompt.js"/>
+
+<grid>
+  <columns>
+	<column/>
+	<column flex="1"/>
+  </columns>
+	<rows>
+  	<row align="center">
+  	  <label style="margin-top: 0.4em;" control="nameTB" value="&treeprompt.001.value;"/>
+  	  <textbox flex="1" id="name"/>
+  	</row>
+  	<row align="center">
+    	<label style="margin-top: 0.4em;" control="descriptionTB" value="&treeprompt.002.value;"/>
+    	<textbox flex="1" multiline="true" id="desc"/>
+    </row>
+  </rows>
+</grid>
+</dialog>
