@@ -1,0 +1,38 @@
+This will be sortof another PHP version in terms of how it's developed.
+
+The end users should only see a http://passwordmaker.org/bkl/ url with query stuff added on.
+Normal users should not see the backend javascript directly (assuming they can read the bookmarklet code in the first place).
+
+For IE6 support, we have 477 bytes total to work with.
+The proof of concept code for the bookmarklet is currently 320 characters compressed.
+That is without a username, modifier, prefix, suffix, custom character set, or master password hash
+
+Feature Notes:
+==============
+Legend: + is a postive feature or happy side effect, - is a negative feature or bad side effect
+
++Any browser with a bookmark bar will have quick access to PasswordMaker! Click, enter password, profit! (No ??? step)
+
++If user has a bookmark sync, PasswordMaker settings will be synced as well.
+
++If user reason for making accounts relate to default being used for 90%, and 9% needing a different characterset, they may have less accounts.
+Sort of like the the profile system on the on-line edition. (tanstaafl may like this)
+
+-IE6 has no custom character set, and can't use the username, modifier, prefix, and suffix fields.
+Master password hash may not be an option either.
+
+PHP Notes:
+==========
+When called without parameters, display a form to allow the user to build a bookmarklet.
+The url will be dynamically created, so the url in the bookmarklet is not hard coded to our site (and someone can host it on their site as well without changing code)
+
+If the h parameter is called, the php script will send the main logic to the user (basically, the main part of PasswordMaker that wouldn't fit in a bookmarklet)
+
+There will be a v parameter to pick a version to use. Meant to control which 'protocol' is used in the bookmarklet.
+
+Script Notes:
+=============
+A special hash id will be used instead of pwmbklhash123456 for the main function (and the prefix for the other global variables).
+As this id may start with a number, a h is used as the first character.
+
+A 'protocol' will be used to allow for compact parameter settings.
