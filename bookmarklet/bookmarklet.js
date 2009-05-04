@@ -1,0 +1,1 @@
+(function(){var p='faaaa000';var e='';var w=window;var h='hpwmbklhash123456';var f=w[h];if(typeof f=='undefined'){w[h]=p+e;var d=document;var s=d.createElement('script');s.type='text/javascript';s.src='url.js?v=0&h='+h;d.getElementsByTagName('head')[0].appendChild(s);}else if(typeof f=='function'){f(p,e);}})();

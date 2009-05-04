@@ -1,34 +1,39 @@
-This will be sortof another PHP version in terms of how it's developed.
+Name Eric came up with: Click! Edition
 
-The end users should only see a http://passwordmaker.org/bkl/ url with query stuff added on.
-Normal users should not see the backend javascript directly (assuming they can read the bookmarklet code in the first place).
+There's a PHP script that controls rewriting some of the javascript.
+For the bookmarklet, it edits the url the bookmarklet uses to get the main script.
+For the main script, it edits a prefix used so that injection is hard to do.
 
 For IE6 support, we have 477 bytes total to work with.
 The proof of concept code for the bookmarklet is currently 320 characters compressed.
-That is without a username, modifier, prefix, suffix, custom character set, or master password hash
+That is without a username, modifier, prefix, suffix, custom character set, or master password hash support.
+The script that creates the bookmarklet will just have to reject those features for IE6 users. 
 
 Feature Notes:
 ==============
-Legend: + is a postive feature or happy side effect, - is a negative feature or bad side effect
+Legend: + is a postive feature or happy side effect, - is a negative feature or bad side effect of the bookmarklet
 
-+Any browser with a bookmark bar will have quick access to PasswordMaker! Click, enter password, profit! (No ??? step)
++Any browser with a bookmark bar will have quick access to PasswordMaker! Click, enter master password, profit! (No ??? step)
 
 +If user has a bookmark sync, PasswordMaker settings will be synced as well.
 
-+If user reason for making accounts relate to default being used for 90%, and 9% needing a different characterset, they may have less accounts.
++If the user reason for making accounts relate to default being used for 90%, and 9% needing a different characterset, they may have less accounts.
 Sort of like the the profile system on the on-line edition. (tanstaafl may like this)
 
 -IE6 has no custom character set, and can't use the username, modifier, prefix, and suffix fields.
 Master password hash may not be an option either.
 
+-Can't easily change settings without recreating the bookmark (and no plans to allow on the fly editing, except maybe username.
+
 PHP Notes:
 ==========
 When called without parameters, display a form to allow the user to build a bookmarklet.
-The url will be dynamically created, so the url in the bookmarklet is not hard coded to our site (and someone can host it on their site as well without changing code)
+The only editing of the script done by PHP will be to set the url to get the main code.
 
 If the h parameter is called, the php script will send the main logic to the user (basically, the main part of PasswordMaker that wouldn't fit in a bookmarklet)
 
 There will be a v parameter to pick a version to use. Meant to control which 'protocol' is used in the bookmarklet.
+For now, I only see this set at 1.
 
 Script Notes:
 =============
@@ -36,3 +41,19 @@ A special hash id will be used instead of pwmbklhash123456 for the main function
 As this id may start with a number, a h is used as the first character.
 
 A 'protocol' will be used to allow for compact parameter settings.
+
+There's an 8 byte string for the parts of the parameters that can be set by one character (or 3 for the length).
+The first character handles the parts of the url to use. It's a hex character.
+The second character controls when to use l33t.
+The third character is the l33t level
+The fourth character is the hash algorithm.
+The fifth character is the predefined character set.
+	0-f (note, lower case) will be a set of character sets with a combination of Upper, Lower, Numbers, and Special characters.
+	g will be the hex string used for the version 0.6 hashes (minus the trimming off the zero part)
+	h-zA-Y is reserved for more options (So, 32 more sets can be defined for later)
+	Z is custom (Not used with IE6)
+The last three character is the length of the password
+
+There's another parameter that is an empty string if the username, modifier, prefix, suffix,
+custom character set and master password hash is not used or the user is using IE6 (IE6 may have room for master password hash)
+As this is a string, some delimiter system needs to be created. I for see this being the reason for a late 1.0 release.
