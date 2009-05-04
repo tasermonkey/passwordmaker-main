@@ -24,6 +24,7 @@ if (isset($_GET['h']) && isset($_GET['v'])) {
 	}
 	
 	// TODO: Cache control
+	header('Content-Length: '.strlen($src));
 	echo $src;
 	exit();
 }
@@ -51,8 +52,7 @@ ob_start();
 	</body>
 </html>
 <?php
-$c = ob_get_contents();
-ob_end_clean();
+$c = ob_get_clean();
 header('Content-type: text/html; charset=utf-8');
 header('Content-Length: '.strlen($c));
 // TODO: Cache control
