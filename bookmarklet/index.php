@@ -4,6 +4,13 @@
 		REMOVE_NAME - Set to true if this file will be the file ran without specifying the file in the url, otherwise set to false
 */
 define('REMOVE_NAME', true);
+
+// GZip support
+$gzip = ini_get('zlib.compress');
+if (!$gzip || strtolower($gzip) == 'off') {
+	if (function_exists('ob_gzhandler')) ob_start('ob_gzhandler');
+}
+
 if (isset($_GET['h']) && isset($_GET['v'])) {
 	header('Content-type: text/javascript; charset=utf-8');
 	if (preg_match('/\Ah[\da-f]{16}\z/', $_GET['h'])) {
