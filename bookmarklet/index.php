@@ -50,7 +50,7 @@ ob_start();
 <html>
 	<head>
 		<title>PasswordMaker: Click! Edition</title>
-		<link rel="stylesheet" type="text/css" src="style.css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
 		<div id="root">
@@ -121,27 +121,29 @@ ob_start();
 					<input type="text" maxlength="3" class="control" id="length" />
 				</p>
 				<!-- Planned on using checkboxes to handle this bit -->
-				<p id="charactersRow" class="formRow">
-					<label for="characters">Characters:</label>
-					<select class="control" id="characters">
-						<option value="0">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="1">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</option>
-						<option value="2">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="3">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</option>
-						<option value="4">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="5">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</option>
-						<option value="6">ABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="7">ABCDEFGHIJKLMNOPQRSTUVWXYZ</option>
-						<option value="8">abcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="9">abcdefghijklmnopqrstuvwxyz0123456789</option>
-						<option value="a">abcdefghijklmnopqrstuvwxyz`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="b">abcdefghijklmnopqrstuvwxyz</option>
-						<option value="c">0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="d">0123456789</option>
-						<option value="e">`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./</option>
-						<option value="f">0123456789abcdef</option>
-					</select>
-				</p>
+				<fieldset id="characterField">
+					<legend>Characters</legend>
+					<label><input id="characterParts" type="radio" name="characterTab" value="parts" /> Parts</label>
+					<label><input id="characterDefined" type="radio" name="characterTab" value="defined" /> Predefined</label>
+					<label><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
+					<p id="characterPartsTab">
+						<label><input type="checkbox" id="charactersUpper" /> Upper Alpha</label>
+						<label><input type="checkbox" id="charactersLower" /> Lower Alpha</label>
+						<label><input type="checkbox" id="charactersNumber" /> Numbers</label>
+						<label><input type="checkbox" id="charactersSpecial" /> Special Characters</label>
+					</p>
+					<p id="characterDefinedTab" class="formRow">
+						<label for="characterDefined">Predefined-sets:</label>
+						<select class="control" id="characterDefined">
+							<option value="f">Hex String</option>
+						</select>
+					</p>
+					<p class="formRow">
+						<label for="characters">Character Set:<br /><sub>(For other editions)</sub></label>
+						<input type="text" class="control" id="characters" />
+					</p>
+					<!-- ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./ -->
+				</fieldset>
 				<p id="modifierRow" class="formRow">
 					<label for="modifier">Modifier: </label>
 					<input type="text" class="control" id="modifier" />
@@ -154,8 +156,9 @@ ob_start();
 					<label for="suffix">Password Suffix: </label>
 					<input type="text" class="control" id="suffix" />
 				</p>
-				<p id="bookmarkletRow">
-					Your Bookmarklet: <a id="bookmarklet" href="javascript:void()">PWMClick!</a>
+				<p id="bookmarkletRow" class="formRow">
+					<label>Your Bookmarklet:</label>
+					<a id="bookmarklet" class="control" href="javascript:void()">PWMClick!</a>
 				</p>
 			</form>
 		</div>

@@ -1,0 +1,15 @@
+body {
+	text-align: center;
+}
+
+#root {
+	width: 700px;
+	margin: auto;
+	text-align: left;
+}
+
+.formRow label {
+	display: block;
+	float: left;
+	width: 9em;
+}
