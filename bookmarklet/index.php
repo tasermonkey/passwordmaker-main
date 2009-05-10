@@ -68,7 +68,7 @@ ob_start();
 						<input type="checkbox" id="subdomains" /> Subdomain(s)
 					</label>
 					<label>
-						<input type="checkbox" id="domain" /> Domain
+						<input type="checkbox" id="domain" checked="checked" /> Domain
 					</label>
 					<label>
 						<input type="checkbox" id="urlother" /> Port, path, anchor, query parameters
@@ -81,7 +81,7 @@ ob_start();
 				<p id="whereleetRow" class="formRow">
 					<label for="whereleet">Use l33t:</label>
 					<select id="whereleet" class="control">
-						<option value="0">not at all</option>
+						<option value="0" selected="selected">not at all</option>
 						<option value="1">before generating password</option>
 						<option value="2">after generating password</option>
 						<option value="3">before and after generating password</option>
@@ -90,7 +90,7 @@ ob_start();
 				<p id="leetlevelRow" class="formRow">
 					<label for="leetlevel">l33t Level:</label>
 					<select class="control" id="leetlevel">
-						<option>1</option>
+						<option selected="selected">1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
@@ -106,7 +106,7 @@ ob_start();
 					<select class="control" id="hashalgo">
 						<option value="a">MD4</option>
 						<option value="b">HMAC-MD4</option>
-						<option value="c">MD5</option>
+						<option value="c" selected="selected">MD5</option>
 						<option value="d">HMAC-MD5</option>
 						<option value="e">SHA-1</option>
 						<option value="f">HMAC-SHA-1</option>
@@ -118,19 +118,19 @@ ob_start();
 				</p>
 				<p id="lengthRow" class="formRow">
 					<label for="length">Password Length: </label>
-					<input type="text" maxlength="3" class="control" id="length" />
+					<input type="text" maxlength="3" class="control" id="length" value="8" />
 				</p>
 				<!-- Planned on using checkboxes to handle this bit -->
 				<fieldset id="characterField">
 					<legend>Characters</legend>
-					<label><input id="characterParts" type="radio" name="characterTab" value="parts" /> Parts</label>
+					<label><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
 					<label><input id="characterDefined" type="radio" name="characterTab" value="defined" /> Predefined</label>
 					<label><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
 					<p id="characterPartsTab">
-						<label><input type="checkbox" id="charactersUpper" /> Upper Alpha</label>
-						<label><input type="checkbox" id="charactersLower" /> Lower Alpha</label>
-						<label><input type="checkbox" id="charactersNumber" /> Numbers</label>
-						<label><input type="checkbox" id="charactersSpecial" /> Special Characters</label>
+						<label><input type="checkbox" id="charactersUpper" checked="checked" /> Upper Alpha</label>
+						<label><input type="checkbox" id="charactersLower" checked="checked" /> Lower Alpha</label>
+						<label><input type="checkbox" id="charactersNumber" checked="checked" /> Numbers</label>
+						<label><input type="checkbox" id="charactersSpecial" checked="checked" /> Special Characters</label>
 					</p>
 					<p id="characterDefinedTab" class="formRow">
 						<label for="characterDefined">Predefined-sets:</label>

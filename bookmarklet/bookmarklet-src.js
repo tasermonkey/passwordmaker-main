@@ -5,7 +5,7 @@
 */
 (function(){
 	var p = 'faaaa000'; // For having the length of the largest set here. the 000 is the length, and should be a fixed length
-	var e = ''; // Store the variable length stuff here (four field total, more thought is needed here)
+	var e = '$extras$'; // Store the variable length stuff here (format needs to be defined)
 	var w = window;
 	var h = 'hpwmbklhash123456';
 	var f = w[h];
@@ -14,7 +14,7 @@
 		var d = document;
 		var s = d.createElement('script');
 		s.type='text/javascript';
-		s.src='url.js?v=0&h='+h;
+		s.src='url1.js?v=0&h='+h;
 		d.getElementsByTagName('head')[0].appendChild(s);
 	} else if (typeof f == 'function') {
 		f(p, e);

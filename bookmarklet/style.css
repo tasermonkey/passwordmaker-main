@@ -11,5 +11,9 @@ body {
 .formRow label {
 	display: block;
 	float: left;
-	width: 9em;
+	width: 160px;
+}
+
+.formRow .control {
+	width: 500px;
 }
