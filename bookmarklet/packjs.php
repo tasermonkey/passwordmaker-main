@@ -16,7 +16,7 @@ foreach($files as $in=>$out) {
 	$src = trim(JSMin::minify($src));
 	$outl = strlen($src);
 	file_put_contents($out, $src);
-	echo "'$in compressed from $inl to $outl bytes\n";
+	echo "$in compressed from $inl to $outl bytes\n";
 }
 
 ?>

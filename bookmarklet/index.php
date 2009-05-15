@@ -57,7 +57,7 @@ ob_start();
 			<form>
 				<p id="nameRow" class="formRow">
 					<label for="name">Bookmarklet Name:</label>
-					<input type="text" class="control" id="name" />
+					<input type="text" class="control" id="name" value="PWM Click!" />
 				</p>
 				<fieldset id="urlparts">
 					<legend>URL Components</legend>
@@ -71,7 +71,7 @@ ob_start();
 						<input type="checkbox" id="domain" checked="checked" /> Domain
 					</label>
 					<label>
-						<input type="checkbox" id="urlother" /> Port, path, anchor, query parameters
+						<input type="checkbox" id="path" /> Port, path, anchor, query parameters
 					</label>
 				</fieldset>
 				<p id="usernameRow" class="formRow">
@@ -124,7 +124,7 @@ ob_start();
 				<fieldset id="characterField">
 					<legend>Characters</legend>
 					<label><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
-					<label><input id="characterDefined" type="radio" name="characterTab" value="defined" /> Predefined</label>
+					<label><input id="characterDefine" type="radio" name="characterTab" value="defined" /> Predefined</label>
 					<label><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
 					<p id="characterPartsTab">
 						<label><input type="checkbox" id="charactersUpper" checked="checked" /> Upper Alpha</label>
@@ -162,7 +162,7 @@ ob_start();
 				</p>
 			</form>
 		</div>
-		<script type="text/javascript">bkl = <?php echo $json; ?>;</script>
+		<script type="text/javascript">var bkl = <?php echo $json; ?>;</script>
 		<script type="text/javascript" src="create.js"></script>
 	</body>
 </html>
