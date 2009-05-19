@@ -168,13 +168,54 @@ function characterHandler() {
 };
 
 function updateParams() {
-	g('bookmarkletRow').className.replace(/\bhidden\b/g, '');
+	var i;
+	g('bookmarkletRow').className = g('bookmarkletRow').className.replace(/\bhidden\b/g, '');
 	error.className = 'hidden';
-	characterHandler();
 	bookmarklet.firstChild.nodeValue = bklname.value;
-	// TODO
 	
-	bookmarklet.href = 'javascript:' + bkl.replace('faaaa000', params).replace('pwmextras', extras).replace('hpwmbklhash123456', hash).replace(' ', '%20');
+	i = 0;
+	if (protocol.checked) i |= 8;
+	if (subdomain.checked) i |= 4;
+	if (domain.checked) i |= 2;
+	if (path.checked) i |= 1;
+	params = i.toString(16);
+	
+	params += whereleet.value;
+	leetlevel.disabled = (whereleet.value == '0');
+	params += leetlevel.value;
+	params += hashalgo.value + ' '; // Space for character support
+	i = length.value;
+	while (i.length < 3) {
+		i = '0' + i;
+	}
+	if (!/\d{3}/.test(i)) {
+		g('bookmarkletRow').className += ' hidden';
+		error.firstChild.nodeValue = 'Password length must be a number!';
+		error.className = 'error';
+	}
+	params += i;
+	characterHandler();
+	
+	extras = '';
+	if (!ie6) { // While the user shouldn't be able to enter these fields, block the code anyway. They may have a slow enough computer for this to matter.
+		if (params.charAt(4) == 'Z') {
+			extras = ',' + encodeURIComponent(characters.value) + extras;
+			if (characters.value.length < 2) {
+				g('bookmarkletRow').className += ' hidden';
+				error.firstChild.nodeValue = 'You must have at least two characters for the character set.';
+				error.className = 'error';
+			}
+		}
+		if (suffix.value || extras.length) extras = ',' + encodeURIComponent(suffix.value) + extras;
+		if (prefix.value || extras.length) extras = ',' + encodeURIComponent(prefix.value) + extras;
+		if (modifier.value || extras.length) extras = ',' + encodeURIComponent(modifier.value) + extras;
+		if (username.value || extras.length) extras = ',' + encodeURIComponent(username.value) + extras;
+		
+		extras = encodeURIComponent(extras.replace(/\\/g, '\\\\').replace(/'/g, "\\'"));
+	}
+	// TODO Master Password Hash support, if the string is too long, move inside the non-ie6 area
+	
+	bookmarklet.href = 'javascript:' + bkl.replace('faaaa000', params).replace('pwmextras', extras).replace('hpwmbklhash123456', hash).replace(/ /g, '%20');
 	if (ie6 && bookmarklet.href.legnth > 477) {
 		g('bookmarkletRow').className += ' hidden';
 		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. If you can't upgrade from IE6, consider using another browser.";

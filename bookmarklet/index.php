@@ -1,15 +1,18 @@
 <?php
 /**
 	The following defines are used to control certain options in this script:
-		REMOVE_NAME - Set to true if this file will be the file ran without specifying the file in the url, otherwise set to false
+		REMOVE_NAME - Set to false only if removing the file from the url will not run this script (in a directory, index.php normally is ran, so this would be true)
 */
 define('REMOVE_NAME', true);
 
 // GZip support
-$gzip = ini_get('zlib.compress');
+$gzip = @ini_get('zlib.compress');
 if (!$gzip || strtolower($gzip) == 'off') {
 	if (function_exists('ob_gzhandler')) ob_start('ob_gzhandler');
 }
+$url = 'http'.((isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") ? 's://': '://')
+	.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] != '80') ? ':'.$_SERVER['SERVER_PORT'] : '')
+	.((REMOVE_NAME)? str_replace(basename(__FILE__), '', $_SERVER['PHP_SELF']) : $_SERVER['PHP_SELF']);
 
 if (isset($_GET['h']) && isset($_GET['v'])) {
 	header('Content-type: text/javascript; charset=utf-8');
@@ -19,6 +22,7 @@ if (isset($_GET['h']) && isset($_GET['v'])) {
 				$src = file_get_contents('url'.$_GET['v'].'.js');
 				$mtime = filemtime('url'.$_GET['v'].'.js');
 				$src = str_replace('hpwmbklhash123456', $_GET['h'], $src);
+				$sre = str_replace('url1.js', $url, $src);
 				break;
 			}
 			default: {
@@ -38,9 +42,6 @@ if (isset($_GET['h']) && isset($_GET['v'])) {
 
 // Fix the url of the bookmarklet. All other changes are done client side
 $json = file_get_contents('bookmarklet.js');
-$url = 'http'.((isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") ? 's://': '://')
-	.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] != '80') ? ':'.$_SERVER['SERVER_PORT'] : '')
-	.((REMOVE_NAME)? str_replace(basename(__FILE__), '', $_SERVER['PHP_SELF']) : $_SERVER['PHP_SELF']);
 $json = str_replace('url1.js', $url, $json);
 $json = json_encode($json);
 
@@ -90,15 +91,15 @@ ob_start();
 				<p id="leetlevelRow" class="formRow">
 					<label for="leetlevel">l33t Level:</label>
 					<select class="control" id="leetlevel">
-						<option selected="selected">1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-						<option>9</option>
+						<option value="1" selected="selected">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
 					</select>
 				</p>
 				<p id="hashalgoRow" class="formRow">

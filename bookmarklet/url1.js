@@ -1,1 +1,3 @@
-(function(){var e=hpwmbklhash123456.substring(8),p=hpwmbklhash123456.substring(0,8);hpwmbklhash123456=function(p,e){console.log(p);console.log(e);};hpwmbklhash123456(p,e);})();
+(function(){if(!window.console||!window.console.log){var s=document.createElement('script');s.type='text/javascript';s.src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js';firebug.env.showIconWhenHidden=false;firebug.env.debug=false;}
+var e=hpwmbklhash123456.substring(8),p=hpwmbklhash123456.substring(0,8);hpwmbklhash123456=function(p,e){var i;console.log(p);e=e.split(',');for(i=0;i<e.length;i++){e[i]=decodeURIComponent(e[i]);}
+console.log(e);};hpwmbklhash123456(p,e);})();
