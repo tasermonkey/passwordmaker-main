@@ -41,7 +41,7 @@ $json = file_get_contents('bookmarklet.js');
 $url = 'http'.((isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") ? 's://': '://')
 	.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] != '80') ? ':'.$_SERVER['SERVER_PORT'] : '')
 	.((REMOVE_NAME)? str_replace(basename(__FILE__), '', $_SERVER['PHP_SELF']) : $_SERVER['PHP_SELF']);
-$json = str_replace('url.js', $url, $json);
+$json = str_replace('url1.js', $url, $json);
 $json = json_encode($json);
 
 ob_start();
@@ -120,19 +120,18 @@ ob_start();
 					<label for="length">Password Length: </label>
 					<input type="text" maxlength="3" class="control" id="length" value="8" />
 				</p>
-				<!-- Planned on using checkboxes to handle this bit -->
 				<fieldset id="characterField">
 					<legend>Characters</legend>
-					<label><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
-					<label><input id="characterDefine" type="radio" name="characterTab" value="defined" /> Predefined</label>
-					<label><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
-					<p id="characterPartsTab">
+					<label class="tabControl"><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
+					<label class="tabControl"><input id="characterDefine" type="radio" name="characterTab" value="defined" /> Predefined</label>
+					<label class="tabControl"><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
+					<p id="characterPartsTab" class="tab">
 						<label><input type="checkbox" id="charactersUpper" checked="checked" /> Upper Alpha</label>
 						<label><input type="checkbox" id="charactersLower" checked="checked" /> Lower Alpha</label>
 						<label><input type="checkbox" id="charactersNumber" checked="checked" /> Numbers</label>
 						<label><input type="checkbox" id="charactersSpecial" checked="checked" /> Special Characters</label>
 					</p>
-					<p id="characterDefinedTab" class="formRow">
+					<p id="characterDefinedTab" class="formRow tab tabHidden">
 						<label for="characterDefined">Predefined-sets:</label>
 						<select class="control" id="characterDefined">
 							<option value="f">Hex String</option>
@@ -140,7 +139,7 @@ ob_start();
 					</p>
 					<p class="formRow">
 						<label for="characters">Character Set:<br /><sub>(For other editions)</sub></label>
-						<input type="text" class="control" id="characters" />
+						<input type="text" class="control" id="characters" disabled="disabled" />
 					</p>
 					<!-- ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./ -->
 				</fieldset>
@@ -158,10 +157,13 @@ ob_start();
 				</p>
 				<p id="bookmarkletRow" class="formRow">
 					<label>Your Bookmarklet:</label>
-					<a id="bookmarklet" class="control" href="javascript:void()">PWMClick!</a>
+					<a id="bookmarklet" class="control" href="javascript:void()"></a>
 				</p>
+				<p id="errorMessage" class="hidden"></p>
 			</form>
 		</div>
+		<!-- Remove when done with inital development -->
+		<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
 		<script type="text/javascript">var bkl = <?php echo $json; ?>;</script>
 		<script type="text/javascript" src="create.js"></script>
 	</body>

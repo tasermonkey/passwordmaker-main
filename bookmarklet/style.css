@@ -17,3 +17,18 @@ body {
 .formRow .control {
 	width: 400px;
 }
+
+.tabHidden {
+	display: none;
+}
+
+/* tabHidden may have more code later on */
+.hidden {
+	display: none;
+}
+
+.error {
+	color: white;
+	background-color: red;
+	font-weight: bold;
+}
