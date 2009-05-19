@@ -164,6 +164,11 @@ ob_start();
 		</div>
 		<!-- Remove when done with inital development -->
 		<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
+		<script type='text/javascript'>
+		firebug.env.showIconWhenHidden = false;
+		firebug.env.debug = false;
+		</script>
+		<!-- Keep these -->
 		<script type="text/javascript">var bkl = <?php echo $json; ?>;</script>
 		<script type="text/javascript" src="create.js"></script>
 	</body>
