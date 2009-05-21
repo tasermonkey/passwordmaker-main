@@ -8,23 +8,23 @@
 		2 (0) - When to apply leet transformations. 0 is none, 1 is before, 2 is after, and 3 is both
 		3 (1) - The leet level to use, 1-9
 		4 (c) - The hash algo to use. HTML form has the values. Comments in urlv-src.js will have the list as well
-		5 (0) - The character set to use. Z is custom. Comments in urlv-src.js will have the list (and below, until this is basically done)
+		5 (0) - The character set to use. Z is custom. Comments in urlv-src.js will have the list
 		6-8 (008) - The length of the password to generate. As the Firefox edition support up to 999, this is three characters long
-	e is the extra paramters that can not be compacted. The format is described below:
-		Each value is encodeURIComponent()ed and separated by a comma
-		This works like a function in which each parameter is optional. Each 'parameter' is listed below in the order they must appear:
-			master password hash (includes key value, format is hash, then key) (position allows for IE6 users to use this bit, maybe)
+	e is the extra paramters that can not be compacted.
+	If it is a string, it's a master password hash, otherwise it's a JSON object with the following members, all optional
+			mphash (Master Password Hash)
 			username
 			modifier
 			prefix
 			suffix
-			custom character set
+			characters
+			usetext (custom text, like in the accounts of the Firefox version)
 */
 
 /**
 	If url.js (and the function the bookmarklet uses) is called on this page, it will load these variables instead of doing the normal operations
 */
-var hash, params = '201c0008', extras = '', version = '1';
+var hash, params = '', extras = '';
 
 // various variables
 var ie6 = false, g = function (id) {return document.getElementById(id)} /* Can't assign getElementById to a variable */;
@@ -178,6 +178,12 @@ function updateParams() {
 	if (subdomain.checked) i |= 4;
 	if (domain.checked) i |= 2;
 	if (path.checked) i |= 1;
+	// TODO if i == 0, then use text string
+	if (!i) {
+		g('bookmarkletRow').className += ' hidden';
+		error.firstChild.nodeValue = 'At least one part must be used.';
+		error.className = 'error';
+	}
 	params = i.toString(16);
 	
 	params += whereleet.value;
@@ -196,27 +202,39 @@ function updateParams() {
 	params += i;
 	characterHandler();
 	
-	extras = '';
 	if (!ie6) { // While the user shouldn't be able to enter these fields, block the code anyway. They may have a slow enough computer for this to matter.
+		extras = {};
+		if (username.value) {
+			extras.username = username.value;
+		}
+		if (modifier.value) {
+			extras.modifier = modifier.value;
+		}
+		if (prefix.value) {
+			extras.prefix = prefix.value;
+		}
+		if (suffix.value) {
+			extras.suffix = suffix.value;
+		}
 		if (params.charAt(4) == 'Z') {
-			extras = ',' + encodeURIComponent(characters.value) + extras;
+			extras.characters = characters.value;
 			if (characters.value.length < 2) {
 				g('bookmarkletRow').className += ' hidden';
 				error.firstChild.nodeValue = 'You must have at least two characters for the character set.';
 				error.className = 'error';
 			}
 		}
-		if (suffix.value || extras.length) extras = ',' + encodeURIComponent(suffix.value) + extras;
-		if (prefix.value || extras.length) extras = ',' + encodeURIComponent(prefix.value) + extras;
-		if (modifier.value || extras.length) extras = ',' + encodeURIComponent(modifier.value) + extras;
-		if (username.value || extras.length) extras = ',' + encodeURIComponent(username.value) + extras;
-		
-		extras = encodeURIComponent(extras.replace(/\\/g, '\\\\').replace(/'/g, "\\'"));
+		// TODO Master Password Hash support
 	}
-	// TODO Master Password Hash support, if the string is too long, move inside the non-ie6 area
+	else {
+		extras = '';
+		// TODO Master Password Hash support
+	}
+	
+	extras = JSON.stringify(extras);
 	
 	bookmarklet.href = 'javascript:' + bkl.replace('faaaa000', params).replace('pwmextras', extras).replace('hpwmbklhash123456', hash).replace(/ /g, '%20');
-	if (ie6 && bookmarklet.href.legnth > 477) {
+	if (ie6 && bookmarklet.href.length > 477) {
 		g('bookmarkletRow').className += ' hidden';
 		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. If you can't upgrade from IE6, consider using another browser.";
 		error.className = 'error';
@@ -225,27 +243,253 @@ function updateParams() {
 
 // Called by the bookmarklet, updates the forum fields
 // If an older version of the bookmarklet protocol is used, update to the current version.
-function paramsUpdate() {
+function paramsUpdate(version, params, extras, hash) {
 	// TODO
 	updateParams();
 }
 
 /*
-Characters to parameter values
-0='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-1='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-2='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-3='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-4='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-5='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-6='ABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-7='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-8='abcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-9='abcdefghijklmnopqrstuvwxyz0123456789'
-a='abcdefghijklmnopqrstuvwxyz`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-b='abcdefghijklmnopqrstuvwxyz'
-c='0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-d='0123456789'
-e='`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/'
-f='0123456789abcdef'
+    http://www.JSON.org/json2.js
+    2009-04-16
+
+    Public Domain.
+
+    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+
+    See http://www.JSON.org/js.html
+
+    This is a reference implementation. You are free to copy, modify, or
+    redistribute.
+
+    This code should be minified before deployment.
+    See http://javascript.crockford.com/jsmin.html
+
+    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
+    NOT CONTROL.
 */
+
+// Create a JSON object only if one does not already exist. We create the
+// methods in a closure to avoid creating global variables.
+
+if (!this.JSON) {
+    JSON = {};
+}
+(function () {
+
+    function f(n) {
+        // Format integers to have at least two digits.
+        return n < 10 ? '0' + n : n;
+    }
+
+    if (typeof String.prototype.toJSON !== 'function') {
+        String.prototype.toJSON = function (key) {
+            return this.valueOf();
+        };
+    }
+
+    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        gap,
+        indent,
+        meta = {    // table of character substitutions
+            '\b': '\\b',
+            '\t': '\\t',
+            '\n': '\\n',
+            '\f': '\\f',
+            '\r': '\\r',
+            '"' : '\\"',
+            '\\': '\\\\'
+        },
+        rep;
+
+
+    function quote(string) {
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe escape
+// sequences.
+
+        escapable.lastIndex = 0;
+        return escapable.test(string) ?
+            '"' + string.replace(escapable, function (a) {
+                var c = meta[a];
+                return typeof c === 'string' ? c :
+                    '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+            }) + '"' :
+            '"' + string + '"';
+    }
+
+
+    function str(key, holder) {
+
+// Produce a string from holder[key].
+
+        var i,          // The loop counter.
+            k,          // The member key.
+            v,          // The member value.
+            length,
+            mind = gap,
+            partial,
+            value = holder[key];
+
+// If the value has a toJSON method, call it to obtain a replacement value.
+
+        if (value && typeof value === 'object' &&
+                typeof value.toJSON === 'function') {
+            value = value.toJSON(key);
+        }
+
+// If we were called with a replacer function, then call the replacer to
+// obtain a replacement value.
+
+        if (typeof rep === 'function') {
+            value = rep.call(holder, key, value);
+        }
+
+// What happens next depends on the value's type.
+
+        switch (typeof value) {
+        case 'string':
+            return quote(value);
+
+        case 'number':
+
+// JSON numbers must be finite. Encode non-finite numbers as null.
+
+            return isFinite(value) ? String(value) : 'null';
+
+        case 'boolean':
+        case 'null':
+
+// If the value is a boolean or null, convert it to a string. Note:
+// typeof null does not produce 'null'. The case is included here in
+// the remote chance that this gets fixed someday.
+
+            return String(value);
+
+// If the type is 'object', we might be dealing with an object or an array or
+// null.
+
+        case 'object':
+
+// Due to a specification blunder in ECMAScript, typeof null is 'object',
+// so watch out for that case.
+
+            if (!value) {
+                return 'null';
+            }
+
+// Make an array to hold the partial results of stringifying this object value.
+
+            gap += indent;
+            partial = [];
+
+// Is the value an array?
+
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
+
+// The value is an array. Stringify every element. Use null as a placeholder
+// for non-JSON values.
+
+                length = value.length;
+                for (i = 0; i < length; i += 1) {
+                    partial[i] = str(i, value) || 'null';
+                }
+
+// Join all of the elements together, separated with commas, and wrap them in
+// brackets.
+
+                v = partial.length === 0 ? '[]' :
+                    gap ? '[\n' + gap +
+                            partial.join(',\n' + gap) + '\n' +
+                                mind + ']' :
+                          '[' + partial.join(',') + ']';
+                gap = mind;
+                return v;
+            }
+
+// If the replacer is an array, use it to select the members to be stringified.
+
+            if (rep && typeof rep === 'object') {
+                length = rep.length;
+                for (i = 0; i < length; i += 1) {
+                    k = rep[i];
+                    if (typeof k === 'string') {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            } else {
+
+// Otherwise, iterate through all of the keys in the object.
+
+                for (k in value) {
+                    if (Object.hasOwnProperty.call(value, k)) {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            }
+
+// Join all of the member texts together, separated with commas,
+// and wrap them in braces.
+
+            v = partial.length === 0 ? '{}' :
+                gap ? '{\n' + gap + partial.join(',\n' + gap) + '\n' +
+                        mind + '}' : '{' + partial.join(',') + '}';
+            gap = mind;
+            return v;
+        }
+    }
+
+// If the JSON object does not yet have a stringify method, give it one.
+
+    if (typeof JSON.stringify !== 'function') {
+        JSON.stringify = function (value, replacer, space) {
+
+// The stringify method takes a value and an optional replacer, and an optional
+// space parameter, and returns a JSON text. The replacer can be a function
+// that can replace values, or an array of strings that will select the keys.
+// A default replacer method can be provided. Use of the space parameter can
+// produce text that is more easily readable.
+
+            var i;
+            gap = '';
+            indent = '';
+
+// If the space parameter is a number, make an indent string containing that
+// many spaces.
+
+            if (typeof space === 'number') {
+                for (i = 0; i < space; i += 1) {
+                    indent += ' ';
+                }
+
+// If the space parameter is a string, it will be used as the indent string.
+
+            } else if (typeof space === 'string') {
+                indent = space;
+            }
+
+// If there is a replacer, it must be a function or an array.
+// Otherwise, throw an error.
+
+            rep = replacer;
+            if (replacer && typeof replacer !== 'function' &&
+                    (typeof replacer !== 'object' ||
+                     typeof replacer.length !== 'number')) {
+                throw new Error('JSON.stringify');
+            }
+
+// Make a fake root object containing our value under the key of ''.
+// Return the result of stringifying the value.
+
+            return str('', {'': value});
+        };
+    }
+}());
