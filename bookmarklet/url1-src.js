@@ -77,7 +77,7 @@ window._hpwmbklhash123456_v = {
 			return;/ **/
 		}
 		// If self url, call updateParams and return
-		var i,
+		var i, f, t, r, d, o, q,
 			ce=function(e){return document.createElement(e);},
 			ct = function(v){return document.createTextNode(v);},
 			g = function(id){return document.getElementById(id);},
@@ -141,11 +141,80 @@ window._hpwmbklhash123456_v = {
 			// using width, and a background image (no repeat), a header can be added
 			i.style.backgroundColor = '#fff';
 			i.style.color = '#000';
-			i.style.top = '50%';
-			i.style.left = '50%';
+			// Find a way to make this centered on a screen
+			i.style.top = '10%';
+			i.style.left = '10%';
+			// Now to make a form element to work with (To allow user to hit enter)
+			f = ce('form');
+			f.style.padding = '0';
+			f.style.margin = '0';
+			f.onsubmit = function(){console.log('TODO'); return false;}; // TODO Replace with function to calcutate passwords
+			// And the table
+			t = ce('table');
+			t.style.padding = '0';
+			t.style.margin = '0';
+			t.style.width = '300px';
+			// Master Password row
+			r = ce('tr');
+			d = ce('td');
+			o = ct('Master Password:');
+			d.appendChild(o);
+			r.appendChild(d);
+			d = ce('td');
+			q = ce('input');
+			q.id = h.id+'mpw1';
+			q.style.width = '100%';
+			d.appendChild(q);
+			r.appendChild(d);
+			t.appendChild(r);
 			
-			i.appendChild(ct('hpwm'));
+			// Confirm Master Password row
+			if (!h.mphash) {
+				r = ce('tr');
+				d = ce('td');
+				o = ct('Confrim:');
+				d.appendChild(o);
+				r.appendChild(d);
+				d = ce('td');
+				o = ce('input');
+				o.id = h.id+'mpw2';
+				o.style.width = '100%';
+				d.appendChild(o);
+				r.appendChild(d);
+				t.appendChild(r);
+			}
+			
+			// Populate button
+			r = ce('tr');
+			d = ce('td');
+			d.colSpan = 2;
+			o = ce('input');
+			o.type = 'submit';
+			o.value = 'Populate';
+			d.appendChild(o);
+			r.appendChild(d);
+			t.appendChild(r);
+			
+			// Debug row
+			r = ce('tr');
+			d = ce('td');
+			o = ce('input');
+			o.type = 'button';
+			o.value = 'Debug';
+			o.onclick = function(){console.log('TODO, debug button');};
+			d.appendChild(o);
+			r.appendChild(d);
+			d = ce('td');
+			o = ce('input');
+			o.style.width = '100%';
+			d.appendChild(o);
+			r.appendChild(d);
+			t.appendChild(r);
+			
+			f.appendChild(t);
+			i.appendChild(f);
 			document.getElementsByTagName('body')[0].appendChild(i);
+			q.focus();
 		}
 		else {
 			i.style.display = 'block';
