@@ -22,7 +22,7 @@ if (isset($_GET['h']) && isset($_GET['v'])) {
 				$src = file_get_contents('url'.$_GET['v'].'.js');
 				$mtime = filemtime('url'.$_GET['v'].'.js');
 				$src = str_replace('hpwmbklhash123456', $_GET['h'], $src);
-				$sre = str_replace('url1.js', $url, $src);
+				$src = str_replace('url1.js', $url, $src);
 				break;
 			}
 			default: {
@@ -125,7 +125,7 @@ ob_start();
 					<legend>Characters</legend>
 					<label class="tabControl"><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
 					<label class="tabControl"><input id="characterDefine" type="radio" name="characterTab" value="defined" /> Predefined</label>
-					<label class="tabControl"><input id="characterCustion" type="radio" name="characterTab" value="custom" /> Custom</label>
+					<label class="tabControl"><input id="characterCustom" type="radio" name="characterTab" value="custom" /> Custom</label>
 					<p id="characterPartsTab" class="tab">
 						<label><input type="checkbox" id="charactersUpper" checked="checked" /> Upper Alpha</label>
 						<label><input type="checkbox" id="charactersLower" checked="checked" /> Lower Alpha</label>
@@ -140,7 +140,7 @@ ob_start();
 					</p>
 					<p class="formRow">
 						<label for="characters">Character Set:<br /><sub>(For other editions)</sub></label>
-						<input type="text" class="control" id="characters" disabled="disabled" />
+						<input type="text" class="control" id="characters" readonly="readonly" />
 					</p>
 					<!-- ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./ -->
 				</fieldset>
@@ -163,13 +163,6 @@ ob_start();
 				<p id="errorMessage" class="hidden"></p>
 			</form>
 		</div>
-		<!-- Remove when done with inital development -->
-		<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
-		<script type='text/javascript'>
-		firebug.env.showIconWhenHidden = false;
-		firebug.env.debug = false;
-		</script>
-		<!-- Keep these -->
 		<script type="text/javascript">var bkl = <?php echo $json; ?>;</script>
 		<script type="text/javascript" src="create.js"></script>
 	</body>

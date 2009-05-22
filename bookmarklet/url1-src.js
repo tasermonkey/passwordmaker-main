@@ -46,6 +46,7 @@ Defined character sets
 	'f':'0123456789abcdef'
 */
 window._hpwmbklhash123456_v = {
+	id:'hpwmbklhash123456', // The id of the root div of the master password dialog
 	url:'url1.js',
 	protocol:false,
 	subdomain:false,
@@ -65,21 +66,22 @@ window._hpwmbklhash123456_v = {
 };
 (function(){
 	/* Start Firebug check, remove when done */
-	/* Any other browser defining their own console.log will skip loading firebug lite */
-	if (!console || !console.log) {
-		var s = document.createElement('script');
-		s.type='text/javascript';
-		s.src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js';
-		document.body.appendChild(s);
-		firebug.env.showIconWhenHidden = false;
-		firebug.env.debug = false;
-		//firebug.init();
-	}
+	/* Any other browser defining their own console.log will skip this */
+	if (!window.console || !window.console.log) {window.console = {log:function(v) {alert(v);}};}
 	/* End Firebug check */
 	var e = ehpwmbklhash123456,p = hpwmbklhash123456;
 	hpwmbklhash123456 = function(p, e) {
+		var h = window._hpwmbklhash123456_v;
+		if (location.href.substring(0, h.url.length) == h.url) {
+			/**paramsUpdate(1, p, e, h.id);
+			return;/ **/
+		}
 		// If self url, call updateParams and return
-		var i, h = window._hpwmbklhash123456_v, c = {
+		var i,
+			ce=function(e){return document.createElement(e);},
+			ct = function(v){return document.createTextNode(v);},
+			g = function(id){return document.getElementById(id);},
+			c = {
 			'0':'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/',
 			'1':'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
 			'2':'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/',
@@ -96,7 +98,7 @@ window._hpwmbklhash123456_v = {
 			'd':'0123456789',
 			'e':'`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/',
 			'f':'0123456789abcdef'
-		}
+		};
 		// Now to write this part out
 		i = parseInt(p.charAt(0), 16);
 		h.protocol = (i & 8) ? true : false;
@@ -104,8 +106,8 @@ window._hpwmbklhash123456_v = {
 		h.domain = (i & 2) ? true : false;
 		h.path = (i & 1) ? true : false;
 		
-		h.whereLeet = parseInt(p.charAt(1));
-		h.leetlevel = parseInt(p.charAt(2));
+		h.whereLeet = parseInt(p.charAt(1), 10);
+		h.leetlevel = parseInt(p.charAt(2), 10);
 		h.hash = p.charAt(3);
 		h.length = parseInt(p.substring(5), 10);
 		h.characters = p.charAt(4);
@@ -119,15 +121,35 @@ window._hpwmbklhash123456_v = {
 			// IE6
 		}
 		else {
-			if (e.mphash) h.mphash = e.mphash;
-			if (e.username) h.username = e.username;
-			if (e.modifier) h.modifier = e.modifier;
-			if (e.prefix) h.prefix = e.prefix;
-			if (e.suffix) h.suffix = e.suffix;
-			if (e.usetext) h.usetext = e.usetext;
+			if (e.mphash) {h.mphash = e.mphash;}
+			if (e.username) {h.username = e.username;}
+			if (e.modifier) {h.modifier = e.modifier;}
+			if (e.prefix) {h.prefix = e.prefix;}
+			if (e.suffix) {h.suffix = e.suffix;}
+			if (e.usetext) {h.usetext = e.usetext;}
 		}
 		
-		// display the form to ask for the master password
+		// form handling
+		i = g(h.id);
+		if (!i) {
+			// Root div
+			i = ce('div');
+			i.id = h.id;
+			i.style.position = 'fixed';
+			i.style.border = '1px solid #000';
+			i.style.padding = '3px';
+			// using width, and a background image (no repeat), a header can be added
+			i.style.backgroundColor = '#fff';
+			i.style.color = '#000';
+			i.style.top = '50%';
+			i.style.left = '50%';
+			
+			i.appendChild(ct('hpwm'));
+			document.getElementsByTagName('body')[0].appendChild(i);
+		}
+		else {
+			i.style.display = 'block';
+		}
 	};
 	hpwmbklhash123456(p, e);
 })();

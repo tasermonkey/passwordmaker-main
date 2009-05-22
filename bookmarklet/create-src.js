@@ -24,94 +24,14 @@
 /**
 	If url.js (and the function the bookmarklet uses) is called on this page, it will load these variables instead of doing the normal operations
 */
-var hash, params = '', extras = '';
+var hash, params = '', extras = '', rehash = false;
 
 // various variables
-var ie6 = false, g = function (id) {return document.getElementById(id)} /* Can't assign getElementById to a variable */;
+var ie6 = false, g = function(id){return document.getElementById(id);}; /* Can't assign getElementById to a variable */
 // Form fields we'll be editting
 var bklname, protocol, subdomain, domain, path, username, whereleet, leetlevel, hashalgo, length, modifier, prefix, suffix, bookmarklet, error;
 // Variables for character set handling
 var characters, cUpper, cLower, cNumber, cSpecial, cDefine, cTabs;
-window.onload = function() {
-	var hex = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
-	var i;
-	bklname = g('name');
-	protocol = g('protocol');
-	subdomain = g('subdomains');
-	domain = g('domain');
-	path = g('path');
-	username = g('username');
-	whereleet = g('whereleet');
-	leetlevel = g('leetlevel');
-	hashalgo = g('hashalgo');
-	length = g('length');
-	modifier = g('modifier');
-	prefix = g('prefix');
-	suffix = g('suffix');
-	bookmarklet = g('bookmarklet');
-	bookmarklet.appendChild(document.createTextNode(''));
-	error = g('errorMessage');
-	error.appendChild(document.createTextNode(''));
-	
-	characters = g('characters');
-	cUpper = g('charactersUpper');
-	cLower = g('charactersLower');
-	cNumber = g('charactersNumber');
-	cSpecial = g('charactersSpecial');
-	cDefine = g('characterDefined');
-	cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
-	
-	// IE needs the onclick
-	protocol.onclick = protocol.onchange = updateParams;
-	subdomain.onclick = subdomain.onchange = updateParams;
-	domain.onclick = domain.onchange = updateParams;
-	path.onclick = path.onchange = updateParams;
-	// keyup to catch changes before the blur
-	bklname.onkeyup = bklname.onchange = updateParams;
-	username.onkeyup = username.onchange = updateParams;
-	length.onkeyup = length.onchange = updateParams;
-	modifier.onkeyup = modifier.onchange = updateParams;
-	prefix.onkeyup = prefix.onchange = updateParams;
-	suffix.onkeyup = suffix.onchange = updateParams;
-	// IE calls onchange with keyup anyway. Other browsers call key up with enter or blur
-	whereleet.onkeyup = whereleet.onchange = updateParams;
-	leetlevel.onkeyup = leetlevel.onchange = updateParams;
-	hashalgo.onkeyup = hashalgo.onchange = updateParams;
-	
-	characters.onkeyup = characters.onchange = updateParams;
-	cUpper.onkeyup = cUpper.onclick = cUpper.onchange = updateParams;
-	cLower.onkeyup = cLower.onclick = cLower.onchange = updateParams;
-	cNumber.onkeyup = cNumber.onclick = cNumber.onchange = updateParams;
-	cSpecial.onkeyup = cSpecial.onclick = cSpecial.onchange = updateParams;
-	cDefine.onkeyup = cDefine.onchange = updateParams;
-	g('characterParts').onclick = updateParams;
-	g('characterDefine').onclick = updateParams;
-	g('characterCustion').onclick = updateParams;
-	
-	// Check for IE6 and disable some features
-	if (!(/KHTML|AppleWebKit|Opera/).test(navigator.userAgent)) {
-		i = navigator.userAgent.match(/MSIE\s([^;]*)/);
-		if (i&&i[1]) {
-			i = parseFloat(i[1]);
-			if (i == 6.0) {
-				ie6 = true;
-				username.disabled = true;
-				modifier.disabled = true;
-				prefix.disabled = true;
-				suffix.disabled = true;
-				g('characterCustion').disabled = true;
-			}
-		}
-	}
-	characters.disabled = true; // Should be disabled by default
-	
-	hash = 'h';
-	for (i = 0; i < 16; i++) {
-		hash += hex[Math.floor(Math.random() * 16)];
-	}
-	updateParams();
-};
-
 function characterHandler() {
 	var o;
 	// remove tabHiden from all tabs
@@ -119,7 +39,7 @@ function characterHandler() {
 	cTabs[1].className = cTabs[1].className.replace(/\btabHidden\b/g, '');
 	
 	o = g('characterParts');
-	characters.disabled = true;
+	characters.readonly = true;
 	if (o.checked) {
 		cTabs[1].className = cTabs[1].className + ' tabHidden';
 		// based off checkboxes, 5th will be 0-9a-e
@@ -162,10 +82,10 @@ function characterHandler() {
 			cTabs[0].className = cTabs[0].className + ' tabHidden';
 			cTabs[1].className = cTabs[1].className + ' tabHidden';
 			params = params.substr(0, 4) + 'Z' + params.substr(5);
-			characters.disabled = false;
+			characters.readonly = false;
 		}
 	}
-};
+}
 
 function updateParams() {
 	var i;
@@ -174,10 +94,10 @@ function updateParams() {
 	bookmarklet.firstChild.nodeValue = bklname.value;
 	
 	i = 0;
-	if (protocol.checked) i |= 8;
-	if (subdomain.checked) i |= 4;
-	if (domain.checked) i |= 2;
-	if (path.checked) i |= 1;
+	if (protocol.checked) {i |= 8;}
+	if (subdomain.checked) {i |= 4;}
+	if (domain.checked) {i |= 2;}
+	if (path.checked) {i |= 1;}
 	// TODO if i == 0, then use text string
 	if (!i) {
 		g('bookmarkletRow').className += ' hidden';
@@ -239,12 +159,22 @@ function updateParams() {
 		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. If you can't upgrade from IE6, consider using another browser.";
 		error.className = 'error';
 	}
-};
+}
 
 // Called by the bookmarklet, updates the forum fields
 // If an older version of the bookmarklet protocol is used, update to the current version.
 function paramsUpdate(version, params, extras, hash) {
-	// TODO
+	if (version < 1) {return;} // Should never be 0
+	switch (version) {
+	case 1:
+		// TODO
+		//console.log(hash, params);
+		//console.log(extras);
+		break;
+	default:
+		// Unsupported version. Somehow a newer version of the protocol called this function (downgrade?)
+		return;
+	}
 	updateParams();
 }
 
@@ -493,3 +423,84 @@ if (!this.JSON) {
         };
     }
 }());
+
+window.onload = function() {
+	var hex = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+	var i;
+	bklname = g('name');
+	protocol = g('protocol');
+	subdomain = g('subdomains');
+	domain = g('domain');
+	path = g('path');
+	username = g('username');
+	whereleet = g('whereleet');
+	leetlevel = g('leetlevel');
+	hashalgo = g('hashalgo');
+	length = g('length');
+	modifier = g('modifier');
+	prefix = g('prefix');
+	suffix = g('suffix');
+	bookmarklet = g('bookmarklet');
+	bookmarklet.appendChild(document.createTextNode(''));
+	error = g('errorMessage');
+	error.appendChild(document.createTextNode(''));
+	
+	characters = g('characters');
+	cUpper = g('charactersUpper');
+	cLower = g('charactersLower');
+	cNumber = g('charactersNumber');
+	cSpecial = g('charactersSpecial');
+	cDefine = g('characterDefined');
+	cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
+	
+	// IE needs the onclick
+	protocol.onclick = protocol.onchange = updateParams;
+	subdomain.onclick = subdomain.onchange = updateParams;
+	domain.onclick = domain.onchange = updateParams;
+	path.onclick = path.onchange = updateParams;
+	// keyup to catch changes before the blur
+	bklname.onkeyup = bklname.onchange = updateParams;
+	username.onkeyup = username.onchange = updateParams;
+	length.onkeyup = length.onchange = updateParams;
+	modifier.onkeyup = modifier.onchange = updateParams;
+	prefix.onkeyup = prefix.onchange = updateParams;
+	suffix.onkeyup = suffix.onchange = updateParams;
+	// IE calls onchange with keyup anyway. Other browsers call key up with enter or blur
+	whereleet.onkeyup = whereleet.onchange = updateParams;
+	leetlevel.onkeyup = leetlevel.onchange = updateParams;
+	hashalgo.onkeyup = hashalgo.onchange = updateParams;
+	
+	characters.onkeyup = characters.onchange = updateParams;
+	cUpper.onkeyup = cUpper.onclick = cUpper.onchange = updateParams;
+	cLower.onkeyup = cLower.onclick = cLower.onchange = updateParams;
+	cNumber.onkeyup = cNumber.onclick = cNumber.onchange = updateParams;
+	cSpecial.onkeyup = cSpecial.onclick = cSpecial.onchange = updateParams;
+	cDefine.onkeyup = cDefine.onchange = updateParams;
+	g('characterParts').onclick = updateParams;
+	g('characterDefine').onclick = updateParams;
+	g('characterCustom').onclick = updateParams;
+	
+	// Check for IE6 and disable some features
+	characters.readonly = true; // Should be readonly by default
+	if (!(/KHTML|AppleWebKit|Opera/).test(navigator.userAgent)) {
+		i = navigator.userAgent.match(/MSIE\s([^;]*)/);
+		if (i&&i[1]) {
+			i = parseFloat(i[1]);
+			if (i == 6.0) {
+				ie6 = true;
+				username.disabled = true;
+				modifier.disabled = true;
+				prefix.disabled = true;
+				suffix.disabled = true;
+				g('characterCustom').disabled = true;
+			}
+		}
+	}
+	
+	hash = 'h';
+	for (i = 0; i < 16; i++) {
+		hash += hex[Math.floor(Math.random() * 16)];
+	}
+	updateParams();
+};
+
