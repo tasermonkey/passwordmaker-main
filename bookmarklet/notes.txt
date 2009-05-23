@@ -40,7 +40,7 @@ For now, I only see this set at 1.
 Script Notes:
 =============
 A special hash id will be used instead of pwmbklhash123456 for the main function (and the prefix for the other global variables).
-As this id may start with a number, a h is used as the first character.
+As this id may start with a number (a no no in JavaScript variables), a h is used as the first character.
 
 A 'protocol' will be used to allow for compact parameter settings.
 
@@ -50,12 +50,11 @@ The second character controls when to use l33t.
 The third character is the l33t level
 The fourth character is the hash algorithm.
 The fifth character is the predefined character set.
-	0-f (note, lower case) will be a set of character sets with a combination of Upper, Lower, Numbers, and Special characters.
-	g will be the hex string used for the version 0.6 hashes (minus the trimming off the zero part)
-	h-zA-Y is reserved for more options (So, 32 more sets can be defined for later)
+	0-e (note, lower case) will be a set of character sets with a combination of Upper, Lower, Numbers, and Special characters.
+	f will be the hex string used for the version 0.6 hashes (minus the trimming off the zero part)
+	g-zA-Y is reserved for more options (So, 32 more sets can be defined for later)
 	Z is custom (Not used with IE6)
 The last three character is the length of the password
 
-There's another parameter that is an empty string if the username, modifier, prefix, suffix,
-custom character set and master password hash is not used or the user is using IE6 (IE6 may have room for master password hash)
-As this is a string, some delimiter system needs to be created. I for see this being the reason for a late 1.0 release.
+Another parameter is a string if using IE6 to hold some value that is short, and sure to not exceed a certain size.
+This is an object in other browsers containing the other bits of info needed to generate a browser.
