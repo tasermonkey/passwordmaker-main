@@ -78,9 +78,7 @@ window._hpwmbklhash123456_v = {
 			return;/ **/
 		}
 		// If self url, call updateParams and return
-		var i, f, t, r, d, o, q,
-			ce=function(e){return document.createElement(e);},
-			ct = function(v){return document.createTextNode(v);},
+		var i, f,
 			g = function(id){return document.getElementById(id);},
 			c = {
 			'0':'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/',
@@ -151,22 +149,31 @@ window._hpwmbklhash123456_v = {
 			// using width, and a background image (no repeat), a header can be added
 			i.style.backgroundColor = '#fff';
 			i.style.color = '#000';
-			// Find a way to make this centered on a screen
-			i.style.top = '10%';
-			i.style.left = '10%';
-			//i.style.width = '300px';
-			f = '<form id="'+h.id+'f"><table border="1" style="width: 300px"><tr><td align="right">Master Password:</td><td align="center" style="width: 160px"><input type="password" id="'+h.id+'mpw1" style="width=150px" /></td></tr>';
+			i.style.width = '350px';
+			f = '<form id="'+h.id+'f" style="padding: 0;margin:0;text-align:center;">';
+			f += '<div style="margin-bottom:3px;">';
+			f += '<label id="l'+h.id+'mpw1" for="'+h.id+'mpw1" style="display:block; float:left; width:145px; text-align: right;">Master Password:</label>';
+			f += '<input type="password" id="'+h.id+'mpw1" style="width:194px; text-align: left;" />';
+			f += '</div>';
 			if (!h.mphash) {
-				f += '<tr><td align="right">Confirm:</td><td align="left"><input type="password" id="'+h.id+'mpw2" style="width=160px" /></td></tr>';
+				f += '<div style="clear:left;margin-bottom:3px;">';
+				f += '<label id="l'+h.id+'mpw2" for="'+h.id+'mpw2" style="display:block; float:left; width:145px; text-align: right;">Confirm:</label>';
+				f += '<input type="password" id="'+h.id+'mpw2" style="width:194px" text-align: left; />';
+				f += '</div>';
 			}
-			f += '<tr><td colspan="2" align="center"><input type="submit" id="'+h.id+'pop" value="Populate" /></td></tr>';
-			f += '<tr><td align="right"><input type="button" id="debug" value="Debug" /></td><td align="left"><input id="'+h.id+'pw" style="width=150px" /></td></tr>';
-			f += '</table></form>';
+			f += '<div style="clear:left;">';
+			f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;" />';
+			f += '</div>';
+			f += '<div style="clear:left;">';
+			f += '<input type="button" id="debug" value="Debug" style="display:block; float:left; width:145px;" />';
+			f += '<input id="'+h.id+'pw" style="width:194px"/>';
+			f += '</div>';
+			f += '</form>';
 			i.innerHTML = f;
-			i.firstChild.style.padding = '0';
-			i.firstChild.style.margin = '0';
-			i.firstChild.firstChild.style.padding = '0';
-			i.firstChild.firstChild.style.margin = '0';
+			
+			// Find a way to make this centered on a screen
+			i.style.top = '10px';
+			i.style.left = '10px';
 			document.getElementsByTagName('body')[0].appendChild(i);
 			g(h.id+'mpw1').focus();
 		}
