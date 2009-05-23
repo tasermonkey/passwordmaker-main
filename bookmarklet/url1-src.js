@@ -47,6 +47,7 @@ Defined character sets
 */
 window._hpwmbklhash123456_v = {
 	id:'hpwmbklhash123456', // The id of the root div of the master password dialog
+	ie:false,
 	url:'url1.js',
 	protocol:false,
 	subdomain:false,
@@ -99,6 +100,15 @@ window._hpwmbklhash123456_v = {
 			'e':'`~!@#$%^&*()_-+={}|[]\\:";\'<>?,.\/',
 			'f':'0123456789abcdef'
 		};
+		if (!(/KHTML|AppleWebKit|Opera/).test(navigator.userAgent)) {
+			i = navigator.userAgent.match(/MSIE\s([^;]*)/);
+			if (i&&i[1]) {
+				i = parseFloat(i[1]);
+				if (i == 6.0) {
+					h.ie = i;
+				}
+			}
+		}
 		// Now to write this part out
 		i = parseInt(p.charAt(0), 16);
 		h.protocol = (i & 8) ? true : false;
@@ -133,9 +143,9 @@ window._hpwmbklhash123456_v = {
 		i = g(h.id);
 		if (!i) {
 			// Root div
-			i = ce('div');
+			i = document.createElement('div');
 			i.id = h.id;
-			i.style.position = 'fixed';
+			i.style.position = 'absolute';
 			i.style.border = '1px solid #000';
 			i.style.padding = '3px';
 			// using width, and a background image (no repeat), a header can be added
@@ -144,77 +154,21 @@ window._hpwmbklhash123456_v = {
 			// Find a way to make this centered on a screen
 			i.style.top = '10%';
 			i.style.left = '10%';
-			// Now to make a form element to work with (To allow user to hit enter)
-			f = ce('form');
-			f.style.padding = '0';
-			f.style.margin = '0';
-			f.onsubmit = function(){console.log('TODO'); return false;}; // TODO Replace with function to calcutate passwords
-			// And the table
-			t = ce('table');
-			t.style.padding = '0';
-			t.style.margin = '0';
-			t.style.width = '300px';
-			// Master Password row
-			r = ce('tr');
-			d = ce('td');
-			o = ct('Master Password:');
-			d.appendChild(o);
-			r.appendChild(d);
-			d = ce('td');
-			q = ce('input');
-			q.id = h.id+'mpw1';
-			q.style.width = '100%';
-			d.appendChild(q);
-			r.appendChild(d);
-			t.appendChild(r);
-			
-			// Confirm Master Password row
+			//i.style.width = '300px';
+			f = '<form id="'+h.id+'f"><table border="1" style="width: 300px"><tr><td align="right">Master Password:</td><td align="center" style="width: 160px"><input type="password" id="'+h.id+'mpw1" style="width=150px" /></td></tr>';
 			if (!h.mphash) {
-				r = ce('tr');
-				d = ce('td');
-				o = ct('Confrim:');
-				d.appendChild(o);
-				r.appendChild(d);
-				d = ce('td');
-				o = ce('input');
-				o.id = h.id+'mpw2';
-				o.style.width = '100%';
-				d.appendChild(o);
-				r.appendChild(d);
-				t.appendChild(r);
+				f += '<tr><td align="right">Confirm:</td><td align="left"><input type="password" id="'+h.id+'mpw2" style="width=160px" /></td></tr>';
 			}
-			
-			// Populate button
-			r = ce('tr');
-			d = ce('td');
-			d.colSpan = 2;
-			o = ce('input');
-			o.type = 'submit';
-			o.value = 'Populate';
-			d.appendChild(o);
-			r.appendChild(d);
-			t.appendChild(r);
-			
-			// Debug row
-			r = ce('tr');
-			d = ce('td');
-			o = ce('input');
-			o.type = 'button';
-			o.value = 'Debug';
-			o.onclick = function(){console.log('TODO, debug button');};
-			d.appendChild(o);
-			r.appendChild(d);
-			d = ce('td');
-			o = ce('input');
-			o.style.width = '100%';
-			d.appendChild(o);
-			r.appendChild(d);
-			t.appendChild(r);
-			
-			f.appendChild(t);
-			i.appendChild(f);
+			f += '<tr><td colspan="2" align="center"><input type="submit" id="'+h.id+'pop" value="Populate" /></td></tr>';
+			f += '<tr><td align="right"><input type="button" id="debug" value="Debug" /></td><td align="left"><input id="'+h.id+'pw" style="width=150px" /></td></tr>';
+			f += '</table></form>';
+			i.innerHTML = f;
+			i.firstChild.style.padding = '0';
+			i.firstChild.style.margin = '0';
+			i.firstChild.firstChild.style.padding = '0';
+			i.firstChild.firstChild.style.margin = '0';
 			document.getElementsByTagName('body')[0].appendChild(i);
-			q.focus();
+			g(h.id+'mpw1').focus();
 		}
 		else {
 			i.style.display = 'block';
