@@ -2,12 +2,14 @@ Name Eric came up with: Click! Edition
 
 There's a PHP script that controls rewriting some of the javascript.
 For the bookmarklet, it edits the url the bookmarklet uses to get the main script.
-For the main script, it edits a prefix used so that injection is hard to do.
+For the main script, it edits a prefix used so that injection is hard to do, and the root url to feeding the parameters back in.
 
 For IE6 support, we have 477 bytes total to work with.
 The proof of concept code for the bookmarklet is currently 320 characters compressed.
 That is without a username, modifier, prefix, suffix, custom character set, or master password hash support.
-The script that creates the bookmarklet will just have to reject those features for IE6 users. 
+The script that creates the bookmarklet will just have to reject those features for IE6 users.
+
+url1.js did hit the safe limit for all other browsers before any existing code was brought in.
 
 Feature Notes:
 ==============
