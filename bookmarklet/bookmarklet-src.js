@@ -15,7 +15,7 @@
 		var s = document.createElement('script');
 		s.type='text/javascript';
 		s.src='url1.js?v=1&h='+h;
-		document.getElementsByTagName('head')[0].appendChild(s);
+		document.getElementsByTagName('html')[0].appendChild(s);
 	} else if (typeof f == 'function') {
 		f(p, e);
 	}

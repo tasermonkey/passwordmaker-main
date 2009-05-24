@@ -1054,66 +1054,72 @@ window._hpwmbklhash123456_l33t = {
 			// IE6
 		}
 		else {
-			if (e.mphash) {h.mphash = e.mphash;}
-			if (e.username) {h.username = e.username;}
-			if (e.modifier) {h.modifier = e.modifier;}
-			if (e.prefix) {h.prefix = e.prefix;}
-			if (e.suffix) {h.suffix = e.suffix;}
-			if (e.usetext) {h.usetext = e.usetext;}
+			h.mphash = e.mphash||'';
+			h.username = e.username||'';
+			h.modifier = e.modifier||'';
+			h.prefix = e.prefix||'';
+			h.suffix = e.suffix||'';
+			h.usetext = e.usetext||'';
 		}
 		
 		// form handling
 		i = g(h.id);
 		if (!i) {
-			// Root div
-			i = document.createElement('div');
-			i.id = h.id;
-			i.style.position = 'absolute';
-			i.style.border = '1px solid #000';
-			i.style.padding = '3px';
-			i.style.display = 'block';
-			// using width, and a background image (no repeat), a header can be added
-			i.style.backgroundColor = '#fff';
-			i.style.color = '#000';
-			i.style.width = '350px';
-			f = '<form id="'+h.id+'f" style="padding: 0;margin:0;text-align:center;">';
-			f += '<div style="margin-bottom:3px;">';
-			f += '<label id="l'+h.id+'mpw1" for="'+h.id+'mpw1" style="display:block; float:left; width:145px; text-align: right;">Master Password:</label>';
-			f += '<input type="password" id="'+h.id+'mpw1" style="width:194px; text-align: left;" />';
-			f += '</div>';
-			if (!h.mphash) {
-				f += '<div style="clear:left;margin-bottom:3px;">';
-				f += '<label id="l'+h.id+'mpw2" for="'+h.id+'mpw2" style="display:block; float:left; width:145px; text-align: right;">Confirm:</label>';
-				f += '<input type="password" id="'+h.id+'mpw2" style="width:194px" text-align: left; />';
-				f += '</div>';
+			if (document.getElementsByTagName('frameset').length) {
+				alert('This script does not handle frames just yet');
+				return;
 			}
-			f += '<div style="clear:left;">';
-			f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;" />';
-			f += '</div>';
-			f += '<div style="clear:left;">';
-			f += '<input type="button" id="'+h.id+'debug" value="Debug" style="display:block; float:left; width:145px;" />';
-			f += '<input id="'+h.id+'pw" style="width:194px"/>';
-			f += '</div>';
-			f += '</form>';
-			i.innerHTML = f;
-			
-			// Find a way to make this centered on a screen
-			i.style.top = '10px';
-			i.style.left = '10px';
-			document.getElementsByTagName('body')[0].appendChild(i);
-			
-			g(h.id+'pop').onclick = function(){
-				window._hpwmbklhash123456_v.populateFields();
-				return false;
-			};
-			g(h.id+'debug').onclick = function() {
-				var h = window._hpwmbklhash123456_v,p,o;
-				document.getElementById(h.id+'pw').value = h.generatePassword();
-				return false; // Shouldn't be needed
-			};
-			
-			g(h.id+'mpw1').focus();
-			h.generatePassword(); // Seems it generates the wrong thing the first time through
+			else if (document.getElementsByTagName('body').length) {
+				// Root div
+				i = document.createElement('div');
+				i.id = h.id;
+				i.style.position = 'absolute';
+				i.style.border = '1px solid #000';
+				i.style.padding = '3px';
+				i.style.display = 'block';
+				// using width, and a background image (no repeat), a header can be added
+				i.style.backgroundColor = '#fff';
+				i.style.color = '#000';
+				i.style.width = '350px';
+				f = '<form id="'+h.id+'f" style="padding: 0;margin:0;text-align:center;">';
+				f += '<div style="margin-bottom:3px;">';
+				f += '<label id="l'+h.id+'mpw1" for="'+h.id+'mpw1" style="display:block; float:left; width:145px; text-align: right;">Master Password:</label>';
+				f += '<input type="password" id="'+h.id+'mpw1" style="width:194px; text-align: left;" />';
+				f += '</div>';
+				if (!h.mphash) {
+					f += '<div style="clear:left;margin-bottom:3px;">';
+					f += '<label id="l'+h.id+'mpw2" for="'+h.id+'mpw2" style="display:block; float:left; width:145px; text-align: right;">Confirm:</label>';
+					f += '<input type="password" id="'+h.id+'mpw2" style="width:194px" text-align: left; />';
+					f += '</div>';
+				}
+				f += '<div style="clear:left;">';
+				f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;" />';
+				f += '</div>';
+				f += '<div style="clear:left;">';
+				f += '<input type="button" id="'+h.id+'debug" value="Debug" style="display:block; float:left; width:145px;" />';
+				f += '<input id="'+h.id+'pw" style="width:194px"/>';
+				f += '</div>';
+				f += '</form>';
+				i.innerHTML = f;
+				
+				// Find a way to make this centered on a screen
+				i.style.top = '10px';
+				i.style.left = '10px';
+				document.getElementsByTagName('body')[0].appendChild(i);
+				
+				g(h.id+'pop').onclick = function(){
+					window._hpwmbklhash123456_v.populateFields();
+					return false;
+				};
+				g(h.id+'debug').onclick = function() {
+					var h = window._hpwmbklhash123456_v,p,o;
+					document.getElementById(h.id+'pw').value = h.generatePassword();
+					return false; // Shouldn't be needed
+				};
+				
+				g(h.id+'mpw1').focus();
+				h.generatePassword(); // Seems it generates the wrong thing the first time through
+			}
 		}
 		else {
 			// Toggle if the form is displayed or not
