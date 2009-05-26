@@ -98,43 +98,43 @@ window._hpwmbklhash123456_v = {
 	_generatePassword:function(key, data) {
 		var password = 'ERROR! No hashing done!';
 		if (this.whereLeet & 1) {
-			key = _hpwmbklhash123456_l33t.convert(this.leetlevel-1, key);
-			data = _hpwmbklhash123456_l33t.convert(this.leetlevel-1, data);
+			key = this.l33t.convert(this.leetlevel-1, key);
+			data = this.l33t.convert(this.leetlevel-1, data);
 		}
 		switch (this.hash) {
 			case "a":
-				password = _hpwmbklhash123456_MD4.any_md4(key+data, this.characters);
+				password = this.MD4.any_md4(key+data, this.characters);
 				break;
 			case "b":
-				password = _hpwmbklhash123456_MD4.any_hmac_md4(key, data, this.characters);
+				password = this.MD4.any_hmac_md4(key, data, this.characters);
 				break;
 			case "c":
-				password = _hpwmbklhash123456_MD5.any_md5(key+data, this.characters);
+				password = this.MD5.any_md5(key+data, this.characters);
 				break;
 			case "d":
-				password = _hpwmbklhash123456_MD5.any_hmac_md5(key, data, this.characters);
+				password = this.MD5.any_hmac_md5(key, data, this.characters);
 				break;
 			case "e":
-				password = _hpwmbklhash123456_SHA1.any_sha1(key+data, this.characters);
+				password = this.SHA1.any_sha1(key+data, this.characters);
 				break;
 			case "f":
-				password = _hpwmbklhash123456_SHA1.any_hmac_sha1(key, data, this.characters);
+				password = this.SHA1.any_hmac_sha1(key, data, this.characters);
 				break;
 			case "g":
-				password = _hpwmbklhash123456_SHA256.any_sha256(key+data, this.characters);
+				password = this.SHA256.any_sha256(key+data, this.characters);
 				break;
 			case "h":
-				password = _hpwmbklhash123456_SHA256.any_hmac_sha256(key, data, this.characters, false);
+				password = this.SHA256.any_hmac_sha256(key, data, this.characters, false);
 				break;
 			case "i":
-				password = _hpwmbklhash123456_RIPEMD160.any_rmd160(key+data, this.characters);
+				password = this.RIPEMD160.any_rmd160(key+data, this.characters);
 				break;
 			case "j":
-				password = _hpwmbklhash123456_RIPEMD160.any_hmac_rmd160(key, data, this.characters);
+				password = this.RIPEMD160.any_hmac_rmd160(key, data, this.characters);
 				break;
 		}
 		if (this.whereLeet & 2) {
-			password = _hpwmbklhash123456_l33t.convert(this.leetlevel-1, password);
+			password = this.l33t.convert(this.leetlevel-1, password);
 		}
 		return password;
 	},
@@ -181,7 +181,7 @@ window._hpwmbklhash123456_v = {
 		this.usetext = displayMe;
 	}
 };
-window._hpwmbklhash123456_HashUtils = {
+window._hpwmbklhash123456_v.HashUtils = {
 
 	chrsz   : 8,  /* bits per input character. 8 - ASCII; 16 - Unicode      */
 
@@ -332,22 +332,22 @@ window._hpwmbklhash123456_HashUtils = {
 		return (msw << 16) | (lsw & 0xFFFF);
 	}
 };
-window._hpwmbklhash123456_SHA256 = {
-	any_sha256 : function(s, e){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_sha256(_hpwmbklhash123456_HashUtils.str2rstr_utf8(s)), e); },
-	any_hmac_sha256: function(k, d, e, b){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_hmac_sha256(_hpwmbklhash123456_HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_HashUtils.str2rstr_utf8(d), b), e); },
+window._hpwmbklhash123456_v.SHA256 = {
+	any_sha256 : function(s, e){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_sha256(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(s)), e); },
+	any_hmac_sha256: function(k, d, e, b){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_hmac_sha256(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_v.HashUtils.str2rstr_utf8(d), b), e); },
 
 	/*
 	* Calculate the sha256 of a raw string
 	*/
 	rstr_sha256 : function(s) {
-		return _hpwmbklhash123456_HashUtils.binb2rstr(this.binb_sha256(_hpwmbklhash123456_HashUtils.rstr2binb(s), s.length * 8));
+		return _hpwmbklhash123456_v.HashUtils.binb2rstr(this.binb_sha256(_hpwmbklhash123456_v.HashUtils.rstr2binb(s), s.length * 8));
 	},
 
 	/*
 	* Calculate the HMAC-sha256 of a key and some data (raw strings)
 	*/
 	rstr_hmac_sha256 : function(key, data, bug) {
-		var bkey = _hpwmbklhash123456_HashUtils.rstr2binb(key);
+		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binb(key);
 		if(bkey.length > 16) bkey = this.binb_sha256(bkey, key.length * 8);
 
 		var ipad = Array(16), opad = Array(16);
@@ -357,8 +357,8 @@ window._hpwmbklhash123456_SHA256 = {
 			opad[i] = bkey[i] ^ 0x5C5C5C5C;
 		}
 
-		var hash = this.binb_sha256(ipad.concat(_hpwmbklhash123456_HashUtils.rstr2binb(data)), 512 + data.length * 8);
-			return _hpwmbklhash123456_HashUtils.binb2rstr(this.binb_sha256(opad.concat(hash), 512 + ((bug) ? 160 : 256)));
+		var hash = this.binb_sha256(ipad.concat(_hpwmbklhash123456_v.HashUtils.rstr2binb(data)), 512 + data.length * 8);
+			return _hpwmbklhash123456_v.HashUtils.binb2rstr(this.binb_sha256(opad.concat(hash), 512 + ((bug) ? 160 : 256)));
 	},
 
 	/*
@@ -416,44 +416,44 @@ window._hpwmbklhash123456_SHA256 = {
 			for(j = 0; j < 64; j++)
 			{
 				if (j < 16) W[j] = m[j + i];
-				else W[j] = _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(this.Gamma1256(W[j - 2]), W[j - 7]),
+				else W[j] = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(this.Gamma1256(W[j - 2]), W[j - 7]),
 					this.Gamma0256(W[j - 15])), W[j - 16]);
 
-				T1 = _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(h, this.Sigma1256(e)), this.Ch(e, f, g)),
+				T1 = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(h, this.Sigma1256(e)), this.Ch(e, f, g)),
 				this.sha256_K[j]), W[j]);
-				T2 = _hpwmbklhash123456_HashUtils.safe_add(this.Sigma0256(a), this.Maj(a, b, c));
+				T2 = _hpwmbklhash123456_v.HashUtils.safe_add(this.Sigma0256(a), this.Maj(a, b, c));
 				h = g;
 				g = f;
 				f = e;
-				e = _hpwmbklhash123456_HashUtils.safe_add(d, T1);
+				e = _hpwmbklhash123456_v.HashUtils.safe_add(d, T1);
 				d = c;
 				c = b;
 				b = a;
-				a = _hpwmbklhash123456_HashUtils.safe_add(T1, T2);
+				a = _hpwmbklhash123456_v.HashUtils.safe_add(T1, T2);
 			}
 
-			HASH[0] = _hpwmbklhash123456_HashUtils.safe_add(a, HASH[0]);
-			HASH[1] = _hpwmbklhash123456_HashUtils.safe_add(b, HASH[1]);
-			HASH[2] = _hpwmbklhash123456_HashUtils.safe_add(c, HASH[2]);
-			HASH[3] = _hpwmbklhash123456_HashUtils.safe_add(d, HASH[3]);
-			HASH[4] = _hpwmbklhash123456_HashUtils.safe_add(e, HASH[4]);
-			HASH[5] = _hpwmbklhash123456_HashUtils.safe_add(f, HASH[5]);
-			HASH[6] = _hpwmbklhash123456_HashUtils.safe_add(g, HASH[6]);
-			HASH[7] = _hpwmbklhash123456_HashUtils.safe_add(h, HASH[7]);
+			HASH[0] = _hpwmbklhash123456_v.HashUtils.safe_add(a, HASH[0]);
+			HASH[1] = _hpwmbklhash123456_v.HashUtils.safe_add(b, HASH[1]);
+			HASH[2] = _hpwmbklhash123456_v.HashUtils.safe_add(c, HASH[2]);
+			HASH[3] = _hpwmbklhash123456_v.HashUtils.safe_add(d, HASH[3]);
+			HASH[4] = _hpwmbklhash123456_v.HashUtils.safe_add(e, HASH[4]);
+			HASH[5] = _hpwmbklhash123456_v.HashUtils.safe_add(f, HASH[5]);
+			HASH[6] = _hpwmbklhash123456_v.HashUtils.safe_add(g, HASH[6]);
+			HASH[7] = _hpwmbklhash123456_v.HashUtils.safe_add(h, HASH[7]);
 		}
 		return HASH;
 	}
 };
-window._hpwmbklhash123456_MD4 = {
+window._hpwmbklhash123456_v.MD4 = {
 
-	any_md4 : function(s, e) { return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_md4(_hpwmbklhash123456_HashUtils.str2rstr_utf8(s)), e); },
-	any_hmac_md4 : function(k, d, e) { return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_hmac_md4(_hpwmbklhash123456_HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_HashUtils.str2rstr_utf8(d)), e); },
+	any_md4 : function(s, e) { return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_md4(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(s)), e); },
+	any_hmac_md4 : function(k, d, e) { return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_hmac_md4(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_v.HashUtils.str2rstr_utf8(d)), e); },
 
 	/*
 	* Calculate the MD4 of a raw string
 	*/
 	rstr_md4 : function(s) {
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_md4(_hpwmbklhash123456_HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_HashUtils.chrsz));
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_md4(_hpwmbklhash123456_v.HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_v.HashUtils.chrsz));
 	},
 
 	/*
@@ -527,10 +527,10 @@ window._hpwmbklhash123456_MD4 = {
 			c = this.md4_hh(c, d, a, b, x[i+ 7], 11);
 			b = this.md4_hh(b, c, d, a, x[i+15], 15);
 
-			a = _hpwmbklhash123456_HashUtils.safe_add(a, olda);
-			b = _hpwmbklhash123456_HashUtils.safe_add(b, oldb);
-			c = _hpwmbklhash123456_HashUtils.safe_add(c, oldc);
-			d = _hpwmbklhash123456_HashUtils.safe_add(d, oldd);
+			a = _hpwmbklhash123456_v.HashUtils.safe_add(a, olda);
+			b = _hpwmbklhash123456_v.HashUtils.safe_add(b, oldb);
+			c = _hpwmbklhash123456_v.HashUtils.safe_add(c, oldc);
+			d = _hpwmbklhash123456_v.HashUtils.safe_add(d, oldd);
 
 		}
 		return Array(a, b, c, d);
@@ -541,7 +541,7 @@ window._hpwmbklhash123456_MD4 = {
 	* algorithm.
 	*/
 	md4_cmn : function(q, a, b, x, s, t) {
-		return _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.bit_rol(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(a, q), _hpwmbklhash123456_HashUtils.safe_add(x, t)), s), b);
+		return _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(a, q), _hpwmbklhash123456_v.HashUtils.safe_add(x, t)), s), b);
 	},
 	md4_ff : function(a, b, c, d, x, s) {
 		return this.md4_cmn((b & c) | ((~b) & d), a, 0, x, s, 0);
@@ -557,8 +557,8 @@ window._hpwmbklhash123456_MD4 = {
 	* Calculate the HMAC-MD4 of a key and some data
 	*/
 	rstr_hmac_md4 : function(key, data) {
-		var bkey = _hpwmbklhash123456_HashUtils.rstr2binl(key);
-		if(bkey.length > 16) bkey = this.binl_md4(bkey, key.length * _hpwmbklhash123456_HashUtils.chrsz);
+		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
+		if(bkey.length > 16) bkey = this.binl_md4(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -566,21 +566,21 @@ window._hpwmbklhash123456_MD4 = {
 			opad[i] = bkey[i] ^ 0x5C5C5C5C;
 		}
 
-		var hash = this.binl_md4(ipad.concat(_hpwmbklhash123456_HashUtils.rstr2binl(data)), 512 + data.length * _hpwmbklhash123456_HashUtils.chrsz);
+		var hash = this.binl_md4(ipad.concat(_hpwmbklhash123456_v.HashUtils.rstr2binl(data)), 512 + data.length * _hpwmbklhash123456_v.HashUtils.chrsz);
 		//return this.binl_md4(opad.concat(hash), 512 + 128);
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_md4(opad.concat(hash), 512 + 128));
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_md4(opad.concat(hash), 512 + 128));
 	}
 };
-window._hpwmbklhash123456_MD5 = {
+window._hpwmbklhash123456_v.MD5 = {
 
-	any_md5 : function(s, e) { return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_md5(_hpwmbklhash123456_HashUtils.str2rstr_utf8(s)), e); },
-	any_hmac_md5 : function(k, d, e) { return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_hmac_md5(_hpwmbklhash123456_HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_HashUtils.str2rstr_utf8(d)), e); },
+	any_md5 : function(s, e) { return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_md5(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(s)), e); },
+	any_hmac_md5 : function(k, d, e) { return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_hmac_md5(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_v.HashUtils.str2rstr_utf8(d)), e); },
 
 	/*
 	* Calculate the MD5 of a raw string
 	*/
 	rstr_md5 : function(s) {
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_md5(_hpwmbklhash123456_HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_HashUtils.chrsz));
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_md5(_hpwmbklhash123456_v.HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_v.HashUtils.chrsz));
 	},
 
 	/*
@@ -670,10 +670,10 @@ window._hpwmbklhash123456_MD5 = {
 			c = this.md5_ii(c, d, a, b, x[i+ 2], 15,  718787259);
 			b = this.md5_ii(b, c, d, a, x[i+ 9], 21, -343485551);
 
-			a = _hpwmbklhash123456_HashUtils.safe_add(a, olda);
-			b = _hpwmbklhash123456_HashUtils.safe_add(b, oldb);
-			c = _hpwmbklhash123456_HashUtils.safe_add(c, oldc);
-			d = _hpwmbklhash123456_HashUtils.safe_add(d, oldd);
+			a = _hpwmbklhash123456_v.HashUtils.safe_add(a, olda);
+			b = _hpwmbklhash123456_v.HashUtils.safe_add(b, oldb);
+			c = _hpwmbklhash123456_v.HashUtils.safe_add(c, oldc);
+			d = _hpwmbklhash123456_v.HashUtils.safe_add(d, oldd);
 		}
 		return Array(a, b, c, d);
 	},
@@ -682,7 +682,7 @@ window._hpwmbklhash123456_MD5 = {
 	* These functions implement the four basic operations the algorithm uses.
 	*/
 	md5_cmn : function(q, a, b, x, s, t) {
-		return _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.bit_rol(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(a, q), _hpwmbklhash123456_HashUtils.safe_add(x, t)), s),b);
+		return _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(a, q), _hpwmbklhash123456_v.HashUtils.safe_add(x, t)), s),b);
 	},
 	md5_ff : function(a, b, c, d, x, s, t) {
 		return this.md5_cmn((b & c) | ((~b) & d), a, b, x, s, t);
@@ -701,8 +701,8 @@ window._hpwmbklhash123456_MD5 = {
 	* Calculate the HMAC-MD5 of a key and some data (raw strings)
 	*/
 	rstr_hmac_md5 : function(key, data) {
-		var bkey = _hpwmbklhash123456_HashUtils.rstr2binl(key);
-		if(bkey.length > 16) bkey = this.binl_md5(bkey, key.length * _hpwmbklhash123456_HashUtils.chrsz);
+		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
+		if(bkey.length > 16) bkey = this.binl_md5(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -710,27 +710,27 @@ window._hpwmbklhash123456_MD5 = {
 			opad[i] = bkey[i] ^ 0x5C5C5C5C;
 		}
 
-		var hash = this.binl_md5(ipad.concat(_hpwmbklhash123456_HashUtils.rstr2binl(data)), 512 + data.length * _hpwmbklhash123456_HashUtils.chrsz);
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_md5(opad.concat(hash), 512 + 128));
+		var hash = this.binl_md5(ipad.concat(_hpwmbklhash123456_v.HashUtils.rstr2binl(data)), 512 + data.length * _hpwmbklhash123456_v.HashUtils.chrsz);
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_md5(opad.concat(hash), 512 + 128));
 	}
 };
-window._hpwmbklhash123456_RIPEMD160 = {
+window._hpwmbklhash123456_v.RIPEMD160 = {
 
-	any_rmd160 : function(s, e){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_rmd160(_hpwmbklhash123456_HashUtils.str2rstr_utf8(s)), e); },
-	any_hmac_rmd160 : function(k, d, e){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_hmac_rmd160(_hpwmbklhash123456_HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_HashUtils.str2rstr_utf8(d)), e); },
+	any_rmd160 : function(s, e){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_rmd160(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(s)), e); },
+	any_hmac_rmd160 : function(k, d, e){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_hmac_rmd160(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_v.HashUtils.str2rstr_utf8(d)), e); },
 
 	/*
 	* Calculate the rmd160 of a raw string
 	*/
 	rstr_rmd160 : function(s) {
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_rmd160(_hpwmbklhash123456_HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_HashUtils.chrsz));
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_rmd160(_hpwmbklhash123456_v.HashUtils.rstr2binl(s), s.length * _hpwmbklhash123456_v.HashUtils.chrsz));
 	},
 
 	/*
 	* Calculate the HMAC-rmd160 of a key and some data (raw strings)
 	*/
 	rstr_hmac_rmd160 : function(key, data) {
-		var bkey = _hpwmbklhash123456_HashUtils.rstr2binl(key);
+		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
 		if(bkey.length > 16) bkey = this.binl_rmd160(bkey, key.length * 8);
 
 		var ipad = Array(16), opad = Array(16);
@@ -739,8 +739,8 @@ window._hpwmbklhash123456_RIPEMD160 = {
 			opad[i] = bkey[i] ^ 0x5C5C5C5C;
 		}
 
-		var hash = this.binl_rmd160(ipad.concat(_hpwmbklhash123456_HashUtils.rstr2binl(data)), 512 + data.length * 8);
-		return _hpwmbklhash123456_HashUtils.binl2rstr(this.binl_rmd160(opad.concat(hash), 512 + 160));
+		var hash = this.binl_rmd160(ipad.concat(_hpwmbklhash123456_v.HashUtils.rstr2binl(data)), 512 + data.length * 8);
+		return _hpwmbklhash123456_v.HashUtils.binl2rstr(this.binl_rmd160(opad.concat(hash), 512 + 160));
 	},
 
 	/*
@@ -762,22 +762,22 @@ window._hpwmbklhash123456_RIPEMD160 = {
 			var A1 = h0, B1 = h1, C1 = h2, D1 = h3, E1 = h4;
 			var A2 = h0, B2 = h1, C2 = h2, D2 = h3, E2 = h4;
 			for (var j = 0; j <= 79; ++j) {
-				T = _hpwmbklhash123456_HashUtils.safe_add(A1, this.rmd160_f(j, B1, C1, D1));
-				T = _hpwmbklhash123456_HashUtils.safe_add(T, x[i + this.rmd160_r1[j]]);
-				T = _hpwmbklhash123456_HashUtils.safe_add(T, this.rmd160_K1(j));
-				T = _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.bit_rol(T, this.rmd160_s1[j]), E1);
-				A1 = E1; E1 = D1; D1 = _hpwmbklhash123456_HashUtils.bit_rol(C1, 10); C1 = B1; B1 = T;
-				T = _hpwmbklhash123456_HashUtils.safe_add(A2, this.rmd160_f(79-j, B2, C2, D2));
-				T = _hpwmbklhash123456_HashUtils.safe_add(T, x[i + this.rmd160_r2[j]]);
-				T = _hpwmbklhash123456_HashUtils.safe_add(T, this.rmd160_K2(j));
-				T = _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.bit_rol(T, this.rmd160_s2[j]), E2);
-				A2 = E2; E2 = D2; D2 = _hpwmbklhash123456_HashUtils.bit_rol(C2, 10); C2 = B2; B2 = T;
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(A1, this.rmd160_f(j, B1, C1, D1));
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(T, x[i + this.rmd160_r1[j]]);
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(T, this.rmd160_K1(j));
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(T, this.rmd160_s1[j]), E1);
+				A1 = E1; E1 = D1; D1 = _hpwmbklhash123456_v.HashUtils.bit_rol(C1, 10); C1 = B1; B1 = T;
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(A2, this.rmd160_f(79-j, B2, C2, D2));
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(T, x[i + this.rmd160_r2[j]]);
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(T, this.rmd160_K2(j));
+				T = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(T, this.rmd160_s2[j]), E2);
+				A2 = E2; E2 = D2; D2 = _hpwmbklhash123456_v.HashUtils.bit_rol(C2, 10); C2 = B2; B2 = T;
 			}
-			T = _hpwmbklhash123456_HashUtils.safe_add(h1, _hpwmbklhash123456_HashUtils.safe_add(C1, D2));
-			h1 = _hpwmbklhash123456_HashUtils.safe_add(h2, _hpwmbklhash123456_HashUtils.safe_add(D1, E2));
-			h2 = _hpwmbklhash123456_HashUtils.safe_add(h3, _hpwmbklhash123456_HashUtils.safe_add(E1, A2));
-			h3 = _hpwmbklhash123456_HashUtils.safe_add(h4, _hpwmbklhash123456_HashUtils.safe_add(A1, B2));
-			h4 = _hpwmbklhash123456_HashUtils.safe_add(h0, _hpwmbklhash123456_HashUtils.safe_add(B1, C2));
+			T = _hpwmbklhash123456_v.HashUtils.safe_add(h1, _hpwmbklhash123456_v.HashUtils.safe_add(C1, D2));
+			h1 = _hpwmbklhash123456_v.HashUtils.safe_add(h2, _hpwmbklhash123456_v.HashUtils.safe_add(D1, E2));
+			h2 = _hpwmbklhash123456_v.HashUtils.safe_add(h3, _hpwmbklhash123456_v.HashUtils.safe_add(E1, A2));
+			h3 = _hpwmbklhash123456_v.HashUtils.safe_add(h4, _hpwmbklhash123456_v.HashUtils.safe_add(A1, B2));
+			h4 = _hpwmbklhash123456_v.HashUtils.safe_add(h0, _hpwmbklhash123456_v.HashUtils.safe_add(B1, C2));
 			h0 = T;
 		}
 		return [h0, h1, h2, h3, h4];
@@ -861,16 +861,16 @@ window._hpwmbklhash123456_RIPEMD160 = {
 		8,  5, 12,  9, 12,  5, 14,  6,  8, 13,  6,  5, 15, 13, 11, 11
 	]
 };
-window._hpwmbklhash123456_SHA1 = {
+window._hpwmbklhash123456_v.SHA1 = {
 
-	any_sha1 : function(s, e){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_sha1(_hpwmbklhash123456_HashUtils.str2rstr_utf8(s)), e); },
-	any_hmac_sha1 : function(k, d, e){ return _hpwmbklhash123456_HashUtils.rstr2any(this.rstr_hmac_sha1(_hpwmbklhash123456_HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_HashUtils.str2rstr_utf8(d)), e); },
+	any_sha1 : function(s, e){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_sha1(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(s)), e); },
+	any_hmac_sha1 : function(k, d, e){ return _hpwmbklhash123456_v.HashUtils.rstr2any(this.rstr_hmac_sha1(_hpwmbklhash123456_v.HashUtils.str2rstr_utf8(k), _hpwmbklhash123456_v.HashUtils.str2rstr_utf8(d)), e); },
 
 	/*
 	* Calculate the SHA1 of a raw string
 	*/
 	rstr_sha1 : function(s) {
-		return _hpwmbklhash123456_HashUtils.binb2rstr(this.binb_sha1(_hpwmbklhash123456_HashUtils.rstr2binb(s), s.length * _hpwmbklhash123456_HashUtils.chrsz));
+		return _hpwmbklhash123456_v.HashUtils.binb2rstr(this.binb_sha1(_hpwmbklhash123456_v.HashUtils.rstr2binb(s), s.length * _hpwmbklhash123456_v.HashUtils.chrsz));
 	},
 
 	/*
@@ -897,21 +897,21 @@ window._hpwmbklhash123456_SHA1 = {
 
 			for(var j = 0; j < 80; j++) {
 				if(j < 16) w[j] = x[i + j];
-				else w[j] = _hpwmbklhash123456_HashUtils.bit_rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
-				var t = _hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.bit_rol(a, 5), this.sha1_ft(j, b, c, d)),
-				_hpwmbklhash123456_HashUtils.safe_add(_hpwmbklhash123456_HashUtils.safe_add(e, w[j]), this.sha1_kt(j)));
+				else w[j] = _hpwmbklhash123456_v.HashUtils.bit_rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
+				var t = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(a, 5), this.sha1_ft(j, b, c, d)),
+				_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(e, w[j]), this.sha1_kt(j)));
 				e = d;
 				d = c;
-				c = _hpwmbklhash123456_HashUtils.bit_rol(b, 30);
+				c = _hpwmbklhash123456_v.HashUtils.bit_rol(b, 30);
 				b = a;
 				a = t;
 			}
 
-			a = _hpwmbklhash123456_HashUtils.safe_add(a, olda);
-			b = _hpwmbklhash123456_HashUtils.safe_add(b, oldb);
-			c = _hpwmbklhash123456_HashUtils.safe_add(c, oldc);
-			d = _hpwmbklhash123456_HashUtils.safe_add(d, oldd);
-			e = _hpwmbklhash123456_HashUtils.safe_add(e, olde);
+			a = _hpwmbklhash123456_v.HashUtils.safe_add(a, olda);
+			b = _hpwmbklhash123456_v.HashUtils.safe_add(b, oldb);
+			c = _hpwmbklhash123456_v.HashUtils.safe_add(c, oldc);
+			d = _hpwmbklhash123456_v.HashUtils.safe_add(d, oldd);
+			e = _hpwmbklhash123456_v.HashUtils.safe_add(e, olde);
 		}
 		return Array(a, b, c, d, e);
 
@@ -940,7 +940,7 @@ window._hpwmbklhash123456_SHA1 = {
 	* Calculate the HMAC-SHA1 of a key and some data (raw strings)
 	*/
 	rstr_hmac_sha1 : function(key, data) {
-		var bkey = _hpwmbklhash123456_HashUtils.rstr2binb(key);
+		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binb(key);
 		if(bkey.length > 16) bkey = this.binb_sha1(bkey, key.length * 8);
 
 		var ipad = Array(16), opad = Array(16);
@@ -949,11 +949,11 @@ window._hpwmbklhash123456_SHA1 = {
 			opad[i] = bkey[i] ^ 0x5C5C5C5C;
 		}
 
-		var hash = this.binb_sha1(ipad.concat(_hpwmbklhash123456_HashUtils.rstr2binb(data)), 512 + data.length * 8);
-		return _hpwmbklhash123456_HashUtils.binb2rstr(this.binb_sha1(opad.concat(hash), 512 + 160));
+		var hash = this.binb_sha1(ipad.concat(_hpwmbklhash123456_v.HashUtils.rstr2binb(data)), 512 + data.length * 8);
+		return _hpwmbklhash123456_v.HashUtils.binb2rstr(this.binb_sha1(opad.concat(hash), 512 + 160));
 	}
 };
-window._hpwmbklhash123456_l33t = {
+window._hpwmbklhash123456_v.l33t = {
 	alphabet : new Array(/a/g, /b/g, /c/g, /d/g, /e/g, /f/g, /g/g, /h/g, /i/g, /j/g, /k/g, /l/g, /m/g, /n/g, /o/g, /p/g, /q/g, /r/g, /s/g, /t/g, /u/g, /v/g, /w/g, /x/g, /y/g, /z/g),
 	levels : new Array(
 	new Array("4", "b", "c", "d", "3", "f", "g", "h", "i", "j", "k", "1", "m", "n", "0", "p", "9", "r", "s", "7", "u", "v", "w", "x", "y", "z"),
@@ -1027,9 +1027,7 @@ window._hpwmbklhash123456_l33t = {
 			i = navigator.userAgent.match(/MSIE\s([^;]*)/);
 			if (i&&i[1]) {
 				i = parseFloat(i[1]);
-				if (i == 6.0) {
-					h.ie = i;
-				}
+				h.ie = i;
 			}
 		}
 		// Now to write this part out
