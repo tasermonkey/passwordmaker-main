@@ -65,6 +65,7 @@ window._hpwmbklhash123456_v = {
 	prefix:'',
 	suffix:'',
 	populateAll:false,
+	form:false,
 	generatePassword:function() {
 		var password = '', count = 0, mpw, data;
 		if (this.characters.length < 2) {
@@ -139,7 +140,32 @@ window._hpwmbklhash123456_v = {
 		return password;
 	},
 	populateFields:function() {
-		// Will call generatePassword first, then populate the fields
+		var i, o = document.getElementsByTagName('input'), q, p = this.generatePassword();
+		if (!p) {return;}
+		for (i = 0; i < o.length; i++) {
+			q = o[i];
+			if (q.id.substring(0, 17) != this.id) {
+				switch(q.type) {
+					case 'text':
+						if (this.populateAll || !q.value) {
+							console.log(q);
+							// Check to see the list of fields the extension fills out
+							if (q.name.match(/ID|un|name|user|usr|log|email|mail|acct|ssn/i)) {
+								q.value = this.username;
+							}
+						}
+						break;
+					case 'password':
+						if (this.populateAll || !q.value) {
+							q.value = p;
+						}
+						break;
+				}
+			}
+		}
+		// A function would be better for frame handling
+		o = this.form.style.display = 'none';
+		this.populateAll = true;
 	},
 	// Calculate the url to use
 	getText: function() {
@@ -1093,10 +1119,10 @@ window._hpwmbklhash123456_v.l33t = {
 				f += '<div style="clear:left;">';
 				f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;" />';
 				f += '</div>';
-				f += '<div style="clear:left;">';
+				/*f += '<div style="clear:left;">';
 				f += '<input type="button" id="'+h.id+'debug" value="Debug" style="display:block; float:left; width:145px;" />';
 				f += '<input id="'+h.id+'pw" style="width:194px"/>';
-				f += '</div>';
+				f += '</div>';*/
 				f += '</form>';
 				i.innerHTML = f;
 				
@@ -1104,18 +1130,19 @@ window._hpwmbklhash123456_v.l33t = {
 				i.style.top = '10px';
 				i.style.left = '10px';
 				document.getElementsByTagName('body')[0].appendChild(i);
+				h.form = i;
 				
+				g(h.id+'mpw1').focus();
 				g(h.id+'pop').onclick = function(){
 					window._hpwmbklhash123456_v.populateFields();
 					return false;
 				};
-				g(h.id+'debug').onclick = function() {
+				/*g(h.id+'debug').onclick = function() {
 					var h = window._hpwmbklhash123456_v,p,o;
 					document.getElementById(h.id+'pw').value = h.generatePassword();
 					return false; // Shouldn't be needed
-				};
+				};*/
 				
-				g(h.id+'mpw1').focus();
 				h.generatePassword(); // Seems it generates the wrong thing the first time through
 			}
 		}
