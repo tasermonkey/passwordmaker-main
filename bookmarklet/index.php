@@ -5,6 +5,10 @@
 */
 define('REMOVE_NAME', true);
 
+/**
+	Expires: Fri, 30 Oct 1998 14:19:41 GMT (HTTP Date format, if PHP has a shortcut)
+	Cache-Control: max-age=secs, must-revalidate, public
+*/
 // GZip support
 $gzip = @ini_get('zlib.compress');
 if (!$gzip || strtolower($gzip) == 'off') {
@@ -13,6 +17,7 @@ if (!$gzip || strtolower($gzip) == 'off') {
 $url = 'http'.((isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") ? 's://': '://')
 	.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] != '80') ? ':'.$_SERVER['SERVER_PORT'] : '')
 	.((REMOVE_NAME)? str_replace(basename(__FILE__), '', $_SERVER['PHP_SELF']) : $_SERVER['PHP_SELF']);
+$mtime = 0;
 
 if (isset($_GET['h']) && isset($_GET['v'])) {
 	header('Content-type: text/javascript; charset=utf-8');
@@ -34,7 +39,25 @@ if (isset($_GET['h']) && isset($_GET['v'])) {
 		$src = 'alert("Error with parameters!")';
 	}
 	
-	// TODO: Cache control
+	if ($mtime) { // Only if an error path as not followed
+		$mtime = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
+		$etag = '"'.md5($src).'"';
+		header('Last-Modified: '.$mtime);
+		header('Etag: '.$etag);
+		if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mtime) {
+			header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+			header('Content-Length: 0');
+			echo ''; // For the compression to allow keep alive
+			exit();
+		}
+		if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
+			header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+			header('Content-Length: 0');
+			echo ''; // For the compression to allow keep alive
+			exit();
+		}
+	}
+	
 	header('Content-Length: '.strlen($src));
 	echo $src;
 	exit();
@@ -172,5 +195,21 @@ $c = ob_get_clean();
 header('Content-type: text/html; charset=utf-8');
 header('Content-Length: '.strlen($c));
 // TODO: Cache control
+$mtime = gmdate('D, d M Y H:i:s', max(filemtime('bookmarklet.js'), filemtime($_SERVER['SCRIPT_FILENAME']))). ' GMT';
+$etag = '"'.md5($c).'"';
+header('Etag: '.$etag);
+header('Last-Modified: '.$mtime);
+if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mtime) {
+	header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+	header('Content-Length: 0');
+	echo ''; // For the compression to allow keep alive
+	exit();
+}
+if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
+	header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+	header('Content-Length: 0');
+	echo ''; // For the compression to allow keep alive
+	exit();
+}
 echo $c;
 ?>
