@@ -17,6 +17,14 @@
 			"j">HMAC-RIPEMD-160
 		5 (0) - The character set to use. Z is custom. List below.
 		6-8 (008) - The length of the password to generate. As the Firefox edition support up to 999, this is three characters long
+		9-10 (0) - is a base 32 value that is a bitfield of options to control certain events. (Note, each character is optional, and control five binary settings, so this string could be 8 characters long as a result)
+			For the 9th character, the settings are:
+				0 - Populate all fields (just empty of 0)
+				1 - Currently unused
+				2 - Currently unused
+				3 - Currently unused
+				4 - Currently unused
+			For the 10th character, nothing is defined yet
 	e is the extra paramters that can not be compacted.
 	If it is a string, it's a master password hash, otherwise it's a JSON object with the following members, all optional
 			mphash (Master Password Hash)
@@ -165,7 +173,6 @@ window._hpwmbklhash123456_v = {
 		}
 		// A function would be better for frame handling
 		o = this.form.style.display = 'none';
-		this.populateAll = true;
 	},
 	// Calculate the url to use
 	getText: function() {
@@ -1066,16 +1073,23 @@ window._hpwmbklhash123456_v.l33t = {
 		h.whereLeet = parseInt(p.charAt(1), 10);
 		h.leetlevel = parseInt(p.charAt(2), 10);
 		h.hash = p.charAt(3);
-		h.length = parseInt(p.substring(5), 10);
+		h.length = parseInt(p.substring(5, 3), 10);
 		h.characters = p.charAt(4);
 		if (h.characters == 'Z') {
 			h.characters = e.characters;
 		} else {
 			h.characters = c[h.characters];
 		}
+		if (p.charAt(8)) {
+			i = parseInt(p.char(8), 32);
+			h.populateAll = (i&1)?true:false;
+		}
+		if (p.charAt(9)) {
+			i = parseInt(p.char(9), 32);
+		}
 		
 		if (typeof e == 'string') {
-			// IE6
+			// IE6 - usetext mode
 		}
 		else {
 			h.mphash = e.mphash||'';
@@ -1101,23 +1115,24 @@ window._hpwmbklhash123456_v.l33t = {
 				i.style.border = '1px solid #000';
 				i.style.padding = '3px';
 				i.style.display = 'block';
+				i.style.zIndex = '2147483647';
 				// using width, and a background image (no repeat), a header can be added
 				i.style.backgroundColor = '#fff';
 				i.style.color = '#000';
 				i.style.width = '350px';
 				f = '<form id="'+h.id+'f" style="padding: 0;margin:0;text-align:center;">';
-				f += '<div style="margin-bottom:3px;">';
-				f += '<label id="l'+h.id+'mpw1" for="'+h.id+'mpw1" style="display:block; float:left; width:145px; text-align: right;">Master Password:</label>';
-				f += '<input type="password" id="'+h.id+'mpw1" style="width:194px; text-align: left;" />';
+				f += '<div style="margin:0 0 3px;padding:0;">';
+				f += '<label id="l'+h.id+'mpw1" for="'+h.id+'mpw1" style="display:block; float:left; width:145px; text-align: right;margin:0;padding:0;">Master Password:</label>';
+				f += '<input type="password" id="'+h.id+'mpw1" style="width:194px; text-align: left;margin:0;padding:0;" />';
 				f += '</div>';
 				if (!h.mphash) {
-					f += '<div style="clear:left;margin-bottom:3px;">';
-					f += '<label id="l'+h.id+'mpw2" for="'+h.id+'mpw2" style="display:block; float:left; width:145px; text-align: right;">Confirm:</label>';
-					f += '<input type="password" id="'+h.id+'mpw2" style="width:194px" text-align: left; />';
+					f += '<div style="clear:left;margin:0 0 3px;padding:0;">';
+					f += '<label id="l'+h.id+'mpw2" for="'+h.id+'mpw2" style="display:block; float:left; width:145px; text-align: right;margin:0;padding:0;">Confirm:</label>';
+					f += '<input type="password" id="'+h.id+'mpw2" style="width:194px; text-align: left;margin:0;padding:0;" />';
 					f += '</div>';
 				}
-				f += '<div style="clear:left;">';
-				f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;" />';
+				f += '<div style="clear:left;margin:0 0 3px;padding:0;">';
+				f += '<input type="submit" id="'+h.id+'pop" value="Populate" style="width:100%;margin:0;padding:0;" />';
 				f += '</div>';
 				/*f += '<div style="clear:left;">';
 				f += '<input type="button" id="'+h.id+'debug" value="Debug" style="display:block; float:left; width:145px;" />';
