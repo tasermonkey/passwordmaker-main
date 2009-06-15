@@ -391,7 +391,7 @@ var passwordMaker = {
 
   buildRegEx : function(pat, type) {
     if (type == "wildcard") {
-      pat = pat.replace(/\./g, '\\.');
+      pat = pat.replace(/[^$.+()]/g, '\\$&');
       pat = pat.replace(/\*/g, '.*');
       pat = pat.replace(/\?/g, '.');
     }
