@@ -342,6 +342,8 @@ class PasswordMaker_MD5 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_MD5, $s), $e, $t);
+		if (function_exists('hash'))
+			return $PasswordMaker_HashUtils->rstr2any(hash('md5', $s, true), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any(pack('H*', md5($s)), $e, $t);
 	}
 	
@@ -349,6 +351,8 @@ class PasswordMaker_MD5 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_MD5, $d, $k), $e, $t);
+		if (function_exists('hash_hmac'))
+			return $PasswordMaker_HashUtils->rstr2any(hash_hmac('md5', $d, $k, true), $e, $t);
 		$b = 64; // byte length for md5
 		if (strlen($k) > $b) {
 			$k = pack("H*",md5($k));
@@ -368,6 +372,8 @@ class PasswordMaker_MD4 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_MD4, $d, $k), $e, $t);
+		if (function_exists('hash_hmac'))
+			return $PasswordMaker_HashUtils->rstr2any(hash_hmac('md4', $d, $k, true), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_hmac_md4($PasswordMaker_HashUtils->str2rstr_utf8($k), $PasswordMaker_HashUtils->str2rstr_utf8($d)), $e, $t);
 	}
 
@@ -375,6 +381,8 @@ class PasswordMaker_MD4 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_MD4, $s), $e, $t);
+		if (function_exists('hash'))
+			return $PasswordMaker_HashUtils->rstr2any(hash('md4', $s, true), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_md4($PasswordMaker_HashUtils->str2rstr_utf8($s)), $e, $t);
 	}
 	
@@ -517,6 +525,8 @@ class PasswordMaker_RIPEMD160 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_RIPEMD160 , $s), $e, $t);
+		if (function_exists('hash'))
+			return $PasswordMaker_HashUtils->rstr2any(hash('ripemd160' , $s, true), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_rmd160($PasswordMaker_HashUtils->str2rstr_utf8($s)), $e, $t);
 	}
 	
@@ -524,6 +534,8 @@ class PasswordMaker_RIPEMD160 {
 		global $PasswordMaker_HashUtils;
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_RIPEMD160, $d, $k), $e, $t);
+		if (function_exists('hash_hmac'))
+			return $PasswordMaker_HashUtils->rstr2any(hash_hmac('ripemd160', $d, $k, true), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_hmac_rmd160($PasswordMaker_HashUtils->str2rstr_utf8($k), $PasswordMaker_HashUtils->str2rstr_utf8($d)), $e, $t);
 	}
 
@@ -672,6 +684,8 @@ $PasswordMaker_RIPEMD160 = new PasswordMaker_RIPEMD160;
 class PasswordMaker_SHA1 {
 	function any_sha1($s, $e, $t = true) {
 		global $PasswordMaker_HashUtils;
+		if (function_exists('hash'))
+			return $PasswordMaker_HashUtils->rstr2any(hash('sha1' , $s, true), $e, $t);
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_SHA1 , $s), $e, $t);
 		return $PasswordMaker_HashUtils->rstr2any(pack('H*', sha1($s)), $e, $t);
@@ -679,6 +693,8 @@ class PasswordMaker_SHA1 {
 	
 	function any_hmac_sha1($k, $d, $e, $t = true) {
 		global $PasswordMaker_HashUtils;
+		if (function_exists('hash_hmac'))
+			return $PasswordMaker_HashUtils->rstr2any(hash_hmac('sha1', $d, $k, true), $e, $t);
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_SHA1, $d, $k), $e, $t);
 		$b = 64;
@@ -717,6 +733,8 @@ class PasswordMaker_SHA256 {
 
 	function any_sha256 ($s, $e, $t = true){
 		global $PasswordMaker_HashUtils;
+		if (function_exists('hash'))
+			return $PasswordMaker_HashUtils->rstr2any(hash('sha256' , $s, true), $e);
 		if (function_exists('mhash'))
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_SHA256 , $s), $e);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_sha256($PasswordMaker_HashUtils->str2rstr_utf8($s)), $e, $t);
@@ -724,6 +742,8 @@ class PasswordMaker_SHA256 {
 	
 	function any_hmac_sha256 ($k, $d, $e, $t = true, $bug = true){
 		global $PasswordMaker_HashUtils;
+		if (function_exists('hash_hmac') && !$bug)
+			return $PasswordMaker_HashUtils->rstr2any(hash_hmac('sha256', $d, $k, true), $e);
 		if (function_exists('mhash') && !$bug)
 			return $PasswordMaker_HashUtils->rstr2any(mhash(MHASH_SHA256, $d, $k), $e);
 		return $PasswordMaker_HashUtils->rstr2any($this->rstr_hmac_sha256($PasswordMaker_HashUtils->str2rstr_utf8($k), $PasswordMaker_HashUtils->str2rstr_utf8($d), $bug), $e, $t);
