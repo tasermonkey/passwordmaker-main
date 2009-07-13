@@ -78,6 +78,7 @@ ob_start();
 	</head>
 	<body>
 		<div id="root">
+			<h1>PasswordMaker Click! Edition</h1>
 			<form>
 				<p id="nameRow" class="formRow">
 					<label for="name">Bookmarklet Name:</label>
