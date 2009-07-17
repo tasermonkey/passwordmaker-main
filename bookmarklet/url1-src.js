@@ -1089,7 +1089,8 @@ window._hpwmbklhash123456_v.l33t = {
 		}
 		
 		if (typeof e == 'string') {
-			// IE6 - usetext mode
+			// IE6 - usetext mode only
+			h.usetext = e;
 		}
 		else {
 			h.mphash = e.mphash||'';
@@ -1158,7 +1159,7 @@ window._hpwmbklhash123456_v.l33t = {
 					return false; // Shouldn't be needed
 				};*/
 				
-				h.generatePassword(); // Seems it generates the wrong thing the first time through
+				h.generatePassword(); // Seems it generates the wrong thing the first time through. Not sure why.
 			}
 		}
 		else {

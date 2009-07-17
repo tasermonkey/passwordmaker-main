@@ -21,7 +21,7 @@ $mtime = 0;
 
 if (isset($_GET['h']) && isset($_GET['v'])) {
 	header('Content-type: text/javascript; charset=utf-8');
-	if (preg_match('/\Ah[\da-f]{16}\z/', $_GET['h'])) {
+	if (preg_match('/\Ah[\da-z]{16}\z/i', $_GET['h'])) {
 		switch ($_GET['v']) {
 			case '1': {
 				$src = file_get_contents('url'.$_GET['v'].'.js');
@@ -98,6 +98,10 @@ ob_start();
 					<label>
 						<input type="checkbox" id="path" /> Port, path, anchor, query parameters
 					</label>
+					<p class="formRow">
+						<label for="usetext">Use Text:</label>
+						<input type="text" class="control" id="usetext" />
+					</p>
 				</fieldset>
 				<p id="usernameRow" class="formRow">
 					<label for="username">Username:</label>

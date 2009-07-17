@@ -1,25 +1,6 @@
 /**
 	This file creates the bookmarket for the user.
 */
-/**
-	For version 1 of the protocol, the parameters work like this:
-	p is the compacted parameters to generate the password. Each character is a different part as explained below
-		1 (2) - This is a bitmask hex charcter for the parts of the URL to use for calculating the text used in password generation.
-		2 (0) - When to apply leet transformations. 0 is none, 1 is before, 2 is after, and 3 is both
-		3 (1) - The leet level to use, 1-9
-		4 (c) - The hash algo to use. HTML form has the values. Comments in urlv-src.js will have the list as well
-		5 (0) - The character set to use. Z is custom. Comments in urlv-src.js will have the list
-		6-8 (008) - The length of the password to generate. As the Firefox edition support up to 999, this is three characters long
-	e is the extra paramters that can not be compacted.
-	If it is a string, it's a master password hash, otherwise it's a JSON object with the following members, all optional
-			mphash (Master Password Hash)
-			username
-			modifier
-			prefix
-			suffix
-			characters
-			usetext (custom text, like in the accounts of the Firefox version)
-*/
 
 /**
 	If url.js (and the function the bookmarklet uses) is called on this page, it will load these variables instead of doing the normal operations
@@ -27,9 +8,9 @@
 var hash, params = '', extras = '', rehash = false;
 
 // various variables
-var ie6 = false, g = function(id){return document.getElementById(id);}; /* Can't assign getElementById to a variable */
+var ie6 = false, g = function(id){return document.getElementById(id);}; /* Can't assign getElementById to a variable... */
 // Form fields we'll be editting
-var bklname, protocol, subdomain, domain, path, username, whereleet, leetlevel, hashalgo, length, modifier, prefix, suffix, bookmarklet, error;
+var bklname, protocol, subdomain, domain, path, usetext, username, whereleet, leetlevel, hashalgo, length, modifier, prefix, suffix, bookmarklet, error;
 // Variables for character set handling
 var characters, cUpper, cLower, cNumber, cSpecial, cDefine, cTabs;
 function characterHandler() {
@@ -100,9 +81,9 @@ function updateParams() {
 	if (path.checked) {i |= 1;}
 	// TODO if i == 0, then use text string
 	if (!i) {
-		g('bookmarkletRow').className += ' hidden';
-		error.firstChild.nodeValue = 'At least one part must be used.';
-		error.className = 'error';
+		usetext.disabled = false;
+	} else {
+		usetext.disabled = true;
 	}
 	params = i.toString(16);
 	
@@ -136,6 +117,9 @@ function updateParams() {
 		if (suffix.value) {
 			extras.suffix = suffix.value;
 		}
+		if (params.charAt(0) == '0') {
+			extras.usetext = usetext.value;
+		}
 		if (params.charAt(4) == 'Z') {
 			extras.characters = characters.value;
 			if (characters.value.length < 2) {
@@ -147,8 +131,9 @@ function updateParams() {
 		// TODO Master Password Hash support
 	}
 	else {
-		extras = '';
-		// TODO Master Password Hash support
+		if (params.charAt(0) == '0') {
+			extras = usetext.value;
+		}
 	}
 	
 	extras = JSON.stringify(extras);
@@ -156,7 +141,7 @@ function updateParams() {
 	bookmarklet.href = 'javascript:' + bkl.replace('faaaa000', params).replace('pwmextras', extras).replace('hpwmbklhash123456', hash).replace(/ /g, '%20');
 	if (ie6 && bookmarklet.href.length > 477) {
 		g('bookmarkletRow').className += ' hidden';
-		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. If you can't upgrade from IE6, consider using another browser.";
+		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. This is a limitation of IE6.";
 		error.className = 'error';
 	}
 }
@@ -425,13 +410,18 @@ if (!this.JSON) {
 }());
 
 window.onload = function() {
-	var hex = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+	var hex = Array(
+		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+	);
 	var i;
 	bklname = g('name');
 	protocol = g('protocol');
 	subdomain = g('subdomains');
 	domain = g('domain');
 	path = g('path');
+	usetext = g('usetext');
 	username = g('username');
 	whereleet = g('whereleet');
 	leetlevel = g('leetlevel');
@@ -459,6 +449,7 @@ window.onload = function() {
 	domain.onclick = domain.onchange = updateParams;
 	path.onclick = path.onchange = updateParams;
 	// keyup to catch changes before the blur
+	usetext.onkeyup = usetext.onchange = updateParams;
 	bklname.onkeyup = bklname.onchange = updateParams;
 	username.onkeyup = username.onchange = updateParams;
 	length.onkeyup = length.onchange = updateParams;
@@ -499,7 +490,7 @@ window.onload = function() {
 	
 	hash = 'h';
 	for (i = 0; i < 16; i++) {
-		hash += hex[Math.floor(Math.random() * 16)];
+		hash += hex[Math.floor(Math.random() * hex.length)];
 	}
 	updateParams();
 };
