@@ -26,7 +26,7 @@
 				4 - Currently unused
 			For the 10th character, nothing is defined yet
 	e is the extra paramters that can not be compacted.
-	If it is a string, it's a master password hash, otherwise it's a JSON object with the following members, all optional
+	If it is a string, it's the url to use (usetext), otherwise it's an object with the following members, all optional
 			mphash (Master Password Hash)
 			username
 			modifier
@@ -1032,8 +1032,10 @@ window._hpwmbklhash123456_v.l33t = {
 	hpwmbklhash123456 = function(p, e) {
 		var h = window._hpwmbklhash123456_v;
 		if (location.href.substring(0, h.url.length) == h.url) {
-			/**paramsUpdate(1, p, e, h.id);
-			return;/ **/
+			/**
+			paramsUpdate(1, p, e, h.id);
+			return;
+			/**/
 		}
 		// If self url, call updateParams and return
 		var i, f,

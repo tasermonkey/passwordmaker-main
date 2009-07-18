@@ -1,15 +1,16 @@
+This file contains some notes targetted to developers and advance users. End users can normally ignore this file.
+
 Name Eric came up with: Click! Edition
 
 There's a PHP script that controls rewriting some of the javascript.
 For the bookmarklet, it edits the url the bookmarklet uses to get the main script.
 For the main script, it edits a prefix used so that injection is hard to do, and the root url to feeding the parameters back in.
+Other scripting langauges can be used, PHP is the one MiquelFire (the creator of the bookmarklet) knew.
 
 For IE6 support, we have 477 bytes total to work with.
-The proof of concept code for the bookmarklet is currently 320 characters compressed.
-That is without a username, modifier, prefix, suffix, custom character set, or master password hash support.
-The script that creates the bookmarklet will just have to reject those features for IE6 users.
+The script that creates the bookmarklet will reject some features for IE6 users as a result.
 
-url1.js did hit the safe limit for all other browsers before any existing code was brought in.
+url1.js did hit the safe limit for most other browsers before any existing code was brought in.
 
 Feature Notes:
 ==============
@@ -19,13 +20,13 @@ Legend: + is a postive feature or happy side effect, - is a negative feature or 
 
 +If user has a bookmark sync, PasswordMaker settings will be synced as well.
 
-+If the user reason for making accounts relate to default being used for 90%, and 9% needing a different characterset, they may have less accounts.
-Sort of like the the profile system on the on-line edition. (tanstaafl may like this)
++If the user reason for making accounts relate to default being used for 90%, and 9% needing a different characterset, they may have less 'accounts'.
+Sort of like the the profile system on the on-line edition.
 
 -IE6 has no custom character set, and can't use the username, modifier, prefix, and suffix fields.
 Master password hash may not be an option either.
 
--Can't easily change settings without recreating the bookmark (and no plans to allow on the fly editing, except maybe username.
+-Can't easily change settings without recreating the bookmark (and no plans to allow on the fly editing).
 
 PHP Notes:
 ==========
@@ -44,17 +45,8 @@ As this id may start with a number (a no no in JavaScript variables), a h is use
 
 A 'protocol' will be used to allow for compact parameter settings.
 
-There's an 8 byte string for the parts of the parameters that can be set by one character (or 3 for the length).
-The first character handles the parts of the url to use. It's a hex character.
-The second character controls when to use l33t.
-The third character is the l33t level
-The fourth character is the hash algorithm.
-The fifth character is the predefined character set.
-	0-e (note, lower case) will be a set of character sets with a combination of Upper, Lower, Numbers, and Special characters.
-	f will be the hex string used for the version 0.6 hashes (minus the trimming off the zero part)
-	g-zA-Y is reserved for more options (So, 32 more sets can be defined for later)
-	Z is custom (Not used with IE6)
-The last three character is the length of the password
+There's an 8-10 byte string for the parts of the parameters that can be set by one character (3 for the length).
+Full details in the url1-src.js file.
 
-Another parameter is a string if using IE6 to hold some value that is short, and sure to not exceed a certain size.
-This is an object in other browsers containing the other bits of info needed to generate a browser.
+Another parameter is a string if using IE6 to hold the text being used in place of the calculated url.
+This is an object in other browsers containing the other bits of info needed to generate a password.
