@@ -148,13 +148,72 @@ function updateParams() {
 
 // Called by the bookmarklet, updates the forum fields
 // If an older version of the bookmarklet protocol is used, update to the current version.
-function paramsUpdate(version, params, extras, hash) {
-	if (version < 1) {return;} // Should never be 0
-	switch (version) {
+function paramsUpdate(v, p, e, h) {
+	var c, i, j;
+	if (v < 1) {return;} // Should never be 0
+	switch (v) {
 	case 1:
 		// TODO
-		//console.log(hash, params);
-		//console.log(extras);
+		i = parseInt(p.charAt(0), 16);
+		protocol.checked = (i & 8) ? true : false;
+		subdomain.checked = (i & 4) ? true : false;
+		domain.checked = (i & 2) ? true : false;
+		path.checked = (i & 1) ? true : false;
+		length.value = parseInt(p.substring(5, 8), 10);
+		for (i = 0, c = hashalgo.options; i < c.length; i++) {
+			if (c[i].value == p.charAt(3)) {
+				c[i].selected = true;
+			}
+		}
+		for (i = 0, c = whereleet.options; i < c.length; i++) {
+			if (c[i].value == p.charAt(1)) {
+				c[i].selected = true;
+			}
+		}
+		for (i = 0, c = leetlevel.options; i < c.length; i++) {
+			if (c[i].value == p.charAt(2)) {
+				c[i].selected = true;
+			}
+		}
+		i = p.charAt(4);
+		if (/^[0-9a-e]$/.test(i)) {
+			g('characterParts').checked = true;
+			i = parseInt(i, 16)^15;
+			cUpper.checked = (i & 8) ? true : false;
+			cLower.checked = (i & 4) ? true : false;
+			cNumber.checked = (i & 2) ? true : false;
+			cSpecial.checked = (i & 1) ? true : false;
+		} else if (/^[f]$/.test(i)) {
+			// Note, the regEx can be updated to allow for more predefined sets later
+			g('characterDefine').checked = true;
+			for (j = 0, c = gDefine.options; j < c.length; j++) {
+				if (c[j].value == i) {
+					c[j].selected = true;
+				}
+			}
+		} else if (i == 'Z') {
+			characters.value = e.characters;
+		}
+		if (p.charAt(8)) {
+			i = parseInt(p.charAt(8), 32);
+			// TODO handle binary switches, once the feature is added
+		}
+		
+		if (typeof e == 'string') {
+			// IE6 - usetext mode only
+			usetext.value = e;
+		}
+		else {
+			// TODO how to handle importing Master Password Hash (once this feature is added)
+			//mphash.value = e.mphash||'';
+			username.value = e.username||'';
+			modifier.value = e.modifier||'';
+			prefix.value = e.prefix||'';
+			suffix.value = e.suffix||'';
+			usetext.value = e.usetext||'';
+		}
+		// TODO figure out how to reuse hash only if user wants to
+		//console.log(h);
 		break;
 	default:
 		// Unsupported version. Somehow a newer version of the protocol called this function (downgrade?)

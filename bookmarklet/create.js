@@ -21,8 +21,15 @@ if(params.charAt(0)=='0'){extras.usetext=usetext.value;}
 if(params.charAt(4)=='Z'){extras.characters=characters.value;if(characters.value.length<2){g('bookmarkletRow').className+=' hidden';error.firstChild.nodeValue='You must have at least two characters for the character set.';error.className='error';}}}
 else{if(params.charAt(0)=='0'){extras=usetext.value;}}
 extras=JSON.stringify(extras);bookmarklet.href='javascript:'+bkl.replace('faaaa000',params).replace('pwmextras',extras).replace('hpwmbklhash123456',hash).replace(/ /g,'%20');if(ie6&&bookmarklet.href.length>477){g('bookmarkletRow').className+=' hidden';error.firstChild.nodeValue="Whoops, it seems the bookmarklet is too long. This is a limitation of IE6.";error.className='error';}}
-function paramsUpdate(version,params,extras,hash){if(version<1){return;}
-switch(version){case 1:break;default:return;}
+function paramsUpdate(v,p,e,h){var c,i,j;if(v<1){return;}
+switch(v){case 1:i=parseInt(p.charAt(0),16);protocol.checked=(i&8)?true:false;subdomain.checked=(i&4)?true:false;domain.checked=(i&2)?true:false;path.checked=(i&1)?true:false;length.value=parseInt(p.substring(5,8),10);for(i=0,c=hashalgo.options;i<c.length;i++){if(c[i].value==p.charAt(3)){c[i].selected=true;}}
+for(i=0,c=whereleet.options;i<c.length;i++){if(c[i].value==p.charAt(1)){c[i].selected=true;}}
+for(i=0,c=leetlevel.options;i<c.length;i++){if(c[i].value==p.charAt(2)){c[i].selected=true;}}
+i=p.charAt(4);if(/^[0-9a-e]$/.test(i)){g('characterParts').checked=true;i=parseInt(i,16)^15;cUpper.checked=(i&8)?true:false;cLower.checked=(i&4)?true:false;cNumber.checked=(i&2)?true:false;cSpecial.checked=(i&1)?true:false;}else if(/^[f]$/.test(i)){g('characterDefine').checked=true;for(j=0,c=gDefine.options;j<c.length;j++){if(c[j].value==i){c[j].selected=true;}}}else if(i=='Z'){characters.value=e.characters;}
+if(p.charAt(8)){i=parseInt(p.charAt(8),32);}
+if(typeof e=='string'){usetext.value=e;}
+else{username.value=e.username||'';modifier.value=e.modifier||'';prefix.value=e.prefix||'';suffix.value=e.suffix||'';usetext.value=e.usetext||'';}
+break;default:return;}
 updateParams();}
 if(!this.JSON){JSON={};}
 (function(){function f(n){return n<10?'0'+n:n;}

@@ -1073,7 +1073,7 @@ window._hpwmbklhash123456_v.l33t = {
 		h.whereLeet = parseInt(p.charAt(1), 10);
 		h.leetlevel = parseInt(p.charAt(2), 10);
 		h.hash = p.charAt(3);
-		h.length = parseInt(p.substring(5, 3), 10);
+		h.length = parseInt(p.substring(5, 7), 10);
 		h.characters = p.charAt(4);
 		if (h.characters == 'Z') {
 			h.characters = e.characters;
@@ -1081,11 +1081,11 @@ window._hpwmbklhash123456_v.l33t = {
 			h.characters = c[h.characters];
 		}
 		if (p.charAt(8)) {
-			i = parseInt(p.char(8), 32);
+			i = parseInt(p.charAt(8), 32);
 			h.populateAll = (i&1)?true:false;
 		}
 		if (p.charAt(9)) {
-			i = parseInt(p.char(9), 32);
+			i = parseInt(p.charAt(9), 32);
 		}
 		
 		if (typeof e == 'string') {
