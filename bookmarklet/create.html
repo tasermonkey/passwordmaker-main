@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>PasswordMaker: Click! Edition</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div id="root">
+			<h1>PasswordMaker Click! Edition</h1>
+			<form>
+				<p id="nameRow" class="formRow">
+					<label for="name">Bookmarklet Name:</label>
+					<input type="text" class="control" id="name" value="PWM Click!" />
+				</p>
+				<fieldset id="urlparts">
+					<legend>URL Components</legend>
+					<label>
+						<input type="checkbox" id="protocol" /> Protocol
+					</label>
+					<label>
+						<input type="checkbox" id="subdomains" /> Subdomain(s)
+					</label>
+					<label>
+						<input type="checkbox" id="domain" checked="checked" /> Domain
+					</label>
+					<label>
+						<input type="checkbox" id="path" /> Port, path, anchor, query parameters
+					</label>
+					<p class="formRow">
+						<label for="usetext">Use Text:</label>
+						<input type="text" class="control" id="usetext" />
+					</p>
+				</fieldset>
+				<p id="usernameRow" class="formRow">
+					<label for="username">Username:</label>
+					<input type="text" class="control" id="username" />
+				</p>
+				<p id="whereleetRow" class="formRow">
+					<label for="whereleet">Use l33t:</label>
+					<select id="whereleet" class="control">
+						<option value="0" selected="selected">not at all</option>
+						<option value="1">before generating password</option>
+						<option value="2">after generating password</option>
+						<option value="3">before and after generating password</option>
+					</select>
+				</p>
+				<p id="leetlevelRow" class="formRow">
+					<label for="leetlevel">l33t Level:</label>
+					<select class="control" id="leetlevel">
+						<option value="1" selected="selected">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+				</p>
+				<p id="hashalgoRow" class="formRow">
+					<label for="hashalgo">Hash Algorithm</label>
+					<select class="control" id="hashalgo">
+						<option value="a">MD4</option>
+						<option value="b">HMAC-MD4</option>
+						<option value="c" selected="selected">MD5</option>
+						<option value="d">HMAC-MD5</option>
+						<option value="e">SHA-1</option>
+						<option value="f">HMAC-SHA-1</option>
+						<option value="g">SHA-256</option>
+						<option value="h">HMAC-SHA-256</option>
+						<option value="i">RIPEMD-160</option>
+						<option value="j">HMAC-RIPEMD-160</option>
+					</select>
+				</p>
+				<p id="lengthRow" class="formRow">
+					<label for="length">Password Length: </label>
+					<input type="text" maxlength="3" class="control" id="length" value="8" />
+				</p>
+				<fieldset id="characterField">
+					<legend>Characters</legend>
+					<label class="tabControl"><input id="characterParts" type="radio" name="characterTab" value="parts" checked="checked" /> Parts</label>
+					<label class="tabControl"><input id="characterDefine" type="radio" name="characterTab" value="defined" /> Predefined</label>
+					<label class="tabControl"><input id="characterCustom" type="radio" name="characterTab" value="custom" /> Custom</label>
+					<p id="characterPartsTab" class="tab">
+						<label><input type="checkbox" id="charactersUpper" checked="checked" /> Upper Alpha</label>
+						<label><input type="checkbox" id="charactersLower" checked="checked" /> Lower Alpha</label>
+						<label><input type="checkbox" id="charactersNumber" checked="checked" /> Numbers</label>
+						<label><input type="checkbox" id="charactersSpecial" checked="checked" /> Special Characters</label>
+					</p>
+					<p id="characterDefinedTab" class="formRow tab tabHidden">
+						<label for="characterDefined">Predefined-sets:</label>
+						<select class="control" id="characterDefined">
+							<option value="f">Hex String</option>
+						</select>
+					</p>
+					<p class="formRow">
+						<label for="characters">Character Set:<br /><sub>(For other editions)</sub></label>
+						<input type="text" class="control" id="characters" readonly="readonly" />
+					</p>
+					<!-- ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&amp;*()_-+={}|[]\:";'&lt;&gt;?,./ -->
+				</fieldset>
+				<p id="modifierRow" class="formRow">
+					<label for="modifier">Modifier: </label>
+					<input type="text" class="control" id="modifier" />
+				</p>
+				<p id="prefixRow" class="formRow">
+					<label for="prefix">Password Prefix: </label>
+					<input type="text" class="control" id="prefix" />
+				</p>
+				<p id="suffixRow" class="formRow">
+					<label for="suffix">Password Suffix: </label>
+					<input type="text" class="control" id="suffix" />
+				</p>
+				<p id="bookmarkletRow" class="formRow">
+					<label>Your Bookmarklet:</label>
+					<a id="bookmarklet" class="control" href="javascript:void()"></a>
+				</p>
+				<p id="errorMessage" class="hidden"></p>
+			</form>
+		</div>
+		<script type="text/javascript">var bkl = "pwmbml";</script>
+		<script type="text/javascript" src="create.js"></script>
+	</body>
+</html>
