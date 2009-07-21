@@ -1032,10 +1032,8 @@ window._hpwmbklhash123456_v.l33t = {
 	hpwmbklhash123456 = function(p, e) {
 		var h = window._hpwmbklhash123456_v;
 		if (location.href.substring(0, h.url.length) == h.url) {
-			/**
 			paramsUpdate(1, p, e, h.id);
 			return;
-			/**/
 		}
 		// If self url, call updateParams and return
 		var i, f,
