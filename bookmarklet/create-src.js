@@ -1,6 +1,7 @@
 /**
 	This file creates the bookmarket for the user.
 */
+version = '0.6.1';
 
 /**
 	If url.js (and the function the bookmarklet uses) is called on this page, it will load these variables instead of doing the normal operations

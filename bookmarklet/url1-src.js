@@ -54,6 +54,7 @@ Defined character sets
 	'f':'0123456789abcdef'
 */
 window._hpwmbklhash123456_v = {
+	version:'0.6.1',
 	id:'hpwmbklhash123456', // The id of the root div of the master password dialog
 	ie:false,
 	url:'url1.js',
@@ -66,7 +67,7 @@ window._hpwmbklhash123456_v = {
 	leetlevel:0,
 	hash:'',
 	characters:'',
-	length:0,
+	pwlength:0,
 	mphash:'',
 	username:'',
 	modifier:'',
@@ -94,14 +95,14 @@ window._hpwmbklhash123456_v = {
 		
 		if (!this.usetext.length) {this.getText();}
 		
-		while (password.length < this.length) {
+		while (password.length < this.pwlength) {
 			password += (count ==0) ? this._generatePassword(mpw, data) : this._generatePassword(mpw + '\n' + count, data);
 			count++;
 		}
 		
 		if (this.prefix) {password = this.prefix + password;}
-		if (this.suffix) {password = password.substring(0, this.length-this.suffix.length) + this.suffix;}
-		password = password.substring(0, this.length);
+		if (this.suffix) {password = password.substring(0, this.pwlength-this.suffix.length) + this.suffix;}
+		password = password.substring(0, this.pwlength);
 		return password;
 	},
 	_generatePassword:function(key, data) {
@@ -153,10 +154,9 @@ window._hpwmbklhash123456_v = {
 		for (i = 0; i < o.length; i++) {
 			q = o[i];
 			if (q.id.substring(0, 17) != this.id) {
-				switch(q.type) {
+				switch(q.type.toLowerCase()) {
 					case 'text':
 						if (this.populateAll || !q.value) {
-							console.log(q);
 							// Check to see the list of fields the extension fills out
 							if (q.name.match(/ID|un|name|user|usr|log|email|mail|acct|ssn/i)) {
 								q.value = this.username;
@@ -1073,7 +1073,7 @@ window._hpwmbklhash123456_v.l33t = {
 		h.whereLeet = parseInt(p.charAt(1), 10);
 		h.leetlevel = parseInt(p.charAt(2), 10);
 		h.hash = p.charAt(3);
-		h.length = parseInt(p.substring(5, 7), 10);
+		h.pwlength = parseInt(p.substring(5, 8), 10);
 		h.characters = p.charAt(4);
 		if (h.characters == 'Z') {
 			h.characters = e.characters;
