@@ -473,7 +473,7 @@ var passwordMaker = {
 
       // Clear the others
       for (var i=0; i<fields.others.length; i++) {
-        switch (fields.others[i].fieldtype) {
+        switch (fields.others[i].fieldtype.toString().toLowerCase()) {
           case "text":
           case "textarea":
           case "password":          
@@ -499,7 +499,7 @@ var passwordMaker = {
       for (var i=0; !foundEmptyField && i<fields.passwords.length; i++)
         foundEmptyField = fields.passwords[i].field.value == "";
       for (var i=0; !foundEmptyField && i<fields.others.length; i++) {
-        switch (fields.others[i].fieldtype) {
+        switch (fields.others[i].fieldtype.toString().toLowerCase()) {
           case "text":
           case "textarea":
           case "password":          
@@ -574,7 +574,7 @@ var passwordMaker = {
     }
     if (passwordMaker.removeAutoComplete) {
       for (var i=0; i<fields.others.length; i++) {    
-        if (fields.others[i].fieldtype != "password") {        
+        if (fields.others[i].fieldtype.toString().toLowerCase() != "password") {        
           // Turn on/off autocomplete, but don't turn it on for passwords (security). 
           fields.others[i].field.setAttribute("autocomplete", "on");
         }
@@ -624,12 +624,12 @@ var passwordMaker = {
   _getElementDetails : function(field, ret) {
     var f = new Object();
     f.fieldname = field.getAttribute("name");
-    f.fieldtype = field.nodeName == "INPUT" ? field.getAttribute("type") : field.nodeName.toLowerCase();
+    f.fieldtype = field.nodeName.toLowerCase() == "input" ? field.getAttribute("type") : field.nodeName.toLowerCase();
     if (!f.fieldtype || f.fieldtype == "")
       f.fieldtype = "text";
     
     // Check for password fields which have been manipulated by _modifyAttributes() to be text fields
-    if (f.fieldtype == "text")
+    if (f.fieldtype.toString().toLowerCase() == "text")
       f.fieldtype == field.getAttribute("oldtype") ? field.getAttribute("oldtype") : f.fieldtype;
     
     f.fieldid = field.getAttribute("id");
@@ -651,11 +651,11 @@ var passwordMaker = {
   _parseFields : function(fields) {
     var ret = {usernames: new Array(), passwords: new Array(), submits: new Array(), others: new Array()};
     for (var i=0; i<fields.length; i++) {
-      if (fields[i].fieldtype == "text" && fields[i].field.getAttribute("oldtype") != "password" && fields[i].fieldname && 
+      if (fields[i].fieldtype.toString().toLowerCase() == "text" && fields[i].field.getAttribute("oldtype") != "password" && fields[i].fieldname && 
         fields[i].fieldname.match(/ID|un|name|user|usr|log|email|mail|acct|ssn/i))
           ret.usernames[ret.usernames.length] = fields[i];
 
-      if (fields[i].fieldtype == "password" || fields[i].field.getAttribute("oldtype") == "password")      
+      if (fields[i].fieldtype.toString().toLowerCase() == "password" || fields[i].field.getAttribute("oldtype") == "password")      
         ret.passwords[ret.passwords.length] = fields[i];          
 //      else if (fields[i].fieldtype.match(/submit|button|image/i) && (fields[i].src.match(/log|sub|sign/i) || fields[i].fieldvalue.match(/log|sub|sign/i) || fields[i].fieldname.match(/log|sub|sign/i)))
 //        ret.submits[ret.submits.length] = fields[i];
@@ -843,7 +843,7 @@ var passwordMaker = {
             allFields[i].formname == aMatch.fields[j].formname && 
             allFields[i].fieldtype == aMatch.fields[j].fieldtype &&
             allFields[i].fieldid == aMatch.fields[j].fieldid) {
-          switch (allFields[i].fieldtype) {
+          switch (allFields[i].fieldtype.toString().toLowerCase()) {
             case "text":
             case "textarea":
               if (pop || (action == "coolkey-empty-only" && allFields[i].field.value == "")) {
