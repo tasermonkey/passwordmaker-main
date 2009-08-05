@@ -44,7 +44,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.0</em:minVersion> <!--  We support back to FF 0.7 but AMO only permits submissions with 1.0 minimum (Why, Gus, why?) See http://addons.mozilla.org/faq.php -->
-				<em:maxVersion>3.0b3pre</em:maxVersion>
+				<em:maxVersion>3.6a1pre</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 
@@ -62,7 +62,7 @@
       <Description>
         <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
         <em:minVersion>1.0</em:minVersion>
-        <em:maxVersion>1.1.*</em:maxVersion>
+        <em:maxVersion>2.1a1pre</em:maxVersion>
       </Description>
     </em:targetApplication>
     
@@ -80,7 +80,7 @@
     <Description>
       <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
       <em:minVersion>0.8</em:minVersion>
-      <em:maxVersion>1.5+</em:maxVersion>
+      <em:maxVersion>2.0.*</em:maxVersion>
     </Description>
   </em:targetApplication>
 		
