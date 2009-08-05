@@ -27,7 +27,7 @@ var XpiInstaller = {
 	// --- Editable items begin ---
 	extFullName: 'PasswordMaker', // The name displayed to the user (don't include the version)
 	extShortName: 'passwdmaker', // The leafname of the JAR file (without the .jar part)
-	extVersion: '1.7.2',
+	extVersion: '1.7.3',
 	extAuthor: 'LeahScape, Inc.',
 	extLocaleNames: ['en-US','de-DE','es-ES','fr-FR','nl-NL','pl-PL','pt-BR','zh-CN'],
 	extSkinNames: ['classic', 'modern'], // e.g. ['classic', 'modern']
