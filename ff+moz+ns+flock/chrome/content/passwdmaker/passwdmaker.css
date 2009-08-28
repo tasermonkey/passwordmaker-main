@@ -32,7 +32,11 @@ toolbar[iconsize="small"] #passwordmaker-key-button:hover {
 	-moz-image-region: rect(16px, 16px, 32px, 0px);
 } 
 
-tree {min-height: 50px;}
+tree[id="patternsTree"], tree[id="fieldsTree"], tree[id="accountsTree"], tree[id="remotesTree"],
+  tree[id="domainsTree"] {
+    min-height: 50px;
+ }
+  
 splitter[disabled="true"] { cursor: default !important; }
 
 .passwordmaker-button {
@@ -42,7 +46,11 @@ splitter[disabled="true"] { cursor: default !important; }
 	list-style-image: url("chrome://passwdmaker/content/images/key-seamonkey-classic.png") !important;
 }
 
-treechildren::-moz-tree-cell-text(container) {
+tree[id="patternsTree"] treechildren::-moz-tree-cell-text(container),
+  tree[id="fieldsTree"] treechildren::-moz-tree-cell-text(container),
+  tree[id="accountsTree"] treechildren::-moz-tree-cell-text(container),
+  tree[id="remotesTree"] treechildren::-moz-tree-cell-text(container),
+  tree[id="domainsTree"] treechildren::-moz-tree-cell-text(container)  {
   font-weight: bold !important;
 }
 .link {
