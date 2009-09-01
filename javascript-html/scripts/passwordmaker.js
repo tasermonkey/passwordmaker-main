@@ -436,10 +436,10 @@ function in_array(needle, haystack, returnIndex) {
 	return false;
 }
 
-if (addEventListener){
-	addEventListener('load', init, false);
-} else if (attachEvent){
-	attachEvent('onload', init);
+if (window.addEventListener){
+	window.addEventListener('load', init, false);
+} else if (window.attachEvent){
+	window.attachEvent('onload', init);
 } else {
 	var otherOnLoadHandler=window.onload;
 	onload=init;
