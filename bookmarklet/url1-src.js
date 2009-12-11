@@ -96,7 +96,7 @@ window._hpwmbklhash123456_v = {
 		if (!this.usetext.length) {this.getText();}
 		
 		while (password.length < this.pwlength) {
-			password += (count ==0) ? this._generatePassword(mpw, data) : this._generatePassword(mpw + '\n' + count, data);
+			password += (count === 0) ? this._generatePassword(mpw, data) : this._generatePassword(mpw + '\n' + count, data);
 			count++;
 		}
 		
@@ -239,20 +239,21 @@ window._hpwmbklhash123456_v.HashUtils = {
 			}
 
 			/* Encode output as utf-8 */
-			if(x <= 0x7F)
+			if(x <= 0x7F) {
 				output += String.fromCharCode(x);
-			else if(x <= 0x7FF)
+			} else if(x <= 0x7FF) {
 				output += String.fromCharCode(0xC0 | ((x >>> 6 ) & 0x1F),
 					0x80 | ( x         & 0x3F));
-			else if(x <= 0xFFFF)
+			} else if(x <= 0xFFFF) {
 				output += String.fromCharCode(0xE0 | ((x >>> 12) & 0x0F),
 					0x80 | ((x >>> 6 ) & 0x3F),
 					0x80 | ( x         & 0x3F));
-			else if(x <= 0x1FFFFF)
+			} else if(x <= 0x1FFFFF) {
 				output += String.fromCharCode(0xF0 | ((x >>> 18) & 0x07),
 					0x80 | ((x >>> 12) & 0x3F),
 					0x80 | ((x >>> 6 ) & 0x3F),
 					0x80 | ( x         & 0x3F));
+			}
 		}
 		return output;
 	},
@@ -263,10 +264,13 @@ window._hpwmbklhash123456_v.HashUtils = {
 	*/
 	rstr2binl : function(input) {
 		var output = Array(input.length >> 2);
-		for(var i = 0; i < output.length; i++)
+		var i;
+		for(i = 0; i < output.length; i++) {
 			output[i] = 0;
-		for(var i = 0; i < input.length * 8; i += 8)
+		}
+		for(i = 0; i < input.length * 8; i += 8) {
 			output[i>>5] |= (input.charCodeAt(i / 8) & 0xFF) << (i%32);
+		}
 		return output;
 	},
 
@@ -275,8 +279,9 @@ window._hpwmbklhash123456_v.HashUtils = {
 	*/
 	binl2rstr : function(input) {
 		var output = "";
-		for(var i = 0; i < input.length * 32; i += 8)
+		for(var i = 0; i < input.length * 32; i += 8) {
 			output += String.fromCharCode((input[i>>5] >>> (i % 32)) & 0xFF);
+		}
 		return output;
 	},
 
@@ -308,8 +313,9 @@ window._hpwmbklhash123456_v.HashUtils = {
 				x = (x << 16) + dividend[i];
 				q = Math.floor(x / divisor);
 				x -= q * divisor;
-				if(quotient.length > 0 || q > 0)
+				if(quotient.length > 0 || q > 0) {
 					quotient[quotient.length] = q;
+				}
 			}
 			remainders[remainders.length] = x;
 			dividend = quotient;
@@ -317,8 +323,9 @@ window._hpwmbklhash123456_v.HashUtils = {
 
 		/* Convert the remainders to the output string */
 		var output = "";
-		for(i = remainders.length - 1; i >= 0; i--)
+		for(i = remainders.length - 1; i >= 0; i--) {
 			output += encoding.charAt(remainders[i]);
+		}
 
 		return output;
 	},
@@ -331,10 +338,13 @@ window._hpwmbklhash123456_v.HashUtils = {
 	*/
 	rstr2binb : function(input) {
 		var output = Array(input.length >> 2);
-		for(var i = 0; i < output.length; i++)
+		var i;
+		for(i = 0; i < output.length; i++) {
 			output[i] = 0;
-		for(var i = 0; i < input.length * 8; i += 8)
+		}
+		for(i = 0; i < input.length * 8; i += 8) {
 			output[i>>5] |= (input.charCodeAt(i / 8) & 0xFF) << (24 - i % 32);
+		}
 		return output;
 	},
 
@@ -343,8 +353,9 @@ window._hpwmbklhash123456_v.HashUtils = {
 	*/
 	binb2rstr : function(input) {
 		var output = "";
-		for(var i = 0; i < input.length * 32; i += 8)
+		for(var i = 0; i < input.length * 32; i += 8) {
 			output += String.fromCharCode((input[i>>5] >>> (24 - i % 32)) & 0xFF);
+		}
 		return output;
 	},
 
@@ -381,7 +392,7 @@ window._hpwmbklhash123456_v.SHA256 = {
 	*/
 	rstr_hmac_sha256 : function(key, data, bug) {
 		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binb(key);
-		if(bkey.length > 16) bkey = this.binb_sha256(bkey, key.length * 8);
+		if(bkey.length > 16) {bkey = this.binb_sha256(bkey, key.length * 8);}
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++)
@@ -410,7 +421,7 @@ window._hpwmbklhash123456_v.SHA256 = {
 	Gamma0512:function(x) {return (this.S(x, 1)  ^ this.S(x, 8) ^ this.R(x, 7));},
 	Gamma1512:function(x) {return (this.S(x, 19) ^ this.S(x, 61) ^ this.R(x, 6));},
 
-	sha256_K : new Array(
+	sha256_K : [
 		1116352408, 1899447441, -1245643825, -373957723, 961987163, 1508970993,
 		-1841331548, -1424204075, -670586216, 310598401, 607225278, 1426881987,
 		1925078388, -2132889090, -1680079193, -1046744716, -459576895, -272742522,
@@ -422,11 +433,11 @@ window._hpwmbklhash123456_v.SHA256 = {
 		430227734, 506948616, 659060556, 883997877, 958139571, 1322822218,
 		1537002063, 1747873779, 1955562222, 2024104815, -2067236844, -1933114872,
 		-1866530822, -1538233109, -1090935817, -965641998
-	),
+	],
 
 	binb_sha256 : function(m, l) {
-		var HASH = new Array(1779033703, -1150833019, 1013904242, -1521486534,
-		1359893119, -1694144372, 528734635, 1541459225);
+		var HASH = [1779033703, -1150833019, 1013904242, -1521486534,
+		1359893119, -1694144372, 528734635, 1541459225];
 		var W = new Array(64);
 		var a, b, c, d, e, f, g, h;
 		var i, j, T1, T2;
@@ -448,9 +459,9 @@ window._hpwmbklhash123456_v.SHA256 = {
 
 			for(j = 0; j < 64; j++)
 			{
-				if (j < 16) W[j] = m[j + i];
-				else W[j] = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(this.Gamma1256(W[j - 2]), W[j - 7]),
-					this.Gamma0256(W[j - 15])), W[j - 16]);
+				if (j < 16) {W[j] = m[j + i];}
+				else {W[j] = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(this.Gamma1256(W[j - 2]), W[j - 7]),
+					this.Gamma0256(W[j - 15])), W[j - 16]);}
 
 				T1 = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(h, this.Sigma1256(e)), this.Ch(e, f, g)),
 				this.sha256_K[j]), W[j]);
@@ -591,7 +602,7 @@ window._hpwmbklhash123456_v.MD4 = {
 	*/
 	rstr_hmac_md4 : function(key, data) {
 		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
-		if(bkey.length > 16) bkey = this.binl_md4(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);
+		if(bkey.length > 16) {bkey = this.binl_md4(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);}
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -735,7 +746,7 @@ window._hpwmbklhash123456_v.MD5 = {
 	*/
 	rstr_hmac_md5 : function(key, data) {
 		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
-		if(bkey.length > 16) bkey = this.binl_md5(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);
+		if(bkey.length > 16) {bkey = this.binl_md5(bkey, key.length * _hpwmbklhash123456_v.HashUtils.chrsz);}
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -764,7 +775,7 @@ window._hpwmbklhash123456_v.RIPEMD160 = {
 	*/
 	rstr_hmac_rmd160 : function(key, data) {
 		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binl(key);
-		if(bkey.length > 16) bkey = this.binl_rmd160(bkey, key.length * 8);
+		if(bkey.length > 16) {bkey = this.binl_rmd160(bkey, key.length * 8);}
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -821,17 +832,19 @@ window._hpwmbklhash123456_v.RIPEMD160 = {
 	*/
 	str2rstr_utf16le : function(input) {
 		var output = "";
-		for(var i = 0; i < input.length; i++)
+		for(var i = 0; i < input.length; i++){
 			output += String.fromCharCode( input.charCodeAt(i)        & 0xFF,
 				(input.charCodeAt(i) >>> 8) & 0xFF);
+		}
 		return output;
 	},
 
 	str2rstr_utf16be : function(input) {
 		var output = "";
-		for(var i = 0; i < input.length; i++)
+		for(var i = 0; i < input.length; i++) {
 			output += String.fromCharCode((input.charCodeAt(i) >>> 8) & 0xFF,
 				input.charCodeAt(i)        & 0xFF);
+		}
 		return output;
 	},
 
@@ -929,8 +942,8 @@ window._hpwmbklhash123456_v.SHA1 = {
 			var olde = e;
 
 			for(var j = 0; j < 80; j++) {
-				if(j < 16) w[j] = x[i + j];
-				else w[j] = _hpwmbklhash123456_v.HashUtils.bit_rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
+				if(j < 16) {w[j] = x[i + j];}
+				else {w[j] = _hpwmbklhash123456_v.HashUtils.bit_rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);}
 				var t = _hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.bit_rol(a, 5), this.sha1_ft(j, b, c, d)),
 				_hpwmbklhash123456_v.HashUtils.safe_add(_hpwmbklhash123456_v.HashUtils.safe_add(e, w[j]), this.sha1_kt(j)));
 				e = d;
@@ -955,9 +968,9 @@ window._hpwmbklhash123456_v.SHA1 = {
 	* iteration
 	*/
 	sha1_ft : function(t, b, c, d) {
-		if(t < 20) return (b & c) | ((~b) & d);
-		if(t < 40) return b ^ c ^ d;
-		if(t < 60) return (b & c) | (b & d) | (c & d);
+		if(t < 20) {return (b & c) | ((~b) & d);}
+		if(t < 40) {return b ^ c ^ d;}
+		if(t < 60) {return (b & c) | (b & d) | (c & d);}
 		return b ^ c ^ d;
 	},
 
@@ -974,7 +987,7 @@ window._hpwmbklhash123456_v.SHA1 = {
 	*/
 	rstr_hmac_sha1 : function(key, data) {
 		var bkey = _hpwmbklhash123456_v.HashUtils.rstr2binb(key);
-		if(bkey.length > 16) bkey = this.binb_sha1(bkey, key.length * 8);
+		if(bkey.length > 16) {bkey = this.binb_sha1(bkey, key.length * 8);}
 
 		var ipad = Array(16), opad = Array(16);
 		for(var i = 0; i < 16; i++) {
@@ -987,17 +1000,17 @@ window._hpwmbklhash123456_v.SHA1 = {
 	}
 };
 window._hpwmbklhash123456_v.l33t = {
-	alphabet : new Array(/a/g, /b/g, /c/g, /d/g, /e/g, /f/g, /g/g, /h/g, /i/g, /j/g, /k/g, /l/g, /m/g, /n/g, /o/g, /p/g, /q/g, /r/g, /s/g, /t/g, /u/g, /v/g, /w/g, /x/g, /y/g, /z/g),
-	levels : new Array(
-	new Array("4", "b", "c", "d", "3", "f", "g", "h", "i", "j", "k", "1", "m", "n", "0", "p", "9", "r", "s", "7", "u", "v", "w", "x", "y", "z"),
-	new Array("4", "b", "c", "d", "3", "f", "g", "h", "1", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "y", "2"),
-	new Array("4", "8", "c", "d", "3", "f", "6", "h", "'", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "'/", "2"),
-	new Array("@", "8", "c", "d", "3", "f", "6", "h", "'", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "'/", "2"),
-	new Array("@", "|3", "c", "d", "3", "f", "6", "#", "!", "7", "|<", "1", "m", "n", "0", "|>", "9", "|2", "$", "7", "u", "\\/", "w", "x", "'/", "2"),
-	new Array("@", "|3", "c", "|)", "&", "|=", "6", "#", "!", ",|", "|<", "1", "m", "n", "0", "|>", "9", "|2", "$", "7", "u", "\\/", "w", "x", "'/", "2"),
-	new Array("@", "|3", "[", "|)", "&", "|=", "6", "#", "!", ",|", "|<", "1", "^^", "^/", "0", "|*", "9", "|2", "5", "7", "(_)", "\\/", "\\/\\/", "><", "'/", "2"),
-	new Array("@", "8", "(", "|)", "&", "|=", "6", "|-|", "!", "_|", "|\(", "1", "|\\/|", "|\\|", "()", "|>", "(,)", "|2", "$", "|", "|_|", "\\/", "\\^/", ")(", "'/", "\"/_"),
-	new Array("@", "8", "(", "|)", "&", "|=", "6", "|-|", "!", "_|", "|\{", "|_", "/\\/\\", "|\\|", "()", "|>", "(,)", "|2", "$", "|", "|_|", "\\/", "\\^/", ")(", "'/", "\"/_")),
+	alphabet : [/a/g, /b/g, /c/g, /d/g, /e/g, /f/g, /g/g, /h/g, /i/g, /j/g, /k/g, /l/g, /m/g, /n/g, /o/g, /p/g, /q/g, /r/g, /s/g, /t/g, /u/g, /v/g, /w/g, /x/g, /y/g, /z/g],
+	levels : [
+	["4", "b", "c", "d", "3", "f", "g", "h", "i", "j", "k", "1", "m", "n", "0", "p", "9", "r", "s", "7", "u", "v", "w", "x", "y", "z"],
+	["4", "b", "c", "d", "3", "f", "g", "h", "1", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "y", "2"],
+	["4", "8", "c", "d", "3", "f", "6", "h", "'", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "'/", "2"],
+	["@", "8", "c", "d", "3", "f", "6", "h", "'", "j", "k", "1", "m", "n", "0", "p", "9", "r", "5", "7", "u", "v", "w", "x", "'/", "2"],
+	["@", "|3", "c", "d", "3", "f", "6", "#", "!", "7", "|<", "1", "m", "n", "0", "|>", "9", "|2", "$", "7", "u", "\\/", "w", "x", "'/", "2"],
+	["@", "|3", "c", "|)", "&", "|=", "6", "#", "!", ",|", "|<", "1", "m", "n", "0", "|>", "9", "|2", "$", "7", "u", "\\/", "w", "x", "'/", "2"],
+	["@", "|3", "[", "|)", "&", "|=", "6", "#", "!", ",|", "|<", "1", "^^", "^/", "0", "|*", "9", "|2", "5", "7", "(_)", "\\/", "\\/\\/", "><", "'/", "2"],
+	["@", "8", "(", "|)", "&", "|=", "6", "|-|", "!", "_|", "|\\(", "1", "|\\/|", "|\\|", "()", "|>", "(,)", "|2", "$", "|", "|_|", "\\/", "\\^/", ")(", "'/", "\"/_"],
+	["@", "8", "(", "|)", "&", "|=", "6", "|-|", "!", "_|", "|\\{", "|_", "/\\/\\", "|\\|", "()", "|>", "(,)", "|2", "$", "|", "|_|", "\\/", "\\^/", ")(", "'/", "\"/_"]],
 
 	/**
 	* Convert the string in _message_ to l33t-speak
@@ -1016,8 +1029,9 @@ window._hpwmbklhash123456_v.l33t = {
 	convert : function(leetLevel, message) {
 		if (leetLevel > -1) {
 			var ret = message.toLowerCase();
-			for (var item = 0; item < this.alphabet.length; item++)
+			for (var item = 0; item < this.alphabet.length; item++) {
 				ret = ret.replace(this.alphabet[item], this.levels[leetLevel][item]);
+			}
 			return ret;
 		}
 		return message;

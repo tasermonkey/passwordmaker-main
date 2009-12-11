@@ -11,7 +11,7 @@ var hash, params = '', extras = '', rehash = false;
 // various variables
 var ie6 = false, g = function(id){return document.getElementById(id);}; /* Can't assign getElementById to a variable... */
 // Form fields we'll be editting
-var bklname, protocol, subdomain, domain, path, usetext, username, whereleet, leetlevel, hashalgo, length, modifier, prefix, suffix, bookmarklet, error;
+var bklname, protocol, subdomain, domain, path, usetext, username, whereleet, leetlevel, hashalgo, pwlength, modifier, prefix, suffix, bookmarklet, error;
 // Variables for character set handling
 var characters, cUpper, cLower, cNumber, cSpecial, cDefine, cTabs;
 function characterHandler() {
@@ -92,7 +92,7 @@ function updateParams() {
 	leetlevel.disabled = (whereleet.value == '0');
 	params += leetlevel.value;
 	params += hashalgo.value + ' '; // Space for character support
-	i = length.value;
+	i = pwlength.value;
 	while (i.length < 3) {
 		i = '0' + i;
 	}
@@ -160,7 +160,7 @@ function paramsUpdate(v, p, e, h) {
 		subdomain.checked = (i & 4) ? true : false;
 		domain.checked = (i & 2) ? true : false;
 		path.checked = (i & 1) ? true : false;
-		length.value = parseInt(p.substring(5, 8), 10);
+		pwlength.value = parseInt(p.substring(5, 8), 10);
 		for (i = 0, c = hashalgo.options; i < c.length; i++) {
 			if (c[i].value == p.charAt(3)) {
 				c[i].selected = true;
@@ -247,7 +247,7 @@ function paramsUpdate(v, p, e, h) {
 // methods in a closure to avoid creating global variables.
 
 if (!this.JSON) {
-    JSON = {};
+    this.JSON = {};
 }
 (function () {
 
@@ -476,32 +476,32 @@ window.onload = function() {
 		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 	);
 	var i;
-	bklname = g('name');
-	protocol = g('protocol');
-	subdomain = g('subdomains');
-	domain = g('domain');
-	path = g('path');
-	usetext = g('usetext');
-	username = g('username');
-	whereleet = g('whereleet');
-	leetlevel = g('leetlevel');
-	hashalgo = g('hashalgo');
-	length = g('length');
-	modifier = g('modifier');
-	prefix = g('prefix');
-	suffix = g('suffix');
-	bookmarklet = g('bookmarklet');
+	var bklname = g('name');
+	var protocol = g('protocol');
+	var subdomain = g('subdomains');
+	var domain = g('domain');
+	var path = g('path');
+	var usetext = g('usetext');
+	var username = g('username');
+	var whereleet = g('whereleet');
+	var leetlevel = g('leetlevel');
+	var hashalgo = g('hashalgo');
+	var length = g('length');
+	var modifier = g('modifier');
+	var prefix = g('prefix');
+	var suffix = g('suffix');
+	var bookmarklet = g('bookmarklet');
 	bookmarklet.appendChild(document.createTextNode(''));
-	error = g('errorMessage');
+	var error = g('errorMessage');
 	error.appendChild(document.createTextNode(''));
 	
-	characters = g('characters');
-	cUpper = g('charactersUpper');
-	cLower = g('charactersLower');
-	cNumber = g('charactersNumber');
-	cSpecial = g('charactersSpecial');
-	cDefine = g('characterDefined');
-	cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
+	var characters = g('characters');
+	var cUpper = g('charactersUpper');
+	var cLower = g('charactersLower');
+	var cNumber = g('charactersNumber');
+	var cSpecial = g('charactersSpecial');
+	var cDefine = g('characterDefined');
+	var cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
 	
 	// IE needs the onclick
 	protocol.onclick = protocol.onchange = updateParams;
