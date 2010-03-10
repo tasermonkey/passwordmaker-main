@@ -11,7 +11,7 @@ var hash, params = '', extras = '', rehash = false;
 // various variables
 var ie6 = false, g = function(id){return document.getElementById(id);}; /* Can't assign getElementById to a variable... */
 // Form fields we'll be editting
-var bklname, protocol, subdomain, domain, path, usetext, username, whereleet, leetlevel, hashalgo, pwlength, modifier, prefix, suffix, bookmarklet, error;
+var bklname, protocol, subdomain, domain, path, usetext, username, whereleet, leetlevel, hashalgo, pwlength, modifier, prefix, suffix, bookmarklet, errorMsg;
 // Variables for character set handling
 var characters, cUpper, cLower, cNumber, cSpecial, cDefine, cTabs;
 function characterHandler() {
@@ -27,8 +27,8 @@ function characterHandler() {
 		// based off checkboxes, 5th will be 0-9a-e
 		if (!cUpper.checked && !cLower.checked && !cNumber.checked && !cSpecial.checked) {
 			g('bookmarkletRow').className += ' hidden';
-			error.firstChild.nodeValue = 'You must have at least one character set checkbox enabled!';
-			error.className = 'error';
+			errorMsg.firstChild.nodeValue = 'You must have at least one character set checkbox enabled!';
+			errorMsg.className = 'error';
 		}
 		else {
 			var mask = 0;
@@ -72,7 +72,7 @@ function characterHandler() {
 function updateParams() {
 	var i;
 	g('bookmarkletRow').className = g('bookmarkletRow').className.replace(/\bhidden\b/g, '');
-	error.className = 'hidden';
+	errorMsg.className = 'hidden';
 	bookmarklet.firstChild.nodeValue = bklname.value;
 	
 	i = 0;
@@ -98,8 +98,8 @@ function updateParams() {
 	}
 	if (!/\d{3}/.test(i)) {
 		g('bookmarkletRow').className += ' hidden';
-		error.firstChild.nodeValue = 'Password length must be a number!';
-		error.className = 'error';
+		errorMsg.firstChild.nodeValue = 'Password length must be a number!';
+		errorMsg.className = 'error';
 	}
 	params += i;
 	characterHandler();
@@ -125,8 +125,8 @@ function updateParams() {
 			extras.characters = characters.value;
 			if (characters.value.length < 2) {
 				g('bookmarkletRow').className += ' hidden';
-				error.firstChild.nodeValue = 'You must have at least two characters for the character set.';
-				error.className = 'error';
+				errorMsg.firstChild.nodeValue = 'You must have at least two characters for the character set.';
+				errorMsg.className = 'error';
 			}
 		}
 		// TODO Master Password Hash support
@@ -142,8 +142,8 @@ function updateParams() {
 	bookmarklet.href = 'javascript:' + bkl.replace('faaaa000', params).replace('pwmextras', extras).replace('hpwmbklhash123456', hash).replace(/ /g, '%20');
 	if (ie6 && bookmarklet.href.length > 477) {
 		g('bookmarkletRow').className += ' hidden';
-		error.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. This is a limitation of IE6.";
-		error.className = 'error';
+		errorMsg.firstChild.nodeValue = "Whoops, it seems the bookmarklet is too long. This is a limitation of IE6.";
+		errorMsg.className = 'error';
 	}
 }
 
@@ -476,32 +476,32 @@ window.onload = function() {
 		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 	);
 	var i;
-	var bklname = g('name');
-	var protocol = g('protocol');
-	var subdomain = g('subdomains');
-	var domain = g('domain');
-	var path = g('path');
-	var usetext = g('usetext');
-	var username = g('username');
-	var whereleet = g('whereleet');
-	var leetlevel = g('leetlevel');
-	var hashalgo = g('hashalgo');
-	var length = g('length');
-	var modifier = g('modifier');
-	var prefix = g('prefix');
-	var suffix = g('suffix');
-	var bookmarklet = g('bookmarklet');
+	bklname = g('name');
+	protocol = g('protocol');
+	subdomain = g('subdomains');
+	domain = g('domain');
+	path = g('path');
+	usetext = g('usetext');
+	username = g('username');
+	whereleet = g('whereleet');
+	leetlevel = g('leetlevel');
+	hashalgo = g('hashalgo');
+	pwlength = g('length');
+	modifier = g('modifier');
+	prefix = g('prefix');
+	suffix = g('suffix');
+	bookmarklet = g('bookmarklet');
 	bookmarklet.appendChild(document.createTextNode(''));
-	var error = g('errorMessage');
-	error.appendChild(document.createTextNode(''));
+	errorMsg = g('errorMessage');
+	errorMsg.appendChild(document.createTextNode(''));
 	
-	var characters = g('characters');
-	var cUpper = g('charactersUpper');
-	var cLower = g('charactersLower');
-	var cNumber = g('charactersNumber');
-	var cSpecial = g('charactersSpecial');
-	var cDefine = g('characterDefined');
-	var cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
+	characters = g('characters');
+	cUpper = g('charactersUpper');
+	cLower = g('charactersLower');
+	cNumber = g('charactersNumber');
+	cSpecial = g('charactersSpecial');
+	cDefine = g('characterDefined');
+	cTabs = [g('characterPartsTab'), g('characterDefinedTab')];
 	
 	// IE needs the onclick
 	protocol.onclick = protocol.onchange = updateParams;
