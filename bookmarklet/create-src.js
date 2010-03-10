@@ -21,7 +21,7 @@ function characterHandler() {
 	cTabs[1].className = cTabs[1].className.replace(/\btabHidden\b/g, '');
 	
 	o = g('characterParts');
-	characters.readonly = true;
+	characters.setAttribute('readonly', 'readonly');
 	if (o.checked) {
 		cTabs[1].className = cTabs[1].className + ' tabHidden';
 		// based off checkboxes, 5th will be 0-9a-e
@@ -64,7 +64,7 @@ function characterHandler() {
 			cTabs[0].className = cTabs[0].className + ' tabHidden';
 			cTabs[1].className = cTabs[1].className + ' tabHidden';
 			params = params.substr(0, 4) + 'Z' + params.substr(5);
-			characters.readonly = false;
+			characters.removeAttribute('readonly');
 		}
 	}
 }
@@ -532,7 +532,7 @@ window.onload = function() {
 	g('characterCustom').onclick = updateParams;
 	
 	// Check for IE6 and disable some features
-	characters.readonly = true; // Should be readonly by default
+	characters.setAttribute('readonly', 'readonly'); // Should be readonly by default
 	if (!(/KHTML|AppleWebKit|Opera/).test(navigator.userAgent)) {
 		i = navigator.userAgent.match(/MSIE\s([^;]*)/);
 		if (i&&i[1]) {
