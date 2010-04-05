@@ -30,7 +30,7 @@ if (typeof(PasswordMakerPrefsWrapper) != 'boolean') {
      * if the preference does not exist in either of those trees, or is not of string type.
      * If no default argument is specified, null is returned in its place.
      */
-    getChar : function(prefName, defawlt) { //eval('"'
+    getChar : function(prefName, defawlt) {
       var ret;
       try {
         ret = this._prefsService.getPrefType(prefName);
@@ -45,7 +45,7 @@ if (typeof(PasswordMakerPrefsWrapper) != 'boolean') {
       if (typeof(ret) == "string")
         return ret;
       else if (typeof(ret) == "number")
-        return eval('"' + ret + '"');
+        return ret + ""; /* convert to string */
       return null;
     },
 

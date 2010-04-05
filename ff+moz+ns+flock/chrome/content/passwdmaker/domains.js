@@ -93,7 +93,7 @@ function onNewDomain() {
   containerRes.AppendElement(domainRes);
   PwdMkr_RDFUtils.flush();
 
-  eval("passwordMaker.domains['" + folderInfo.name + "'] = true;");
+  passwordMaker.domains[folderInfo.name] = true;
 
   // Open the selected item (the parent folder of the new domain we just created)
   // if it's not already open.
@@ -117,5 +117,5 @@ function onRemoveDomainSelection() {
     return;
   }
   deleteTreeItem();
-  eval("delete passwordMaker.domains['" + domainName + "'];");
+  delete passwordMaker.domains[domainName];
 }
