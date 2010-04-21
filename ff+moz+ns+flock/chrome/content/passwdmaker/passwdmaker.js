@@ -1016,8 +1016,8 @@ var passwordMaker = {
     var ret = includeProtocol ? uriComponents.protocol : ""; // set the protocol or empty string
 
     // Check if, for example, domains['co.uk'] == true
-    var TLDrequiresSLD = eval("passwordMaker.domains['" + uriComponents.domains[uriComponents.domains.length-2] + "." +
-                            uriComponents.domains[uriComponents.domains.length-1] + "']");
+    var TLDrequiresSLD = passwordMaker.domains[uriComponents.domains[uriComponents.domains.length-2] + "." +
+                            uriComponents.domains[uriComponents.domains.length-1]];
 
 
     // TODO: logic for third-level domains !
