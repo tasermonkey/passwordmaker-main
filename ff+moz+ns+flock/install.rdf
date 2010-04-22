@@ -25,7 +25,7 @@
 
 		<em:id>{5872365e-67d1-4afd-9480-fd293bebd20d}</em:id>
 		<em:name>PasswordMaker</em:name>
-		<em:version>1.7.4</em:version>
+		<em:version>1.7.5</em:version>
 		<em:description>Creates and manages passwords and other account information.</em:description>
 		<em:creator>LeahScape, Inc.</em:creator> 
 		<em:homepageURL>http://passwordmaker.org/</em:homepageURL>
@@ -44,7 +44,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.0</em:minVersion> <!--  We support back to FF 0.7 but AMO only permits submissions with 1.0 minimum (Why, Gus, why?) See http://addons.mozilla.org/faq.php -->
-				<em:maxVersion>3.7a4pre</em:maxVersion>
+				<em:maxVersion>33.7a5pre</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 
@@ -65,15 +65,6 @@
         <em:maxVersion>2.1a1pre</em:maxVersion>
       </Description>
     </em:targetApplication>
-    
-    <!-- Netscape -->
-	<em:targetApplication>
-		<Description>
-			<em:id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</em:id>
-			<em:minVersion>8.0</em:minVersion> <!-- actually, PasswordMaker works with 7.x, too, but AMO doesn't handle those ver. numbers -->
-			<em:maxVersion>9.0.0.*</em:maxVersion>
-		</Description>
-	</em:targetApplication>
 
   <!-- Flock: I want to use maxVersion 1.* but AMO won't take it -->
   <em:targetApplication>

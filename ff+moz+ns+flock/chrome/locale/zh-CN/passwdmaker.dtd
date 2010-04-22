@@ -569,7 +569,7 @@
 <!ENTITY tips.010.innerHTML "发音符号的非英文字符">
 <!ENTITY tips.012.innerHTML "http://en.wikipedia.org/wiki/Diaeresis">
 <!ENTITY tips.013.innerHTML "音节区分符号">
-<!ENTITY tips.015.innerHTML "http://en.wikipedia.org/wiki/Ligature_&#037;28typography&#037;29">
+<!ENTITY tips.015.innerHTML "http://en.wikipedia.org/wiki/Ligature_&#37;28typography&#37;29">
 <!ENTITY tips.016.innerHTML "连字符">
 <!ENTITY tips.017a.innerHTML "非字符和数字的字符及符号">
 <!ENTITY tips.017b.innerHTML "等。如果您所要的字符在键盘中找不到，不用担心，绝大多数的西文字符可以通过键入 ALT-、OPTION- 或 CTRL- 代码键位的顺序创建。键位顺序因操作系统而异。例如，在 Windows 中键入 ALT+0222（数字必须在数字小键盘中输入）表示冰岛语中大写的 Thorn 字符：">

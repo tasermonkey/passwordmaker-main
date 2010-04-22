@@ -7,8 +7,10 @@ style	chrome://global/content/customizeToolbar.xul	chrome://passwdmaker/skin/pas
 locale	passwdmaker	de-DE	jar:chrome/passwdmaker.jar!/locale/de-DE/
 locale	passwdmaker	en-US	jar:chrome/passwdmaker.jar!/locale/en-US/
 locale	passwdmaker	es-ES	jar:chrome/passwdmaker.jar!/locale/es-ES/
-locale	passwdmaker	fr-FR	jar:chrome/passwdmaker.jar!/locale/fr-FR/
-locale	passwdmaker	nl-NL	jar:chrome/passwdmaker.jar!/locale/nl-NL/
+locale	passwdmaker	fr-FR	jar:chrome/passwdmaker.jar!/locale/fr/
+locale  passwdmaker fr-FR jar:chrome/passwdmaker.jar!/locale/hr-HR/
+locale	passwdmaker	nl-NL	jar:chrome/passwdmaker.jar!/locale/nl/
 locale	passwdmaker	pl-PL	jar:chrome/passwdmaker.jar!/locale/pl-PL/
 locale	passwdmaker	pt-BR	jar:chrome/passwdmaker.jar!/locale/pt-BR/
+locale  passwdmaker pt-BR jar:chrome/passwdmaker.jar!/locale/tr-TR/
 locale	passwdmaker	zh-CN	jar:chrome/passwdmaker.jar!/locale/zh-CN/

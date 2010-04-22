@@ -43,7 +43,7 @@
 <!ENTITY accountsettings.024.value "Użyj języka l33t">
 <!ENTITY accountsettings.024.tooltiptext "Gdzie powinien być użyty język l33t-speak (Leetspeak)?">
 <!ENTITY accountsettings.025.tooltiptext "&accountsettings.024.tooltiptext;">
-<!ENTITY accountsettings.026.label "&lt;nie używaj&gt;">
+<!ENTITY accountsettings.026.label "<nie używaj>">
 <!ENTITY accountsettings.027.label "przed wygenerowaniem hasła">
 <!ENTITY accountsettings.028.label "po wygenerowaniu hasła">
 <!ENTITY accountsettings.029.label "przed i po wygenerowaniu hasła">
@@ -233,7 +233,7 @@
 <!ENTITY opts.029.value "Zapisz hasło główne">
 <!ENTITY opts.029.tooltiptext "Wybierz typ przechowywania dla hasła głównego">
 <!ENTITY opts.030.tooltiptext "&opts.029.tooltiptext;">
-<!ENTITY opts.031.label "&lt;nie zapisuj&gt;">
+<!ENTITY opts.031.label "<nie zapisuj>">
 <!ENTITY opts.032.label "w pamięci">
 <!ENTITY opts.033.label "na dysku i w pamięci">
 <!ENTITY opts.034a.value "Używając tekstu">
@@ -252,7 +252,7 @@
 <!ENTITY opts.041.label "Domeny specjalne">
 <!ENTITY opts.041.accesskey "S">
 <!ENTITY opts.042.tooltiptext "Wybierz czynność do wykonania">
-<!ENTITY opts.043.label "&lt;Wybierz&gt;">
+<!ENTITY opts.043.label "<Wybierz>">
 <!ENTITY opts.044.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
 <!ENTITY opts.045.label "&accountsettings.005.value;">
 <!ENTITY opts.046.label "&accountsettings.007.value;">

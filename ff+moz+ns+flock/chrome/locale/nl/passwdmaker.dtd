@@ -277,9 +277,9 @@
 <!ENTITY opts.063.tooltiptext "Aanvinken om het hoofdwachtwoord te verbergen, zodat niemand de lengte van het wachtwoord kan zien">
 <!ENTITY opts.064.label "Hoofdwachtwoord bevestigen door het twee maal in te typen i.p.v. eenmaal">
 <!ENTITY opts.064.tooltiptext "Aanvinken om tweemaal gevraagd te worden voor het hoofdwachtwoord i.p.v. eenmaal">
-<!ENTITY opts.065.label "Alle wachtwoorden op webpagina&apos;s als leesbare tekst weergeven">
-<!ENTITY opts.065.tooltiptext "Aanvinken om wachtwoorden op webpagina&apos;s als leesbare tekst weer te geven i.p.v. als sterretjes">
-<!ENTITY opts.066.label "Automatisch invullen inschakelen op pagina&apos;s die dit uitschakelen">
+<!ENTITY opts.065.label "Alle wachtwoorden op webpagina's als leesbare tekst weergeven">
+<!ENTITY opts.065.tooltiptext "Aanvinken om wachtwoorden op webpagina's als leesbare tekst weer te geven i.p.v. als sterretjes">
+<!ENTITY opts.066.label "Automatisch invullen inschakelen op pagina's die dit uitschakelen">
 <!ENTITY opts.066.tooltiptext "Aanvinken om automatisch invullen aan te zetten in tekstvelden en formulieren. Wachtwoordvelden worden hierdoor niet beïnvloed.">
 <!ENTITY opts.067.label "Klembord automatisch leegmaken">
 <!ENTITY opts.067.tooltiptext "Aanvinken om het klembord automatisch leeg te maken">

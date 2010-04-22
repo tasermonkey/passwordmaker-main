@@ -14,31 +14,31 @@
 <!ENTITY accountsettings.007.value "Notes">
 <!ENTITY accountsettings.007.tooltiptext "Notes ou description pour ce compte">
 <!ENTITY accountsettings.008.tooltiptext "&accountsettings.007.tooltiptext;">
-<!ENTITY accountsettings.009.label "Composants de l&apos;URL">
+<!ENTITY accountsettings.009.label "Composants de l'URL">
 <!ENTITY accountsettings.010.label "Protocole">
-<!ENTITY accountsettings.010.tooltiptext "Cocher ici pour inclure le protocole dans l&apos;URL">
+<!ENTITY accountsettings.010.tooltiptext "Cocher ici pour inclure le protocole dans l'URL">
 <!ENTITY accountsettings.011.label "Sous-domaine(s)">
-<!ENTITY accountsettings.011.tooltiptext "Cocher ici pour inclure le(s) sous-domaine(s) dans l&apos;URL">
+<!ENTITY accountsettings.011.tooltiptext "Cocher ici pour inclure le(s) sous-domaine(s) dans l'URL">
 <!ENTITY accountsettings.012.label "Domaine">
-<!ENTITY accountsettings.012.tooltiptext "Cocher ici pour inclure le domaine dans l&apos;URL">
+<!ENTITY accountsettings.012.tooltiptext "Cocher ici pour inclure le domaine dans l'URL">
 <!ENTITY accountsettings.013.label "Paramètres des ports, chemins, ancres et requêtes">
-<!ENTITY accountsettings.013.tooltiptext "Cocher ici pour inclure dans l&apos;URL les paramètres des ports, chemins, ancres et requêtes (s&apos;il y en a)">
+<!ENTITY accountsettings.013.tooltiptext "Cocher ici pour inclure dans l'URL les paramètres des ports, chemins, ancres et requêtes (s'il y en a)">
 <!ENTITY accountsettings.014.value "URL calculée du site courant">
 <!ENTITY accountsettings.015.tooltiptext "URL calculée du site Web courant">
-<!ENTITY accountsettings.016.value "Utiliser l&apos;URL suivante pour calculer le mot de passe généré">
-<!ENTITY accountsettings.016.tooltiptext "Visiter l&apos;URL">
+<!ENTITY accountsettings.016.value "Utiliser l'URL suivante pour calculer le mot de passe généré">
+<!ENTITY accountsettings.016.tooltiptext "Visiter l'URL">
 <!ENTITY accountsettings.017.tooltiptext "URL à utiliser pour le calcul du mot de passe">
-<!ENTITY accountsettings.018.tooltiptext "Cocher ici pour remplir automatiquement des champs &quot;nom d&apos;utilisateur&quot; et &quot;mot de passe&quot; dans les sites Web avec les URLs correspondantes">
-<!ENTITY accountsettings.018.label "Remplissage automatique des champs &quot;nom d&apos;utilisateur&quot; et &quot;mot de passe&quot; pour les sites qui correspondent avec cette URL">
-<!ENTITY accountsettings.019.innerHTML "L&apos;auto-remplissage peut aussi être activé avec CoolKey. Pour des fonctionnalités plus complexes sur l&apos;auto-remplissage, utiliser l&apos;onglet &quot;Auto-remplissage avancé&quot;.">
-<!ENTITY accountsettings.020.value "Activer l&apos;auto-remplissage quand l&apos;URL d&apos;une page Web correspond avec un des formats suivants :">
+<!ENTITY accountsettings.018.tooltiptext "Cocher ici pour remplir automatiquement des champs &quot;nom d'utilisateur&quot; et &quot;mot de passe&quot; dans les sites Web avec les URLs correspondantes">
+<!ENTITY accountsettings.018.label "Remplissage automatique des champs &quot;nom d'utilisateur&quot; et &quot;mot de passe&quot; pour les sites qui correspondent avec cette URL">
+<!ENTITY accountsettings.019.innerHTML "L'auto-remplissage peut aussi être activé avec CoolKey. Pour des fonctionnalités plus complexes sur l'auto-remplissage, utiliser l'onglet &quot;Auto-remplissage avancé&quot;.">
+<!ENTITY accountsettings.020.value "Activer l'auto-remplissage quand l'URL d'une page Web correspond avec un des formats suivants :">
 <!ENTITY accountsettings.021.pickertooltiptext "Cliquer pour sélectionner les colonnes à afficher">
 <!ENTITY accountsettings.021a.label "Activé">
 <!ENTITY accountsettings.021b.label "Format">
 <!ENTITY accountsettings.021c.label "Nom du format">
 <!ENTITY accountsettings.021d.label "Type de format">
-<!ENTITY accountsettings.022.value "Nom d&apos;utilisateur">
-<!ENTITY accountsettings.022.tooltiptext "Nom d&apos;utilisateur pour ce compte">
+<!ENTITY accountsettings.022.value "Nom d'utilisateur">
+<!ENTITY accountsettings.022.tooltiptext "Nom d'utilisateur pour ce compte">
 <!ENTITY accountsettings.023.tooltiptext "&accountsettings.022.tooltiptext;">
 <!ENTITY accountsettings.024.value "Utiliser le l33t">
 <!ENTITY accountsettings.024.tooltiptext "Où le l33t-speak devra-t-il être appliqué ?">
@@ -46,7 +46,7 @@
 <!ENTITY accountsettings.026.label "Pas du tout">
 <!ENTITY accountsettings.027.label "avant avoir généré un mot de passe">
 <!ENTITY accountsettings.028.label "après avoir généré un mot de passe">
-<!ENTITY accountsettings.029.label "avant et après la création d&apos;un mot de passe">
+<!ENTITY accountsettings.029.label "avant et après la création d'un mot de passe">
 <!ENTITY accountsettings.030.value "Niveau du l33t">
 <!ENTITY accountsettings.030.tooltiptext "Applique le l33t-speak">
 <!ENTITY accountsettings.031.tooltiptext "&accountsettings.030.tooltiptext;">
@@ -107,11 +107,11 @@
 <!ENTITY accountsettings.077.value "Nom du formulaire">
 <!ENTITY accountsettings.078.accesskey "f">
 <!ENTITY accountsettings.079.value "Nom pour le formulaire qui comprend ce champ">
-<!ENTITY accountsettings.080.value "Ceci n&apos;est nécessaire que si une page Web contient deux champs ou plus avec le même nom.">
-<!ENTITY accountsettings.081.label "Me signaler que ce champ n&apos;a pas été trouvé">
+<!ENTITY accountsettings.080.value "Ceci n'est nécessaire que si une page Web contient deux champs ou plus avec le même nom.">
+<!ENTITY accountsettings.081.label "Me signaler que ce champ n'a pas été trouvé">
 <!ENTITY accountsettings.081.accesskey "M">
 <!ENTITY accountsettings.082.value "Cocher ici pour être averti quand ce champ ne peut être auto-rempli.">
-<!ENTITY accountsettings.083.value "Ceci peut se produire si une page Web change après que vous avez entré l&apos;information ci-dessus.">
+<!ENTITY accountsettings.083.value "Ceci peut se produire si une page Web change après que vous avez entré l'information ci-dessus.">
 <!ENTITY accountsettings.084.label "Ajouter">
 <!ENTITY accountsettings.084.accesskey "A">
 <!ENTITY accountsettings.085.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
@@ -131,7 +131,7 @@
 <!ENTITY accountsettings.097.tooltiptext "&accountsettings.096.value;">
 <!ENTITY accountsettings.098.label "Supprimer la sélection">
 <!ENTITY accountsettings.098.accesskey "S">
-<!ENTITY accountsettings.098.tooltiptext "Supprimer l&apos;élément sélectionné courant">
+<!ENTITY accountsettings.098.tooltiptext "Supprimer l'élément sélectionné courant">
 <!ENTITY accountsettings.099.label "Supprimer le format">
 <!ENTITY accountsettings.099.accesskey "S">
 <!ENTITY accountsettings.099.tooltiptext "Supprimer le format sélectionné courant">
@@ -175,8 +175,8 @@
 <!ENTITY opts.007.label "Options avancées">
 <!ENTITY opts.007.accesskey "s">
 <!ENTITY opts.007.tooltip "Ouvre la boite de dialogue des options avancées">
-<!ENTITY opts.008.label "Sommaire de l&apos;aide">
-<!ENTITY opts.008.tooltip "Ouvre le sommaire de l&apos;aide dans un onglet du navigateur">
+<!ENTITY opts.008.label "Sommaire de l'aide">
+<!ENTITY opts.008.tooltip "Ouvre le sommaire de l'aide dans un onglet du navigateur">
 <!ENTITY opts.008.accesskey "m">
 <!ENTITY opts.009.label "Version en ligne">
 <!ENTITY opts.009.accesskey "o">
@@ -204,7 +204,7 @@
 <!ENTITY opts.016.tooltiptext "Déplace un compte vers un groupe différent">
 <!ENTITY opts.017.label "Supprimer la sélection">
 <!ENTITY opts.017.accesskey "S">
-<!ENTITY opts.017.tooltiptext "Supprimer l&apos;élément sélectionné courant">
+<!ENTITY opts.017.tooltiptext "Supprimer l'élément sélectionné courant">
 <!ENTITY opts.018.label "Paramètres">
 <!ENTITY opts.018.accesskey "P">
 <!ENTITY opts.018.tooltiptext "Ouvre la boîte de dialogue des paramètres">
@@ -231,14 +231,14 @@
 <!ENTITY opts.028.tooltiptext "&opts.027.tooltiptext;">
 <!ENTITY opts.029.accesskey "C">
 <!ENTITY opts.029.value "Conserver le mot de passe principal">
-<!ENTITY opts.029.tooltiptext "Sélectionner le type d&apos;enregistrement à utiliser pour le mot de passe principal">
+<!ENTITY opts.029.tooltiptext "Sélectionner le type d'enregistrement à utiliser pour le mot de passe principal">
 <!ENTITY opts.030.tooltiptext "&opts.029.tooltiptext;">
 <!ENTITY opts.031.label "Pas du tout">
 <!ENTITY opts.032.label "En mémoire">
 <!ENTITY opts.033.label "Sur disque + en mémoire">
 <!ENTITY opts.034a.value "Utiliser le texte">
 <!ENTITY opts.034a.accesskey "U">
-<!ENTITY opts.034a.tooltiptext "L&apos;adresse (ou autre texte) utilisée pour générer ce mot de passe">
+<!ENTITY opts.034a.tooltiptext "L'adresse (ou autre texte) utilisée pour générer ce mot de passe">
 <!ENTITY opts.035.tooltiptext "&opts.034a.tooltiptext;">
 <!ENTITY opts.036.value "&accountsettings.096.tooltiptext;">
 <!ENTITY opts.036.tooltiptext "Double-cliquer pour copier dans le presse-papiers">
@@ -273,21 +273,21 @@
 <!ENTITY opts.061.label "Remplissage automatique">
 <!ENTITY opts.062.label "Masquer le mot de passe généré par des astérisques">
 <!ENTITY opts.062.tooltiptext "À cocher afin de masquer avec des astérisques le mot de passe ayant été généré">
-<!ENTITY opts.063.label "Cacher le de passe principal (nombre d&apos;astérisques)">
-<!ENTITY opts.063.tooltiptext "À cocher pour cacher le champ du mot de passe principal, afin d&apos;empêcher quiconque de voir la longueur de ce mot de passe.">
-<!ENTITY opts.064.label "Confirmer le mot de passe principal en le tapant deux fois plutôt qu&apos;une">
-<!ENTITY opts.064.tooltiptext "À cocher pour que le mot de passe principal soit demandé deux fois plutôt qu&apos;une">
+<!ENTITY opts.063.label "Cacher le de passe principal (nombre d'astérisques)">
+<!ENTITY opts.063.tooltiptext "À cocher pour cacher le champ du mot de passe principal, afin d'empêcher quiconque de voir la longueur de ce mot de passe.">
+<!ENTITY opts.064.label "Confirmer le mot de passe principal en le tapant deux fois plutôt qu'une">
+<!ENTITY opts.064.tooltiptext "À cocher pour que le mot de passe principal soit demandé deux fois plutôt qu'une">
 <!ENTITY opts.065.label "Voir tous les mots de passe directement sur les pages Web, non cachés">
 <!ENTITY opts.065.tooltiptext "À cocher pour afficher tous les mots de passe sur les pages Web, en ne les masquant pas avec des astérisques">
-<!ENTITY opts.066.label "Forcer l&apos;auto-complétion sur les pages qui le désactivent">
+<!ENTITY opts.066.label "Forcer l'auto-complétion sur les pages qui le désactivent">
 <!ENTITY opts.066.tooltiptext "À cocher pour activer la variable « autocomplete » dans les champs textuels et formulaires. Les champs de mots de passe ne sont pas concernés.">
 <!ENTITY opts.067.label "Vidage automatique du presse-papiers">
 <!ENTITY opts.067.tooltiptext "À cocher pour que le presse-papiers se vide automatiquement">
 <!ENTITY opts.068.tooltiptext "Nombre de secondes après lesquelles le presse-papiers doit être vidé">
-<!ENTITY opts.069.value "secondes après l&apos;avoir copié ici">
+<!ENTITY opts.069.value "secondes après l'avoir copié ici">
 <!ENTITY opts.069.tooltiptext "&opts.068.tooltiptext;">
-<!ENTITY opts.070.label "Voir l&apos;indicateur sur la barre d&apos;état">
-<!ENTITY opts.070.tooltiptext "À cocher pour voir ou non l&apos;indicateur étant sur la barre d&apos;état">
+<!ENTITY opts.070.label "Voir l'indicateur sur la barre d'état">
+<!ENTITY opts.070.tooltiptext "À cocher pour voir ou non l'indicateur étant sur la barre d'état">
 <!ENTITY opts.071.value "Mesure à prendre quand CoolKey est activé">
 <!ENTITY opts.072.tooltiptext "Configurer CoolKey avec PasswordMaker">
 <!ENTITY opts.073.label "Ne rien faire">
@@ -311,7 +311,7 @@
 <!ENTITY opts.091.label "&remotesettings.034.label;">
 <!ENTITY opts.092.label "&remotesettings.035.label;">
 <!ENTITY opts.093.innerHTML "Ici vous pouvez ajouter ou supprimer les domaines qui nécessitent toujours">
-<!ENTITY opts.094.innerHTML "l&apos;utilisation de sous-domaines. Consultez l&apos;aide pour plus d&apos;informations.">
+<!ENTITY opts.094.innerHTML "l'utilisation de sous-domaines. Consultez l'aide pour plus d'informations.">
 <!ENTITY opts.095.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
 <!ENTITY opts.096.label "Pays / domaine">
 <!ENTITY opts.097.label "Description">
@@ -330,7 +330,7 @@
 <!ENTITY opts.105.tooltiptext "Toggle Options Dialog">
 <!ENTITY opts.105.accesskey "T">
 <!ENTITY opts.106.tooltiptext "&opts.106.label;">
-<!ENTITY opts.108.label "J&apos;utilise plus d&apos;un mot de passe principal">
+<!ENTITY opts.108.label "J'utilise plus d'un mot de passe principal">
 <!ENTITY opts.110.label "Effacer">
 <!ENTITY opts.112.label "Hachage du mot de passe principal">
 <!ENTITY b-opts.028.value "Ce mot de passe a été généré en utilisant les paramètres du compte par défaut.">
@@ -444,8 +444,8 @@
 <!ENTITY passwdmakerOverlay.011.tooltiptext "&navigatorOverlay.011.tooltiptext;">
 <!ENTITY passwdmakerOverlay.011.label "PwdMkr pour CoolKey">
 <!ENTITY passwordprompt.window.title "PasswordMaker - Demande du mot de passe principal">
-<!ENTITY passwordprompt.001.value "Un mot de passe a été généré, mais le mot de passe principal n&apos;a été stocké">
-<!ENTITY passwordprompt.002.value "ni sur la mémoire ni sur le disque. Merci de l&apos;entrer maintenant, ou d&apos;annuler.">
+<!ENTITY passwordprompt.001.value "Un mot de passe a été généré, mais le mot de passe principal n'a été stocké">
+<!ENTITY passwordprompt.002.value "ni sur la mémoire ni sur le disque. Merci de l'entrer maintenant, ou d'annuler.">
 <!ENTITY passwordprompt.003.value "Compte pour lequel le mot de passe a été généré :">
 <!ENTITY passwordprompt.004.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
 <!ENTITY passwordprompt.005.label "&accountsettings.005.value;">
@@ -477,19 +477,19 @@
 <!ENTITY pattern.002.accesskey "N">
 <!ENTITY pattern.003.tooltiptext "&pattern.002.tooltiptext;">
 <!ENTITY pattern.003.accesskey "&pattern.002.accesskey;">
-<!ENTITY pattern.004.value "URL ou format d&apos;URL">
-<!ENTITY pattern.004.tooltiptext "URL ou format d&apos;URL">
+<!ENTITY pattern.004.value "URL ou format d'URL">
+<!ENTITY pattern.004.tooltiptext "URL ou format d'URL">
 <!ENTITY pattern.004.accesskey "f">
 <!ENTITY pattern.005.tooltiptext "&pattern.004.tooltiptext;">
 <!ENTITY pattern.005.accesskey "&pattern.004.accesskey;">
 <!ENTITY pattern.006.label "Contenu du format">
 <!ENTITY pattern.007.accesskey "W">
-<!ENTITY pattern.007.tooltiptext "Indique que l&apos;URL (ou ou le format d&apos;URL) emploie des jokers et n&apos;est pas une expression régulière">
+<!ENTITY pattern.007.tooltiptext "Indique que l'URL (ou ou le format d'URL) emploie des jokers et n'est pas une expression régulière">
 <!ENTITY pattern.008.value "jokers">
 <!ENTITY pattern.008.tooltiptext "&pattern.007.tooltiptext;">
 <!ENTITY pattern.009.value "Exemple : *://mail.yahoo.com/*">
 <!ENTITY pattern.010.accesskey "r">
-<!ENTITY pattern.010.tooltiptext "Indique que l&apos;URL ou le format d&apos;URL est une expression rationnelle">
+<!ENTITY pattern.010.tooltiptext "Indique que l'URL ou le format d'URL est une expression rationnelle">
 <!ENTITY pattern.011.value "Expression rationnelle">
 <!ENTITY pattern.011.tooltiptext "&pattern.010.tooltiptext;">
 <!ENTITY pattern.012.value "Exemple : https?://mail\.yahoo\.com\/.*">
@@ -508,10 +508,10 @@
 <!ENTITY remotesettings.006.tooltiptext "&remotesettings.005.tooltiptext;">
 <!ENTITY remotesettings.007.label "Utiliser WebDAV">
 <!ENTITY remotesettings.007.accesskey "W">
-<!ENTITY remotesettings.007.tooltiptext "À cocher pour que le protocole WebDAV soit utilisé. L&apos;URL doit commencer par http:// ou https:// pour que cette option soit utilisable.">
-<!ENTITY remotesettings.008.value "Nom d&apos;utilisateur">
+<!ENTITY remotesettings.007.tooltiptext "À cocher pour que le protocole WebDAV soit utilisé. L'URL doit commencer par http:// ou https:// pour que cette option soit utilisable.">
+<!ENTITY remotesettings.008.value "Nom d'utilisateur">
 <!ENTITY remotesettings.008.accesskey "u">
-<!ENTITY remotesettings.008.tooltiptext "Nom d&apos;utilisateur avec lequel se connecter sur le serveur">
+<!ENTITY remotesettings.008.tooltiptext "Nom d'utilisateur avec lequel se connecter sur le serveur">
 <!ENTITY remotesettings.009.tooltiptext "&remotesettings.008.tooltiptext;">
 <!ENTITY remotesettings.010.value "Mot de passe">
 <!ENTITY remotesettings.010.accesskey "p">
@@ -545,10 +545,10 @@
 <!ENTITY remotesettings.032.tooltiptext "Lancement automatique du téléchargement dès lors que le navigateur a été lancé">
 <!ENTITY remotesettings.033.accesskey "U">
 <!ENTITY remotesettings.033.label "Upload automatique lors de la fermeture">
-<!ENTITY remotesettings.033.tooltiptext "Lancement automatique de l&apos;upload quand le navigateur a été fermé">
+<!ENTITY remotesettings.033.tooltiptext "Lancement automatique de l'upload quand le navigateur a été fermé">
 <!ENTITY remotesettings.034.accesskey "U">
 <!ENTITY remotesettings.034.label "Upload automatique dans les mauvais cas">
-<!ENTITY remotesettings.034.tooltiptext "Lancement automatique de l&apos;upload quand les paramètres ont été modifiés">
+<!ENTITY remotesettings.034.tooltiptext "Lancement automatique de l'upload quand les paramètres ont été modifiés">
 <!ENTITY remotesettings.035.accesskey "F">
 <!ENTITY remotesettings.035.label "Fusionner">
 <!ENTITY remotesettings.035.tooltiptext "Fusionner les contenus">
@@ -558,12 +558,12 @@
 <!ENTITY remotesettings.037.accesskey "A">
 <!ENTITY tips.window.title "PasswordMaker - Astuces pour les caractères">
 <!ENTITY tips.001.innerHTML "Le champ de caractères contient la liste de ceux utilisés pour la génération du mot de passe. Voici quelques conseils à suivre lors du choix des caractères :">
-<!ENTITY tips.002.innerHTML "Si vous avez besoin de mots de passe compatibles avec PasswordMaker 0.6 et ses versions précédentes, vous devez utiliser « 0123456789abcdef ». Si vos mots de passe ne tiennent pas compte des zéros mis en tête de liste, essayez d&apos;utiliser les algorithmes de hachage MD5 (version 0.6) ou HMAC-MD5 (version 0.6).">
+<!ENTITY tips.002.innerHTML "Si vous avez besoin de mots de passe compatibles avec PasswordMaker 0.6 et ses versions précédentes, vous devez utiliser « 0123456789abcdef ». Si vos mots de passe ne tiennent pas compte des zéros mis en tête de liste, essayez d'utiliser les algorithmes de hachage MD5 (version 0.6) ou HMAC-MD5 (version 0.6).">
 <!ENTITY tips.003.innerHTML "Un minimum de deux caractères est nécessaire">
 <!ENTITY tips.004.innerHTML "Les caractères peuvent être répétés">
-<!ENTITY tips.005.innerHTML "Utiliser un même caractère plus d&apos;une fois le fera apparaître plus souvent dans le mot de passe généré">
+<!ENTITY tips.005.innerHTML "Utiliser un même caractère plus d'une fois le fera apparaître plus souvent dans le mot de passe généré">
 <!ENTITY tips.006.innerHTML "Moins les caractères précisés sont répétés, plus la variété de caractères est grande dans le mot de passe qui a été généré">
-<!ENTITY tips.007.innerHTML "L&apos;ordre des caractères jouera sur ce qui sera généré ! L&apos;utilisation de « 0123456789abcdef » fournira des mots de passe différents de celle de « abcdef0123456789 ».">
+<!ENTITY tips.007.innerHTML "L'ordre des caractères jouera sur ce qui sera généré ! L'utilisation de « 0123456789abcdef » fournira des mots de passe différents de celle de « abcdef0123456789 ».">
 <!ENTITY tips.008.innerHTML "Vous pouvez utiliser des caractères spécifiques, comme">
 <!ENTITY tips.009.innerHTML "http://fr.wikipedia.org/wiki/Diacritique">
 <!ENTITY tips.010.innerHTML "les signes diacritiques">
@@ -572,12 +572,12 @@
 <!ENTITY tips.015.innerHTML "http://fr.wikipedia.org/wiki/Ligature_&#37;28typographie&#37;29">
 <!ENTITY tips.016.innerHTML "les ligatures">
 <!ENTITY tips.017a.innerHTML "symboles et caractères non alphanumériques">
-<!ENTITY tips.017b.innerHTML "etc. Si un caractère que vous désirez mettre n&apos;est pas sur votre clavier, pas la peine de stresser : la quasi-totalité des caractères de la police Western peuvent être obtenus par un raccourci utilisant Alt, Option ou Ctrl combiné avec un code chiffré. Ce code varie d&apos;un système d&apos;exploitation à l&apos;autre. Par exemple, Alt+0222 sous Windows (les chiffres doivent être tapés sur le clavier numérique) fournit la capitale thorn de l&apos;alphabet islandais :">
+<!ENTITY tips.017b.innerHTML "etc. Si un caractère que vous désirez mettre n'est pas sur votre clavier, pas la peine de stresser : la quasi-totalité des caractères de la police Western peuvent être obtenus par un raccourci utilisant Alt, Option ou Ctrl combiné avec un code chiffré. Ce code varie d'un système d'exploitation à l'autre. Par exemple, Alt+0222 sous Windows (les chiffres doivent être tapés sur le clavier numérique) fournit la capitale thorn de l'alphabet islandais :">
 <!ENTITY treeprompt.window.title "PasswordMaker - Paramètres des groupes">
 <!ENTITY treeprompt.001.value "Nom (indispensable)">
 <!ENTITY treeprompt.002.value "Description (optionnel)">
 <!ENTITY unpopped.window.title "PasswordMaker - Champs manquants">
-<!ENTITY unpopped.001.value "Vous avez souhaité que les champs suivants soient remplis automatiquement, mais ils n&apos;ont pu être trouvés dans cette page :">
+<!ENTITY unpopped.001.value "Vous avez souhaité que les champs suivants soient remplis automatiquement, mais ils n'ont pu être trouvés dans cette page :">
 <!ENTITY unpopped.002.pickertooltiptext "&accountsettings.021.pickertooltiptext;">
 <!ENTITY unpopped.003.label "&accountsettings.061.value;">
 <!ENTITY unpopped.004.label "&accountsettings.007.value;">

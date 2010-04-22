@@ -7,8 +7,10 @@ style	chrome://global/content/customizeToolbar.xul	chrome://passwdmaker/skin/pas
 locale	passwdmaker	de-DE	chrome/locale/de-DE/
 locale	passwdmaker	en-US	chrome/locale/en-US/
 locale	passwdmaker	es-ES	chrome/locale/es-ES/
-locale	passwdmaker	fr-FR	chrome/locale/fr-FR/
-locale	passwdmaker	nl-NL	chrome/locale/nl-NL/
+locale	passwdmaker	fr-FR	chrome/locale/fr/
+locale  passwdmaker es-ES chrome/locale/hr-HR/
+locale	passwdmaker	nl-NL	chrome/locale/nl/
 locale	passwdmaker	pl-PL	chrome/locale/pl-PL/
 locale	passwdmaker	pt-BR	chrome/locale/pt-BR/
+locale  passwdmaker pt-BR chrome/locale/tr-TR/
 locale	passwdmaker	zh-CN	chrome/locale/zh-CN/
