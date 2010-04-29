@@ -42,7 +42,7 @@
   <hbox flex="1"><label value="PasswordMaker" style="font-weight: bold; font-size: x-large;" flex="1"/><image src="chrome://passwdmaker/content/images/passwdmaker.png"/></hbox>
   <hbox><label value="One Password To Rule Them All&#8482;" style="margin-left: 1em; font-size: small; font-weight: bold;"/></hbox>
   <separator/>
-  <label value="Version 1.7.5"/>
+  <label value="Version 1.7.6"/>
   <separator/>
     <label value="&about.001.value;" style="font-weight: bold;"/>
     <label value="http://passwordmaker.org" class="link" onclick="passwordMaker.openAndReuseOneTabPerURL('http://passwordmaker.org/');"/>

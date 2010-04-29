@@ -27,9 +27,9 @@ var XpiInstaller = {
 	// --- Editable items begin ---
 	extFullName: 'PasswordMaker', // The name displayed to the user (don't include the version)
 	extShortName: 'passwdmaker', // The leafname of the JAR file (without the .jar part)
-	extVersion: '1.7.5',
+	extVersion: '1.7.6',
 	extAuthor: 'LeahScape, Inc.',
-	extLocaleNames: ['en-US','de-DE','es-ES','fr-FR','hr-HR','nl-NL','pl-PL','pt-BR','tr-TR','zh-CN'],
+	extLocaleNames: ['en-US','de-DE','es-ES','fr','hr-HR','nl','pl-PL','pt-BR','tr-TR','zh-CN'],
 	extSkinNames: ['classic', 'modern'], // e.g. ['classic', 'modern']
 	extPostInstallMessage: 'Success! Please restart your browser to finish the installation, then use the tools menu or the new toolbar icon to access PasswordMaker.',
 	// --- Editable items end ---
