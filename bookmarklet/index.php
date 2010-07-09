@@ -19,48 +19,59 @@ $url = 'http'.((isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") ? 's://':
 	.((REMOVE_NAME)? str_replace(basename(__FILE__), '', $_SERVER['PHP_SELF']) : $_SERVER['PHP_SELF']);
 $mtime = 0;
 
-if (isset($_GET['h']) && isset($_GET['v'])) {
-	header('Content-type: text/javascript; charset=utf-8');
-	if (preg_match('/\Ah[\da-z]{16}\z/i', $_GET['h'])) {
-		switch ($_GET['v']) {
-			case '1': {
-				$src = file_get_contents('url'.$_GET['v'].'.js');
-				$mtime = filemtime('url'.$_GET['v'].'.js');
-				$src = str_replace('hpwmbklhash123456', $_GET['h'], $src);
-				$src = str_replace('url1.js', $url, $src);
-				break;
-			}
-			default: {
-				$src = 'alert("Error with parameters!")';
+if (isset($_GET['v'])) {
+	// Chrome alters the src string somehow. To allow existing bookmarklets to work, this work around should do fine
+	if (!isset($_GET['h'])) {
+		foreach($_GET as $k=>$v) {
+			if (false !== strpos($k, 'amp;')) {
+				$_GET[str_replace('amp;', '', $k)] = $v;
+				unset($_GET[$k]);
 			}
 		}
 	}
-	else {
-		$src = 'alert("Error with parameters!")';
-	}
-	
-	if ($mtime) { // Only if an error path as not followed
-		$mtime = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
-		$etag = '"'.md5($src).'"';
-		header('Last-Modified: '.$mtime);
-		header('Etag: '.$etag);
-		if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mtime) {
-			header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
-			header('Content-Length: 0');
-			echo ''; // For the compression to allow keep alive
-			exit();
+	if (isset($_GET['h'])) {
+		header('Content-type: text/javascript; charset=utf-8');
+		if (preg_match('/\Ah[\da-z]{16}\z/i', $_GET['h'])) {
+			switch ($_GET['v']) {
+				case '1': {
+					$src = file_get_contents('url'.$_GET['v'].'.js');
+					$mtime = filemtime('url'.$_GET['v'].'.js');
+					$src = str_replace('hpwmbklhash123456', $_GET['h'], $src);
+					$src = str_replace('url1.js', $url, $src);
+					break;
+				}
+				default: {
+					$src = 'alert("Error with parameters!")';
+				}
+			}
 		}
-		if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
-			header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
-			header('Content-Length: 0');
-			echo ''; // For the compression to allow keep alive
-			exit();
+		else {
+			$src = 'alert("Error with parameters!")';
 		}
+		
+		if ($mtime) { // Only if an error path as not followed
+			$mtime = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
+			$etag = '"'.md5($src).'"';
+			header('Last-Modified: '.$mtime);
+			header('Etag: '.$etag);
+			if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mtime) {
+				header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+				header('Content-Length: 0');
+				echo ''; // For the compression to allow keep alive
+				exit();
+			}
+			if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
+				header($_SERVER['SERVER_PROTOCOL']. ' 304 Not Modified');
+				header('Content-Length: 0');
+				echo ''; // For the compression to allow keep alive
+				exit();
+			}
+		}
+		
+		header('Content-Length: '.strlen($src));
+		echo $src;
+		exit();
 	}
-	
-	header('Content-Length: '.strlen($src));
-	echo $src;
-	exit();
 }
 
 // Fix the url of the bookmarklet. All other changes are done client side
