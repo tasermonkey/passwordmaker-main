@@ -23,70 +23,51 @@
 // AFM - from http://forums.mozillazine.org/viewtopic.php?t=308369
 
 const CI = Components.interfaces, CC = Components.classes, CR = Components.results;
-function PasswordMaker_XPCom() {}
+function PasswordMakerAutoCloser() {}
 
-PasswordMaker_XPCom.prototype = {
+PasswordMakerAutoCloser.prototype = {
 	classID: Components.ID("{12fc70d0-5ae7-11da-8cd6-0800200c9a66}"),
-	contractID: "@leahscape.org/firefox/passwordmaker;1",
-	classDescription: "PasswordMaker XPCom",
+	contractID: "@passwordmaker.org/autocloser;1",
+	classDescription: "PasswordMaker AutoClose Component",
 	
 	QueryInterface: function(aIID) {
-		if( !aIID.equals(CI.nsISupports) && !aIID.equals(CI.nsIObserver))
-			throw CR.NS_ERROR_NO_INTERFACE;
-			
+		if(!aIID.equals(CI.nsISupports) && !aIID.equals(CI.nsIObserver))
+			throw CR.NS_ERROR_NO_INTERFACE;			
 		return this;
 	},
 
 	observe: function(aSubject, aTopic, aData) {
 		switch(aTopic) {
-			case "xpcom-startup":
-				// this is run very early, right after XPCOM is initialized, but before
-				// user profile information is applied. Register ourselves as an observer
-				// for 'profile-after-change' and 'quit-application'
-				//			
-				var obsSvc = CC["@mozilla.org/observer-service;1"].getService(CI.nsIObserverService);
-				//obsSvc.addObserver(this, "profile-after-change", false);
-				obsSvc.addObserver(this, "quit-application", false);
-				obsSvc.addObserver(this, "domwindowclosed", false);
-				break;
-			
-			//case "profile-after-change":
+			case "profile-after-change":
 				// This happens after profile has been loaded and user preferences have been read.
 				// startup code here
-				//
-				//break;
-			
-			case "quit-application":
-				// shutdown code
-				//dump("quit-application\n");
+        var obsSvc = CC["@mozilla.org/observer-service;1"].getService(CI.nsIObserverService);
+        obsSvc.addObserver(this, "domwindowclosed", false);		
+        obsSvc.addObserver(this, "quit-application", false);        
 				break;
-				
+			case "quit-application":
+        gObsSvc.removeObserver(this, "quit-application");
+        gObsSvc.removeObserver(this, "domwindowclosed");
+			  break;
 			case "domwindowclosed":		
-				//var consoleService = Components.classes['@mozilla.org/consoleservice;1']
-                               //.getService(Components.interfaces.nsIConsoleService);
-							   
-				//consoleService.logStringMessage("PasswordMaker XPCom domwindowclosed");
-        var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
         var recentWindow = wm.getMostRecentWindow("navigator:browser");
         if (!recentWindow) {
-          // Close all passwordmakers (should only be one, but let's play it safe)
+          // Close all passwordmaker dialogs (should only be one, but let's play it safe)
           var e = wm.getEnumerator("passwordmaker");
           while (e.hasMoreElements())
             e.getNext().close();
         }	
 				break;
-		
-			//default:
-				//throw Components.Exception("Unknown topic: " + aTopic);
 		}
 	}
 };
 
 // constructors for objects we want to XPCOMify
 //
-var gXpComObjects = [PasswordMaker_XPCom];
+var gXpComObjects = [PasswordMakerAutoCloser];
 var gCatObserverName = "passwordmaker_catobserver";
-var gCatContractId = PasswordMaker_XPCom.prototype.contractID;
+var gCatContractId = PasswordMakerAutoCloser.prototype.contractID;
 
 
 // AFM - generic registration code
@@ -131,14 +112,12 @@ var gModule = {
 		}
 		
 		var catman = CC["@mozilla.org/categorymanager;1"].getService(CI.nsICategoryManager);
-		catman.addCategoryEntry("xpcom-startup", this._catObserverName, this._catContractId, true, true);
-		catman.addCategoryEntry("xpcom-shutdown", this._catObserverName, this._catContractId, true, true);
+		catman.addCategoryEntry("profile-after-change", this._catObserverName, this._catContractId, true, true);
 	},
 
 	unregisterSelf: function(aCompMgr, aFileSpec, aLocation) {
 		var catman = CC["@mozilla.org/categorymanager;1"].getService(CI.nsICategoryManager);
-		catman.deleteCategoryEntry("xpcom-startup", this._catObserverName, true);
-		catman.deleteCategoryEntry("xpcom-shutdown", this._catObserverName, true);
+		catman.deleteCategoryEntry("profile-after-change", this._catObserverName, true);
 		
 		aComponentManager.QueryInterface(CI.nsIComponentRegistrar);
 		for (var key in this._xpComObjects)

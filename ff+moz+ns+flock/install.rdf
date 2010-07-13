@@ -25,7 +25,7 @@
 
 		<em:id>{5872365e-67d1-4afd-9480-fd293bebd20d}</em:id>
 		<em:name>PasswordMaker</em:name>
-		<em:version>1.7.7</em:version>
+		<em:version>1.7.8b1</em:version>
 		<em:description>Creates and manages passwords and other account information.</em:description>
 		<em:creator>LeahScape, Inc.</em:creator> 
 		<em:homepageURL>http://passwordmaker.org/</em:homepageURL>
@@ -44,7 +44,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.0</em:minVersion> <!--  We support back to FF 0.7 but AMO only permits submissions with 1.0 minimum (Why, Gus, why?) See http://addons.mozilla.org/faq.php -->
-				<em:maxVersion>3.7a5pre</em:maxVersion>
+				<em:maxVersion>4.0b2pre</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 
@@ -62,7 +62,7 @@
       <Description>
         <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
         <em:minVersion>1.0</em:minVersion>
-        <em:maxVersion>2.1a1pre</em:maxVersion>
+        <em:maxVersion>2.1a3</em:maxVersion>
       </Description>
     </em:targetApplication>
 

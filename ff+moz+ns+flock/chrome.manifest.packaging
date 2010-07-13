@@ -14,3 +14,6 @@ locale	passwdmaker	pl-PL	jar:chrome/passwdmaker.jar!/locale/pl-PL/
 locale	passwdmaker	pt-BR	jar:chrome/passwdmaker.jar!/locale/pt-BR/
 locale  passwdmaker tr-TR jar:chrome/passwdmaker.jar!/locale/tr-TR/
 locale	passwdmaker	zh-CN	jar:chrome/passwdmaker.jar!/locale/zh-CN/
+
+component {12fc70d0-5ae7-11da-8cd6-0800200c9a66} components/component.js
+contract @passwordmaker.org/autocloser;1 {12fc70d0-5ae7-11da-8cd6-0800200c9a66}
