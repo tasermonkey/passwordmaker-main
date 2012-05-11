@@ -9,11 +9,12 @@
 			e = pwmextras, // Store the variable length stuff here
 			h = 'hpwmbklhash123456', // used a few times
 			w = window,
-			f = w[h]; // used three times.
+			f = w[h], // used three times.
+			s;
 		if (typeof f == 'undefined') {
 			w[h] = p;
 			w['e'+h] = e;
-			var s = document.createElement('script');
+			s = document.createElement('script');
 			s.type='text/javascript';
 			s.src='url1.js?v=1&h='+h;
 			document.getElementsByTagName('html')[0].appendChild(s);
