@@ -1,5 +1,5 @@
 PasswordMaker Click! Edition
-Version 0.6.1
+Version 0.6.2
 
 This downloaded copy of PasswordMaker Click! Edition is meant for you to run off your own server.
 Just upload to a directory and you should be set to use Click! Edition.

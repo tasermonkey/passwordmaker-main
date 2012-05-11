@@ -5,11 +5,11 @@
 */
 (function(){
 	try {
-		var p = 'faaaa000'; // For having the length of the largest set here. the 000 is the length, and should be a fixed length
-		var e = pwmextras; // Store the variable length stuff here
-		var h = 'hpwmbklhash123456'; // used a few times
-		var w = window;
-		var f = w[h]; // used three times.
+		var p = 'faaaa000', // For having the length of the largest set here. the 000 is the length, and should be a fixed length
+			e = pwmextras, // Store the variable length stuff here
+			h = 'hpwmbklhash123456', // used a few times
+			w = window,
+			f = w[h]; // used three times.
 		if (typeof f == 'undefined') {
 			w[h] = p;
 			w['e'+h] = e;

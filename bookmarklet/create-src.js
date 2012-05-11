@@ -1,7 +1,7 @@
 /**
 	This file creates the bookmarket for the user.
 */
-version = '0.6.1';
+version = '0.6.2';
 
 /**
 	If url.js (and the function the bookmarklet uses) is called on this page, it will load these variables instead of doing the normal operations
@@ -512,7 +512,7 @@ window.onload = function() {
 	usetext.onkeyup = usetext.onchange = updateParams;
 	bklname.onkeyup = bklname.onchange = updateParams;
 	username.onkeyup = username.onchange = updateParams;
-	length.onkeyup = length.onchange = updateParams;
+	pwlength.onkeyup = pwlength.onchange = updateParams;
 	modifier.onkeyup = modifier.onchange = updateParams;
 	prefix.onkeyup = prefix.onchange = updateParams;
 	suffix.onkeyup = suffix.onchange = updateParams;
