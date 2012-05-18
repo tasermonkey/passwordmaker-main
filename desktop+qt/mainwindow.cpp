@@ -475,7 +475,7 @@ void MainWindow::createInterface() {
 	layout->addWidget(masterPasswordControl, 1, 1);
 	
 	// Master Password confirmation fields.
-	masterConfirmLabel = new QLabel(tr("Confrimation"));
+	masterConfirmLabel = new QLabel(tr("Confirmation"));
 	masterConfirmControl = new QLineEdit();
 	masterConfirmLabel->setBuddy(masterConfirmControl);
 	masterConfirmControl->setEchoMode(QLineEdit::Password);

@@ -59,3 +59,5 @@ If you're using mHash, run: qmake USE_MHASH=1
 If the include and lib directories for mHash is not in the normal search path,
 add MHASH_DIR=<path> replacing path with where to find mHash include and lib
 files.
+
+Step 4: Run make

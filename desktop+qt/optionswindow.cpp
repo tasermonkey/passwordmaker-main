@@ -29,6 +29,7 @@
 #include <QCheckBox>
 #include <QSpinBox>
 #include <QFontMetrics>
+#include <QVariant>
 
 #include "optionswindow.h"
 #include "pwmsettings.h"
