@@ -53,8 +53,6 @@ function generatepassword($hashAlgorithm, $key, $data, $whereToUseL33t, $l33tLev
 	while (strlen($password) < $passwordLength && $count < 1000) {
 		$key = ($count) ? ($tkey . "\n" . $count) : $tkey;
 		$count++;
-		var_dump($count);
-		var_dump($key);
 		switch($hashAlgorithm) {
 		case "sha256":
 			$password .= $PasswordMaker_SHA256->any_sha256($key . $data, $charset, $trim);
