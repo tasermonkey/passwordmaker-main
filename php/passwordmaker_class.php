@@ -50,37 +50,38 @@ function generatepassword($hashAlgorithm, $key, $data, $whereToUseL33t, $l33tLev
 	$count = 0;
 	$tkey = $key; // Copy of the key so we don't interfer with it.
 	/**/
-	while (strlen($password) < $passwordLength && count < 1000) {
-		$key = ($count++) ? $tkey."\n".$count: $tkey;
-		if (!$usingHMAC)
-			$data = $key.$data;
+	while (strlen($password) < $passwordLength && $count < 1000) {
+		$key = ($count) ? ($tkey . "\n" . $count) : $tkey;
+		$count++;
+		var_dump($count);
+		var_dump($key);
 		switch($hashAlgorithm) {
 		case "sha256":
-			$password .= $PasswordMaker_SHA256->any_sha256($data, $charset, $trim);
+			$password .= $PasswordMaker_SHA256->any_sha256($key . $data, $charset, $trim);
 			break;
 		case "hmac-sha256":
 			$password .= $PasswordMaker_SHA256->any_hmac_sha256($key, $data, $charset, $trim, $sha256_bug);
 			break;
 		case "sha1":
-			$password .= $PasswordMaker_SHA1->any_sha1($data, $charset, $trim);
+			$password .= $PasswordMaker_SHA1->any_sha1($key . $data, $charset, $trim);
 			break;
 		case "hmac-sha1":
 			$password .= $PasswordMaker_SHA1->any_hmac_sha1($key, $data, $charset, $trim);
 			break;
 		case "md4":
-			$password .= $PasswordMaker_MD4->any_md4($data, $charset, $trim);
+			$password .= $PasswordMaker_MD4->any_md4($key . $data, $charset, $trim);
 			break;
 		case "hmac-md4":
 			$password .= $PasswordMaker_MD4->any_hmac_md4($key, $data, $charset, $trim);
 			break;
 		case "md5":
-			$password .= $PasswordMaker_MD5->any_md5($data, $charset, $trim);
+			$password .= $PasswordMaker_MD5->any_md5($key . $data, $charset, $trim);
 			break;
 		case "hmac-md5":
 			$password .= $PasswordMaker_MD5->any_hmac_md5($key, $data, $charset, $trim);
 			break;
 		case "rmd160":
-			$password .= $PasswordMaker_RIPEMD160->any_rmd160($data, $charset, $trim);
+			$password .= $PasswordMaker_RIPEMD160->any_rmd160($key . $data, $charset, $trim);
 			break;
 		case "hmac-rmd160":
 			$password .= $PasswordMaker_RIPEMD160->any_hmac_rmd160($key, $data, $charset, $trim);
